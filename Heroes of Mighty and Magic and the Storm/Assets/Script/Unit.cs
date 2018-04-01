@@ -11,7 +11,6 @@ public class Unit : MonoBehaviour {
 
     //朝向，-1为左，1为右
     int facing = 1;
-    int previousFacing = 1;
 
 	void Start () 
     {
@@ -25,17 +24,23 @@ public class Unit : MonoBehaviour {
         animator.runtimeAnimatorController = type.animControl;
     }
 
-    public void FaceTarget(GameObject _target)
+    public void Flip()
+    {
+        sprite.flipX = !sprite.flipX;
+        facing *= -1;
+    }
+
+    public bool FaceTarget(GameObject _target)
     {
         int targetInTheRight = (_target.transform.position.x > transform.position.x) ? 1 : -1;
 
-        //previousFacing = targetInTheRight;
-
         if (targetInTheRight != facing)
         {
-            sprite.flipX = !sprite.flipX;
-            facing = targetInTheRight;
+            Flip();
+
+            return true;    //转向了
         }
+        return false;
     }
 
 }

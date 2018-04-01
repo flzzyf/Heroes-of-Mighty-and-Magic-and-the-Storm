@@ -7,6 +7,8 @@ public class UnitType : ScriptableObject {
 
     public RuntimeAnimatorController animControl;
 
+    public int speed = 5;
+
 	void Start () {
 		
 	}

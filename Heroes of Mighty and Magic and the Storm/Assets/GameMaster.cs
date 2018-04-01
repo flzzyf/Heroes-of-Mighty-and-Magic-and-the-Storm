@@ -16,12 +16,35 @@ public class GameMaster : MonoBehaviour {
         {
             UnitInteract(go[0], go[1]);
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            UnitInteractEnd();
+        }
 	}
 
-    public void UnitInteract(GameObject _origin, GameObject _target)
+    GameObject origin, target;
+    bool targetFlip;
+
+    void UnitInteract(GameObject _origin, GameObject _target)   //交互开始
     {
+        origin = _origin;
+        target = _target;
+
         _origin.GetComponent<Unit>().FaceTarget(_target);
-        _target.GetComponent<Unit>().FaceTarget(_origin);
+
+        targetFlip = _target.GetComponent<Unit>().FaceTarget(_origin);
+    
+    }
+
+    void UnitInteractEnd()  //交互结束
+    {
+        if(targetFlip)
+        {
+            targetFlip = false;
+
+            target.GetComponent<Unit>().Flip();
+        }
     }
 
 }
