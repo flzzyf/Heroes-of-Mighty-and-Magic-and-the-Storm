@@ -15,11 +15,11 @@ public class Unit : MonoBehaviour {
 	void Start () 
     {
         if(type != null)
-            Init();
+            InitUnitType();
 
 	}
 
-    void Init()
+    public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
     }

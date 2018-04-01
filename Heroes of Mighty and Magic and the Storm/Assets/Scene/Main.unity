@@ -122,7 +122,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.7
+      value: 6.11
       objectReference: {fileID: 0}
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.y
@@ -173,6 +173,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1164096194}
   - component: {fileID: 1164096193}
+  - component: {fileID: 1164096196}
+  - component: {fileID: 1164096195}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -191,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e1650e236034721b13cb02d9fe8bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map: {fileID: 0}
   go:
   - {fileID: 38453186}
   - {fileID: 1127715968}
@@ -207,6 +210,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164096195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164096192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3c6a6393e542742b52248fd9083c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1164096196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164096192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 939214eecb1104347b93f797a2a1b6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSizeX: 5
+  mapSizeY: 5
+  mapSizeZ: 1
+  nodeInterval: 2
+  nodePrefab: {fileID: 1477900401895202, guid: f7217eeda4aa74bc3aa854bea26f540a, type: 2}
 --- !u!1001 &1234639530
 Prefab:
   m_ObjectHideFlags: 0
@@ -216,7 +246,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.y
@@ -301,7 +331,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.54
+  orthographic size: 8.52
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

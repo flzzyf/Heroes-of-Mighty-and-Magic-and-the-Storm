@@ -21,9 +21,15 @@ public class GameMaster : MonoBehaviour {
 
     public GameObject[] go;
 
+    public GameObject unitPrefab;
+
+    public UnitType type;
+
 	void Start () 
     {
         map = GetComponent<Map>();
+
+        CreateUnit(type, Vector3.zero);
 	}
 	
 	void Update () 
@@ -61,6 +67,13 @@ public class GameMaster : MonoBehaviour {
 
             target.GetComponent<Unit>().Flip();
         }
+    }
+
+    public void CreateUnit(UnitType _type, Vector3 _pos)
+    {
+        GameObject unit = Instantiate(unitPrefab, _pos, Quaternion.identity);
+        unit.GetComponent<Unit>().type = _type;
+        unit.GetComponent<Unit>().InitUnitType();
     }
 
 }
