@@ -36,7 +36,9 @@ public class GameMaster : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            UnitInteract(go[0], go[1]);
+            //UnitInteract(go[0], go[1]);
+            //print(DamageRate(2, 1));
+            print(DamageRate(1, 3));
         }
 
         if (Input.GetKeyDown(KeyCode.F))
@@ -44,6 +46,27 @@ public class GameMaster : MonoBehaviour {
             UnitInteractEnd();
         }
 	}
+
+    void RoundStart()
+    {
+        
+    }
+
+    void TurnStart()
+    {
+        //选出速度最大单位
+    }
+
+    float DamageRate(int _att, int _def)    //攻防伤害倍率计算
+    {
+        float r = 1;
+        if (_att > _def)
+            r = (1 + (_att - _def) * 0.05f);
+        else if (_att < _def)
+            r = (1 - (_def - _att) * 0.025f);
+
+        return r;
+    }
 
     GameObject origin, target;
     bool targetFlip;

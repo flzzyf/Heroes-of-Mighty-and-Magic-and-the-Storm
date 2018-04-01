@@ -197,6 +197,8 @@ MonoBehaviour:
   go:
   - {fileID: 38453186}
   - {fileID: 1127715968}
+  unitPrefab: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
+  type: {fileID: 11400000, guid: ee7ea9a91700a4f56904d1a55bfef935, type: 2}
 --- !u!4 &1164096194
 Transform:
   m_ObjectHideFlags: 0

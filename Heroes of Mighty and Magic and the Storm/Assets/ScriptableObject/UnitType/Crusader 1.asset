@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Crusader
+  m_Name: Crusader 1
   m_EditorClassIdentifier: 
-  animControl: {fileID: 22100000, guid: 6e4dc350c5f0347ec825e4d680ee2d3e, type: 2}
-  speed: 5
+  animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
+  speed: 7
