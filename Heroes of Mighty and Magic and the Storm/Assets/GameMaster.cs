@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
+    #region Singleton
+    [HideInInspector]
+    public static GameMaster instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+            Destroy(this);
+        instance = this;
+    }
+    #endregion
+
+    [HideInInspector]
+    public Map map;
+
     public GameObject[] go;
 
-	void Start () {
-		
+	void Start () 
+    {
+        map = GetComponent<Map>();
 	}
 	
 	void Update () 
