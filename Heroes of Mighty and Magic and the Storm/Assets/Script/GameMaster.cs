@@ -29,7 +29,7 @@ public class GameMaster : MonoBehaviour {
     {
         map = GetComponent<Map>();
 
-        CreateUnit(type, Vector3.zero);
+        //CreateUnit(type, Vector3.zero);
 	}
 	
 	void Update () 
@@ -47,15 +47,6 @@ public class GameMaster : MonoBehaviour {
         }
 	}
 
-    void RoundStart()
-    {
-        
-    }
-
-    void TurnStart()
-    {
-        //选出速度最大单位
-    }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算
     {
