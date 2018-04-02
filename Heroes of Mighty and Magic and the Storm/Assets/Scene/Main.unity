@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 1164096193}
   - component: {fileID: 1164096196}
   - component: {fileID: 1164096195}
+  - component: {fileID: 1164096197}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -244,6 +245,20 @@ MonoBehaviour:
   mapSizeZ: 1
   nodeInterval: 2
   nodePrefab: {fileID: 1477900401895202, guid: f7217eeda4aa74bc3aa854bea26f540a, type: 2}
+--- !u!114 &1164096197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164096192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef937c26a1d32ba4ca34c178a2de09d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go:
+  - {fileID: 38453186}
+  - {fileID: 1127715968}
 --- !u!1001 &1234639530
 Prefab:
   m_ObjectHideFlags: 0

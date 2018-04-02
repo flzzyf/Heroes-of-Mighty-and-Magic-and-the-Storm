@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour {
 
-    List<GameObject> actionUnits;
+    LinkedList<GameObject> actionUnits = new LinkedList<GameObject>();
 
-    LinkedList<GameObject> qwe;
+    public GameObject[] go;
 
 	void Start ()
     {
-		
-	}
-	
-	void Update () {
+        actionUnits.AddFirst(go[0]);
+
+        LinkedListNode<GameObject> node = actionUnits.First;
+
+        //actionUnits.AddBefore
+
+        for (int i = 0; i < actionUnits.Count; i++)
+        {
+            print(node.Value);
+
+            node = node.Next;
+            //actionUnits.AddBefore(node, go[0]);
+
+        }
+    }
+
+    void Update () {
 		
 	}
 
