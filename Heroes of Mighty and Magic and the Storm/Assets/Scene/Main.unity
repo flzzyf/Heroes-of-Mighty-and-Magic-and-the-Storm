@@ -181,6 +181,12 @@ Prefab:
       propertyPath: m_Name
       value: Unit (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114193694730413652, guid: 7941d79ee91184110bce8696cb055256,
+        type: 2}
+      propertyPath: type
+      value: 
+      objectReference: {fileID: 11400000, guid: ee7ea9a91700a4f56904d1a55bfef935,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7941d79ee91184110bce8696cb055256, type: 2}
   m_IsPrefabParent: 0
@@ -222,8 +228,8 @@ MonoBehaviour:
   map: {fileID: 0}
   type: {fileID: 11400000, guid: ee7ea9a91700a4f56904d1a55bfef935, type: 2}
   mouseCursor:
-  - {fileID: 10914, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   go:
   - {fileID: 38453186}
   - {fileID: 1127715968}
@@ -279,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef937c26a1d32ba4ca34c178a2de09d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go:
+  gog:
   - {fileID: 38453186}
   - {fileID: 1127715968}
 --- !u!1001 &1234639530

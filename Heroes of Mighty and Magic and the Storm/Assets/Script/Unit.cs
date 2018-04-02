@@ -57,4 +57,11 @@ public class Unit : MonoBehaviour {
         GameMaster.instance.ChangeMouseCursor();
 
     }
+
+    private void OnMouseDown()
+    {
+        BattleManager.instance.ActionEnd();
+    }
+
+
 }
