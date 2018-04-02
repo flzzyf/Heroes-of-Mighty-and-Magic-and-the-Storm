@@ -19,11 +19,14 @@ public class GameMaster : MonoBehaviour {
     [HideInInspector]
     public Map map;
 
+    public UnitType type;
+
+    public Texture2D[] mouseCursor;
+    Texture2D originMouseCursor;
+    //----------------------
     public GameObject[] go;
 
     public GameObject unitPrefab;
-
-    public UnitType type;
 
 	void Start () 
     {
@@ -38,12 +41,15 @@ public class GameMaster : MonoBehaviour {
         {
             //UnitInteract(go[0], go[1]);
             //print(DamageRate(2, 1));
-            print(DamageRate(1, 3));
+            //print(DamageRate(1, 3));
+            Cursor.SetCursor(mouseCursor[0], Vector2.zero, CursorMode.Auto);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            UnitInteractEnd();
+            //UnitInteractEnd();
+            Cursor.SetCursor(mouseCursor[0], new Vector2(3, 0), CursorMode.Auto);
+
         }
 	}
 
@@ -90,4 +96,9 @@ public class GameMaster : MonoBehaviour {
         unit.GetComponent<Unit>().InitUnitType();
     }
 
+    public void ChangeMouseCursor(int _index = 0)
+    {
+        Cursor.SetCursor(mouseCursor[_index], Vector2.zero, CursorMode.Auto);
+
+    }
 }

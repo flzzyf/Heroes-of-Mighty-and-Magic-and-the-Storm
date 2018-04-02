@@ -12,6 +12,8 @@ public class Unit : MonoBehaviour {
     //朝向，-1为左，1为右
     int facing = 1;
 
+    public int speed;
+
 	void Start () 
     {
         if(type != null)
@@ -22,6 +24,8 @@ public class Unit : MonoBehaviour {
     public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
+
+        speed = type.speed;
     }
 
     public void Flip()
@@ -43,4 +47,14 @@ public class Unit : MonoBehaviour {
         return false;
     }
 
+    private void OnMouseEnter()
+    {
+        GameMaster.instance.ChangeMouseCursor(1);
+    }
+
+    private void OnMouseExit()
+    {
+        GameMaster.instance.ChangeMouseCursor();
+
+    }
 }

@@ -39,10 +39,9 @@ public class Map : MonoBehaviour {
                     Node node = new Node(x, y, z);
                     nodes[x, y, z] = node;
                     //生成节点单位
-                    /*
                     GameObject obj = Instantiate(nodePrefab, pos, Quaternion.identity);
                     obj.transform.SetParent(nodeUnitParent.transform);
-                    nodeUnits[x, y, z] = obj;*/
+                    nodeUnits[x, y, z] = obj;
                 }
             }
         }
