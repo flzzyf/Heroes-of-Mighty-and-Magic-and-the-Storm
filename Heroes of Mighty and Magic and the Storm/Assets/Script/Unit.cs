@@ -21,6 +21,16 @@ public class Unit : MonoBehaviour {
 
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            animator.Play("Attack");
+        }
+
+
+    }
+
     public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;

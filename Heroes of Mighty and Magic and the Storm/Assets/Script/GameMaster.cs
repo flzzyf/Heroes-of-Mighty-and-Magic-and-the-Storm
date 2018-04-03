@@ -41,14 +41,11 @@ public class GameMaster : MonoBehaviour {
         {
             //UnitInteract(go[0], go[1]);
             //print(DamageRate(2, 1));
-            //print(DamageRate(1, 3));
-            Cursor.SetCursor(mouseCursor[0], Vector2.zero, CursorMode.Auto);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             //UnitInteractEnd();
-            Cursor.SetCursor(mouseCursor[0], new Vector2(3, 0), CursorMode.Auto);
 
         }
 	}
