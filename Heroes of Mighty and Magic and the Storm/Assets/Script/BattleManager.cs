@@ -18,6 +18,7 @@ public class BattleManager : MonoBehaviour {
 
     LinkedList<GameObject> actionUnits = new LinkedList<GameObject>();
     LinkedList<GameObject> waitingUnits = new LinkedList<GameObject>();
+    int actionUnitNum, waitingUnitNum;
 
     public GameObject[] gog;
 
@@ -67,6 +68,10 @@ public class BattleManager : MonoBehaviour {
     {
         zyf.Out("轮开始");
         //轮开始效果触发
+
+        actionUnitNum = actionUnits.Count;
+        waitingUnitNum = 0;
+
         TurnStart();
     }
 
@@ -83,9 +88,27 @@ public class BattleManager : MonoBehaviour {
 
         //选出速度最大单位
 
-        GameObject go = actionUnits.First.Value;
+        GameObject go;
 
-        actionUnits.Remove(go);
+        if(actionUnitNum == 0)
+        {
+            go = actionUnits.First.Value;
+        }
+        else
+        {
+            int index = actionUnits.Count - actionUnitNum;
+
+            LinkedListNode<GameObject> node = actionUnits.First;
+
+            for (int i = 0; i < index; i++)
+            {
+                node = node.Next;
+
+            }
+
+            go = node.Value;
+            actionUnitNum--;
+        }
 
         ActionStart(go, 0);
     }
@@ -96,15 +119,15 @@ public class BattleManager : MonoBehaviour {
 
         //胜负判定，如果有一方全灭
 
-        print("剩余可行动单位数：" + actionUnits.Count); 
+        //print("剩余可行动单位数：" + actionUnits.Count); 
 
-        if(actionUnits.Count > 0)
+        if(actionUnitNum > 0)
         {
             TurnStart();
         }
         else
         {
-            if(waitingUnits.Count > 0)
+            if(waitingUnitNum > 0)
             {
                 actionUnits = waitingUnits;
 

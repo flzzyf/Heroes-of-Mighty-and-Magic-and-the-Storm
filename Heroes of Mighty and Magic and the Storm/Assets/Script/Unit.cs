@@ -27,7 +27,14 @@ public class Unit : MonoBehaviour {
         {
             animator.Play("Attack");
         }
-
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            animator.SetBool("walking", true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            animator.SetBool("walking", false);
+        }
 
     }
 
