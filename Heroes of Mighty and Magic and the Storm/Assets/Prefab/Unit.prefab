@@ -229,7 +229,13 @@ MonoBehaviour:
   type: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17, type: 2}
   sprite: {fileID: 212793218877718154}
   animator: {fileID: 95442364063284570}
+  numUI: {fileID: 114659341685894064}
   speed: 0
+  att: 0
+  def: 0
+  currentHP: 0
+  num: 0
+  damage: {x: 0, y: 0}
 --- !u!114 &114424747403416192
 MonoBehaviour:
   m_ObjectHideFlags: 1

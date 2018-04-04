@@ -21,7 +21,7 @@ public class GameMaster : MonoBehaviour {
     public Texture2D[] mouseCursor;
     Texture2D originMouseCursor;
     //----------------------
-    public GameObject[] go;
+    public GameObject[] gog;
 
     public GameObject unitPrefab;
 
@@ -82,11 +82,15 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-    public void CreateUnit(UnitType _type, Vector3 _pos, int _num = 1)
+    public void CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)
     {
-        GameObject unit = Instantiate(unitPrefab, _pos, Quaternion.identity);
-        unit.GetComponent<Unit>().type = _type;
-        unit.GetComponent<Unit>().InitUnitType();
+        GameObject go = Instantiate(unitPrefab, _pos, Quaternion.identity);
+        Unit unit = go.GetComponent<Unit>();
+        unit.type = _type;
+        unit.InitUnitType();
+        unit.ChangeNum(_num);
+        if (_flip == 1)
+            unit.Flip();
     }
 
     public void ChangeMouseCursor(int _index = 0)

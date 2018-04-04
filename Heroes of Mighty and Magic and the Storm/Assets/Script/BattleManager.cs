@@ -65,6 +65,7 @@ public class BattleManager : MonoBehaviour {
         //战斗开始效果触发
 
         CreateHeroUnits(0);
+        CreateHeroUnits(1);
 
         RoundStart();
     }
@@ -204,7 +205,10 @@ public class BattleManager : MonoBehaviour {
         Hero hero = heroes[_hero].GetComponent<Hero>();
         for (int i = 0; i < hero.pocketUnits.Length; i++)
         {
-            GameMaster.instance.CreateUnit(hero.pocketUnits[i].type, map.nodeUnits[0, unitPos[i], 0].transform.position);
+            int x = (_hero == 0) ? 0 : map.mapSizeX - 1;
+            GameMaster.instance.CreateUnit(hero.pocketUnits[i].type, 
+                map.nodeUnits[x, unitPos[i], 0].transform.position,
+                                           hero.pocketUnits[i].num, _hero);
         }
     }
 

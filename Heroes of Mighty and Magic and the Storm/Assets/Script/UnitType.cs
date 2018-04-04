@@ -8,13 +8,7 @@ public class UnitType : ScriptableObject {
     public RuntimeAnimatorController animControl;
 
     public int speed = 5;
+    public int att, def, hp, amount, price;
+    public Vector2 damage;
 
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Unit : MonoBehaviour {
 
@@ -8,11 +9,16 @@ public class Unit : MonoBehaviour {
 
     public SpriteRenderer sprite;
     public Animator animator;
+    public Text numUI;
 
     //朝向，-1为左，1为右
     int facing = 1;
 
-    public int speed;
+    //单位属性
+    [HideInInspector]
+    public int speed, att, def, currentHP, num;
+    [HideInInspector]
+    public Vector2 damage;
 
 	void Start () 
     {
@@ -43,6 +49,10 @@ public class Unit : MonoBehaviour {
         animator.runtimeAnimatorController = type.animControl;
 
         speed = type.speed;
+        att = type.att;
+        def = type.def;
+        damage = type.damage;
+        currentHP = type.hp;
     }
 
     public void Flip()
@@ -62,6 +72,12 @@ public class Unit : MonoBehaviour {
             return true;    //转向了
         }
         return false;
+    }
+
+    public void ChangeNum(int _amount)
+    {
+        num = _amount;
+        numUI.text = _amount.ToString();
     }
 
     private void OnMouseEnter()
