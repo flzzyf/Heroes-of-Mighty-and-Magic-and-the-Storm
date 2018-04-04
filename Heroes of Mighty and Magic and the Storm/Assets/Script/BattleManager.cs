@@ -21,9 +21,16 @@ public class BattleManager : MonoBehaviour {
     int actionUnitNum, waitingUnitNum;
 
     public GameObject[] gog;
+    public GameObject[] heroes;
+
+    Map map;
+
+    int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
 	void Start ()
     {
+        map = GetComponent<Map_HOMMS>();
+
         AddUnitToActionList(ref actionUnits, gog[0]);
 
         AddUnitToActionList(ref actionUnits, gog[1]);
@@ -56,6 +63,9 @@ public class BattleManager : MonoBehaviour {
     {
         //单位行动顺序计算
         //战斗开始效果触发
+
+        CreateHeroUnits(0);
+
         RoundStart();
     }
 
@@ -187,6 +197,15 @@ public class BattleManager : MonoBehaviour {
             }
         }
 
+    }
+
+    public void CreateHeroUnits(int _hero)
+    {
+        Hero hero = heroes[_hero].GetComponent<Hero>();
+        for (int i = 0; i < hero.pocketUnits.Length; i++)
+        {
+            GameMaster.instance.CreateUnit(hero.pocketUnits[i].type, map.nodeUnits[0, unitPos[i], 0].transform.position);
+        }
     }
 
 }

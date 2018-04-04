@@ -16,9 +16,6 @@ public class Map_HOMMS : Map
         float spaceX = nodeRadius * 2;
         float spaceY = nodeRadius / 1.73f * 3;
 
-        print(nodeRadius);
-        print(spaceY);
-
         for (int i = 0; i < mapSizeY; i++)
         {
             float x = ((i % 2 == 0) ? nodeRadius : 0);
@@ -26,8 +23,14 @@ public class Map_HOMMS : Map
 
             for (int j = 0; j < mapSizeX; j++)
             {
-                Vector2 pos = new Vector2(x + j * spaceX, y) + (Vector2)originPoint;
+                Node node = new Node(j, i, 0);
+                nodes[j, i, 0] = node;
+
+                Vector2 pos = new Vector2(x + j * spaceX, -y) + (Vector2)originPoint;
                 GameObject go = Instantiate(nodePrefab, pos, Quaternion.identity);
+                go.transform.SetParent(nodeUnitParent.transform);
+                nodeUnits[j, i, 0] = go;
+
             }
         }
     }

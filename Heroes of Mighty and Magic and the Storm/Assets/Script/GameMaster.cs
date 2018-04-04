@@ -16,9 +16,6 @@ public class GameMaster : MonoBehaviour {
     }
     #endregion
 
-    [HideInInspector]
-    public Map map;
-
     public UnitType type;
 
     public Texture2D[] mouseCursor;
@@ -30,7 +27,6 @@ public class GameMaster : MonoBehaviour {
 
 	void Start () 
     {
-        map = GetComponent<Map>();
 
         //CreateUnit(type, Vector3.zero);
 	}
@@ -86,7 +82,7 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-    public void CreateUnit(UnitType _type, Vector3 _pos)
+    public void CreateUnit(UnitType _type, Vector3 _pos, int _num = 1)
     {
         GameObject unit = Instantiate(unitPrefab, _pos, Quaternion.identity);
         unit.GetComponent<Unit>().type = _type;
