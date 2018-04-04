@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1278441467
+    locked: 0
+  - name: GridBackground
+    uniqueID: 2533672985
+    locked: 0
+  - name: Grid
+    uniqueID: 3297235413
+    locked: 0
+  - name: Unit
+    uniqueID: 24661201
+    locked: 0
