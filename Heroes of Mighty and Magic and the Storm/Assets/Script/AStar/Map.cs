@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Map : MonoBehaviour {
 
-    public int mapSizeX = 5, mapSizeY = 5, mapSizeZ = 0;
+    public Vector3 originPoint = Vector3.zero;
+
+    public int mapSizeX = 5, mapSizeY = 5, mapSizeZ = 1;
 
     public int nodeInterval = 2;
 
@@ -21,6 +23,11 @@ public class Map : MonoBehaviour {
     }
 
     void Init()
+    {
+        CreateMap();
+    }
+
+    public virtual void CreateMap()
     {
         nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
         nodeUnits = new GameObject[mapSizeX, mapSizeY, mapSizeZ];
@@ -46,6 +53,7 @@ public class Map : MonoBehaviour {
             }
         }
     }
+
     //获取邻近节点
     public List<Node> GetNeighbourNode(Node _node)
     {
