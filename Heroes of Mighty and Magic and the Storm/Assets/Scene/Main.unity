@@ -269,6 +269,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.size
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4477178211263224, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -320,6 +325,50 @@ Prefab:
       propertyPath: pocketUnits.Array.data[2].num
       value: 23
       objectReference: {fileID: 0}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[3].type
+      value: 
+      objectReference: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17,
+        type: 2}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[3].num
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[4].type
+      value: 
+      objectReference: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17,
+        type: 2}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[4].num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[5].type
+      value: 
+      objectReference: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17,
+        type: 2}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[5].num
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[6].type
+      value: 
+      objectReference: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17,
+        type: 2}
+    - target: {fileID: 114145029807772844, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[6].num
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
   m_IsPrefabParent: 0
@@ -368,9 +417,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0f095690106891048ab51af357e8f832, type: 3}
   - {fileID: 2800000, guid: 9dc0895fb363a38408a14860cf2bca37, type: 3}
   - {fileID: 2800000, guid: 860d7d571d13f8842a9515abc335fd90, type: 3}
-  go:
-  - {fileID: 38453186}
-  - {fileID: 1127715968}
+  gog: []
   unitPrefab: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
 --- !u!4 &1164096194
 Transform:
