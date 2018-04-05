@@ -82,7 +82,7 @@ public class GameMaster : MonoBehaviour {
         }
     }
 
-    public void CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)
+    public GameObject CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)
     {
         GameObject go = Instantiate(unitPrefab, _pos, Quaternion.identity);
         Unit unit = go.GetComponent<Unit>();
@@ -91,6 +91,8 @@ public class GameMaster : MonoBehaviour {
         unit.ChangeNum(_num);
         if (_flip == 1)
             unit.Flip();
+
+        return go;
     }
 
     public void ChangeMouseCursor(int _index = 0)

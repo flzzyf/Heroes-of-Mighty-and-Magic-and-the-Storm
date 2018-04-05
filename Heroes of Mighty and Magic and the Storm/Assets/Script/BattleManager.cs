@@ -28,6 +28,9 @@ public class BattleManager : MonoBehaviour {
 
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
+    [HideInInspector]
+    public List<GameObject>[] units = new List<GameObject>[2];
+
 	void Start ()
     {
         map = GetComponent<Map_HOMMS>();
@@ -73,7 +76,8 @@ public class BattleManager : MonoBehaviour {
 
     void BattleEnd()
     {
-
+        units[0].Clear();
+        units[1].Clear();
     }
 
     void RoundStart()
@@ -207,9 +211,11 @@ public class BattleManager : MonoBehaviour {
         for (int i = 0; i < hero.pocketUnits.Length; i++)
         {
             int x = (_hero == 0) ? 0 : map.mapSizeX - 1;
-            GameMaster.instance.CreateUnit(hero.pocketUnits[i].type, 
+            GameObject go = GameMaster.instance.CreateUnit(hero.pocketUnits[i].type, 
                 map.nodeUnits[x, unitPos[i], 0].transform.position,
                                            hero.pocketUnits[i].num, _hero);
+
+            units[_hero].Add(go);
         }
     }
 

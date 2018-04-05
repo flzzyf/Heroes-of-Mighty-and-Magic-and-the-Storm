@@ -112,6 +112,7 @@ public class Map_HOMMS : Map
     {
         Vector2 unitV2a = GetNodeUnit(a).transform.position;
         Vector2 unitV2b = GetNodeUnit(b).transform.position;
+
         int x = Mathf.Abs((int)unitV2a.x - (int)unitV2b.x);
         int y = Mathf.Abs((int)unitV2a.y - (int)unitV2b.y);
 
