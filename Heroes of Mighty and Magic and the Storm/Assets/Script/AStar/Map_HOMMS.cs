@@ -77,4 +77,47 @@ public class Map_HOMMS : Map
 
         return list;
     }
+
+    List<Node> path = new List<Node>();
+
+    public override void GeneratePath(Node _startNode, Node _lastNode)
+    {
+        Node curNode = _lastNode;
+
+        while (curNode != _startNode)
+        {
+            path.Add(curNode);
+
+            GameObject go = BattleManager.instance.map.GetNodeUnit(curNode);
+
+            go.GetComponent<NodeUnit>().ToggleBackground(true);
+
+            curNode = curNode.parentNode;
+        }
+    }
+
+    public override void HidePath()
+    {
+        foreach (var item in path)
+        {
+            GameObject go = BattleManager.instance.map.GetNodeUnit(item);
+
+            go.GetComponent<NodeUnit>().ToggleBackground(false);
+        }
+
+        path.Clear();
+    }
+
+    public override int GetNodeDistance(Node a, Node b)
+    {
+        Vector2 unitV2a = GetNodeUnit(a).transform.position;
+        Vector2 unitV2b = GetNodeUnit(b).transform.position;
+        int x = Mathf.Abs((int)unitV2a.x - (int)unitV2b.x);
+        int y = Mathf.Abs((int)unitV2a.y - (int)unitV2b.y);
+
+        if (x > y)
+            return 14 * y + 10 * (x - y);
+        else
+            return 14 * x + 10 * (y - x);
+    }
 }

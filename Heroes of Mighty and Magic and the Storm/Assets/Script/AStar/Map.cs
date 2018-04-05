@@ -93,6 +93,10 @@ public class Map : MonoBehaviour {
 
         return nodes[x, y, z];
     }
+    public Node GetNode(NodeUnit _nodeUnit)
+    {
+        return _nodeUnit.node;
+    }
 
     //根据所给Vector3获取相应nodeUnit
     public GameObject GetNodeUnit(Vector3 _pos)
@@ -103,8 +107,12 @@ public class Map : MonoBehaviour {
 
         return nodeUnits[x, y, z];
     }
+    public GameObject GetNodeUnit(Node node)
+    {
+        return GetNodeUnit(node.pos);
+    }
     //生成路径
-    public void GeneratePath(Node _startNode, Node _lastNode)
+    public virtual void GeneratePath(Node _startNode, Node _lastNode)
     {
         //Debug.Log("生成路径");
         Node curNode = _lastNode;
@@ -133,69 +141,22 @@ public class Map : MonoBehaviour {
 */
     }
 
-    //反转路径
-    /*
-    public void ReversePath()
+    public virtual void HidePath()
     {
-        GameSetting.instance.path.Reverse();
-
-        //起点和终点对换
-        List<Node> path = GameSetting.instance.path;
-        path[0].isStartOrEnd = 1;
-        path[path.Count - 1].isStartOrEnd = 2;
+        
     }
 
-    #region 路径显示
-    public LineRenderer line;
-    //显示路径
-    public void PathShow(List<Node> lines)
+    //节点间路径距离估计算法（只考虑XY轴）
+    public virtual int GetNodeDistance(Node a, Node b)
     {
-        //显示路径物体
-        if(!line.enabled)
-            line.enabled = true;
+        //先斜着走然后直走
+        int x = Mathf.Abs(a.x - b.x);
+        int y = Mathf.Abs(a.y - b.y);
 
-        line.positionCount = lines.Count;
-        //设置路径点
-        for (int i = 0; i < lines.Count; i++)
-        {
-            line.SetPosition(i, lines[i].pos);
-        }
-        //设置路径颜色按长度变化
-        if(lines.Count < 13)
-        {
-            line.startColor = GameSetting.instance.color[0];
-            line.endColor = GameSetting.instance.color[0];
-        }
-        else if (lines.Count == 13)
-        {
-            line.startColor = GameSetting.instance.color[1];
-            line.endColor = GameSetting.instance.color[1];
-        }
-        else if (lines.Count == 14)
-        {
-            line.startColor = GameSetting.instance.color[2];
-            line.endColor = GameSetting.instance.color[2];
-        }
-        else if (lines.Count == 15)
-        {
-            line.startColor = GameSetting.instance.color[3];
-            line.endColor = GameSetting.instance.color[3];
-        }
-        else if (lines.Count >= 16)
-        {
-            line.startColor = GameSetting.instance.color[4];
-            line.endColor = GameSetting.instance.color[4];
-        }
-
-
-
+        if (x > y)
+            return 14 * y + 10 * (x - y);
+        else
+            return 14 * x + 10 * (y - x);
     }
 
-    //隐藏路径
-    public void PathHide()
-    {
-        line.enabled = false;
-    }
-    #endregion
-*/
 }

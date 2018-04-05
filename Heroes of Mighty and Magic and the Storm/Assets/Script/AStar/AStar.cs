@@ -23,14 +23,13 @@ public class AStar : MonoBehaviour {
     void Start()
     {
         map = GetComponent<Map>();
-
     }
 
     //寻找同路
-    public void FindPath(Vector3 _startPos, Vector3 _endPos)
+    public void FindPath(Node _startNode, Node _endNode)
     {
-        Node startNode = map.GetNode(_startPos);
-        Node endNode = map.GetNode(_endPos);
+        Node startNode = _startNode;
+        Node endNode = _endNode;
         //开集和闭集
         List<Node> openSet = new List<Node>();
         List<Node> closeSet = new List<Node>();
@@ -71,7 +70,7 @@ public class AStar : MonoBehaviour {
                     continue;
                 }
                 //判断新节点耗费
-                int newH = GetNodeDistance(curNode, item);
+                int newH = map.GetNodeDistance(curNode, item);
                 int newCost = curNode.g + newH;
                 //耗费更低或不在开集中，则加入开集
                 if(newCost < item.g || !openSet.Contains(item))
@@ -96,16 +95,5 @@ public class AStar : MonoBehaviour {
     }
 
 
-    //节点间路径距离估计算法（只考虑XY轴）
-    int GetNodeDistance(Node a, Node b)
-    {
-        //先斜着走然后直走
-        int x = Mathf.Abs(a.x - b.x);
-        int y = Mathf.Abs(a.z - b.z);
 
-        if (x > y)
-            return 14 * y + 10 * (x - y);
-        else
-            return 14 * x + 10 * (y - x);
-    }
 }

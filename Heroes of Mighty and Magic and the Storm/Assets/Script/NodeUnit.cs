@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NodeUnit : MonoBehaviour {
+public class NodeUnit : MonoBehaviour
+{
 
     public SpriteRenderer bg;
     [HideInInspector]
@@ -10,7 +11,9 @@ public class NodeUnit : MonoBehaviour {
 
     private void OnMouseEnter()
     {
-        ToggleBackground(true);
+        BattleManager.instance.map.HidePath();
+        AStar.instance.FindPath(BattleManager.instance.map.GetNode(new Vector3(0, 0, 0)), node);
+        //ToggleBackground(true);
     }
 
     private void OnMouseExit()
@@ -28,8 +31,9 @@ public class NodeUnit : MonoBehaviour {
         foreach (var item in BattleManager.instance.map.GetNeighbourNode(node))
         {
             GameObject go = BattleManager.instance.map.GetNodeUnit(item.pos);
-                
+
             go.GetComponent<NodeUnit>().ToggleBackground(true);
         }
     }
 }
+
