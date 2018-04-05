@@ -108,11 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38453186 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
-    type: 2}
-  m_PrefabInternal: {fileID: 1234639530}
 --- !u!1 &593910693 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1214151869782954, guid: 37ccb3bc95d1e477ba14c64877197e3d,
@@ -372,11 +367,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1127715968 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
-    type: 2}
-  m_PrefabInternal: {fileID: 919491037}
 --- !u!1 &1149748850 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1214151869782954, guid: 37ccb3bc95d1e477ba14c64877197e3d,
@@ -454,12 +444,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef937c26a1d32ba4ca34c178a2de09d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gog:
-  - {fileID: 38453186}
-  - {fileID: 1127715968}
   heroes:
   - {fileID: 593910693}
   - {fileID: 1149748850}
+  map: {fileID: 0}
+  currentActionUnit: {fileID: 0}
 --- !u!114 &1164096198
 MonoBehaviour:
   m_ObjectHideFlags: 0

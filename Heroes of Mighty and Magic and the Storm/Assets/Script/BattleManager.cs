@@ -217,7 +217,7 @@ public class BattleManager : MonoBehaviour {
                                            hero.pocketUnits[i].num, _hero);
 
             units[_hero].Add(go);
-            go.GetComponent<Unit>().node = map.GetNode(new Vector3(x, unitPos[i], 0));
+            go.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
 
             AddUnitToActionList(ref actionUnits, go);
 
@@ -259,10 +259,19 @@ public class BattleManager : MonoBehaviour {
     {
         if(currentWayPointIndex < path.Count - 1)
         {
-            movingUnit.GetComponent<Unit>().node = path[currentWayPointIndex];
+            //离开先前的格子
+            movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
+            movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().unit = null;
+
+            //进入新格子
+            movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node = path[currentWayPointIndex];
+            movingUnit.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(path[currentWayPointIndex]);
+            map.GetNodeUnit(path[currentWayPointIndex]).GetComponent<NodeUnit>().unit = movingUnit;
+            path[currentWayPointIndex].walkable = false;
 
             currentWayPointIndex++;
             GetNextWayPoint();
+            print(path[currentWayPointIndex].pos);
         }
         else
         {

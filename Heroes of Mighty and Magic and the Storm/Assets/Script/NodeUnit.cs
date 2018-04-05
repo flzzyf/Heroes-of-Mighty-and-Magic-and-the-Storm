@@ -8,11 +8,14 @@ public class NodeUnit : MonoBehaviour
     public SpriteRenderer bg;
     [HideInInspector]
     public Node node;
+    [HideInInspector]
+    public GameObject unit;
 
     private void OnMouseEnter()
     {
         BattleManager.instance.map.HidePath();
-        AStar.instance.FindPath(BattleManager.instance.currentActionUnit.GetComponent<Unit>().node, node);
+        AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
+                                GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
         //ToggleBackground(true);
     }
 

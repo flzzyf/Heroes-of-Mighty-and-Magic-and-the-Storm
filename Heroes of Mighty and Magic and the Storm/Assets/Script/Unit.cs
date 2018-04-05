@@ -21,7 +21,7 @@ public class Unit : MonoBehaviour {
     public Vector2 damage;
 
     [HideInInspector]
-    public Node node;
+    public GameObject nodeUnit;
 
 	void Start () 
     {

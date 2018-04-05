@@ -6,6 +6,9 @@ public class Map_HOMMS : Map
 {
     public float nodeRadius = 1;
 
+    //节点单位
+    public GameObject[,,] nodeUnits;
+
     public override void CreateMap()
     {
         nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
@@ -123,5 +126,24 @@ public class Map_HOMMS : Map
             return 14 * y + 10 * (x - y);
         else
             return 14 * x + 10 * (y - x);
+    }
+
+    public Node GetNode(NodeUnit _nodeUnit)
+    {
+        return _nodeUnit.node;
+    }
+
+    //根据所给Vector3获取相应nodeUnit
+    public GameObject GetNodeUnit(Vector3 _pos)
+    {
+        int x = Mathf.Clamp((int)_pos.x, 0, mapSizeX - 1);
+        int y = Mathf.Clamp((int)_pos.y, 0, mapSizeY - 1);
+        int z = Mathf.Clamp((int)_pos.z, 0, mapSizeZ - 1);
+
+        return nodeUnits[x, y, z];
+    }
+    public GameObject GetNodeUnit(Node node)
+    {
+        return GetNodeUnit(node.pos);
     }
 }

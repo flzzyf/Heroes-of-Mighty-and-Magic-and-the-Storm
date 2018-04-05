@@ -5,8 +5,6 @@ using UnityEngine;
 public class Node{
     //可通行
     public bool walkable = true;
-    //为起点、终点
-    public int isStartOrEnd = 0;
 
     public int x, y, z;
 

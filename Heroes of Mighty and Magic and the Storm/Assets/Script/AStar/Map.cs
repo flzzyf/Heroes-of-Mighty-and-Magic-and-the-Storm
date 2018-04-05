@@ -14,8 +14,7 @@ public class Map : MonoBehaviour {
 
     //节点
     public Node[,,] nodes;
-    //节点单位
-    public GameObject[,,] nodeUnits;
+
 
     void Awake()
     {
@@ -30,7 +29,6 @@ public class Map : MonoBehaviour {
     public virtual void CreateMap()
     {
         nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
-        nodeUnits = new GameObject[mapSizeX, mapSizeY, mapSizeZ];
 
         GameObject nodeUnitParent = new GameObject("nodes");
         //根据地图尺寸生成节点
@@ -45,10 +43,6 @@ public class Map : MonoBehaviour {
                     //生成节点
                     Node node = new Node(x, y, z);
                     nodes[x, y, z] = node;
-                    //生成节点单位
-                    GameObject obj = Instantiate(nodePrefab, pos, Quaternion.identity);
-                    obj.transform.SetParent(nodeUnitParent.transform);
-                    nodeUnits[x, y, z] = obj;
                 }
             }
         }
@@ -93,24 +87,7 @@ public class Map : MonoBehaviour {
 
         return nodes[x, y, z];
     }
-    public Node GetNode(NodeUnit _nodeUnit)
-    {
-        return _nodeUnit.node;
-    }
 
-    //根据所给Vector3获取相应nodeUnit
-    public GameObject GetNodeUnit(Vector3 _pos)
-    {
-        int x = Mathf.Clamp((int)_pos.x, 0, mapSizeX - 1);
-        int y = Mathf.Clamp((int)_pos.y, 0, mapSizeY - 1);
-        int z = Mathf.Clamp((int)_pos.z, 0, mapSizeZ - 1);
-
-        return nodeUnits[x, y, z];
-    }
-    public GameObject GetNodeUnit(Node node)
-    {
-        return GetNodeUnit(node.pos);
-    }
     //生成路径
     public virtual void GeneratePath(Node _startNode, Node _lastNode)
     {
