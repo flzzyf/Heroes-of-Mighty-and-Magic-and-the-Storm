@@ -20,7 +20,6 @@ public class BattleManager : MonoBehaviour {
     LinkedList<GameObject> waitingUnits = new LinkedList<GameObject>();
     int actionUnitNum, waitingUnitNum;
 
-    public GameObject[] gog;
     public GameObject[] heroes;
 
     [HideInInspector]
@@ -29,15 +28,16 @@ public class BattleManager : MonoBehaviour {
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
     [HideInInspector]
-    public List<GameObject>[] units = new List<GameObject>[2];
+    public List<GameObject>[] units = {new List<GameObject>(), new List<GameObject>()};
+
+    [HideInInspector]
+    public GameObject currentActionUnit;
 
 	void Start ()
     {
         map = GetComponent<Map_HOMMS>();
 
-        AddUnitToActionList(ref actionUnits, gog[0]);
-
-        AddUnitToActionList(ref actionUnits, gog[1]);
+        BattleStart();
 
     }
 
@@ -126,6 +126,7 @@ public class BattleManager : MonoBehaviour {
             actionUnitNum--;
         }
 
+        currentActionUnit = go;
         ActionStart(go, 0);
     }
 
@@ -216,7 +217,65 @@ public class BattleManager : MonoBehaviour {
                                            hero.pocketUnits[i].num, _hero);
 
             units[_hero].Add(go);
+            go.GetComponent<Unit>().node = map.GetNode(new Vector3(x, unitPos[i], 0));
+
+            AddUnitToActionList(ref actionUnits, go);
+
         }
+    }
+
+    GameObject movingUnit;
+    List<Node> path;
+    int currentWayPointIndex = 0;
+    Vector3 targetWayPoint;
+    float speed;
+
+    public void MoveUnit(GameObject _unit = null, List<Node> _path = null)
+    {
+        movingUnit = currentActionUnit;
+        path = new List<Node>(map.path);
+        speed = movingUnit.GetComponent<Unit>().speed;
+
+        GetNextWayPoint();
+    }
+
+    void FixedUpdate()
+    {
+        if(movingUnit != null)
+        {
+            //朝下个点方向
+            Vector2 dir = targetWayPoint - movingUnit.transform.position;
+            //移动
+            movingUnit.transform.Translate(dir.normalized * speed * Time.fixedDeltaTime, Space.World);
+            //抵达
+            if (dir.magnitude <= speed * Time.fixedDeltaTime)
+            {
+                ReachPoint();
+            }
+        }
+    }
+
+    void ReachPoint()
+    {
+        if(currentWayPointIndex < path.Count - 1)
+        {
+            movingUnit.GetComponent<Unit>().node = path[currentWayPointIndex];
+
+            currentWayPointIndex++;
+            GetNextWayPoint();
+        }
+        else
+        {
+            movingUnit = null;
+            currentWayPointIndex = 0;
+        }
+
+    }
+
+    //获取下个路径点
+    void GetNextWayPoint()
+    {
+        targetWayPoint = map.GetNodeUnit(path[currentWayPointIndex]).transform.position;
     }
 
 }

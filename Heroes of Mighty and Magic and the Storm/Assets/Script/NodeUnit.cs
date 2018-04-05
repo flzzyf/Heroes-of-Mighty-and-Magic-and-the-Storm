@@ -12,7 +12,7 @@ public class NodeUnit : MonoBehaviour
     private void OnMouseEnter()
     {
         BattleManager.instance.map.HidePath();
-        AStar.instance.FindPath(BattleManager.instance.map.GetNode(new Vector3(0, 0, 0)), node);
+        AStar.instance.FindPath(BattleManager.instance.currentActionUnit.GetComponent<Unit>().node, node);
         //ToggleBackground(true);
     }
 
@@ -28,12 +28,18 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseDown()
     {
+        /*
         foreach (var item in BattleManager.instance.map.GetNeighbourNode(node))
         {
             GameObject go = BattleManager.instance.map.GetNodeUnit(item.pos);
 
             go.GetComponent<NodeUnit>().ToggleBackground(true);
         }
+        */
+        BattleManager.instance.MoveUnit();
+
+        BattleManager.instance.ActionEnd();
+
     }
 }
 

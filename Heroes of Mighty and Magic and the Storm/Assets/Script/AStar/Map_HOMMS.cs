@@ -78,7 +78,8 @@ public class Map_HOMMS : Map
         return list;
     }
 
-    List<Node> path = new List<Node>();
+    [HideInInspector]
+    public List<Node> path = new List<Node>();
 
     public override void GeneratePath(Node _startNode, Node _lastNode)
     {
@@ -94,6 +95,8 @@ public class Map_HOMMS : Map
 
             curNode = curNode.parentNode;
         }
+
+        path.Reverse();
     }
 
     public override void HidePath()

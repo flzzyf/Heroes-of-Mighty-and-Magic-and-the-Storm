@@ -20,6 +20,9 @@ public class Unit : MonoBehaviour {
     [HideInInspector]
     public Vector2 damage;
 
+    [HideInInspector]
+    public Node node;
+
 	void Start () 
     {
         if(type != null)
