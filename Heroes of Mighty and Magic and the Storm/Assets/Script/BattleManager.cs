@@ -23,7 +23,8 @@ public class BattleManager : MonoBehaviour {
     public GameObject[] gog;
     public GameObject[] heroes;
 
-    Map map;
+    [HideInInspector]
+    public Map_HOMMS map;
 
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 

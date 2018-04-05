@@ -55,7 +55,7 @@ public class Map : MonoBehaviour {
     }
 
     //获取邻近节点
-    public List<Node> GetNeighbourNode(Node _node)
+    public virtual List<Node> GetNeighbourNode(Node _node)
     {
         List<Node> list = new List<Node>();
         //搜索周围是否有可通行节点
