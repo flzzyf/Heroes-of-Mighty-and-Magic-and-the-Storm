@@ -240,6 +240,8 @@ public class BattleManager : MonoBehaviour {
         path = new List<Node>(map.path);
         speed = movingUnit.GetComponent<Unit>().speed;
 
+        movingUnit.GetComponent<Unit>().PlayAnimation("move", 1);
+
         GetNextWayPoint();
         GameMaster.instance.Pause();
     }
@@ -287,6 +289,8 @@ public class BattleManager : MonoBehaviour {
 
     void ReachTarget()
     {
+        movingUnit.GetComponent<Unit>().PlayAnimation("move", 0);
+
         movingUnit = null;
         currentWayPointIndex = 0;
         path.Clear();

@@ -23,6 +23,23 @@ public class Unit : MonoBehaviour {
     [HideInInspector]
     public GameObject nodeUnit;
 
+    Dictionary<string, string> animName = new Dictionary<string, string>{
+        {"move", "walking"}
+    };
+
+    public void PlayAnimation(string _anim, int _value = -1)
+    {
+        if(_value != -1)
+        {
+            animator.SetBool(animName[_anim], (_value == 1) ? true : false);
+
+        }
+        else
+        {
+            animator.Play(animName[_anim]);
+        }
+    }
+
 	void Start () 
     {
         if(type != null)
