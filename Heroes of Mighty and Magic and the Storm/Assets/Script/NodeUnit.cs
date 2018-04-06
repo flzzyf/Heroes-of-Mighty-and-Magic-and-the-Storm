@@ -13,10 +13,14 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        BattleManager.instance.map.HidePath();
-        AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
-                                GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
-        //ToggleBackground(true);
+        if(BattleManager.instance.movingUnit == null && !GameMaster.instance.isPause())
+        {
+            BattleManager.instance.map.HidePath();
+            AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
+                                    GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
+            //ToggleBackground(true);
+        }
+
     }
 
     private void OnMouseExit()
@@ -39,9 +43,10 @@ public class NodeUnit : MonoBehaviour
             go.GetComponent<NodeUnit>().ToggleBackground(true);
         }
         */
+        BattleManager.instance.map.HideAllNode();
+
         BattleManager.instance.MoveUnit();
 
-        BattleManager.instance.ActionEnd();
 
     }
 }

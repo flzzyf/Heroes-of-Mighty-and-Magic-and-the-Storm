@@ -83,6 +83,8 @@ public class Map_HOMMS : Map
 
     [HideInInspector]
     public List<Node> path = new List<Node>();
+    [HideInInspector]
+    public List<GameObject> highlightNode = new List<GameObject>();
 
     public override void GeneratePath(Node _startNode, Node _lastNode)
     {
@@ -94,7 +96,7 @@ public class Map_HOMMS : Map
 
             GameObject go = BattleManager.instance.map.GetNodeUnit(curNode);
 
-            go.GetComponent<NodeUnit>().ToggleBackground(true);
+            ToggleHighlightNode(go, true);
 
             curNode = curNode.parentNode;
         }
@@ -108,10 +110,33 @@ public class Map_HOMMS : Map
         {
             GameObject go = BattleManager.instance.map.GetNodeUnit(item);
 
-            go.GetComponent<NodeUnit>().ToggleBackground(false);
+            ToggleHighlightNode(go, false);
         }
 
         path.Clear();
+    }
+
+    void ToggleHighlightNode(GameObject _go, bool _highlight)
+    {
+        _go.GetComponent<NodeUnit>().ToggleBackground(_highlight);
+
+        if(_highlight)
+        {
+            highlightNode.Add(_go);
+        }
+        else
+        {
+            highlightNode.Remove(_go);
+        }
+    }
+
+    public void HideAllNode()
+    {
+        while(highlightNode.Count > 0)
+        {
+            GameObject go = highlightNode[0];
+            ToggleHighlightNode(go, false);
+        }
     }
 
     public override int GetNodeDistance(Node a, Node b)

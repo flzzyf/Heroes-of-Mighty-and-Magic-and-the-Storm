@@ -32,6 +32,14 @@ public class BattleManager : MonoBehaviour {
 
     [HideInInspector]
     public GameObject currentActionUnit;
+    [HideInInspector]
+    public GameObject movingUnit;
+    List<Node> path;
+    int currentWayPointIndex = 0;
+    Vector3 targetWayPoint;
+    float speed;
+
+    int actionPlayer;
 
 	void Start ()
     {
@@ -63,6 +71,7 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
+    #region 回合设置
     void BattleStart()
     {
         //单位行动顺序计算
@@ -171,6 +180,7 @@ public class BattleManager : MonoBehaviour {
 
         TurnEnd();
     }
+#endregion
 
     void AddUnitToActionList(ref LinkedList<GameObject> _list, GameObject _unit, bool _desc = true)
     {
@@ -224,12 +234,6 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
-    GameObject movingUnit;
-    List<Node> path;
-    int currentWayPointIndex = 0;
-    Vector3 targetWayPoint;
-    float speed;
-
     public void MoveUnit(GameObject _unit = null, List<Node> _path = null)
     {
         movingUnit = currentActionUnit;
@@ -237,6 +241,7 @@ public class BattleManager : MonoBehaviour {
         speed = movingUnit.GetComponent<Unit>().speed;
 
         GetNextWayPoint();
+        GameMaster.instance.Pause();
     }
 
     void FixedUpdate()
@@ -271,14 +276,24 @@ public class BattleManager : MonoBehaviour {
 
             currentWayPointIndex++;
             GetNextWayPoint();
-            print(path[currentWayPointIndex].pos);
+
         }
         else
         {
-            movingUnit = null;
-            currentWayPointIndex = 0;
+            ReachTarget();
         }
 
+    }
+
+    void ReachTarget()
+    {
+        movingUnit = null;
+        currentWayPointIndex = 0;
+        path.Clear();
+
+        GameMaster.instance.Unpause();
+
+        ActionEnd();
     }
 
     //获取下个路径点

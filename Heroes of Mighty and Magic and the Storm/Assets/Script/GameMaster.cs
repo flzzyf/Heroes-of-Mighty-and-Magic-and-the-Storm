@@ -25,7 +25,23 @@ public class GameMaster : MonoBehaviour {
 
     public GameObject unitPrefab;
 
-	void Start () 
+    #region 游戏暂停系统
+    int pause = 0;
+
+    public void Pause(){
+        pause++;
+    }
+
+    public void Unpause(){
+        pause--;
+    }
+
+    public bool isPause(){
+        return pause > 0;
+    }
+#endregion
+
+    void Start () 
     {
 
         //CreateUnit(type, Vector3.zero);
