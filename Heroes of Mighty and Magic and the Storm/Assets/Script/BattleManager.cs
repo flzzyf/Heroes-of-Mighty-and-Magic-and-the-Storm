@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour {
+public class BattleManager : MonoBehaviour
+{
 
     #region Singleton
     [HideInInspector]
@@ -28,7 +29,7 @@ public class BattleManager : MonoBehaviour {
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
     [HideInInspector]
-    public List<GameObject>[] units = {new List<GameObject>(), new List<GameObject>()};
+    public List<GameObject>[] units = { new List<GameObject>(), new List<GameObject>() };
 
     [HideInInspector]
     public GameObject currentActionUnit;
@@ -41,7 +42,7 @@ public class BattleManager : MonoBehaviour {
 
     int actionPlayer;
 
-	void Start ()
+    void Start()
     {
         map = GetComponent<Map_HOMMS>();
 
@@ -57,7 +58,7 @@ public class BattleManager : MonoBehaviour {
 
             LinkedListNode<GameObject> node = actionUnits.First;
 
-            while(node != null)
+            while (node != null)
             {
                 print(node.Value);
                 node = node.Next;
@@ -115,7 +116,7 @@ public class BattleManager : MonoBehaviour {
 
         GameObject go;
 
-        if(actionUnitNum == 0)
+        if (actionUnitNum == 0)
         {
             go = actionUnits.First.Value;
         }
@@ -147,13 +148,13 @@ public class BattleManager : MonoBehaviour {
 
         //print("剩余可行动单位数：" + actionUnits.Count); 
 
-        if(actionUnitNum > 0)
+        if (actionUnitNum > 0)
         {
             TurnStart();
         }
         else
         {
-            if(waitingUnitNum > 0)
+            if (waitingUnitNum > 0)
             {
                 actionUnits = waitingUnits;
 
@@ -180,11 +181,11 @@ public class BattleManager : MonoBehaviour {
 
         TurnEnd();
     }
-#endregion
+    #endregion
 
     void AddUnitToActionList(ref LinkedList<GameObject> _list, GameObject _unit, bool _desc = true)
     {
-        if(_list.Count == 0)
+        if (_list.Count == 0)
         {
             _list.AddFirst(_unit);
         }
@@ -192,13 +193,13 @@ public class BattleManager : MonoBehaviour {
         {
             LinkedListNode<GameObject> node = _list.First;
 
-            while(node != null)
+            while (node != null)
             {
                 Unit u = node.Value.GetComponent<Unit>();
 
                 //速度相同的特殊规则待续
 
-                if((u.speed < _unit.GetComponent<Unit>().speed && _desc) ||
+                if ((u.speed < _unit.GetComponent<Unit>().speed && _desc) ||
                    (u.speed > _unit.GetComponent<Unit>().speed && !_desc))
                 {
                     _list.AddBefore(node, _unit);
@@ -207,7 +208,7 @@ public class BattleManager : MonoBehaviour {
 
                 node = node.Next;
 
-                if(node == null)
+                if (node == null)
                 {
                     _list.AddLast(_unit);
                 }
@@ -222,7 +223,7 @@ public class BattleManager : MonoBehaviour {
         for (int i = 0; i < hero.pocketUnits.Length; i++)
         {
             int x = (_hero == 0) ? 0 : map.mapSizeX - 1;
-            GameObject go = GameMaster.instance.CreateUnit(hero.pocketUnits[i].type, 
+            GameObject go = GameMaster.instance.CreateUnit(hero.pocketUnits[i].type,
                 map.nodeUnits[x, unitPos[i], 0].transform.position,
                                            hero.pocketUnits[i].num, _hero);
 
@@ -234,6 +235,7 @@ public class BattleManager : MonoBehaviour {
         }
     }
 
+    #region 移动单位相关
     public void MoveUnit(GameObject _unit = null, List<Node> _path = null)
     {
         movingUnit = currentActionUnit;
@@ -248,7 +250,7 @@ public class BattleManager : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if(movingUnit != null)
+        if (movingUnit != null)
         {
             //朝下个点方向
             Vector2 dir = targetWayPoint - movingUnit.transform.position;
@@ -264,7 +266,7 @@ public class BattleManager : MonoBehaviour {
 
     void ReachPoint()
     {
-        if(currentWayPointIndex < path.Count - 1)
+        if (currentWayPointIndex < path.Count - 1)
         {
             //离开先前的格子
             movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
@@ -305,5 +307,13 @@ public class BattleManager : MonoBehaviour {
     {
         targetWayPoint = map.GetNodeUnit(path[currentWayPointIndex]).transform.position;
     }
+#endregion
 
+    void Interact(GameObject _origin, GameObject _target)
+    {
+        _origin.GetComponent<Unit>().FaceTarget(_target);
+        _target.GetComponent<Unit>().FaceTarget(_origin);
+
+
+    }
 }

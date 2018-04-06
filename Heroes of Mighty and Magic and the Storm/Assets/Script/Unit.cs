@@ -27,18 +27,6 @@ public class Unit : MonoBehaviour {
         {"move", "walking"}, {"attack", "Attack"}
     };
 
-    public void PlayAnimation(string _anim, int _value = -1)
-    {
-        if(_value != -1)
-        {
-            animator.SetBool(animName[_anim], (_value == 1) ? true : false);
-
-        }
-        else
-        {
-            animator.Play(animName[_anim]);
-        }
-    }
 
 	void Start () 
     {
@@ -103,6 +91,8 @@ public class Unit : MonoBehaviour {
     private void OnMouseEnter()
     {
         GameMaster.instance.ChangeMouseCursor(1);
+
+
     }
 
     private void OnMouseExit()
@@ -116,5 +106,17 @@ public class Unit : MonoBehaviour {
         BattleManager.instance.ActionEnd();
     }
 
+    public void PlayAnimation(string _anim, int _value = -1)
+    {
+        if (_value != -1)
+        {
+            animator.SetBool(animName[_anim], (_value == 1) ? true : false);
+
+        }
+        else
+        {
+            animator.Play(animName[_anim]);
+        }
+    }
 
 }
