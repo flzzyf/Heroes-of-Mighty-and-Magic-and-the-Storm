@@ -24,7 +24,7 @@ public class Unit : MonoBehaviour {
     public GameObject nodeUnit;
 
     Dictionary<string, string> animName = new Dictionary<string, string>{
-        {"move", "walking"}
+        {"move", "walking"}, {"attack", "Attack"}
     };
 
     public void PlayAnimation(string _anim, int _value = -1)

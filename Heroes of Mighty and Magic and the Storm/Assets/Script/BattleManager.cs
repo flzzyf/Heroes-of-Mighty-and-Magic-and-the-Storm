@@ -67,7 +67,7 @@ public class BattleManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            BattleStart();
+            currentActionUnit.GetComponent<Unit>().PlayAnimation("attack");
         }
     }
 
