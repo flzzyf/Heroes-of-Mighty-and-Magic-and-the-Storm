@@ -39,41 +39,69 @@ public class Map_HOMMS : Map
         }
     }
 
+    static Vector2[,] neighbourNodeOffset = {
+        {new Vector2(1, -1), new Vector2(-1, 0), new Vector2(1, 1),
+            new Vector2(0, -1), new Vector2(0, 1), new Vector2(1, 0)},
+        
+        {new Vector2(-1, -1), new Vector2(-1, 0), new Vector2(-1, 1),
+            new Vector2(0, -1), new Vector2(0, 1), new Vector2(1, 0)}
+    };
+
     public override List<Node> GetNeighbourNode(Node _node)
     {
         List<Node> list = new List<Node>();
-
-        Vector2[] pos = {new Vector2(-1, -1), new Vector2(-1, 0), new Vector2(-1, 1),
-            new Vector2(0, -1), new Vector2(0, 1), new Vector2(1, 0)
-        };
-
-        Vector2[] pos2 = {new Vector2(1, -1), new Vector2(-1, 0), new Vector2(1, 1),
-            new Vector2(0, -1), new Vector2(0, 1), new Vector2(1, 0)
-        };
 
         //周围六格，上下左右和左上左下
         int x = (int)_node.pos.x;
         int y = (int)_node.pos.y;
 
-        for (int i = 0; i < pos.Length; i++)
+        for (int i = 0; i < 6; i++)
         {
             int posX, posY;
-            if(y % 2 == 0)
-            {
-                //偶行
-                posX = x + (int)pos2[i].x;
-                posY = y + (int)pos2[i].y;
-            }
-            else
-            {
-                posX = x + (int)pos[i].x;
-                posY = y + (int)pos[i].y;
-            }
+
+            int o = y % 2;
+
+            posX = x + (int)neighbourNodeOffset[o, i].x;
+            posY = y + (int)neighbourNodeOffset[o, i].y;
 
             if (posX < mapSizeX && posX >= 0 &&
                 posY < mapSizeY && posY >= 0)
             {
                 list.Add(nodes[posX, posY, 0]);
+            }
+        }
+        return list;
+    }
+
+    public List<Node> GetNeighbourNode(Node _node, int _distance)
+    {
+        List<Node> list = new List<Node>();
+        List<Node> openList = new List<Node>();
+        List<Node> closeList = new List<Node>();
+
+        openList.Add(_node);
+
+        Node it;
+
+        for (int i = 0; i < _distance; i++)
+        {
+            int a = openList.Count;
+            while(a-- > 0)
+            {
+                it = openList[0];
+
+                openList.Remove(it);
+                closeList.Add(it);
+
+                foreach (Node item in GetNeighbourNode(it))
+                {
+                    if(!closeList.Contains(item) && !openList.Contains(item))
+                    {
+                        openList.Add(item);
+                        list.Add(item);
+
+                    }
+                }
 
             }
         }
@@ -156,6 +184,11 @@ public class Map_HOMMS : Map
     public Node GetNode(NodeUnit _nodeUnit)
     {
         return _nodeUnit.node;
+    }
+
+    public Node GetNode(GameObject _nodeUnit)
+    {
+        return _nodeUnit.GetComponent<NodeUnit>().node;
     }
 
     //根据所给Vector3获取相应nodeUnit

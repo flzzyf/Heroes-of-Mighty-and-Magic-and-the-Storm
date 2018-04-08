@@ -119,4 +119,22 @@ public class Unit : MonoBehaviour {
         }
     }
 
+    void TakeDamage(int _amount)
+    {
+        int a = _amount / type.hp;
+
+        print(a);
+    }
+
+    float DamageRate(int _att, int _def)    //攻防伤害倍率计算
+    {
+        float r = 1;
+        if (_att > _def)
+            r = (1 + (_att - _def) * 0.05f);
+        else if (_att < _def)
+            r = (1 - (_def - _att) * 0.025f);
+
+        return r;
+    }
+
 }

@@ -28,7 +28,7 @@ public class NodeUnit : MonoBehaviour
         ToggleBackground(false);
     }
 
-    public void ToggleBackground(bool _enable)
+    public void ToggleBackground(bool _enable = true)
     {
         bg.enabled = _enable;
     }

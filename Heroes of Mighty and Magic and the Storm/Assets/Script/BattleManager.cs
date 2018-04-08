@@ -173,6 +173,13 @@ public class BattleManager : MonoBehaviour
     {
         //非AI
         print(_unit.name + "当前可以行动");
+
+        foreach (var item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
+                                                  _unit.GetComponent<Unit>().type.speed))
+        {
+            print("qwe");
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().ToggleBackground();
+        }
     }
 
     public void ActionEnd()
