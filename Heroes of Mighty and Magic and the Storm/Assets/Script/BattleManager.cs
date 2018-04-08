@@ -42,6 +42,11 @@ public class BattleManager : MonoBehaviour
 
     int actionPlayer;
 
+    [HideInInspector]
+    public GameObject mouseNode;
+
+    GameObject battleUnitParent;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
@@ -70,6 +75,31 @@ public class BattleManager : MonoBehaviour
         {
             currentActionUnit.GetComponent<Unit>().PlayAnimation("attack");
         }
+
+        if(mouseNode != null)
+        {
+            Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePoint.z = 0;
+
+            Vector3 dir = mousePoint - mouseNode.transform.position;
+            //Vector3 dir = mousePoint;
+            dir.y -= 0.9f;
+
+            float angle;
+            if (dir.x > 0)
+                angle = Vector3.Angle(dir, Vector3.up);
+            else
+                angle = 360 - Vector3.Angle(dir, Vector3.up);
+
+
+            //print(dir);
+
+            int b = (int)angle / 60;
+            //print(b);
+            int a = (b * 60 + 210) % 360;
+            print(a);
+        }
+
     }
 
     #region 回合设置
@@ -77,7 +107,7 @@ public class BattleManager : MonoBehaviour
     {
         //单位行动顺序计算
         //战斗开始效果触发
-
+        battleUnitParent = new GameObject("battleUnits");
         CreateHeroUnits(0);
         CreateHeroUnits(1);
 
@@ -177,7 +207,6 @@ public class BattleManager : MonoBehaviour
         foreach (var item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
                                                   _unit.GetComponent<Unit>().type.speed))
         {
-            print("qwe");
             map.GetNodeUnit(item).GetComponent<NodeUnit>().ToggleBackground();
         }
     }
@@ -235,6 +264,8 @@ public class BattleManager : MonoBehaviour
                                            hero.pocketUnits[i].num, _hero);
 
             units[_hero].Add(go);
+            go.transform.parent = battleUnitParent.transform;
+
             go.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
 
             AddUnitToActionList(ref actionUnits, go);

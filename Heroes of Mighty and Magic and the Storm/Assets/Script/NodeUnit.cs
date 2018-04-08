@@ -13,19 +13,24 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        /*
         if(BattleManager.instance.movingUnit == null && !GameMaster.instance.isPause())
         {
             BattleManager.instance.map.HidePath();
             AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
                                     GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
             //ToggleBackground(true);
-        }
+        }*/
 
+        BattleManager.instance.mouseNode = gameObject;
     }
 
     private void OnMouseExit()
     {
         ToggleBackground(false);
+
+        BattleManager.instance.mouseNode = null;
+
     }
 
     public void ToggleBackground(bool _enable = true)
