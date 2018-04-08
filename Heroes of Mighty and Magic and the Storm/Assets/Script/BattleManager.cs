@@ -47,6 +47,8 @@ public class BattleManager : MonoBehaviour
 
     GameObject battleUnitParent;
 
+    public GameObject cursorSword;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
@@ -97,7 +99,9 @@ public class BattleManager : MonoBehaviour
             int b = (int)angle / 60;
             //print(b);
             int a = (b * 60 + 210) % 360;
-            print(a);
+            print(360 - a);
+
+            cursorSword.transform.rotation = Quaternion.AngleAxis(360 - a, Vector3.forward);
         }
 
     }
