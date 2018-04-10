@@ -209,10 +209,10 @@ public class BattleManager : MonoBehaviour
         //非AI
         print(_unit.name + "当前可以行动");
 
-        foreach (var item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
+        foreach (Node item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
                                                   _unit.GetComponent<Unit>().type.speed))
         {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().ToggleBackgroundState(1);
+            map.ToggleHighlightNode(map.GetNodeUnit(item));
         }
     }
 

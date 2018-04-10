@@ -13,3 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
   speed: 7
+  att: 0
+  def: 0
+  hp: 55
+  amount: 6
+  price: 0
+  damage: {x: 0, y: 0}

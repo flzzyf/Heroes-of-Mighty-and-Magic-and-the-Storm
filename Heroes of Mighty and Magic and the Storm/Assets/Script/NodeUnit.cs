@@ -52,6 +52,8 @@ public class NodeUnit : MonoBehaviour
     {
         BattleManager.instance.map.HideAllNode();
 
+        AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
+                                    GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
         BattleManager.instance.MoveUnit();
 
     }

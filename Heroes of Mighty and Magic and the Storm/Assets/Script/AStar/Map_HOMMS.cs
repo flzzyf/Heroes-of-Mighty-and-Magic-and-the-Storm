@@ -154,7 +154,7 @@ public class Map_HOMMS : Map
         path.Clear();
     }
 
-    void ToggleHighlightNode(GameObject _go, bool _highlight)
+    public void ToggleHighlightNode(GameObject _go, bool _highlight = true)
     {
         int backgroundState = _highlight ? 1 : 0;
         _go.GetComponent<NodeUnit>().ToggleBackgroundState(backgroundState);
