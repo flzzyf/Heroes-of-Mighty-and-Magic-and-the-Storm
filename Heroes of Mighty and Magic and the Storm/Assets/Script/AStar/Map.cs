@@ -30,7 +30,6 @@ public class Map : MonoBehaviour {
     {
         nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
 
-        GameObject nodeUnitParent = new GameObject("nodes");
         //根据地图尺寸生成节点
         for (int x = 0; x < mapSizeX; x++)
         {

@@ -11,9 +11,13 @@ public class NodeUnit : MonoBehaviour
     [HideInInspector]
     public GameObject unit;
 
+    public Color[] backgroundStateColor = new Color[3];
+
+    int backgroundState;
+
     private void OnMouseEnter()
     {
-        /*
+        /* 寻路
         if(BattleManager.instance.movingUnit == null && !GameMaster.instance.isPause())
         {
             BattleManager.instance.map.HidePath();
@@ -22,36 +26,33 @@ public class NodeUnit : MonoBehaviour
             //ToggleBackground(true);
         }*/
 
-        BattleManager.instance.mouseNode = gameObject;
+        //BattleManager.instance.mouseNode = gameObject;
+
+        ToggleBackgroundState(2);
     }
 
     private void OnMouseExit()
     {
-        ToggleBackground(false);
+        ToggleBackgroundState(backgroundState);
 
         BattleManager.instance.mouseNode = null;
 
     }
 
-    public void ToggleBackground(bool _enable = true)
+    //切换背景状态（0不可见，1可行走，2鼠标进入）
+    public void ToggleBackgroundState(int _state = 0)
     {
-        bg.enabled = _enable;
+        if (_state != 2)
+            backgroundState = _state;
+        
+        bg.color = backgroundStateColor[_state];
     }
 
     private void OnMouseDown()
     {
-        /*
-        foreach (var item in BattleManager.instance.map.GetNeighbourNode(node))
-        {
-            GameObject go = BattleManager.instance.map.GetNodeUnit(item.pos);
-
-            go.GetComponent<NodeUnit>().ToggleBackground(true);
-        }
-        */
         BattleManager.instance.map.HideAllNode();
 
         BattleManager.instance.MoveUnit();
-
 
     }
 }

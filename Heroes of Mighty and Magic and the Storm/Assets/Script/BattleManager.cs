@@ -49,6 +49,8 @@ public class BattleManager : MonoBehaviour
 
     public GameObject cursorSword;
 
+    int cursorSwordAngleIndex;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
@@ -80,28 +82,27 @@ public class BattleManager : MonoBehaviour
 
         if(mouseNode != null)
         {
+            //设置攻击箭头
+
             Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePoint.z = 0;
 
             Vector3 dir = mousePoint - mouseNode.transform.position;
-            //Vector3 dir = mousePoint;
             dir.y -= 0.9f;
-
+            //计算鼠标角度
             float angle;
             if (dir.x > 0)
                 angle = Vector3.Angle(dir, Vector3.up);
             else
                 angle = 360 - Vector3.Angle(dir, Vector3.up);
+            //计算箭头角度
+            int arrowIndex = (int)angle / 60;
+            cursorSwordAngleIndex = arrowIndex;
 
+            int arrowAngle = (arrowIndex * 60 + 210) % 360;
+            int arrowAngleFixed = 360 - arrowAngle;
 
-            //print(dir);
-
-            int b = (int)angle / 60;
-            //print(b);
-            int a = (b * 60 + 210) % 360;
-            print(360 - a);
-
-            cursorSword.transform.rotation = Quaternion.AngleAxis(360 - a, Vector3.forward);
+            cursorSword.transform.rotation = Quaternion.AngleAxis(360 - arrowAngleFixed, Vector3.forward);
         }
 
     }
@@ -211,7 +212,7 @@ public class BattleManager : MonoBehaviour
         foreach (var item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
                                                   _unit.GetComponent<Unit>().type.speed))
         {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().ToggleBackground();
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().ToggleBackgroundState(1);
         }
     }
 

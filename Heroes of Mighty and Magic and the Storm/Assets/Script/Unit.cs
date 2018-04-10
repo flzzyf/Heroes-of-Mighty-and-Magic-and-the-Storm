@@ -39,7 +39,7 @@ public class Unit : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            animator.Play("Attack");
+            TakeDamage(100);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -82,16 +82,9 @@ public class Unit : MonoBehaviour {
         return false;
     }
 
-    public void ChangeNum(int _amount)
-    {
-        num = _amount;
-        numUI.text = _amount.ToString();
-    }
-
     private void OnMouseEnter()
     {
         GameMaster.instance.ChangeMouseCursor(1);
-
 
     }
 
@@ -119,11 +112,38 @@ public class Unit : MonoBehaviour {
         }
     }
 
+    public void ChangeNum(int _amount)
+    {
+        num = _amount;
+        numUI.text = _amount.ToString();
+    }
+
+    public void ChangeNum(int _amount, int _sign)
+    {
+        int n = num + _amount * _sign;
+
+        ChangeNum(n);
+    }
+
+    public void ChangeHp(int _amount)
+    {
+        currentHP = _amount;
+    }
+
+    public void ChangeHp(int _amount, int _sign)
+    {
+        int n = currentHP + _amount * _sign;
+
+        ChangeHp(n);
+    }
+
     void TakeDamage(int _amount)
     {
-        int a = _amount / type.hp;
+        int deathNum = _amount / type.hp;
+        int damageAmount = _amount % type.hp;
+        print(damageAmount);
 
-        print(a);
+        ChangeNum(deathNum, -1);
     }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算

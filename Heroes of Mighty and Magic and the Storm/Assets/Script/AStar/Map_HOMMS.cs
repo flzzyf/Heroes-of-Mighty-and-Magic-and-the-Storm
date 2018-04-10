@@ -38,13 +38,23 @@ public class Map_HOMMS : Map
             }
         }
     }
-
+    //相邻节点偏移，顺序为从右上开始的顺时针
     static Vector2[,] neighbourNodeOffset = {
-        {new Vector2(1, -1), new Vector2(-1, 0), new Vector2(1, 1),
-            new Vector2(0, -1), new Vector2(0, 1), new Vector2(1, 0)},
-        
-        {new Vector2(-1, -1), new Vector2(-1, 0), new Vector2(-1, 1),
-            new Vector2(0, -1), new Vector2(0, 1), new Vector2(1, 0)}
+        {   new Vector2(1, -1),
+            new Vector2(1, 0),
+            new Vector2(1, 1),
+            new Vector2(0, 1),
+            new Vector2(-1, 0),
+            new Vector2(0, -1)
+        },
+
+        {   new Vector2(0, -1),
+            new Vector2(1, 0),
+            new Vector2(0, 1),
+            new Vector2(-1, 1),
+            new Vector2(-1, 0),
+            new Vector2(-1, -1)
+        }
     };
 
     public override List<Node> GetNeighbourNode(Node _node)
@@ -146,7 +156,8 @@ public class Map_HOMMS : Map
 
     void ToggleHighlightNode(GameObject _go, bool _highlight)
     {
-        _go.GetComponent<NodeUnit>().ToggleBackground(_highlight);
+        int backgroundState = _highlight ? 1 : 0;
+        _go.GetComponent<NodeUnit>().ToggleBackgroundState(backgroundState);
 
         if(_highlight)
         {

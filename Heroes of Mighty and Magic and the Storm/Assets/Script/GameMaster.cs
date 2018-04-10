@@ -43,8 +43,7 @@ public class GameMaster : MonoBehaviour {
 
     void Start () 
     {
-
-        //CreateUnit(type, Vector3.zero);
+        //Cursor.visible = false;
 	}
 	
 	void Update () 
