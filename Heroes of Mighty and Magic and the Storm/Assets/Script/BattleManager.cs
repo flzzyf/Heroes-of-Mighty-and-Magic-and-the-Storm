@@ -21,7 +21,7 @@ public class BattleManager : MonoBehaviour
     LinkedList<GameObject> waitingUnits = new LinkedList<GameObject>();
     int actionUnitNum, waitingUnitNum;
 
-    public GameObject[] heroes;
+    public GameObject[] playerHero;
 
     [HideInInspector]
     public Map_HOMMS map;
@@ -50,6 +50,11 @@ public class BattleManager : MonoBehaviour
     public GameObject cursorSword;
 
     int cursorSwordAngleIndex;
+
+    public GameObject[] heroPoint;
+    GameObject[] heroes = new GameObject[2];
+
+    public GameObject heroUnitPrefab;
 
     void Start()
     {
@@ -260,7 +265,11 @@ public class BattleManager : MonoBehaviour
 
     public void CreateHeroUnits(int _hero)
     {
-        Hero hero = heroes[_hero].GetComponent<Hero>();
+        heroes[_hero] = Instantiate(heroUnitPrefab, heroPoint[_hero].transform.position, Quaternion.identity);
+        if (_hero == 1)
+            heroes[_hero].GetComponent<SpriteRenderer>().flipX = !heroes[_hero].GetComponent<SpriteRenderer>().flipX;
+
+        Hero hero = playerHero[_hero].GetComponent<Hero>();
         for (int i = 0; i < hero.pocketUnits.Length; i++)
         {
             int x = (_hero == 0) ? 0 : map.mapSizeX - 1;
@@ -309,6 +318,7 @@ public class BattleManager : MonoBehaviour
 
     void ReachPoint()
     {
+        print(path.Count);
         if (currentWayPointIndex < path.Count - 1)
         {
             //离开先前的格子
@@ -338,7 +348,9 @@ public class BattleManager : MonoBehaviour
 
         movingUnit = null;
         currentWayPointIndex = 0;
+
         path.Clear();
+        map.path.Clear();
 
         GameMaster.instance.Unpause();
 

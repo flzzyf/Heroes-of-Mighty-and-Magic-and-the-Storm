@@ -134,8 +134,6 @@ public class Map_HOMMS : Map
 
             GameObject go = BattleManager.instance.map.GetNodeUnit(curNode);
 
-            ToggleHighlightNode(go, true);
-
             curNode = curNode.parentNode;
         }
 
