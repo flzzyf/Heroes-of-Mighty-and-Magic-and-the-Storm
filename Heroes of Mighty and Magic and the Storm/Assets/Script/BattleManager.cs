@@ -190,6 +190,19 @@ public class BattleManager : MonoBehaviour
         zyf.Out("回合结束");
 
         //胜负判定，如果有一方全灭
+        if(units[0].Count == units[1].Count)
+        {
+            print("平局");
+        }
+        else if(units[0].Count == 0)
+        {
+            print("玩家1获胜");
+        }
+        else{
+            print("玩家0获胜");
+
+        }
+            
 
         //print("剩余可行动单位数：" + actionUnits.Count); 
 
