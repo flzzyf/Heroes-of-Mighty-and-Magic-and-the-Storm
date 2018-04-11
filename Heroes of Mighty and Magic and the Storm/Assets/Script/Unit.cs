@@ -157,4 +157,9 @@ public class Unit : MonoBehaviour {
         return r;
     }
 
+    public void ChangeOutline(float _value = 0)
+    {
+        sprite.material.SetFloat("_LineWidth", _value);
+    }
+
 }

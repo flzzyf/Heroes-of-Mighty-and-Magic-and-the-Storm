@@ -176,7 +176,6 @@ public class BattleManager : MonoBehaviour
             actionUnitNum--;
         }
 
-        currentActionUnit = go;
         ActionStart(go, 0);
     }
 
@@ -214,6 +213,10 @@ public class BattleManager : MonoBehaviour
         //非AI
         print(_unit.name + "当前可以行动");
 
+        currentActionUnit = _unit;
+
+        currentActionUnit.GetComponent<Unit>().ChangeOutline(3);
+
         foreach (Node item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
                                                   _unit.GetComponent<Unit>().type.speed))
         {
@@ -224,6 +227,8 @@ public class BattleManager : MonoBehaviour
     public void ActionEnd()
     {
         //士气高涨
+        currentActionUnit.GetComponent<Unit>().ChangeOutline();
+
 
         TurnEnd();
     }

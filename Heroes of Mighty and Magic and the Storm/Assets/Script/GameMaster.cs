@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
+  // <editor-fold> qwe
+
+  // <editor-fold>
+
     #region Singleton
     [HideInInspector]
     public static GameMaster instance;
+
+
 
     private void Awake()
     {
@@ -41,12 +47,12 @@ public class GameMaster : MonoBehaviour {
     }
 #endregion
 
-    void Start () 
+    void Start ()
     {
         Cursor.visible = false;
 	}
-	
-	void Update () 
+
+	void Update ()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -72,7 +78,7 @@ public class GameMaster : MonoBehaviour {
         _origin.GetComponent<Unit>().FaceTarget(_target);
 
         targetFlip = _target.GetComponent<Unit>().FaceTarget(_origin);
-    
+
     }
 
     void UnitInteractEnd()  //交互结束
