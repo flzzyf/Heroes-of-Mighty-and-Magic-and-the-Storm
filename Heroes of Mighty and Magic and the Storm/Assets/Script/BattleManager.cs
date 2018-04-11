@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-
     #region Singleton
     [HideInInspector]
     public static BattleManager instance;
@@ -72,6 +71,7 @@ public class BattleManager : MonoBehaviour
         {
             //AddUnitToActionList(ref actionUnits, go[0]);
 
+            /*
             LinkedListNode<GameObject> node = actionUnits.First;
 
             while (node != null)
@@ -79,7 +79,11 @@ public class BattleManager : MonoBehaviour
                 print(node.Value);
                 node = node.Next;
 
-            }
+            }*/
+
+            //UnitInteract(units[0][0], units[1][0]);
+
+            UnitActionManager.instance.Attack(units[0][0], units[1][0]);
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -331,7 +335,6 @@ public class BattleManager : MonoBehaviour
 
     void ReachPoint()
     {
-        print(path.Count);
         if (currentWayPointIndex < path.Count - 1)
         {
             currentWayPointIndex++;
@@ -375,11 +378,28 @@ public class BattleManager : MonoBehaviour
     }
 #endregion
 
-    void Interact(GameObject _origin, GameObject _target)
+
+    GameObject origin, target;
+    bool targetFlip;
+
+    void UnitInteract(GameObject _origin, GameObject _target)   //交互开始
     {
+        origin = _origin;
+        target = _target;
+
         _origin.GetComponent<Unit>().FaceTarget(_target);
-        _target.GetComponent<Unit>().FaceTarget(_origin);
 
+        targetFlip = _target.GetComponent<Unit>().FaceTarget(_origin);
 
+    }
+
+    void UnitInteractEnd()  //交互结束
+    {
+        if (targetFlip)
+        {
+            targetFlip = false;
+
+            target.GetComponent<Unit>().Flip();
+        }
     }
 }

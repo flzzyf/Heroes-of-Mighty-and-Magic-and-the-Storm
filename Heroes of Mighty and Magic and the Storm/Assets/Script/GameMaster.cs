@@ -67,30 +67,6 @@ public class GameMaster : MonoBehaviour {
         }
 	}
 
-    GameObject origin, target;
-    bool targetFlip;
-
-    void UnitInteract(GameObject _origin, GameObject _target)   //交互开始
-    {
-        origin = _origin;
-        target = _target;
-
-        _origin.GetComponent<Unit>().FaceTarget(_target);
-
-        targetFlip = _target.GetComponent<Unit>().FaceTarget(_origin);
-
-    }
-
-    void UnitInteractEnd()  //交互结束
-    {
-        if(targetFlip)
-        {
-            targetFlip = false;
-
-            target.GetComponent<Unit>().Flip();
-        }
-    }
-
     public GameObject CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)
     {
         GameObject go = Instantiate(unitPrefab, _pos, Quaternion.identity);

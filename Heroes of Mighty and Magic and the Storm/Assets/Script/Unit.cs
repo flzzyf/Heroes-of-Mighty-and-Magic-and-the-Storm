@@ -52,6 +52,23 @@ public class Unit : MonoBehaviour {
 
     }
 
+    private void OnMouseEnter()
+    {
+        GameMaster.instance.ChangeMouseCursor(1);
+
+    }
+
+    private void OnMouseExit()
+    {
+        GameMaster.instance.ChangeMouseCursor();
+
+    }
+
+    private void OnMouseDown()
+    {
+        BattleManager.instance.ActionEnd();
+    }
+
     public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
@@ -80,23 +97,6 @@ public class Unit : MonoBehaviour {
             return true;    //转向了
         }
         return false;
-    }
-
-    private void OnMouseEnter()
-    {
-        GameMaster.instance.ChangeMouseCursor(1);
-
-    }
-
-    private void OnMouseExit()
-    {
-        GameMaster.instance.ChangeMouseCursor();
-
-    }
-
-    private void OnMouseDown()
-    {
-        BattleManager.instance.ActionEnd();
     }
 
     public void PlayAnimation(string _anim, int _value = -1)
@@ -137,24 +137,34 @@ public class Unit : MonoBehaviour {
         ChangeHp(n);
     }
 
-    void TakeDamage(int _amount)
+    public void TakeDamage(int _amount)
     {
-        int deathNum = _amount / type.hp;
-        int damageAmount = _amount % type.hp;
-        print(damageAmount);
+        if(_amount > (num - 1) * type.hp + currentHP)
+        {
+            //死了
+            Death();
 
-        ChangeNum(deathNum, -1);
+            return;
+        }
+
+        if(_amount < currentHP)
+        {
+            ChangeHp(_amount, -1);
+        }
+        else
+        {
+            int deathNum = 1 + _amount / type.hp;
+            ChangeNum(deathNum, -1);
+            int remainHp = type.hp - (_amount - currentHP);
+            ChangeHp(remainHp);
+        }
+
+        print(currentHP);
     }
 
-    float DamageRate(int _att, int _def)    //攻防伤害倍率计算
+    void Death()
     {
-        float r = 1;
-        if (_att > _def)
-            r = (1 + (_att - _def) * 0.05f);
-        else if (_att < _def)
-            r = (1 - (_def - _att) * 0.025f);
-
-        return r;
+        gameObject.SetActive(false); 
     }
 
     public void ChangeOutline(float _value = 0)
