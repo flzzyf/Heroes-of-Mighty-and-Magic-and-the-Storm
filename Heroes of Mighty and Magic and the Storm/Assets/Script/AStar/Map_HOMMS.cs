@@ -37,6 +37,7 @@ public class Map_HOMMS : Map
 
             }
         }
+
     }
     //相邻节点偏移，顺序为从右上开始的顺时针
     static Vector2[,] neighbourNodeOffset = {
@@ -105,6 +106,12 @@ public class Map_HOMMS : Map
 
                 foreach (Node item in GetNeighbourNode(it))
                 {
+                    if(!item.walkable)
+                    {
+                        closeList.Add(item);
+                        continue;
+                    }
+
                     if(!closeList.Contains(item) && !openList.Contains(item))
                     {
                         openList.Add(item);

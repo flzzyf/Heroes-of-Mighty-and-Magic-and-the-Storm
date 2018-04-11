@@ -56,6 +56,8 @@ public class BattleManager : MonoBehaviour
 
     public GameObject heroUnitPrefab;
 
+    public float unitSpeed = 8;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
@@ -286,6 +288,8 @@ public class BattleManager : MonoBehaviour
             go.transform.parent = battleUnitParent.transform;
 
             go.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
+            //设置单位所在节点不可通行
+            map.GetNode(go.GetComponent<Unit>().nodeUnit).walkable = false;
 
             AddUnitToActionList(ref actionUnits, go);
 
@@ -301,6 +305,10 @@ public class BattleManager : MonoBehaviour
 
         movingUnit.GetComponent<Unit>().PlayAnimation("move", 1);
 
+        //将先前的格子设为无人
+        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
+        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().unit = null;
+
         GetNextWayPoint();
         GameMaster.instance.Pause();
     }
@@ -312,7 +320,7 @@ public class BattleManager : MonoBehaviour
             //朝下个点方向
             Vector2 dir = targetWayPoint - movingUnit.transform.position;
             //移动
-            movingUnit.transform.Translate(dir.normalized * speed * Time.fixedDeltaTime, Space.World);
+            movingUnit.transform.Translate(dir.normalized * unitSpeed * Time.fixedDeltaTime, Space.World);
             //抵达
             if (dir.magnitude <= speed * Time.fixedDeltaTime)
             {
@@ -326,16 +334,6 @@ public class BattleManager : MonoBehaviour
         print(path.Count);
         if (currentWayPointIndex < path.Count - 1)
         {
-            //离开先前的格子
-            movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
-            movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().unit = null;
-
-            //进入新格子
-            movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node = path[currentWayPointIndex];
-            movingUnit.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(path[currentWayPointIndex]);
-            map.GetNodeUnit(path[currentWayPointIndex]).GetComponent<NodeUnit>().unit = movingUnit;
-            path[currentWayPointIndex].walkable = false;
-
             currentWayPointIndex++;
             GetNextWayPoint();
 
@@ -351,6 +349,14 @@ public class BattleManager : MonoBehaviour
     {
         movingUnit.GetComponent<Unit>().PlayAnimation("move", 0);
 
+        //进入新格子
+        Node currentNode = path[currentWayPointIndex];
+        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node = currentNode;
+        movingUnit.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(currentNode);
+        map.GetNodeUnit(currentNode).GetComponent<NodeUnit>().unit = movingUnit;
+        currentNode.walkable = false;
+
+        //重置移动单位信息
         movingUnit = null;
         currentWayPointIndex = 0;
 
