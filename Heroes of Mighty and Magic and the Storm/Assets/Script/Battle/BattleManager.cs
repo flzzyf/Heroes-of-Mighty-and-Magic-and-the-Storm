@@ -16,9 +16,9 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
 
-    LinkedList<GameObject> actionUnits = new LinkedList<GameObject>();
-    LinkedList<GameObject> waitingUnits = new LinkedList<GameObject>();
-    int actionUnitNum, waitingUnitNum;
+    //单位行动顺序表，单位行动队列
+    public LinkedList<GameObject> unitActionOrder = new LinkedList<GameObject>();
+    public LinkedList<GameObject> unitActionList = new LinkedList<GameObject>();
 
     public GameObject[] playerHero;
 
@@ -57,9 +57,14 @@ public class BattleManager : MonoBehaviour
 
     public float unitSpeed = 8;
 
+    public Color[] backgroundStateColor = new Color[3];
+
+    RoundManager roundManager;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
+        roundManager = new RoundManager();
 
         BattleStart();
 
@@ -69,20 +74,6 @@ public class BattleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            //AddUnitToActionList(ref actionUnits, go[0]);
-
-            /*
-            LinkedListNode<GameObject> node = actionUnits.First;
-
-            while (node != null)
-            {
-                print(node.Value);
-                node = node.Next;
-
-            }*/
-
-            //UnitInteract(units[0][0], units[1][0]);
-
             UnitActionManager.instance.Attack(units[0][0], units[1][0]);
         }
 
@@ -118,7 +109,6 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    #region 回合设置
     void BattleStart()
     {
         //单位行动顺序计算
@@ -127,7 +117,7 @@ public class BattleManager : MonoBehaviour
         CreateHeroUnits(0);
         CreateHeroUnits(1);
 
-        RoundStart();
+        roundManager.RoundStart();
     }
 
     void BattleEnd()
@@ -135,123 +125,6 @@ public class BattleManager : MonoBehaviour
         units[0].Clear();
         units[1].Clear();
     }
-
-    void RoundStart()
-    {
-        zyf.Out("轮开始");
-        //轮开始效果触发
-
-        actionUnitNum = actionUnits.Count;
-        waitingUnitNum = 0;
-
-        TurnStart();
-    }
-
-    void RoundEnd()
-    {
-        zyf.Out("轮结束");
-
-        RoundStart();
-    }
-
-    void TurnStart()
-    {
-        zyf.Out("回合开始");
-
-        //选出速度最大单位
-
-        GameObject go;
-
-        if (actionUnitNum == 0)
-        {
-            go = actionUnits.First.Value;
-        }
-        else
-        {
-            int index = actionUnits.Count - actionUnitNum;
-
-            LinkedListNode<GameObject> node = actionUnits.First;
-
-            for (int i = 0; i < index; i++)
-            {
-                node = node.Next;
-
-            }
-
-            go = node.Value;
-            actionUnitNum--;
-        }
-
-        ActionStart(go, 0);
-    }
-
-    void TurnEnd()
-    {
-        zyf.Out("回合结束");
-
-        //胜负判定，如果有一方全灭
-        if(units[0].Count == units[1].Count)
-        {
-            print("平局");
-        }
-        else if(units[0].Count == 0)
-        {
-            print("玩家1获胜");
-        }
-        else{
-            print("玩家0获胜");
-
-        }
-            
-
-        //print("剩余可行动单位数：" + actionUnits.Count); 
-
-        if (actionUnitNum > 0)
-        {
-            TurnStart();
-        }
-        else
-        {
-            if (waitingUnitNum > 0)
-            {
-                actionUnits = waitingUnits;
-
-                //设置不可等待
-
-                TurnStart();
-            }
-            else
-            {
-                RoundEnd();
-            }
-        }
-    }
-
-    void ActionStart(GameObject _unit, int _player)
-    {
-        //非AI
-        print(_unit.name + "当前可以行动");
-
-        currentActionUnit = _unit;
-
-        currentActionUnit.GetComponent<Unit>().ChangeOutline(3);
-
-        foreach (Node item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), 
-                                                  _unit.GetComponent<Unit>().type.speed))
-        {
-            map.ToggleHighlightNode(map.GetNodeUnit(item));
-        }
-    }
-
-    public void ActionEnd()
-    {
-        //士气高涨
-        currentActionUnit.GetComponent<Unit>().ChangeOutline();
-
-
-        TurnEnd();
-    }
-    #endregion
 
     void AddUnitToActionList(ref LinkedList<GameObject> _list, GameObject _unit, bool _desc = true)
     {
@@ -413,6 +286,33 @@ public class BattleManager : MonoBehaviour
             targetFlip = false;
 
             target.GetComponent<Unit>().Flip();
+        }
+    }
+
+    public void CheckVictoryOrDeath()
+    {
+        //胜负判定，如果有一方全灭
+        if (units[0].Count == units[1].Count)
+        {
+            print("平局");
+        }
+        else if (units[0].Count == 0)
+        {
+            print("玩家1获胜");
+        }
+        else
+        {
+            print("玩家0获胜");
+
+        }
+    }
+
+    public void HighlightUnitNearNode(GameObject _unit)
+    {
+        foreach (Node item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit),
+                                           _unit.GetComponent<Unit>().type.speed))
+        {
+            map.ToggleHighlightNode(map.GetNodeUnit(item));
         }
     }
 }

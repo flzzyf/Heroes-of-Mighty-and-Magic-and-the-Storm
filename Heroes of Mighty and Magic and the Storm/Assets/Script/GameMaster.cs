@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour {
 
-  // <editor-fold> qwe
-
-  // <editor-fold>
-
     #region Singleton
     [HideInInspector]
     public static GameMaster instance;
@@ -50,14 +46,15 @@ public class GameMaster : MonoBehaviour {
     void Start ()
     {
         Cursor.visible = false;
+
 	}
 
 	void Update ()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //UnitInteract(go[0], go[1]);
-            //print(DamageRate(2, 1));
+            CustomCursor.instance.ChangeCursor("Sword");
+
         }
 
         if (Input.GetKeyDown(KeyCode.F))

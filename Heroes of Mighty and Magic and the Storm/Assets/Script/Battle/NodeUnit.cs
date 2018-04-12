@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class NodeUnit : MonoBehaviour
 {
-
     public SpriteRenderer bg;
     [HideInInspector]
     public Node node;
     [HideInInspector]
     public GameObject unit;
 
-    public Color[] backgroundStateColor = new Color[3];
-
     int backgroundState;
+
+    [HideInInspector]
+    public int nodeType = 0;    //节点类型：0无，1障碍，2单位
 
     private void OnMouseEnter()
     {
@@ -45,7 +45,7 @@ public class NodeUnit : MonoBehaviour
         if (_state != 2)
             backgroundState = _state;
         
-        bg.color = backgroundStateColor[_state];
+        bg.color = BattleManager.instance.backgroundStateColor[_state];
     }
 
     private void OnMouseDown()

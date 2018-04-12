@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class zyf
 {
+    public enum Type {tip, warning};
+
     static string[] type = { "【提示】" , "【警告】"};
 
     static string[] color = { "green", "red" };
 
-    public static void Out(string _msg, int _type = 0)
+    public static void Out(string _msg, Type _type = Type.tip)
     {
-        Debug.Log("<color=" + color[_type] + ">" + type[_type] + _msg + "</color>");
+        Debug.Log("<color=" + color[(int)_type] + ">" + type[(int)_type] + _msg + "</color>");
     }
 }
