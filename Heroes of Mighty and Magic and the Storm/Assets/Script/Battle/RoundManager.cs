@@ -40,6 +40,8 @@ public class RoundManager {
             GameObject go = battleManager.unitActionList.First.Value;
             battleManager.unitActionList.Remove(go);
 
+            battleManager.currentActionUnit = go;
+
             ActionStart(go, 0);
         }
         else{
@@ -70,7 +72,7 @@ public class RoundManager {
 
         battleManager.currentActionUnit = _unit;
 
-        _unit.GetComponent<Unit>().ChangeOutline(3);
+        _unit.GetComponent<Unit>().ChangeOutline(5);
 
         int speed = _unit.GetComponent<Unit>().type.speed;
         List<Node> reachableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 0);

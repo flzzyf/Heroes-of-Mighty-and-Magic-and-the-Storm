@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class MovementManager
+public class MovementManager : MonoBehaviour
 {
     BattleManager battleManager;
     Map_HOMMS map;
@@ -19,10 +19,11 @@ public class MovementManager
 
     public event EventHandler MoveComplete;
 
-    public MovementManager()
+
+    private void Start()
     {
-        battleManager = BattleManager.instance;
-        map = battleManager.map;
+        battleManager = GetComponent<BattleManager>();
+        map = GetComponent<Map_HOMMS>();
     }
 
     public void MoveUnit(GameObject _unit, List<Node> _path)
@@ -39,11 +40,13 @@ public class MovementManager
         GetNextWayPoint();
         GameMaster.instance.Pause();
 
+        StartCoroutine(Moving());
+
     }
 
-    void FixedUpdate()
+    IEnumerator Moving()
     {
-        if (movingUnit != null)
+        while (movingUnit != null)
         {
             //朝下个点方向
             Vector2 dir = targetWayPoint - movingUnit.transform.position;
@@ -54,6 +57,8 @@ public class MovementManager
             {
                 ReachPoint();
             }
+
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
         }
     }
 

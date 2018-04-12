@@ -62,8 +62,9 @@ public class BattleManager : MonoBehaviour
     {
         map = GetComponent<Map_HOMMS>();
         roundManager = new RoundManager();
-        movementManager = new MovementManager();
+        movementManager = GetComponent<MovementManager>();
 
+        BattleStart();
 
     }
 

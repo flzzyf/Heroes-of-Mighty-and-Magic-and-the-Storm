@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 1164096198}
   - component: {fileID: 1164096196}
   - component: {fileID: 1164096199}
+  - component: {fileID: 1164096200}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1194,7 +1195,6 @@ MonoBehaviour:
   - {fileID: 1149748850}
   map: {fileID: 0}
   currentActionUnit: {fileID: 0}
-  movingUnit: {fileID: 0}
   mouseNode: {fileID: 0}
   cursorSword: {fileID: 1533228945}
   heroPoint:
@@ -1202,7 +1202,10 @@ MonoBehaviour:
   - {fileID: 1134430054}
   heroUnitPrefab: {fileID: 1979650282545042, guid: 03d4db01882b8403c9d1dd0f03262b5e,
     type: 2}
-  unitSpeed: 8
+  backgroundStateColor:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0.328}
+  - {r: 0, g: 0, b: 0, a: 0.572}
 --- !u!114 &1164096198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,6 +1236,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e57f4bde0694b13892b02ffb95ecd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1164096200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164096192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c635bf347cce148569ff6708348f37b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitSpeed: 8
 --- !u!1 &1287021806
 GameObject:
   m_ObjectHideFlags: 0
