@@ -75,6 +75,7 @@ public class RoundManager {
         _unit.GetComponent<Unit>().ChangeOutline(5);
 
         int speed = _unit.GetComponent<Unit>().type.speed;
+        //可抵达节点
         List<Node> reachableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 0);
 
         foreach (Node item in reachableNodes)
@@ -82,7 +83,16 @@ public class RoundManager {
             map.ToggleHighlightNode(map.GetNodeUnit(item));
         }
 
-        List<Node> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 2);
+        battleManager.reachableNodes = reachableNodes;
+
+        List<Node> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed + 1, 2);
+
+        foreach (Node item in attackableNodes)
+        {
+            //map.ToggleHighlightNode(map.GetNodeUnit(item));
+        }
+
+        battleManager.attackableNodes = attackableNodes;
 
 
     }

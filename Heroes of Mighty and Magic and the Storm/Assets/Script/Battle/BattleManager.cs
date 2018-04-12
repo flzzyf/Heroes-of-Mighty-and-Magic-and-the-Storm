@@ -58,6 +58,11 @@ public class BattleManager : MonoBehaviour
 
     MovementManager movementManager;
 
+    [HideInInspector]
+    public List<Node> reachableNodes = new List<Node>();
+    [HideInInspector]
+    public List<Node> attackableNodes = new List<Node>();
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
@@ -181,6 +186,7 @@ public class BattleManager : MonoBehaviour
             go.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
             //设置单位所在节点不可通行
             map.GetNode(go.GetComponent<Unit>().nodeUnit).walkable = false;
+            go.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().nodeType = 2;
 
             AddUnitToActionList(ref unitActionOrder, go);
 
@@ -233,12 +239,10 @@ public class BattleManager : MonoBehaviour
     {
         List<Node> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
 
-        for (int i = 0; i < nodes.Count; i++)
+        for (int i = nodes.Count - 1; i >= 0 ; i--)
         {
-            if(map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
-            {
+            if (map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
                 nodes.Remove(nodes[i]);
-            }
         }
 
         return nodes;

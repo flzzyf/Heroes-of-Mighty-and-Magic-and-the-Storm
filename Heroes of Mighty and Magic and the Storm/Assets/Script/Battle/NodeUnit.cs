@@ -50,11 +50,16 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseDown()
     {
-        BattleManager.instance.map.HideAllNode();
+        if(BattleManager.instance.reachableNodes.Contains(node))
+        {
+            //可到达
+            BattleManager.instance.map.HideAllNode();
 
-        AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
-                                    GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
-        BattleManager.instance.StartMoving();
+            AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
+                                        GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
+            BattleManager.instance.StartMoving();
+        }
+
 
     }
 }
