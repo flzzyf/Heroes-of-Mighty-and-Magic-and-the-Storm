@@ -546,7 +546,7 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psp2ScriptOptimizationLevel: 0
   psmSplashimage: {fileID: 0}
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 8eb3e8a6d35ed434cb24fe76722e640b,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: b3ed0586f4ce7474a883646ea24db67f,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
