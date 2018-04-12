@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class RoundManager : MonoBehaviour {
+public class RoundManager {
 
     BattleManager battleManager;
     Map_HOMMS map;
 
-    private void Start()
+    public RoundManager()
     {
         battleManager = BattleManager.instance;
         map = battleManager.map;
@@ -17,6 +18,7 @@ public class RoundManager : MonoBehaviour {
     {
         zyf.Out("轮开始");
         //轮开始效果触发
+
         battleManager.unitActionList = new LinkedList<GameObject>(battleManager.unitActionOrder);
 
         TurnStart();
@@ -65,18 +67,25 @@ public class RoundManager : MonoBehaviour {
     void ActionStart(GameObject _unit, int _player)
     {
         //非AI
-        print(_unit.name + "当前可以行动");
 
         battleManager.currentActionUnit = _unit;
 
         _unit.GetComponent<Unit>().ChangeOutline(3);
 
-        List<Node> reachableNodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit),
-                                                         _unit.GetComponent<Unit>().type.speed);
- 
+        int speed = _unit.GetComponent<Unit>().type.speed;
+        List<Node> reachableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 0);
+
+        foreach (Node item in reachableNodes)
+        {
+            map.ToggleHighlightNode(map.GetNodeUnit(item));
+        }
+
+        List<Node> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 2);
+
+
     }
 
-    public void ActionEnd()
+    public void ActionEnd(object sender, EventArgs e)
     {
         //士气高涨
 

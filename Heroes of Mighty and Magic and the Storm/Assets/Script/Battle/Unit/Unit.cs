@@ -66,7 +66,7 @@ public class Unit : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        BattleManager.instance.ActionEnd();
+        //BattleManager.instance.ActionEnd();
     }
 
     public void InitUnitType()

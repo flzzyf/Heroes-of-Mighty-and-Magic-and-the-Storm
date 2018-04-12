@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BattleManager : MonoBehaviour
 {
@@ -32,12 +33,7 @@ public class BattleManager : MonoBehaviour
 
     [HideInInspector]
     public GameObject currentActionUnit;
-    [HideInInspector]
-    public GameObject movingUnit;
-    List<Node> path;
-    int currentWayPointIndex = 0;
-    Vector3 targetWayPoint;
-    float speed;
+
 
     int actionPlayer;
 
@@ -55,18 +51,19 @@ public class BattleManager : MonoBehaviour
 
     public GameObject heroUnitPrefab;
 
-    public float unitSpeed = 8;
 
     public Color[] backgroundStateColor = new Color[3];
 
     RoundManager roundManager;
 
+    MovementManager movementManager;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
         roundManager = new RoundManager();
+        movementManager = new MovementManager();
 
-        BattleStart();
 
     }
 
@@ -74,7 +71,8 @@ public class BattleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            UnitActionManager.instance.Attack(units[0][0], units[1][0]);
+            BattleStart();
+
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -112,7 +110,9 @@ public class BattleManager : MonoBehaviour
     void BattleStart()
     {
         //单位行动顺序计算
+
         //战斗开始效果触发
+
         battleUnitParent = new GameObject("battleUnits");
         CreateHeroUnits(0);
         CreateHeroUnits(1);
@@ -181,89 +181,10 @@ public class BattleManager : MonoBehaviour
             //设置单位所在节点不可通行
             map.GetNode(go.GetComponent<Unit>().nodeUnit).walkable = false;
 
-            AddUnitToActionList(ref actionUnits, go);
+            AddUnitToActionList(ref unitActionOrder, go);
 
         }
     }
-
-    #region 移动单位相关
-    public void MoveUnit(GameObject _unit = null, List<Node> _path = null)
-    {
-        movingUnit = currentActionUnit;
-        path = new List<Node>(map.path);
-        speed = movingUnit.GetComponent<Unit>().speed;
-
-        movingUnit.GetComponent<Unit>().PlayAnimation("move", 1);
-
-        //将先前的格子设为无人
-        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
-        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().unit = null;
-
-        GetNextWayPoint();
-        GameMaster.instance.Pause();
-    }
-
-    void FixedUpdate()
-    {
-        if (movingUnit != null)
-        {
-            //朝下个点方向
-            Vector2 dir = targetWayPoint - movingUnit.transform.position;
-            //移动
-            movingUnit.transform.Translate(dir.normalized * unitSpeed * Time.fixedDeltaTime, Space.World);
-            //抵达
-            if (dir.magnitude <= speed * Time.fixedDeltaTime)
-            {
-                ReachPoint();
-            }
-        }
-    }
-
-    void ReachPoint()
-    {
-        if (currentWayPointIndex < path.Count - 1)
-        {
-            currentWayPointIndex++;
-            GetNextWayPoint();
-
-        }
-        else
-        {
-            ReachTarget();
-        }
-
-    }
-
-    void ReachTarget()
-    {
-        movingUnit.GetComponent<Unit>().PlayAnimation("move", 0);
-
-        //进入新格子
-        Node currentNode = path[currentWayPointIndex];
-        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node = currentNode;
-        movingUnit.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(currentNode);
-        map.GetNodeUnit(currentNode).GetComponent<NodeUnit>().unit = movingUnit;
-        currentNode.walkable = false;
-
-        //重置移动单位信息
-        movingUnit = null;
-        currentWayPointIndex = 0;
-
-        path.Clear();
-        map.path.Clear();
-
-        GameMaster.instance.Unpause();
-
-        ActionEnd();
-    }
-
-    //获取下个路径点
-    void GetNextWayPoint()
-    {
-        targetWayPoint = map.GetNodeUnit(path[currentWayPointIndex]).transform.position;
-    }
-#endregion
-
 
     GameObject origin, target;
     bool targetFlip;
@@ -307,12 +228,26 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void HighlightUnitNearNode(GameObject _unit)
+    public List<Node> GetUnitNearbyNode(GameObject _unit, int _range, int _type)
     {
-        foreach (Node item in map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit),
-                                           _unit.GetComponent<Unit>().type.speed))
+        List<Node> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
+
+        for (int i = 0; i < nodes.Count; i++)
         {
-            map.ToggleHighlightNode(map.GetNodeUnit(item));
+            if(map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
+            {
+                nodes.Remove(nodes[i]);
+            }
         }
+
+        return nodes;
     }
+
+    public void StartMoving()
+    {
+        movementManager.MoveComplete += roundManager.ActionEnd;
+        movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
+
+    }
+
 }

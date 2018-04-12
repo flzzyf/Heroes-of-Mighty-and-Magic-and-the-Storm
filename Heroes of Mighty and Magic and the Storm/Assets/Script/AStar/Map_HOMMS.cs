@@ -84,7 +84,7 @@ public class Map_HOMMS : Map
         return list;
     }
 
-    public List<Node> GetNeighbourNode(Node _node, int _distance)
+    public List<Node> GetNeighbourNode(Node _node, int _range)
     {
         List<Node> list = new List<Node>();
         List<Node> openList = new List<Node>();
@@ -94,7 +94,7 @@ public class Map_HOMMS : Map
 
         Node it;
 
-        for (int i = 0; i < _distance; i++)
+        for (int i = 0; i < _range; i++)
         {
             int a = openList.Count;
             while(a-- > 0)
@@ -106,11 +106,12 @@ public class Map_HOMMS : Map
 
                 foreach (Node item in GetNeighbourNode(it))
                 {
+                    /*
                     if(!item.walkable)
                     {
                         closeList.Add(item);
                         continue;
-                    }
+                    }*/
 
                     if(!closeList.Contains(item) && !openList.Contains(item))
                     {
