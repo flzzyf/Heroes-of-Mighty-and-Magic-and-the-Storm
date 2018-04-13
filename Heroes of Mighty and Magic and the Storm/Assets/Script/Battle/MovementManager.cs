@@ -5,7 +5,6 @@ using System;
 
 public class MovementManager : MonoBehaviour
 {
-    BattleManager battleManager;
     Map_HOMMS map;
 
     GameObject movingUnit;
@@ -22,7 +21,6 @@ public class MovementManager : MonoBehaviour
 
     private void Start()
     {
-        battleManager = GetComponent<BattleManager>();
         map = GetComponent<Map_HOMMS>();
     }
 

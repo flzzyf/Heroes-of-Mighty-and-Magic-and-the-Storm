@@ -81,19 +81,28 @@ public class RoundManager {
         foreach (Node item in reachableNodes)
         {
             map.ToggleHighlightNode(map.GetNodeUnit(item));
+
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 1;
         }
 
-        battleManager.reachableNodes = reachableNodes;
 
         List<Node> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed + 1, 2);
 
-        foreach (Node item in attackableNodes)
+        for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
-            //map.ToggleHighlightNode(map.GetNodeUnit(item));
+            if(battleManager.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit, _unit))
+            {
+                attackableNodes.RemoveAt(i);
+            }
         }
 
-        battleManager.attackableNodes = attackableNodes;
+        foreach (Node item in attackableNodes)
+        {
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 2;
+        }
 
+        battleManager.reachableNodes = reachableNodes;
+        battleManager.attackableNodes = attackableNodes;
 
     }
 
@@ -101,8 +110,12 @@ public class RoundManager {
     {
         //士气高涨
 
+        //重置可到达和可攻击节点
+        battleManager.ResetAbleNodes();
+
         battleManager.currentActionUnit.GetComponent<Unit>().ChangeOutline();
 
         TurnEnd();
     }
+
 }

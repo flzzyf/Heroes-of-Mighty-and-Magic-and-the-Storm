@@ -27,6 +27,8 @@ public class Unit : MonoBehaviour {
         {"move", "walking"}, {"attack", "Attack"}
     };
 
+    [HideInInspector]
+    public int player;
 
 	void Start () 
     {
@@ -34,40 +36,6 @@ public class Unit : MonoBehaviour {
             InitUnitType();
 
 	}
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            TakeDamage(100);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            animator.SetBool("walking", true);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            animator.SetBool("walking", false);
-        }
-
-    }
-
-    private void OnMouseEnter()
-    {
-        GameMaster.instance.ChangeMouseCursor(1);
-
-    }
-
-    private void OnMouseExit()
-    {
-        GameMaster.instance.ChangeMouseCursor();
-
-    }
-
-    private void OnMouseDown()
-    {
-        //BattleManager.instance.ActionEnd();
-    }
 
     public void InitUnitType()
     {

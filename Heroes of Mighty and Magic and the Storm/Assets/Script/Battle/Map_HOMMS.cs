@@ -140,7 +140,7 @@ public class Map_HOMMS : Map
         {
             path.Add(curNode);
 
-            GameObject go = BattleManager.instance.map.GetNodeUnit(curNode);
+            //GameObject go = BattleManager.instance.map.GetNodeUnit(curNode);
 
             curNode = curNode.parentNode;
         }

@@ -183,39 +183,44 @@ public class BattleManager : MonoBehaviour
             units[_hero].Add(go);
             go.transform.parent = battleUnitParent.transform;
 
-            go.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
-            //设置单位所在节点不可通行
-            map.GetNode(go.GetComponent<Unit>().nodeUnit).walkable = false;
-            go.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().nodeType = 2;
+            go.GetComponent<Unit>().player = _hero;
+
+            GameObject nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
+            LinkNodeWithUnit(go,nodeUnit);
 
             AddUnitToActionList(ref unitActionOrder, go);
 
         }
     }
 
-    GameObject origin, target;
-    bool targetFlip;
-
-    void UnitInteract(GameObject _origin, GameObject _target)   //交互开始
+    void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
     {
-        origin = _origin;
-        target = _target;
-
-        _origin.GetComponent<Unit>().FaceTarget(_target);
-
-        targetFlip = _target.GetComponent<Unit>().FaceTarget(_origin);
-
-    }
-
-    void UnitInteractEnd()  //交互结束
-    {
-        if (targetFlip)
+        //取消与先前节点的链接
+        if(_unit.GetComponent<Unit>().nodeUnit != null)
         {
-            targetFlip = false;
-
-            target.GetComponent<Unit>().Flip();
+            UnlinkNodeWithUnit(_unit);
         }
+
+        _nodeUnit.GetComponent<NodeUnit>().nodeType = 2;
+        _nodeUnit.GetComponent<NodeUnit>().unit = _unit;
+
+        _unit.GetComponent<Unit>().nodeUnit = _nodeUnit;
+        map.GetNode(_nodeUnit).walkable = false;
+
     }
+
+    void UnlinkNodeWithUnit(GameObject _unit)
+    {
+        GameObject nodeUnit = _unit.GetComponent<Unit>().nodeUnit;
+
+        nodeUnit.GetComponent<NodeUnit>().nodeType = 0;
+        nodeUnit.GetComponent<NodeUnit>().unit = null;
+
+        _unit.GetComponent<Unit>().nodeUnit = null;
+        map.GetNode(nodeUnit).walkable = false;
+
+    }
+
 
     public void CheckVictoryOrDeath()
     {
@@ -255,4 +260,25 @@ public class BattleManager : MonoBehaviour
 
     }
 
+    public bool isSamePlayer(GameObject _u1, GameObject _u2)
+    {
+        return _u1.GetComponent<Unit>().player == _u2.GetComponent<Unit>().player;
+    }
+
+
+    public void ResetAbleNodes()
+    {
+        foreach (Node item in reachableNodes)
+        {
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 1;
+        }
+
+        foreach (Node item in attackableNodes)
+        {
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 1;
+        }
+
+        reachableNodes.Clear();
+        attackableNodes.Clear();
+    }
 }

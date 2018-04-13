@@ -14,25 +14,42 @@ public class NodeUnit : MonoBehaviour
 
     [HideInInspector]
     public int nodeType = 0;    //节点类型：0无，1障碍，2单位
+    public int targetType = 0;  //目标类型：0无，1可到达，2可攻击
 
     private void OnMouseEnter()
     {
-        /* 寻路
-        if(BattleManager.instance.movingUnit == null && !GameMaster.instance.isPause())
-        {
-            BattleManager.instance.map.HidePath();
-            AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
-                                    GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
-            //ToggleBackground(true);
-        }*/
-
-        //BattleManager.instance.mouseNode = gameObject;
-
         ToggleBackgroundState(2);
+
+        if (nodeType == 0)
+        {
+            if (targetType == 1)
+            {
+                //CustomCursor.instance.ChangeCursor("");
+            }
+        }
+        else if (nodeType == 1)
+        {
+            CustomCursor.instance.ChangeCursor("Stop");
+
+        }
+        else if(nodeType == 2)
+        {
+            if(targetType == 2)
+            {
+                CustomCursor.instance.ChangeCursor("Sword");
+
+            }
+            else
+            {
+                CustomCursor.instance.ChangeCursor("Enemy");
+            }
+        }
     }
 
     private void OnMouseExit()
     {
+        CustomCursor.instance.ChangeCursor();
+
         ToggleBackgroundState(backgroundState);
 
         BattleManager.instance.mouseNode = null;

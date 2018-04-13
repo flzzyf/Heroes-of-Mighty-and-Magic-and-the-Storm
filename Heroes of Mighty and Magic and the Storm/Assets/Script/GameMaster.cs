@@ -20,8 +20,6 @@ public class GameMaster : MonoBehaviour {
 
     public UnitType type;
 
-    public Texture2D[] mouseCursor;
-    Texture2D originMouseCursor;
     //----------------------
     public GameObject[] gog;
 
@@ -77,9 +75,4 @@ public class GameMaster : MonoBehaviour {
         return go;
     }
 
-    public void ChangeMouseCursor(int _index = 0)
-    {
-        Cursor.SetCursor(mouseCursor[_index], Vector2.zero, CursorMode.Auto);
-
-    }
 }

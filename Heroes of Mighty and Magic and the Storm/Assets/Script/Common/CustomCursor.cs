@@ -44,13 +44,14 @@ public class CustomCursor : MonoBehaviour
         transform.position = (Vector2)Input.mousePosition + offset;
 	}
 
-    public void ChangeCursor(string _name)
+    public void ChangeCursor(string _name = "Default")
     {
         for (int i = 0; i < cursors.Length; i++)
         {
-            currentCursor = cursors[i].cursorGO;
             cursors[i].cursorGO.SetActive(false);
         }
+
+        currentCursor = cursorDic[_name];
 
         cursorDic[_name].SetActive(true);
     }
