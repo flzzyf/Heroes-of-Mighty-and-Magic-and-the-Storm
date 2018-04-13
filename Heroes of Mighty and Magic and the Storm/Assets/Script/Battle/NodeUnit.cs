@@ -64,6 +64,7 @@ public class NodeUnit : MonoBehaviour
     }
 
     Vector2 previousMousePos;
+    Node targetNode;    //发动攻击应到达的节点
 
     private void OnMouseOver()
     {
@@ -86,10 +87,9 @@ public class NodeUnit : MonoBehaviour
             int arrowIndex = (int)angle / 60;
 
             //攻击方向上的格子存在，且可到达便可发起攻击。目前还没考虑多格单位
-            if(BattleManager.instance.map.GetNearbyOneNode(node, arrowIndex) != null &&
-               BattleManager.instance.map.GetNodeUnit(
-                   BattleManager.instance.map.GetNearbyOneNode(node, arrowIndex)).
-               GetComponent<NodeUnit>().targetType == 1)
+            targetNode = BattleManager.instance.map.GetNearbyOneNode(node, arrowIndex);
+            if(targetNode != null &&
+               BattleManager.instance.map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().targetType == 1)
             {
                 int arrowAngle = (arrowIndex * 60 + 210) % 360;
                 int arrowAngleFixed = 360 - arrowAngle;
@@ -118,16 +118,19 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(BattleManager.instance.reachableNodes.Contains(node))
+        if(targetNode != null)
         {
-            //可到达
-            BattleManager.instance.map.HideAllNode();
+            AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
+                                    GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, targetNode);
+            BattleManager.instance.StartMoving();
 
+        }
+        else if(targetType == 1)    //可到达
+        {
             AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
                                         GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
             BattleManager.instance.StartMoving();
         }
-
 
     }
 }

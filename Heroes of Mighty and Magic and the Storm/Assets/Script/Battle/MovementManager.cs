@@ -81,10 +81,8 @@ public class MovementManager : MonoBehaviour
 
         //进入新格子
         Node currentNode = path[currentWayPointIndex];
-        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node = currentNode;
-        movingUnit.GetComponent<Unit>().nodeUnit = map.GetNodeUnit(currentNode);
-        map.GetNodeUnit(currentNode).GetComponent<NodeUnit>().unit = movingUnit;
-        currentNode.walkable = false;
+
+        BattleManager.instance.LinkNodeWithUnit(movingUnit, map.GetNodeUnit(currentNode));
 
         //重置移动单位信息
         movingUnit = null;

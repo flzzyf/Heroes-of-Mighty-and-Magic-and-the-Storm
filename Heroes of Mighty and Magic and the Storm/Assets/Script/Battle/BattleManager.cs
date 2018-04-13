@@ -149,7 +149,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
+    public void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
     {
         //取消与先前节点的链接
         if(_unit.GetComponent<Unit>().nodeUnit != null)
@@ -211,6 +211,8 @@ public class BattleManager : MonoBehaviour
 
     public void StartMoving()
     {
+        map.HideAllNode();
+
         movementManager.MoveComplete += roundManager.ActionEnd;
         movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
 
@@ -226,12 +228,12 @@ public class BattleManager : MonoBehaviour
     {
         foreach (Node item in reachableNodes)
         {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 1;
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
         }
 
         foreach (Node item in attackableNodes)
         {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 1;
+            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
         }
 
         reachableNodes.Clear();
