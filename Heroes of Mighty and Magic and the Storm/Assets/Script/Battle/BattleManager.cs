@@ -28,6 +28,16 @@ public class BattleManager : MonoBehaviour
 
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
+    List<int>[] playerUnitPos = { 
+        new List<int>{3},
+        new List<int>{1, 5},
+        new List<int>{1, 3, 5},
+        new List<int>{1, 2, 4, 5},
+        new List<int>{1, 2, 3, 4, 5},
+        new List<int>{0, 1, 2, 3, 4, 5},
+        new List<int>{0, 1, 2, 3, 4, 5, 6}
+    };
+
     [HideInInspector]
     public List<GameObject>[] units = { new List<GameObject>(), new List<GameObject>() };
 
@@ -132,8 +142,12 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < hero.pocketUnits.Length; i++)
         {
             int x = (_hero == 0) ? 0 : map.mapSizeX - 1;
+
+            int playerUnitPosIndex = playerUnitPos[hero.pocketUnits.Length - 1][i];
+            int unitPosIndex = unitPos[playerUnitPosIndex];
+
             GameObject go = GameMaster.instance.CreateUnit(hero.pocketUnits[i].type,
-                map.nodeUnits[x, unitPos[i], 0].transform.position,
+                                                           map.nodeUnits[x, unitPosIndex, 0].transform.position,
                                            hero.pocketUnits[i].num, _hero);
 
             units[_hero].Add(go);
@@ -141,7 +155,7 @@ public class BattleManager : MonoBehaviour
 
             go.GetComponent<Unit>().player = _hero;
 
-            GameObject nodeUnit = map.GetNodeUnit(new Vector3(x, unitPos[i], 0));
+            GameObject nodeUnit = map.GetNodeUnit(new Vector3(x, unitPosIndex, 0));
             LinkNodeWithUnit(go,nodeUnit);
 
             AddUnitToActionList(ref unitActionOrder, go);
