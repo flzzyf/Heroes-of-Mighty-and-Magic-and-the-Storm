@@ -36,12 +36,19 @@ public class NodeUnit : MonoBehaviour
         {
             if(targetType == 2)
             {
-                CustomCursor.instance.ChangeCursor("Sword");
+                //CustomCursor.instance.ChangeCursor("Sword");
 
             }
             else
             {
-                CustomCursor.instance.ChangeCursor("Enemy");
+                if(BattleManager.instance.isSamePlayer(unit, BattleManager.instance.currentActionUnit))
+                {
+                    CustomCursor.instance.ChangeCursor("Friend");
+                }
+                else
+                {
+                    CustomCursor.instance.ChangeCursor("Enemy");
+                }
             }
         }
     }
@@ -54,6 +61,50 @@ public class NodeUnit : MonoBehaviour
 
         BattleManager.instance.mouseNode = null;
 
+    }
+
+    Vector2 previousMousePos;
+
+    private void OnMouseOver()
+    {
+        if(targetType == 2 && previousMousePos != (Vector2)Input.mousePosition)
+        {
+            previousMousePos = Input.mousePosition;
+
+            Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePoint.z = 0;
+
+            Vector3 dir = mousePoint - transform.position;
+            dir.y -= 0.9f;
+            //计算鼠标和节点角度
+            float angle;
+            if (dir.x > 0)
+                angle = Vector3.Angle(dir, Vector3.up);
+            else
+                angle = 360 - Vector3.Angle(dir, Vector3.up);
+            //计算箭头角度
+            int arrowIndex = (int)angle / 60;
+
+            //攻击方向上的格子存在，且可到达便可发起攻击。目前还没考虑多格单位
+            if(BattleManager.instance.map.GetNearbyOneNode(node, arrowIndex) != null &&
+               BattleManager.instance.map.GetNodeUnit(
+                   BattleManager.instance.map.GetNearbyOneNode(node, arrowIndex)).
+               GetComponent<NodeUnit>().targetType == 1)
+            {
+                int arrowAngle = (arrowIndex * 60 + 210) % 360;
+                int arrowAngleFixed = 360 - arrowAngle;
+
+                CustomCursor.instance.ChangeCursor("Sword");
+
+                CustomCursor.instance.ChangeCursorAngle(arrowAngleFixed);
+            }
+            else
+            {
+                CustomCursor.instance.ChangeCursor("Enemy");
+
+            }
+
+        }
     }
 
     //切换背景状态（0不可见，1可行走，2鼠标进入）

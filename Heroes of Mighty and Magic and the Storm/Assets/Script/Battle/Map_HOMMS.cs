@@ -63,25 +63,33 @@ public class Map_HOMMS : Map
         List<Node> list = new List<Node>();
 
         //周围六格，上下左右和左上左下
+        for (int i = 0; i < 6; i++)
+        {
+            Node node = GetNearbyOneNode(_node, i);
+
+            if(node != null)
+                list.Add(node);
+        }
+        return list;
+    }
+
+    public Node GetNearbyOneNode(Node _node, int _index)
+    {
         int x = (int)_node.pos.x;
         int y = (int)_node.pos.y;
 
-        for (int i = 0; i < 6; i++)
-        {
-            int posX, posY;
+        int o = y % 2;  //判定奇偶序号的节点
 
-            int o = y % 2;
+        int posX = x + (int)neighbourNodeOffset[o, _index].x;
+        int posY = y + (int)neighbourNodeOffset[o, _index].y;
 
-            posX = x + (int)neighbourNodeOffset[o, i].x;
-            posY = y + (int)neighbourNodeOffset[o, i].y;
-
-            if (posX < mapSizeX && posX >= 0 &&
+        if (posX < mapSizeX && posX >= 0 &&
                 posY < mapSizeY && posY >= 0)
-            {
-                list.Add(nodes[posX, posY, 0]);
-            }
+        {
+            return nodes[posX, posY, 0];
         }
-        return list;
+
+        return null;
     }
 
     public List<Node> GetNeighbourNode(Node _node, int _range)

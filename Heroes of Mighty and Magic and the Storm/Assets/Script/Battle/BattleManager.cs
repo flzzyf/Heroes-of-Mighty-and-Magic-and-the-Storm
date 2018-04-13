@@ -42,10 +42,6 @@ public class BattleManager : MonoBehaviour
 
     GameObject battleUnitParent;
 
-    public GameObject cursorSword;
-
-    int cursorSwordAngleIndex;
-
     public GameObject[] heroPoint;
     GameObject[] heroes = new GameObject[2];
 
@@ -70,46 +66,6 @@ public class BattleManager : MonoBehaviour
         movementManager = GetComponent<MovementManager>();
 
         BattleStart();
-
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            BattleStart();
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            currentActionUnit.GetComponent<Unit>().PlayAnimation("attack");
-        }
-
-        if(mouseNode != null)
-        {
-            //设置攻击箭头
-
-            Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePoint.z = 0;
-
-            Vector3 dir = mousePoint - mouseNode.transform.position;
-            dir.y -= 0.9f;
-            //计算鼠标角度
-            float angle;
-            if (dir.x > 0)
-                angle = Vector3.Angle(dir, Vector3.up);
-            else
-                angle = 360 - Vector3.Angle(dir, Vector3.up);
-            //计算箭头角度
-            int arrowIndex = (int)angle / 60;
-            cursorSwordAngleIndex = arrowIndex;
-
-            int arrowAngle = (arrowIndex * 60 + 210) % 360;
-            int arrowAngleFixed = 360 - arrowAngle;
-
-            cursorSword.transform.rotation = Quaternion.AngleAxis(360 - arrowAngleFixed, Vector3.forward);
-        }
 
     }
 
