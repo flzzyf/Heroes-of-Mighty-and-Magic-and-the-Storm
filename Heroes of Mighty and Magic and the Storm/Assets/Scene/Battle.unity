@@ -1328,7 +1328,6 @@ MonoBehaviour:
   map: {fileID: 0}
   currentActionUnit: {fileID: 0}
   mouseNode: {fileID: 0}
-  cursorSword: {fileID: 1533228945}
   heroPoint:
   - {fileID: 443249518}
   - {fileID: 1134430054}
