@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UnitActionManager : MonoBehaviour 
 {
@@ -16,10 +17,29 @@ public class UnitActionManager : MonoBehaviour
     }
     #endregion
 
+    GameObject attacker, defender;
+
     public void Attack(GameObject _origin, GameObject _target)
     {
-        Unit origin = _origin.GetComponent<Unit>();
-        Unit target = _target.GetComponent<Unit>();
+        attacker = _origin;
+        defender = _target;
+
+        StartCoroutine(AttackStart(_origin, _target));
+
+    }
+
+    IEnumerator AttackStart(GameObject _origin, GameObject _target)
+    {
+        UnitInteract(_origin, _target);
+        yield return new WaitForSeconds(1);
+
+        _origin.GetComponent<Unit>().PlayAnimation("attack");
+    }
+
+    void wtf()
+    {
+        Unit origin = attacker.GetComponent<Unit>();
+        Unit target = defender.GetComponent<Unit>();
 
         int damage = Random.Range((int)origin.damage.x, (int)origin.damage.y);
         //print("随机初始伤害：" + damage);
@@ -29,6 +49,12 @@ public class UnitActionManager : MonoBehaviour
         //print("伤害倍率：" + damageRate);
         //print("加上伤害倍率：" + damage);
         target.TakeDamage(damage);
+    }
+
+    IEnumerator Wait(UnityAction action)
+    {
+        yield return new WaitForSeconds(1);
+        action.Invoke();
     }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算
@@ -43,28 +69,26 @@ public class UnitActionManager : MonoBehaviour
     }
 
 
-    GameObject origin, target;
-    bool targetFlip;
-
     void UnitInteract(GameObject _origin, GameObject _target)   //交互开始
     {
-        origin = _origin;
-        target = _target;
+        attacker = _origin;
+        defender = _target;
 
         _origin.GetComponent<Unit>().FaceTarget(_target);
 
-        targetFlip = _target.GetComponent<Unit>().FaceTarget(_origin);
+        _target.GetComponent<Unit>().FaceTarget(_origin);
 
     }
 
     void UnitInteractEnd()  //交互结束
     {
-        if (targetFlip)
-        {
-            targetFlip = false;
-
-            target.GetComponent<Unit>().Flip();
-        }
+        RestoreFacing(attacker);
+        RestoreFacing(defender);
+    }
+    //恢复单位朝向，根据其所属玩家方。进攻方0右，防守方1左
+    void RestoreFacing(GameObject _unit)
+    {
+        _unit.GetComponent<Unit>().RestoreFacing();
     }
 
 }

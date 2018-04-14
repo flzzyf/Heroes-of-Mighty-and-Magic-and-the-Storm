@@ -72,7 +72,7 @@ public class RoundManager {
 
         battleManager.currentActionUnit = _unit;
 
-        _unit.GetComponent<Unit>().ChangeOutline(5);
+        _unit.GetComponent<Unit>().OutlineFlashStart();
 
         int speed = _unit.GetComponent<Unit>().type.speed;
         //可抵达节点
@@ -113,7 +113,7 @@ public class RoundManager {
         //重置可到达和可攻击节点
         battleManager.ResetAbleNodes();
 
-        battleManager.currentActionUnit.GetComponent<Unit>().ChangeOutline();
+        battleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
         TurnEnd();
     }

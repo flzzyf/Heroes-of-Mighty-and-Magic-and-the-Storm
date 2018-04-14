@@ -186,6 +186,9 @@ MonoBehaviour:
   damage: {x: 0, y: 0}
   nodeUnit: {fileID: 0}
   player: 0
+  outlineFlashRangeMin: 0.244
+  outlineFlashRangeMax: 0.731
+  outlineFlashSpeed: 1
 --- !u!114 &114424747403416192
 MonoBehaviour:
   m_ObjectHideFlags: 1

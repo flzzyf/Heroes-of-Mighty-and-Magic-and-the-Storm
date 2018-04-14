@@ -30,6 +30,14 @@ public class Unit : MonoBehaviour {
     [HideInInspector]
     public int player;
 
+    [Range(0, 1)]
+    public float outlineFlashRangeMin;
+    [Range(0, 1)]
+    public float outlineFlashRangeMax;
+    bool outlineFlashing;
+    bool fading;
+    public float outlineFlashSpeed = 1;
+
 	void Start () 
     {
         if(type != null)
@@ -37,7 +45,29 @@ public class Unit : MonoBehaviour {
 
 	}
 
-    public void InitUnitType()
+	private void Update()
+	{
+        if(outlineFlashing)
+        {
+            Color color = sprite.material.GetColor("_Color");
+
+            float alpha = color.a;
+
+            print(alpha);
+
+            if(alpha > outlineFlashRangeMax || alpha < outlineFlashRangeMin)
+            {
+                alpha = Mathf.Clamp(alpha, outlineFlashRangeMin, outlineFlashRangeMax);
+
+                fading = !fading;
+            }
+
+            int sign = fading ? -1 : 1;
+            ChangeOutline(alpha + sign * outlineFlashSpeed * Time.deltaTime);
+        }
+	}
+
+	public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
 
@@ -54,7 +84,15 @@ public class Unit : MonoBehaviour {
         facing *= -1;
     }
 
-    public bool FaceTarget(GameObject _target)
+    public void RestoreFacing()
+    {
+        int playerFacing = player == 0 ? 1 : -1;
+
+        if (playerFacing != facing)
+            Flip();
+    }
+
+    public void FaceTarget(GameObject _target)
     {
         int targetInTheRight = (_target.transform.position.x > transform.position.x) ? 1 : -1;
 
@@ -62,9 +100,7 @@ public class Unit : MonoBehaviour {
         {
             Flip();
 
-            return true;    //转向了
         }
-        return false;
     }
 
     public void PlayAnimation(string _anim, int _value = -1)
@@ -137,7 +173,23 @@ public class Unit : MonoBehaviour {
 
     public void ChangeOutline(float _value = 0)
     {
-        sprite.material.SetFloat("_LineWidth", _value);
+        Color color = sprite.material.GetColor("_Color");
+        color.a = _value;
+        sprite.material.SetColor("_Color", color);
+    }
+
+    public void OutlineFlashStart()
+    {
+        outlineFlashing = true;
+        fading = true;
+        ChangeOutline(outlineFlashRangeMax);
+        //sprite.material.SetFloat("_LineWidth", 5);
+    }
+
+    public void OutlineFlashStop()
+    {
+        outlineFlashing = false;
+        ChangeOutline(0);
     }
 
 }

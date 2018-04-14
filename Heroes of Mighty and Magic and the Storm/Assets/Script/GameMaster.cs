@@ -51,13 +51,14 @@ public class GameMaster : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            CustomCursor.instance.ChangeCursor("Sword");
+            BattleManager.instance.units[0][0].GetComponent<Unit>().OutlineFlashStart();
 
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //UnitInteractEnd();
+            UnitActionManager.instance.Attack(BattleManager.instance.units[0][0], 
+                                              BattleManager.instance.units[1][0]);
 
         }
 	}
