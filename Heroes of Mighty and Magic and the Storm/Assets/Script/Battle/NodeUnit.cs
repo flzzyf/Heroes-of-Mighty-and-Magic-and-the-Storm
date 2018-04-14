@@ -27,7 +27,7 @@ public class NodeUnit : MonoBehaviour
         {
             if (targetType == 1)
             {
-                //CustomCursor.instance.ChangeCursor("");
+                CustomCursor.instance.ChangeCursor("Reachable");
             }
         }
         else if (nodeType == 1)
