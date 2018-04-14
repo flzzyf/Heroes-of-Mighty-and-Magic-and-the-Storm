@@ -30,13 +30,8 @@ public class Unit : MonoBehaviour {
     [HideInInspector]
     public int player;
 
-    [Range(0, 1)]
-    public float outlineFlashRangeMin;
-    [Range(0, 1)]
-    public float outlineFlashRangeMax;
     bool outlineFlashing;
     bool fading;
-    public float outlineFlashSpeed = 1;
 
 	void Start () 
     {
@@ -53,17 +48,15 @@ public class Unit : MonoBehaviour {
 
             float alpha = color.a;
 
-            print(alpha);
-
-            if(alpha > outlineFlashRangeMax || alpha < outlineFlashRangeMin)
+            if(alpha > GameSettings.instance.outlineFlashRangeMax || alpha < GameSettings.instance.outlineFlashRangeMin)
             {
-                alpha = Mathf.Clamp(alpha, outlineFlashRangeMin, outlineFlashRangeMax);
+                alpha = Mathf.Clamp(alpha, GameSettings.instance.outlineFlashRangeMin, GameSettings.instance.outlineFlashRangeMax);
 
                 fading = !fading;
             }
 
             int sign = fading ? -1 : 1;
-            ChangeOutline(alpha + sign * outlineFlashSpeed * Time.deltaTime);
+            ChangeOutline(alpha + sign * GameSettings.instance.outlineFlashSpeed * Time.deltaTime);
         }
 	}
 
@@ -182,7 +175,7 @@ public class Unit : MonoBehaviour {
     {
         outlineFlashing = true;
         fading = true;
-        ChangeOutline(outlineFlashRangeMax);
+        ChangeOutline(GameSettings.instance.outlineFlashRangeMax);
         //sprite.material.SetFloat("_LineWidth", 5);
     }
 

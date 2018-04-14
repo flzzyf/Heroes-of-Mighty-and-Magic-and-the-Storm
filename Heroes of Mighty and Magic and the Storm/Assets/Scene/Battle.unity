@@ -1252,6 +1252,7 @@ GameObject:
   - component: {fileID: 1164096196}
   - component: {fileID: 1164096199}
   - component: {fileID: 1164096200}
+  - component: {fileID: 1164096201}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1379,6 +1380,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitSpeed: 12
+--- !u!114 &1164096201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1164096192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a981695f8d5fb4122913d630490e6fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineFlashRangeMin: 0.2
+  outlineFlashRangeMax: 0.7
+  outlineFlashSpeed: 1
 --- !u!1 &1287021806
 GameObject:
   m_ObjectHideFlags: 0

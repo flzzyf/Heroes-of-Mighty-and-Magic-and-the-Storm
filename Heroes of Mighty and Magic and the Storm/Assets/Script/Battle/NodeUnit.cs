@@ -18,6 +18,9 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (GameMaster.instance.isPause())
+            return;
+        
         ToggleBackgroundState(2);
 
         if (nodeType == 0)
@@ -68,6 +71,9 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseOver()
     {
+        if (GameMaster.instance.isPause())
+            return;
+        
         if(targetType == 2 && previousMousePos != (Vector2)Input.mousePosition)
         {
             previousMousePos = Input.mousePosition;
@@ -107,19 +113,13 @@ public class NodeUnit : MonoBehaviour
         }
     }
 
-    //切换背景状态（0不可见，1可行走，2鼠标进入）
-    public void ToggleBackgroundState(int _state = 0)
-    {
-        if (_state != 2)
-            backgroundState = _state;
-        
-        bg.color = BattleManager.instance.backgroundStateColor[_state];
-    }
-
     private void OnMouseDown()
     {
         if(targetNode != null)
         {
+            CustomCursor.instance.ChangeCursor();
+            ToggleBackgroundState();
+
             AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
                                     GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, targetNode);
             BattleManager.instance.StartMoving();
@@ -127,11 +127,24 @@ public class NodeUnit : MonoBehaviour
         }
         else if(targetType == 1)    //可到达
         {
+            CustomCursor.instance.ChangeCursor();
+            ToggleBackgroundState();
+
             AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
                                         GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, node);
             BattleManager.instance.StartMoving();
         }
 
     }
+
+    //切换背景状态（0不可见，1可行走，2鼠标进入）
+    public void ToggleBackgroundState(int _state = 0)
+    {
+        if (_state != 2)
+            backgroundState = _state;
+
+        bg.color = BattleManager.instance.backgroundStateColor[_state];
+    }
+
 }
 

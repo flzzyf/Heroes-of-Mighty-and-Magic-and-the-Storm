@@ -225,9 +225,11 @@ public class BattleManager : MonoBehaviour
 
     public void StartMoving()
     {
+        roundManager.ActionEnd();
+
         map.HideAllNode();
 
-        movementManager.MoveComplete += roundManager.ActionEnd;
+        movementManager.MoveComplete += roundManager.TurnEnd;
         movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
 
     }

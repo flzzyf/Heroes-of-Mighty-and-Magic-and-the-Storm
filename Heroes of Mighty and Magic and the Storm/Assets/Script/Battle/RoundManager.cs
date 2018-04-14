@@ -50,9 +50,11 @@ public class RoundManager {
 
     }
 
-    void TurnEnd()
+    public void TurnEnd(object sender = null, EventArgs e = null)
     {
         zyf.Out("回合结束");
+
+        //士气高涨
 
         //print("剩余可行动单位数：" + actionUnits.Count); 
 
@@ -106,16 +108,15 @@ public class RoundManager {
 
     }
 
-    public void ActionEnd(object sender, EventArgs e)
+    public void ActionEnd()
     {
-        //士气高涨
 
         //重置可到达和可攻击节点
         battleManager.ResetAbleNodes();
 
         battleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
-        TurnEnd();
+        //TurnEnd();
     }
 
 }
