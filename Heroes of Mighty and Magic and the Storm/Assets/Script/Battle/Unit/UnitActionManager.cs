@@ -51,6 +51,11 @@ public class UnitActionManager : MonoBehaviour
         target.TakeDamage(damage);
     }
 
+    public void Event_Attack()
+    {
+        print("Hit");
+    }
+
     IEnumerator Wait(UnityAction action)
     {
         yield return new WaitForSeconds(1);

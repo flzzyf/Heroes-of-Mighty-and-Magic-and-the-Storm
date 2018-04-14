@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4784053291960318}
   - component: {fileID: 212793218877718154}
   - component: {fileID: 95442364063284570}
+  - component: {fileID: 114730531692627096}
   m_Layer: 0
   m_Name: GFX
   m_TagString: Untagged
@@ -134,7 +135,7 @@ Animator:
   m_GameObject: {fileID: 1974640088765004}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 6e4dc350c5f0347ec825e4d680ee2d3e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -186,9 +187,6 @@ MonoBehaviour:
   damage: {x: 0, y: 0}
   nodeUnit: {fileID: 0}
   player: 0
-  outlineFlashRangeMin: 0.244
-  outlineFlashRangeMax: 0.731
-  outlineFlashSpeed: 1
 --- !u!114 &114424747403416192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,6 +236,32 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 5
+--- !u!114 &114730531692627096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974640088765004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 887d54ad4682e4557935534021d4088b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event_AttackHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: Event_Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: MyIntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114783892784201972
 MonoBehaviour:
   m_ObjectHideFlags: 1
