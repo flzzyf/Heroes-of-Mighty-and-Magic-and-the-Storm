@@ -50,7 +50,7 @@ public class RoundManager {
 
     }
 
-    public void TurnEnd(object sender = null, EventArgs e = null)
+    public void TurnEnd()
     {
         zyf.Out("回合结束");
 

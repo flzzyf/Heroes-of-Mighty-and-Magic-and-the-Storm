@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{6247C4BA-9119-3C0E-DC38-CF06CF387026}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Battle/Unit/UnitActionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Battle/BattleManager.cs">
     <Files>
-      <File FileName="Assets/Script/Battle/RoundManager.cs" Line="59" Column="26" />
-      <File FileName="Assets/Script/Battle/BattleManager.cs" Line="229" Column="9" />
-      <File FileName="Assets/Script/Common/AnimationEvent.cs" Line="15" Column="23" />
-      <File FileName="Assets/Script/Battle/Unit/UnitActionManager.cs" Line="79" Column="58" />
+      <File FileName="Assets/Script/Battle/Unit/UnitActionManager.cs" Line="31" Column="28" />
+      <File FileName="Assets/Script/Battle/Unit/Unit.cs" Line="114" Column="25" />
+      <File FileName="Assets/Script/Battle/BattleManager.cs" Line="242" Column="21" />
+      <File FileName="Assets/Script/Battle/NodeUnit.cs" Line="125" Column="57" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

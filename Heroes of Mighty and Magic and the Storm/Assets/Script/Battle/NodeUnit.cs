@@ -115,14 +115,14 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(targetNode != null)
+        if(targetNode != null)  //可攻击位置
         {
             CustomCursor.instance.ChangeCursor();
             ToggleBackgroundState();
 
             AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
                                     GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, targetNode);
-            BattleManager.instance.StartMoving();
+            BattleManager.instance.AttackMove(node);
 
         }
         else if(targetType == 1)    //可到达

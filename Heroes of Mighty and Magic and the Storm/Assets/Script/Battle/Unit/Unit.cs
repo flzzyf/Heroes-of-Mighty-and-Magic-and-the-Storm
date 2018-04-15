@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unit : MonoBehaviour {
+public class Unit : MonoBehaviour
+{
 
     public UnitType type;
 
@@ -27,28 +28,32 @@ public class Unit : MonoBehaviour {
         {"move", "walking"}, {"attack", "Attack"}
     };
 
+    Dictionary<string, int> animIndex = new Dictionary<string, int>{
+        {"move", 2}, {"attack", 1}
+    };
+
     [HideInInspector]
     public int player;
 
     bool outlineFlashing;
     bool fading;
 
-	void Start () 
+    void Start()
     {
-        if(type != null)
+        if (type != null)
             InitUnitType();
 
-	}
+    }
 
-	private void Update()
-	{
-        if(outlineFlashing)
+    private void Update()
+    {
+        if (outlineFlashing)
         {
             Color color = sprite.material.GetColor("_Color");
 
             float alpha = color.a;
 
-            if(alpha > GameSettings.instance.outlineFlashRangeMax || alpha < GameSettings.instance.outlineFlashRangeMin)
+            if (alpha > GameSettings.instance.outlineFlashRangeMax || alpha < GameSettings.instance.outlineFlashRangeMin)
             {
                 alpha = Mathf.Clamp(alpha, GameSettings.instance.outlineFlashRangeMin, GameSettings.instance.outlineFlashRangeMax);
 
@@ -58,11 +63,12 @@ public class Unit : MonoBehaviour {
             int sign = fading ? -1 : 1;
             ChangeOutline(alpha + sign * GameSettings.instance.outlineFlashSpeed * Time.deltaTime);
         }
-	}
+    }
 
-	public void InitUnitType()
+    public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
+
 
         speed = type.speed;
         att = type.att;
@@ -70,7 +76,7 @@ public class Unit : MonoBehaviour {
         damage = type.damage;
         currentHP = type.hp;
     }
-
+    #region Facing
     public void Flip()
     {
         sprite.flipX = !sprite.flipX;
@@ -85,15 +91,24 @@ public class Unit : MonoBehaviour {
             Flip();
     }
 
-    public void FaceTarget(GameObject _target)
+    public bool FaceTarget(GameObject _target)
     {
         int targetInTheRight = (_target.transform.position.x > transform.position.x) ? 1 : -1;
 
         if (targetInTheRight != facing)
         {
             Flip();
-
+            return true;
         }
+        return false;
+    }
+    #endregion
+
+    public float GetAnimationLength(string _anim)
+    {
+        int index = animIndex[_anim];
+
+        return animator.runtimeAnimatorController.animationClips[index].length;
     }
 
     public void PlayAnimation(string _anim, int _value = -1)
@@ -108,7 +123,7 @@ public class Unit : MonoBehaviour {
             animator.Play(animName[_anim]);
         }
     }
-
+    #region Number and HP
     public void ChangeNum(int _amount)
     {
         num = _amount;
@@ -136,7 +151,7 @@ public class Unit : MonoBehaviour {
 
     public void TakeDamage(int _amount)
     {
-        if(_amount > (num - 1) * type.hp + currentHP)
+        if (_amount > (num - 1) * type.hp + currentHP)
         {
             //死了
             Death();
@@ -144,7 +159,7 @@ public class Unit : MonoBehaviour {
             return;
         }
 
-        if(_amount < currentHP)
+        if (_amount < currentHP)
         {
             ChangeHp(_amount, -1);
         }
@@ -158,12 +173,13 @@ public class Unit : MonoBehaviour {
 
         print(currentHP);
     }
-
+    #endregion
     void Death()
     {
-        gameObject.SetActive(false); 
+        gameObject.SetActive(false);
     }
 
+    #region Outline
     public void ChangeOutline(float _value = 0)
     {
         Color color = sprite.material.GetColor("_Color");
@@ -184,5 +200,5 @@ public class Unit : MonoBehaviour {
         outlineFlashing = false;
         ChangeOutline(0);
     }
-
+#endregion
 }

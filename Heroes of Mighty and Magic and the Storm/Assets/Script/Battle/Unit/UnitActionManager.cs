@@ -19,6 +19,12 @@ public class UnitActionManager : MonoBehaviour
 
     GameObject attacker, defender;
 
+    bool waiting;
+    //攻击动画触发被击动画的时间点
+    public float animAttackHitPercent = 0.3f;
+
+    public float animTurnbackTime = 1f;
+
     public void Attack(GameObject _origin, GameObject _target)
     {
         attacker = _origin;
@@ -30,10 +36,21 @@ public class UnitActionManager : MonoBehaviour
 
     IEnumerator AttackStart(GameObject _origin, GameObject _target)
     {
-        UnitInteract(_origin, _target);
-        yield return new WaitForSeconds(1);
+        if(UnitInteract(_origin, _target))
+        {
+            yield return new WaitForSeconds(animTurnbackTime);
+        }
+
+        float attackTime = _origin.GetComponent<Unit>().GetAnimationLength("attack");
+        float hitTime = attackTime * animAttackHitPercent;
 
         _origin.GetComponent<Unit>().PlayAnimation("attack");
+        yield return new WaitForSeconds(hitTime);
+        print("被击");
+
+        yield return new WaitForSeconds(attackTime - hitTime);
+
+        print("攻击结束");
     }
 
     void wtf()
@@ -47,13 +64,18 @@ public class UnitActionManager : MonoBehaviour
         damage = (int)(damage * damageRate);
         damage *= origin.num;
         //print("伤害倍率：" + damageRate);
+
         //print("加上伤害倍率：" + damage);
         target.TakeDamage(damage);
     }
 
-    public void Event_Attack()
+
+    IEnumerator Wait()
     {
-        print("Hit");
+        waiting = true;
+        while(waiting)
+            yield return new WaitForSeconds(Time.deltaTime);
+        
     }
 
     IEnumerator Wait(UnityAction action)
@@ -74,14 +96,17 @@ public class UnitActionManager : MonoBehaviour
     }
 
 
-    void UnitInteract(GameObject _origin, GameObject _target)   //交互开始
+    bool UnitInteract(GameObject _origin, GameObject _target)   //交互开始
     {
         attacker = _origin;
         defender = _target;
 
-        _origin.GetComponent<Unit>().FaceTarget(_target);
-
-        _target.GetComponent<Unit>().FaceTarget(_origin);
+        if(_origin.GetComponent<Unit>().FaceTarget(_target) || _target.GetComponent<Unit>().FaceTarget(_origin))
+        {
+            //需要转身
+            return true;
+        }
+        return false;
 
     }
 

@@ -229,9 +229,33 @@ public class BattleManager : MonoBehaviour
 
         map.HideAllNode();
 
-        movementManager.MoveComplete += roundManager.TurnEnd;
+        movementManager.MoveComplete += TurnEnd;
         movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
 
+    }
+
+    void TurnEnd(object sender = null, EventArgs e = null)
+    {
+        roundManager.TurnEnd();
+    }
+
+    Node targetNode;
+
+    public void AttackMove(Node _node)
+    {
+        targetNode = _node;
+
+        roundManager.ActionEnd();
+
+        map.HideAllNode();
+
+        movementManager.MoveComplete += Attack;
+        movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
+    }
+
+    void Attack(object sender = null, EventArgs e = null)
+    {
+        UnitActionManager.instance.Attack(currentActionUnit, map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().unit);
     }
 
     public bool isSamePlayer(GameObject _u1, GameObject _u2)
