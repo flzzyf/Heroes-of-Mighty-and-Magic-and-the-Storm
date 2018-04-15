@@ -255,7 +255,8 @@ public class BattleManager : MonoBehaviour
 
     void Attack(object sender = null, EventArgs e = null)
     {
-        UnitActionManager.instance.Attack(currentActionUnit, map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().unit);
+        UnitActionManager.instance.Attack(currentActionUnit.GetComponent<Unit>(), 
+                                          map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().unit.GetComponent<Unit>());
     }
 
     public bool isSamePlayer(GameObject _u1, GameObject _u2)

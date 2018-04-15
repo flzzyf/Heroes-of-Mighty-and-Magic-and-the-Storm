@@ -20,6 +20,8 @@ public class Unit : MonoBehaviour
     public int speed, att, def, currentHP, num;
     [HideInInspector]
     public Vector2 damage;
+    [HideInInspector]
+    public int fightBackCount;
 
     [HideInInspector]
     public GameObject nodeUnit;
@@ -37,6 +39,9 @@ public class Unit : MonoBehaviour
 
     bool outlineFlashing;
     bool fading;
+
+    [HideInInspector]
+    public bool dead;
 
     void Start()
     {
@@ -75,6 +80,7 @@ public class Unit : MonoBehaviour
         def = type.def;
         damage = type.damage;
         currentHP = type.hp;
+        fightBackCount = type.fightBackCount;
     }
     #region Facing
     public void Flip()
@@ -94,6 +100,19 @@ public class Unit : MonoBehaviour
     public bool FaceTarget(GameObject _target)
     {
         int targetInTheRight = (_target.transform.position.x > transform.position.x) ? 1 : -1;
+
+        if (targetInTheRight != facing)
+        {
+            Flip();
+            return true;
+        }
+        return false;
+    }
+
+    public bool FaceTarget(Unit _target)
+    {
+        GameObject node = _target.nodeUnit;
+        int targetInTheRight = (node.transform.position.x > transform.position.x) ? 1 : -1;
 
         if (targetInTheRight != facing)
         {
@@ -180,6 +199,7 @@ public class Unit : MonoBehaviour
         BattleManager.instance.unitActionList.Remove(gameObject);
         BattleManager.instance.unitActionOrder.Remove(gameObject);
 
+        dead = true;
         gameObject.SetActive(false);
     }
 

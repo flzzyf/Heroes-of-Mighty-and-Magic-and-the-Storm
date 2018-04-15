@@ -64,8 +64,7 @@ public class GameMaster : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            UnitActionManager.instance.Attack(BattleManager.instance.units[0][0], 
-                                              BattleManager.instance.units[1][0]);
+            
 
         }
 	}

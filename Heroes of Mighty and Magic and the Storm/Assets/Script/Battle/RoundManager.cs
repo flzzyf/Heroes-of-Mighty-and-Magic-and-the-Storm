@@ -28,6 +28,15 @@ public class RoundManager {
     {
         zyf.Out("轮结束");
 
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < battleManager.units[i].Count; j++)
+            {
+                Unit unit = battleManager.units[i][j].GetComponent<Unit>();
+                unit.fightBackCount = unit.type.fightBackCount;
+            }
+        }
+
         RoundStart();
     }
 

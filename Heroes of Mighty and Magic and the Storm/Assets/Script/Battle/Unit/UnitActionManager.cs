@@ -17,39 +17,77 @@ public class UnitActionManager : MonoBehaviour
     }
     #endregion
 
-    GameObject attacker, defender;
+    Unit attacker, defender;
 
     //攻击动画触发被击动画的时间点
     public float animAttackHitPercent = 0.3f;
 
     public float animTurnbackTime = 1f;
 
-    public void Attack(GameObject _origin, GameObject _target)
+    bool turnback;
+
+    bool waiting;
+
+    public void Attack(Unit _origin, Unit _target)
     {
         attacker = _origin;
         defender = _target;
 
         StartCoroutine(AttackStart(_origin, _target));
-
     }
 
-    IEnumerator AttackStart(GameObject _origin, GameObject _target)
+    IEnumerator AttackStart(Unit _origin, Unit _target)
     {
         turnback = UnitInteract(_origin, _target);
-        if(turnback)
+        if (turnback)
         {
             yield return new WaitForSeconds(animTurnbackTime);
         }
 
-        float attackTime = _origin.GetComponent<Unit>().GetAnimationLength("attack");
+        StartCoroutine(AttackTarget(_origin, _target));
+        while(waiting)
+            yield return new WaitForSeconds(Time.deltaTime);
+
+        bool unitDead = _target.dead;
+        if (!unitDead)  //如果没死
+        {
+            //可反击
+            if(_target.fightBackCount > 0)
+            {
+                print("反击");
+                _target.fightBackCount--;
+
+                StartCoroutine(AttackTarget(_target, _origin));
+                while (waiting)
+                    yield return new WaitForSeconds(Time.deltaTime);
+            }
+        }
+        //print("攻击结束");
+        if (turnback)
+        {
+            UnitInteractEnd();
+            yield return new WaitForSeconds(animTurnbackTime);
+        }
+
+        BattleManager.instance.TurnEnd();
+
+    }
+
+    IEnumerator AttackTarget(Unit _origin, Unit _target)
+    {
+        waiting = true;
+
+        float attackTime = _origin.GetAnimationLength("attack");
         float hitTime = attackTime * animAttackHitPercent;
 
-        _origin.GetComponent<Unit>().PlayAnimation("attack");
+        _origin.PlayAnimation("attack");
         yield return new WaitForSeconds(hitTime);
-        print("被击");
-        bool unitDead = ApplyDamage();
+        //print("被击");
 
-        if(unitDead)
+        StartCoroutine(Damage(_target, _origin));
+
+        bool unitDead = _target.dead;
+        if (unitDead)
         {
             //死亡动画
         }
@@ -60,37 +98,27 @@ public class UnitActionManager : MonoBehaviour
 
         yield return new WaitForSeconds(attackTime - hitTime);
 
-        print("攻击结束");
-        if (turnback)
-        {
-            UnitInteractEnd();
-            yield return new WaitForSeconds(animTurnbackTime);
-        }
+        waiting = false;
+    }
 
-        if (!unitDead)  //如果没死
-        {
-            //反击
-
-        }
-
-        BattleManager.instance.TurnEnd();
+    IEnumerator Damage(Unit _origin, Unit _target)
+    {
+        ApplyDamage(_target, _origin);
+        yield return new WaitForSeconds(Time.deltaTime);
 
     }
 
-    bool ApplyDamage()
+    bool ApplyDamage(Unit _origin, Unit _target)
     {
-        Unit origin = attacker.GetComponent<Unit>();
-        Unit target = defender.GetComponent<Unit>();
-
-        int damage = Random.Range((int)origin.damage.x, (int)origin.damage.y);
+        int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y);
         //print("随机初始伤害：" + damage);
-        float damageRate = DamageRate(origin.att, target.def);
+        float damageRate = DamageRate(_origin.att, _target.def);
         damage = (int)(damage * damageRate);
-        damage *= origin.num;
+        damage *= _origin.num;
         //print("伤害倍率：" + damageRate);
 
-        //print("加上伤害倍率：" + damage);
-        return target.TakeDamage(damage);
+        //print("造成伤害：" + damage);
+        return _target.TakeDamage(damage);
     }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算
@@ -104,14 +132,13 @@ public class UnitActionManager : MonoBehaviour
         return r;
     }
 
-    bool turnback;
 
-    bool UnitInteract(GameObject _origin, GameObject _target)   //交互开始
+    bool UnitInteract(Unit _origin, Unit _target)   //交互开始
     {
         attacker = _origin;
         defender = _target;
 
-        if(_origin.GetComponent<Unit>().FaceTarget(_target) | _target.GetComponent<Unit>().FaceTarget(_origin))
+        if(_origin.FaceTarget(_target) | _target.FaceTarget(_origin))
         {
             //需要转身
             return true;
@@ -126,9 +153,9 @@ public class UnitActionManager : MonoBehaviour
         RestoreFacing(defender);
     }
     //恢复单位朝向，根据其所属玩家方。进攻方0右，防守方1左
-    void RestoreFacing(GameObject _unit)
+    void RestoreFacing(Unit _unit)
     {
-        _unit.GetComponent<Unit>().RestoreFacing();
+        _unit.RestoreFacing();
     }
 
 }
