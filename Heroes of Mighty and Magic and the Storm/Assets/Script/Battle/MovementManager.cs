@@ -94,6 +94,7 @@ public class MovementManager : MonoBehaviour
         GameMaster.instance.Unpause();
 
         MoveComplete(this, EventArgs.Empty);
+        MoveComplete = null;
     }
 
     //获取下个路径点

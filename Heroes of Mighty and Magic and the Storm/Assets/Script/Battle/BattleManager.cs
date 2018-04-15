@@ -234,7 +234,7 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    void TurnEnd(object sender = null, EventArgs e = null)
+    public void TurnEnd(object sender = null, EventArgs e = null)
     {
         roundManager.TurnEnd();
     }

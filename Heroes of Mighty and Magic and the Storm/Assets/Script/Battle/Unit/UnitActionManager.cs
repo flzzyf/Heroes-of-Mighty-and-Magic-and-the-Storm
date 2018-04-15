@@ -19,7 +19,6 @@ public class UnitActionManager : MonoBehaviour
 
     GameObject attacker, defender;
 
-    bool waiting;
     //攻击动画触发被击动画的时间点
     public float animAttackHitPercent = 0.3f;
 
@@ -36,7 +35,8 @@ public class UnitActionManager : MonoBehaviour
 
     IEnumerator AttackStart(GameObject _origin, GameObject _target)
     {
-        if(UnitInteract(_origin, _target))
+        turnback = UnitInteract(_origin, _target);
+        if(turnback)
         {
             yield return new WaitForSeconds(animTurnbackTime);
         }
@@ -47,13 +47,31 @@ public class UnitActionManager : MonoBehaviour
         _origin.GetComponent<Unit>().PlayAnimation("attack");
         yield return new WaitForSeconds(hitTime);
         print("被击");
+        bool unitDead = ApplyDamage();
+
+        if(unitDead)
+        {
+            //死亡动画
+        }
+        else
+        {
+            //被击动画
+        }
 
         yield return new WaitForSeconds(attackTime - hitTime);
 
         print("攻击结束");
+        if (turnback)
+        {
+            UnitInteractEnd();
+            yield return new WaitForSeconds(animTurnbackTime);
+        }
+
+        BattleManager.instance.TurnEnd();
+
     }
 
-    void wtf()
+    bool ApplyDamage()
     {
         Unit origin = attacker.GetComponent<Unit>();
         Unit target = defender.GetComponent<Unit>();
@@ -66,22 +84,7 @@ public class UnitActionManager : MonoBehaviour
         //print("伤害倍率：" + damageRate);
 
         //print("加上伤害倍率：" + damage);
-        target.TakeDamage(damage);
-    }
-
-
-    IEnumerator Wait()
-    {
-        waiting = true;
-        while(waiting)
-            yield return new WaitForSeconds(Time.deltaTime);
-        
-    }
-
-    IEnumerator Wait(UnityAction action)
-    {
-        yield return new WaitForSeconds(1);
-        action.Invoke();
+        return target.TakeDamage(damage);
     }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算
@@ -95,13 +98,14 @@ public class UnitActionManager : MonoBehaviour
         return r;
     }
 
+    bool turnback;
 
     bool UnitInteract(GameObject _origin, GameObject _target)   //交互开始
     {
         attacker = _origin;
         defender = _target;
 
-        if(_origin.GetComponent<Unit>().FaceTarget(_target) || _target.GetComponent<Unit>().FaceTarget(_origin))
+        if(_origin.GetComponent<Unit>().FaceTarget(_target) | _target.GetComponent<Unit>().FaceTarget(_origin))
         {
             //需要转身
             return true;

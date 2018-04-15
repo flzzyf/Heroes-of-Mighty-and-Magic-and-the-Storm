@@ -148,15 +148,15 @@ public class Unit : MonoBehaviour
 
         ChangeHp(n);
     }
-
-    public void TakeDamage(int _amount)
+    //造成伤害，导致单位死亡
+    public bool TakeDamage(int _amount)
     {
         if (_amount > (num - 1) * type.hp + currentHP)
         {
             //死了
             Death();
 
-            return;
+            return true;
         }
 
         if (_amount < currentHP)
@@ -170,8 +170,9 @@ public class Unit : MonoBehaviour
             int remainHp = type.hp - (_amount - currentHP);
             ChangeHp(remainHp);
         }
+        return false;
 
-        print(currentHP);
+        //print("剩余生命:" + currentHP);
     }
     #endregion
     void Death()
