@@ -177,6 +177,9 @@ public class Unit : MonoBehaviour
     #endregion
     void Death()
     {
+        BattleManager.instance.unitActionList.Remove(gameObject);
+        BattleManager.instance.unitActionOrder.Remove(gameObject);
+
         gameObject.SetActive(false);
     }
 

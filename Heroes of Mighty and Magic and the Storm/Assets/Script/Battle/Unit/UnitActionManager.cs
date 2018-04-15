@@ -67,6 +67,12 @@ public class UnitActionManager : MonoBehaviour
             yield return new WaitForSeconds(animTurnbackTime);
         }
 
+        if (!unitDead)  //如果没死
+        {
+            //反击
+
+        }
+
         BattleManager.instance.TurnEnd();
 
     }
