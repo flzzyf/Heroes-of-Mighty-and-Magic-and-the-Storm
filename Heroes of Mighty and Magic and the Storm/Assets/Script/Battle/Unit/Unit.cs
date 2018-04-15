@@ -200,6 +200,9 @@ public class Unit : MonoBehaviour
         BattleManager.instance.unitActionOrder.Remove(gameObject);
 
         dead = true;
+
+        BattleManager.instance.UnlinkNodeWithUnit(gameObject);
+
         gameObject.SetActive(false);
     }
 

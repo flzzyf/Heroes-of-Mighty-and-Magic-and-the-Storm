@@ -179,7 +179,7 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    void UnlinkNodeWithUnit(GameObject _unit)
+    public void UnlinkNodeWithUnit(GameObject _unit)
     {
         GameObject nodeUnit = _unit.GetComponent<Unit>().nodeUnit;
 

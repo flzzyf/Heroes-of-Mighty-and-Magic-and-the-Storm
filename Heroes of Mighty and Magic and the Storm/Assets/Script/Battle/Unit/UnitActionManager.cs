@@ -54,7 +54,7 @@ public class UnitActionManager : MonoBehaviour
             //可反击
             if(_target.fightBackCount > 0)
             {
-                print("反击");
+                //print("反击");
                 _target.fightBackCount--;
 
                 StartCoroutine(AttackTarget(_target, _origin));
