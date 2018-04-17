@@ -51,37 +51,16 @@ public class GameMaster : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //BattleManager.instance.units[0][0].GetComponent<Unit>().OutlineFlashStart();
+            
 
-            for (int i = 0; i < type.animControl.animationClips.Length; i++)
-            {
-                //print(type.animControl.animationClips[i].name + ":" + type.animControl.animationClips[i].length);
-
-            }
-
-            StartCoroutine(QWE());
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            
+            BattleManager.instance.BattleStart();
 
         }
 	}
-
-    IEnumerator QWE()
-    {
-        float secondPerFrame = 1 / type.animControl.animationClips[0].frameRate;
-        //print(secondPerFrame);
-        //print(type.animControl.animationClips[1].length);
-
-        BattleManager.instance.units[0][0].GetComponent<Unit>().PlayAnimation("attack");
-
-        yield return new WaitForSeconds(type.animControl.animationClips[1].length);
-
-        print("Finish");
-
-    }
 
     public GameObject CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)
     {

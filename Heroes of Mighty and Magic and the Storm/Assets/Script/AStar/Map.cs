@@ -117,11 +117,6 @@ public class Map : MonoBehaviour {
 */
     }
 
-    public virtual void HidePath()
-    {
-        
-    }
-
     //节点间路径距离估计算法（只考虑XY轴）
     public virtual int GetNodeDistance(Node a, Node b)
     {

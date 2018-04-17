@@ -9,12 +9,16 @@ public class Map_HOMMS : Map
     //节点单位
     public GameObject[,,] nodeUnits;
 
+    [HideInInspector]
+    public GameObject nodeUnitParent;
+
     public override void CreateMap()
     {
         nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
         nodeUnits = new GameObject[mapSizeX, mapSizeY, mapSizeZ];
 
-        GameObject nodeUnitParent = new GameObject("nodes");
+        nodeUnitParent = new GameObject("nodes");
+        nodeUnitParent.SetActive(false);
 
         float spaceX = nodeRadius * 2;
         float spaceY = nodeRadius / 1.73f * 3;
@@ -156,7 +160,7 @@ public class Map_HOMMS : Map
         path.Reverse();
     }
 
-    public override void HidePath()
+    public void HidePath()
     {
         foreach (var item in path)
         {

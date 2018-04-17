@@ -44,7 +44,6 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]
     public GameObject currentActionUnit;
 
-
     int actionPlayer;
 
     [HideInInspector]
@@ -57,7 +56,6 @@ public class BattleManager : MonoBehaviour
 
     public GameObject heroUnitPrefab;
 
-
     public Color[] backgroundStateColor = new Color[3];
 
     RoundManager roundManager;
@@ -69,21 +67,26 @@ public class BattleManager : MonoBehaviour
     [HideInInspector]
     public List<Node> attackableNodes = new List<Node>();
 
+    public GameObject background;
+
     void Start()
     {
         map = GetComponent<Map_HOMMS>();
         roundManager = new RoundManager();
         movementManager = GetComponent<MovementManager>();
 
-        BattleStart();
+        //BattleStart();
 
     }
 
-    void BattleStart()
+    public void BattleStart()
     {
         //单位行动顺序计算
 
         //战斗开始效果触发
+
+        map.nodeUnitParent.SetActive(true);
+        background.SetActive(true);
 
         battleUnitParent = new GameObject("battleUnits");
         CreateHeroUnits(0);
@@ -96,6 +99,9 @@ public class BattleManager : MonoBehaviour
     {
         units[0].Clear();
         units[1].Clear();
+
+        map.nodeUnitParent.SetActive(false);
+        background.SetActive(false);
     }
 
     void AddUnitToActionList(ref LinkedList<GameObject> _list, GameObject _unit, bool _desc = true)
