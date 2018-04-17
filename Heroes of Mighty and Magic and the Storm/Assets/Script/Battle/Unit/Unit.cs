@@ -97,9 +97,9 @@ public class Unit : MonoBehaviour
             Flip();
     }
 
-    public bool FaceTarget(GameObject _target)
+    public bool FaceTarget(Vector2 _target)
     {
-        int targetInTheRight = (_target.transform.position.x > transform.position.x) ? 1 : -1;
+        int targetInTheRight = (_target.x > transform.position.x) ? 1 : -1;
 
         if (targetInTheRight != facing)
         {
@@ -109,22 +109,20 @@ public class Unit : MonoBehaviour
         return false;
     }
 
+    public bool FaceTarget(GameObject _target)
+    {
+        return FaceTarget(_target.transform.position);
+    }
+
     public bool FaceTarget(Unit _target)
     {
-        GameObject node = _target.nodeUnit;
-        int targetInTheRight = (node.transform.position.x > transform.position.x) ? 1 : -1;
-
-        if (targetInTheRight != facing)
-        {
-            Flip();
-            return true;
-        }
-        return false;
+        return FaceTarget(_target.transform.position);
     }
     #endregion
 
     public float GetAnimationLength(string _anim)
     {
+        print(_anim);
         int index = animIndex[_anim];
 
         return animator.runtimeAnimatorController.animationClips[index].length;
@@ -219,7 +217,6 @@ public class Unit : MonoBehaviour
         outlineFlashing = true;
         fading = true;
         ChangeOutline(GameSettings.instance.outlineFlashRangeMax);
-        //sprite.material.SetFloat("_LineWidth", 5);
     }
 
     public void OutlineFlashStop()
@@ -227,5 +224,12 @@ public class Unit : MonoBehaviour
         outlineFlashing = false;
         ChangeOutline(0);
     }
+
+    public void ChangeOutlineColor(Color _color)
+    {
+        sprite.material.SetColor("_Color", _color);
+
+    }
+
 #endregion
 }

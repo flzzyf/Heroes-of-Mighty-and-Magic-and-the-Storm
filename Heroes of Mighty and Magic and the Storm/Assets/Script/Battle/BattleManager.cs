@@ -172,7 +172,7 @@ public class BattleManager : MonoBehaviour
         }
 
         _nodeUnit.GetComponent<NodeUnit>().nodeType = 2;
-        _nodeUnit.GetComponent<NodeUnit>().unit = _unit;
+        _nodeUnit.GetComponent<NodeUnit>().unit = _unit.GetComponent<Unit>();
 
         _unit.GetComponent<Unit>().nodeUnit = _nodeUnit;
         map.GetNode(_nodeUnit).walkable = false;

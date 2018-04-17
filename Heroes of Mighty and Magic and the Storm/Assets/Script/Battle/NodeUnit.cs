@@ -8,13 +8,15 @@ public class NodeUnit : MonoBehaviour
     [HideInInspector]
     public Node node;
     [HideInInspector]
-    public GameObject unit;
+    public Unit unit;
 
     int backgroundState;
 
     [HideInInspector]
     public int nodeType = 0;    //节点类型：0无，1障碍，2单位
     public int targetType = 0;  //目标类型：0无，1可到达，2可攻击
+
+    bool enemyFlashing;
 
     private void OnMouseEnter()
     {
@@ -27,31 +29,33 @@ public class NodeUnit : MonoBehaviour
         {
             if (targetType == 1)
             {
+                //可到达
                 CustomCursor.instance.ChangeCursor("Reachable");
             }
         }
         else if (nodeType == 1)
         {
+            //不可到达
             CustomCursor.instance.ChangeCursor("Stop");
 
         }
         else if(nodeType == 2)
         {
-            if(targetType == 2)
+            
+            //不可攻击单位
+            if (BattleManager.instance.isSamePlayer(unit.gameObject, BattleManager.instance.currentActionUnit))
             {
-                //CustomCursor.instance.ChangeCursor("Sword");
-
+                //友军
+                CustomCursor.instance.ChangeCursor("Friend");
             }
             else
             {
-                if(BattleManager.instance.isSamePlayer(unit, BattleManager.instance.currentActionUnit))
-                {
-                    CustomCursor.instance.ChangeCursor("Friend");
-                }
-                else
-                {
-                    CustomCursor.instance.ChangeCursor("Enemy");
-                }
+                //敌人
+                //CustomCursor.instance.ChangeCursor("Enemy");
+                unit.ChangeOutlineColor(GameSettings.instance.haloColor_enemy);
+                unit.OutlineFlashStart();
+                enemyFlashing = true;
+
             }
         }
     }
@@ -61,6 +65,14 @@ public class NodeUnit : MonoBehaviour
         CustomCursor.instance.ChangeCursor();
 
         ToggleBackgroundState(backgroundState);
+
+        if(enemyFlashing)
+        {
+            enemyFlashing = false;
+            unit.OutlineFlashStop();
+            unit.ChangeOutlineColor(GameSettings.instance.haloColor_actionUnit);
+
+        }
 
         BattleManager.instance.mouseNode = null;
 

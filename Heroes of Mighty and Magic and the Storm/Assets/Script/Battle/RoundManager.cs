@@ -16,7 +16,8 @@ public class RoundManager {
 
     public void RoundStart()
     {
-        zyf.Out("轮开始");
+        //zyf.Out("轮开始");
+
         //轮开始效果触发
 
         battleManager.unitActionList = new LinkedList<GameObject>(battleManager.unitActionOrder);
@@ -26,7 +27,7 @@ public class RoundManager {
 
     void RoundEnd()
     {
-        zyf.Out("轮结束");
+        //zyf.Out("轮结束");
 
         for (int i = 0; i < 2; i++)
         {
@@ -42,7 +43,7 @@ public class RoundManager {
 
     void TurnStart()
     {
-        zyf.Out("回合开始");
+        //zyf.Out("回合开始");
 
         if(battleManager.unitActionList.Count > 0)
         {
@@ -61,7 +62,7 @@ public class RoundManager {
 
     public void TurnEnd()
     {
-        zyf.Out("回合结束");
+        //zyf.Out("回合结束");
 
         //士气高涨
 
@@ -101,7 +102,7 @@ public class RoundManager {
 
         for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
-            if(battleManager.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit, _unit))
+            if(battleManager.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit.gameObject, _unit))
             {
                 attackableNodes.RemoveAt(i);
             }

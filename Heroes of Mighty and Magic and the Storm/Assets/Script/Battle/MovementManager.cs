@@ -7,7 +7,7 @@ public class MovementManager : MonoBehaviour
 {
     Map_HOMMS map;
 
-    GameObject movingUnit;
+    Unit movingUnit;
 
     List<Node> path;
 
@@ -18,7 +18,6 @@ public class MovementManager : MonoBehaviour
 
     public event EventHandler MoveComplete;
 
-
     private void Start()
     {
         map = GetComponent<Map_HOMMS>();
@@ -26,14 +25,15 @@ public class MovementManager : MonoBehaviour
 
     public void MoveUnit(GameObject _unit, List<Node> _path)
     {
-        movingUnit = _unit;
+        movingUnit = _unit.GetComponent<Unit>();
         path = _path;
 
-        movingUnit.GetComponent<Unit>().PlayAnimation("move", 1);
+        movingUnit.PlayAnimation("move", 1);
 
         //将先前的格子设为无人
-        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
-        movingUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().unit = null;
+        BattleManager.instance.UnlinkNodeWithUnit(_unit);
+        //movingUnit.nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
+        //movingUnit.nodeUnit.GetComponent<NodeUnit>().unit = null;
 
         GetNextWayPoint();
         GameMaster.instance.Pause();
@@ -42,9 +42,12 @@ public class MovementManager : MonoBehaviour
 
     }
 
+    bool moving;
+
     IEnumerator Moving()
     {
-        while (movingUnit != null)
+        moving = true;
+        while (moving)
         {
             //朝下个点方向
             Vector2 dir = targetWayPoint - movingUnit.transform.position;
@@ -77,12 +80,16 @@ public class MovementManager : MonoBehaviour
 
     void ReachTarget()
     {
-        movingUnit.GetComponent<Unit>().PlayAnimation("move", 0);
+        moving = false;
+
+        movingUnit.PlayAnimation("move", 0);
+
+        movingUnit.RestoreFacing();
 
         //进入新格子
         Node currentNode = path[currentWayPointIndex];
 
-        BattleManager.instance.LinkNodeWithUnit(movingUnit, map.GetNodeUnit(currentNode));
+        BattleManager.instance.LinkNodeWithUnit(movingUnit.gameObject, map.GetNodeUnit(currentNode));
 
         //重置移动单位信息
         movingUnit = null;
@@ -101,5 +108,8 @@ public class MovementManager : MonoBehaviour
     void GetNextWayPoint()
     {
         targetWayPoint = map.GetNodeUnit(path[currentWayPointIndex]).transform.position;
+
+        movingUnit.FaceTarget(targetWayPoint);
+
     }
 }
