@@ -132,9 +132,7 @@ public class NodeUnit : MonoBehaviour
             CustomCursor.instance.ChangeCursor();
             ToggleBackgroundState();
 
-            AStar.instance.FindPath(BattleManager.instance.currentActionUnit.
-                                    GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, targetNode);
-            BattleManager.instance.AttackMove(node);
+            BattleManager.instance.AttackMove(targetNode);
 
         }
         else if(targetType == 1)    //可到达

@@ -39,7 +39,7 @@ public class GameMaster : MonoBehaviour {
     public bool isPause(){
         return pause > 0;
     }
-#endregion
+    #endregion
 
     void Start ()
     {
@@ -51,7 +51,6 @@ public class GameMaster : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            
 
         }
 
@@ -61,6 +60,7 @@ public class GameMaster : MonoBehaviour {
 
         }
 	}
+
 
     public GameObject CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)
     {
