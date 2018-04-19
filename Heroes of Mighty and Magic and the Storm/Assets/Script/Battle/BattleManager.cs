@@ -247,6 +247,18 @@ public class BattleManager : MonoBehaviour
 
     Node targetNode;
 
+    public void MoveUnit(Node _node)
+    {
+        AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
+
+        roundManager.ActionEnd();
+
+        map.HideAllNode();
+
+        movementManager.MoveComplete += TurnEnd;
+        movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
+    }
+
     public void AttackMove(Node _node)
     {
         targetNode = _node;
@@ -286,4 +298,5 @@ public class BattleManager : MonoBehaviour
         reachableNodes.Clear();
         attackableNodes.Clear();
     }
+ 
 }

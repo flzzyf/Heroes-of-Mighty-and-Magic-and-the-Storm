@@ -18,9 +18,10 @@ public class AStar : MonoBehaviour {
 
     Map map;
 
-    void Start()
+    public void FindPath(Map _map, Node _startNode, Node _endNode)
     {
-        map = GetComponent<Map>();
+        map = _map;
+        FindPath(_startNode, _endNode);
     }
 
     //寻找同路
@@ -82,8 +83,7 @@ public class AStar : MonoBehaviour {
                 }
             }
         }
-        Debug.Log("无法通行");
-        //map.PathHide();
+        //无法通行
 
     }
 
