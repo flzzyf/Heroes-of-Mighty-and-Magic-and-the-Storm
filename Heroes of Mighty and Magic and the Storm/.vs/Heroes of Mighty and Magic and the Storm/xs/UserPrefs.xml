@@ -1,9 +1,13 @@
 ﻿<Properties StartupConfiguration="{B9E0A1E0-BC07-7D3B-B6BD-6D377C1BE8C9}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Battle/NodeUnit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Battle/Unit/Unit.cs">
     <Files>
-      <File FileName="Assets/Script/Battle/BattleManager.cs" Line="248" Column="15" />
-      <File FileName="Assets/Script/Battle/NodeUnit.cs" Line="145" Column="44" />
+      <File FileName="Assets/Script/Battle/BattleManager.cs" Line="272" Column="66" />
+      <File FileName="Assets/Script/Battle/NodeUnit.cs" Line="139" Column="10" />
+      <File FileName="Assets/Script/Battle/MovementManager.cs" Line="101" Column="1" />
+      <File FileName="Assets/Script/Battle/Unit/UnitActionManager.cs" Line="76" Column="1" />
+      <File FileName="Assets/Script/Battle/Map_HOMMS.cs" Line="234" Column="38" />
+      <File FileName="Assets/Script/Battle/Unit/Unit.cs" Line="125" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -16,7 +16,7 @@ public class MovementManager : MonoBehaviour
 
     public float unitSpeed = 8;
 
-    public event EventHandler MoveComplete;
+    public bool moving;
 
     private void Start()
     {
@@ -41,8 +41,6 @@ public class MovementManager : MonoBehaviour
         StartCoroutine(Moving());
 
     }
-
-    bool moving;
 
     IEnumerator Moving()
     {
@@ -100,8 +98,6 @@ public class MovementManager : MonoBehaviour
 
         GameMaster.instance.Unpause();
 
-        MoveComplete(this, EventArgs.Empty);
-        MoveComplete = null;
     }
 
     //获取下个路径点

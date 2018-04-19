@@ -46,9 +46,6 @@ public class BattleManager : MonoBehaviour
 
     int actionPlayer;
 
-    [HideInInspector]
-    public GameObject mouseNode;
-
     GameObject battleUnitParent;
 
     public GameObject[] heroPoint;
@@ -68,6 +65,9 @@ public class BattleManager : MonoBehaviour
     public List<Node> attackableNodes = new List<Node>();
 
     public GameObject background;
+
+    [HideInInspector]
+    public Node mouseNode;
 
     void Start()
     {
@@ -229,25 +229,12 @@ public class BattleManager : MonoBehaviour
         return nodes;
     }
 
-    public void StartMoving()
-    {
-        roundManager.ActionEnd();
-
-        map.HideAllNode();
-
-        movementManager.MoveComplete += TurnEnd;
-        movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
-
-    }
-
-    public void TurnEnd(object sender = null, EventArgs e = null)
-    {
-        roundManager.TurnEnd();
-    }
-
-    Node targetNode;
-
     public void MoveUnit(Node _node)
+    {
+        StartCoroutine(MoveUnitCor(_node));
+    }
+
+    IEnumerator MoveUnitCor(Node _node)
     {
         AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
 
@@ -255,26 +242,40 @@ public class BattleManager : MonoBehaviour
 
         map.HideAllNode();
 
-        movementManager.MoveComplete += TurnEnd;
         movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
+
+        while(movementManager.moving)
+            yield return null;
+
+        roundManager.TurnEnd();
     }
 
     public void AttackMove(Node _node)
     {
-        targetNode = _node;
+        StartCoroutine(AttackMoveCor(_node, mouseNode));
+    }
+
+    IEnumerator AttackMoveCor(Node _node, Node _target)
+    {
+        AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
 
         roundManager.ActionEnd();
 
         map.HideAllNode();
 
-        movementManager.MoveComplete += Attack;
         movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
-    }
 
-    void Attack(object sender = null, EventArgs e = null)
-    {
-        UnitActionManager.instance.Attack(currentActionUnit.GetComponent<Unit>(), 
-                                          map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().unit.GetComponent<Unit>());
+        while (movementManager.moving)
+            yield return null;
+
+        UnitActionManager.instance.Attack(currentActionUnit.GetComponent<Unit>(),
+                                          map.GetNodeUnit(_target).GetComponent<NodeUnit>().unit.GetComponent<Unit>());
+
+        while (UnitActionManager.instance.operating)
+            yield return null;
+
+        roundManager.TurnEnd();
+
     }
 
     public bool isSamePlayer(GameObject _u1, GameObject _u2)

@@ -122,7 +122,7 @@ public class Unit : MonoBehaviour
 
     public float GetAnimationLength(string _anim)
     {
-        print(_anim);
+        //print(_anim);
         int index = animIndex[_anim];
 
         return animator.runtimeAnimatorController.animationClips[index].length;

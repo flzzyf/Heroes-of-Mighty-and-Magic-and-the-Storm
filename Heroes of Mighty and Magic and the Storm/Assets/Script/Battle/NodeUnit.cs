@@ -22,6 +22,8 @@ public class NodeUnit : MonoBehaviour
     {
         if (GameMaster.instance.isPause())
             return;
+
+        BattleManager.instance.mouseNode = node;
         
         ToggleBackgroundState(2);
 
@@ -62,6 +64,8 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseExit()
     {
+        BattleManager.instance.mouseNode = null;
+
         CustomCursor.instance.ChangeCursor();
 
         ToggleBackgroundState(backgroundState);
@@ -73,8 +77,6 @@ public class NodeUnit : MonoBehaviour
             unit.ChangeOutlineColor(GameSettings.instance.haloColor_actionUnit);
 
         }
-
-        BattleManager.instance.mouseNode = null;
 
     }
 

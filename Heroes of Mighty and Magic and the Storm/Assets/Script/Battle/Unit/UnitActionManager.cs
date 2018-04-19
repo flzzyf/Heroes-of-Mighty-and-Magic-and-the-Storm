@@ -28,8 +28,12 @@ public class UnitActionManager : MonoBehaviour
 
     bool waiting;
 
+    public bool operating;
+
     public void Attack(Unit _origin, Unit _target)
     {
+        operating = true;
+
         attacker = _origin;
         defender = _target;
 
@@ -69,7 +73,7 @@ public class UnitActionManager : MonoBehaviour
             yield return new WaitForSeconds(animTurnbackTime);
         }
 
-        BattleManager.instance.TurnEnd();
+        operating = false;
 
     }
 
