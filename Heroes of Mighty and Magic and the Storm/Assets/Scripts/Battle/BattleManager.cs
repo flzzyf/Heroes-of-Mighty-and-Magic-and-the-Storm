@@ -60,14 +60,14 @@ public class BattleManager : MonoBehaviour
     MovementManager movementManager;
 
     [HideInInspector]
-    public List<Node> reachableNodes = new List<Node>();
+    public List<AstarNode> reachableNodes = new List<AstarNode>();
     [HideInInspector]
-    public List<Node> attackableNodes = new List<Node>();
+    public List<AstarNode> attackableNodes = new List<AstarNode>();
 
     public GameObject background;
 
     [HideInInspector]
-    public Node mouseNode;
+    public AstarNode mouseNode;
 
     void Start()
     {
@@ -216,9 +216,9 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public List<Node> GetUnitNearbyNode(GameObject _unit, int _range, int _type)
+    public List<AstarNode> GetUnitNearbyNode(GameObject _unit, int _range, int _type)
     {
-        List<Node> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
+        List<AstarNode> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
 
         for (int i = nodes.Count - 1; i >= 0 ; i--)
         {
@@ -229,12 +229,12 @@ public class BattleManager : MonoBehaviour
         return nodes;
     }
 
-    public void MoveUnit(Node _node)
+    public void MoveUnit(AstarNode _node)
     {
         StartCoroutine(MoveUnitCor(_node));
     }
 
-    IEnumerator MoveUnitCor(Node _node)
+    IEnumerator MoveUnitCor(AstarNode _node)
     {
         AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
 
@@ -242,7 +242,7 @@ public class BattleManager : MonoBehaviour
 
         map.HideAllNode();
 
-        movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
+        movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
 
         while(movementManager.moving)
             yield return null;
@@ -250,12 +250,12 @@ public class BattleManager : MonoBehaviour
         roundManager.TurnEnd();
     }
 
-    public void AttackMove(Node _node)
+    public void AttackMove(AstarNode _node)
     {
         StartCoroutine(AttackMoveCor(_node, mouseNode));
     }
 
-    IEnumerator AttackMoveCor(Node _node, Node _target)
+    IEnumerator AttackMoveCor(AstarNode _node, AstarNode _target)
     {
         AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
 
@@ -263,7 +263,7 @@ public class BattleManager : MonoBehaviour
 
         map.HideAllNode();
 
-        movementManager.MoveUnit(currentActionUnit, new List<Node>(map.path));
+        movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
 
         while (movementManager.moving)
             yield return null;
@@ -286,12 +286,12 @@ public class BattleManager : MonoBehaviour
 
     public void ResetAbleNodes()
     {
-        foreach (Node item in reachableNodes)
+        foreach (AstarNode item in reachableNodes)
         {
             map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
         }
 
-        foreach (Node item in attackableNodes)
+        foreach (AstarNode item in attackableNodes)
         {
             map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
         }

@@ -8,7 +8,7 @@ public class Map_Travel : Map
 
     public override void CreateMap()
     {
-        nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
+        nodes = new AstarNode[mapSizeX, mapSizeY, mapSizeZ];
 
 
         float spaceX = nodeRadius * 2;
@@ -21,7 +21,7 @@ public class Map_Travel : Map
 
             for (int j = 0; j < mapSizeX; j++)
             {
-                Node node = new Node(j, i, 0);
+                AstarNode node = new AstarNode(j, i, 0);
                 nodes[j, i, 0] = node;
 
                 Vector2 pos = new Vector2(x + j * spaceX, -y) + (Vector2)originPoint;

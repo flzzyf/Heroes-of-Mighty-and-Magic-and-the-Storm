@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Node{
+public class AstarNode{
     //可通行
     public bool walkable = true;
 
@@ -22,9 +22,9 @@ public class Node{
     }
 
     //上一节点
-    public Node parentNode;
+    public AstarNode parentNode;
 
-    public Node(int x, int y, int z)
+    public AstarNode(int x, int y, int z)
     {
         this.x = x;
         this.y = y;

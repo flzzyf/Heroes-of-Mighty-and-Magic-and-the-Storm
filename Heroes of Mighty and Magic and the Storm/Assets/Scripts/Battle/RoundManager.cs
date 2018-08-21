@@ -88,9 +88,9 @@ public class RoundManager {
 
         int speed = _unit.GetComponent<Unit>().type.speed;
         //可抵达节点
-        List<Node> reachableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 0);
+        List<AstarNode> reachableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 0);
 
-        foreach (Node item in reachableNodes)
+        foreach (AstarNode item in reachableNodes)
         {
             map.ToggleHighlightNode(map.GetNodeUnit(item));
 
@@ -98,7 +98,7 @@ public class RoundManager {
         }
 
 
-        List<Node> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed + 1, 2);
+        List<AstarNode> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed + 1, 2);
 
         for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
@@ -108,7 +108,7 @@ public class RoundManager {
             }
         }
 
-        foreach (Node item in attackableNodes)
+        foreach (AstarNode item in attackableNodes)
         {
             map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 2;
         }

@@ -18,27 +18,27 @@ public class AStar : MonoBehaviour {
 
     Map map;
 
-    public void FindPath(Map _map, Node _startNode, Node _endNode)
+    public void FindPath(Map _map, AstarNode _startNode, AstarNode _endNode)
     {
         map = _map;
         FindPath(_startNode, _endNode);
     }
 
     //寻找同路
-    public void FindPath(Node _startNode, Node _endNode)
+    public void FindPath(AstarNode _startNode, AstarNode _endNode)
     {
-        Node startNode = _startNode;
-        Node endNode = _endNode;
+        AstarNode startNode = _startNode;
+        AstarNode endNode = _endNode;
         //开集和闭集
-        List<Node> openSet = new List<Node>();
-        List<Node> closeSet = new List<Node>();
+        List<AstarNode> openSet = new List<AstarNode>();
+        List<AstarNode> closeSet = new List<AstarNode>();
         //将开始节点介入开集
         openSet.Add(startNode);
         //开始搜索
         while (openSet.Count > 0)
         {
             //当前所在节点
-            Node curNode = openSet[0];
+            AstarNode curNode = openSet[0];
             //从开集中选出f和h最小的
             for (int i = 0; i < openSet.Count; i++)
             {

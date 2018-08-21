@@ -13,7 +13,7 @@ public class Map : MonoBehaviour {
     public GameObject nodePrefab;
 
     //节点
-    public Node[,,] nodes;
+    public AstarNode[,,] nodes;
 
 
     void Awake()
@@ -28,7 +28,7 @@ public class Map : MonoBehaviour {
 
     public virtual void CreateMap()
     {
-        nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
+        nodes = new AstarNode[mapSizeX, mapSizeY, mapSizeZ];
 
         //根据地图尺寸生成节点
         for (int x = 0; x < mapSizeX; x++)
@@ -40,7 +40,7 @@ public class Map : MonoBehaviour {
                     Vector3 pos = new Vector3(x, y, z);
                     pos *= nodeInterval;
                     //生成节点
-                    Node node = new Node(x, y, z);
+                    AstarNode node = new AstarNode(x, y, z);
                     nodes[x, y, z] = node;
                 }
             }
@@ -48,9 +48,9 @@ public class Map : MonoBehaviour {
     }
 
     //获取邻近节点
-    public virtual List<Node> GetNeighbourNode(Node _node)
+    public virtual List<AstarNode> GetNeighbourNode(AstarNode _node)
     {
-        List<Node> list = new List<Node>();
+        List<AstarNode> list = new List<AstarNode>();
         //搜索周围是否有可通行节点
         //不能斜着走（只判断上下左右四格）
         for (int i = -1; i <= 1; i++)
@@ -78,7 +78,7 @@ public class Map : MonoBehaviour {
     }
 
     //根据所给Vector3获取相应node
-    public Node GetNode(Vector3 _pos)
+    public AstarNode GetNode(Vector3 _pos)
     {
         int x = Mathf.Clamp((int)_pos.x, 0, mapSizeX - 1);
         int y = Mathf.Clamp((int)_pos.y, 0, mapSizeY - 1);
@@ -88,12 +88,12 @@ public class Map : MonoBehaviour {
     }
 
     //生成路径
-    public virtual void GeneratePath(Node _startNode, Node _lastNode)
+    public virtual void GeneratePath(AstarNode _startNode, AstarNode _lastNode)
     {
         //Debug.Log("生成路径");
-        Node curNode = _lastNode;
+        AstarNode curNode = _lastNode;
 
-        List<Node> path = new List<Node>();
+        List<AstarNode> path = new List<AstarNode>();
 
         while (curNode != _startNode)
         {
@@ -118,7 +118,7 @@ public class Map : MonoBehaviour {
     }
 
     //节点间路径距离估计算法（只考虑XY轴）
-    public virtual int GetNodeDistance(Node a, Node b)
+    public virtual int GetNodeDistance(AstarNode a, AstarNode b)
     {
         //先斜着走然后直走
         int x = Mathf.Abs(a.x - b.x);

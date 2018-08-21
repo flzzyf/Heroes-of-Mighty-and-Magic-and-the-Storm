@@ -14,7 +14,7 @@ public class Map_HOMMS : Map
 
     public override void CreateMap()
     {
-        nodes = new Node[mapSizeX, mapSizeY, mapSizeZ];
+        nodes = new AstarNode[mapSizeX, mapSizeY, mapSizeZ];
         nodeUnits = new GameObject[mapSizeX, mapSizeY, mapSizeZ];
 
         nodeUnitParent = new GameObject("nodes");
@@ -30,7 +30,7 @@ public class Map_HOMMS : Map
 
             for (int j = 0; j < mapSizeX; j++)
             {
-                Node node = new Node(j, i, 0);
+                AstarNode node = new AstarNode(j, i, 0);
                 nodes[j, i, 0] = node;
 
                 Vector2 pos = new Vector2(x + j * spaceX, -y) + (Vector2)originPoint;
@@ -62,14 +62,14 @@ public class Map_HOMMS : Map
         }
     };
 
-    public override List<Node> GetNeighbourNode(Node _node)
+    public override List<AstarNode> GetNeighbourNode(AstarNode _node)
     {
-        List<Node> list = new List<Node>();
+        List<AstarNode> list = new List<AstarNode>();
 
         //周围六格，上下左右和左上左下
         for (int i = 0; i < 6; i++)
         {
-            Node node = GetNearbyOneNode(_node, i);
+            AstarNode node = GetNearbyOneNode(_node, i);
 
             if(node != null)
                 list.Add(node);
@@ -77,7 +77,7 @@ public class Map_HOMMS : Map
         return list;
     }
 
-    public Node GetNearbyOneNode(Node _node, int _index)
+    public AstarNode GetNearbyOneNode(AstarNode _node, int _index)
     {
         int x = (int)_node.pos.x;
         int y = (int)_node.pos.y;
@@ -96,15 +96,15 @@ public class Map_HOMMS : Map
         return null;
     }
 
-    public List<Node> GetNeighbourNode(Node _node, int _range)
+    public List<AstarNode> GetNeighbourNode(AstarNode _node, int _range)
     {
-        List<Node> list = new List<Node>();
-        List<Node> openList = new List<Node>();
-        List<Node> closeList = new List<Node>();
+        List<AstarNode> list = new List<AstarNode>();
+        List<AstarNode> openList = new List<AstarNode>();
+        List<AstarNode> closeList = new List<AstarNode>();
 
         openList.Add(_node);
 
-        Node it;
+        AstarNode it;
 
         for (int i = 0; i < _range; i++)
         {
@@ -116,7 +116,7 @@ public class Map_HOMMS : Map
                 openList.Remove(it);
                 closeList.Add(it);
 
-                foreach (Node item in GetNeighbourNode(it))
+                foreach (AstarNode item in GetNeighbourNode(it))
                 {
                     /*
                     if(!item.walkable)
@@ -140,13 +140,13 @@ public class Map_HOMMS : Map
     }
 
     [HideInInspector]
-    public List<Node> path = new List<Node>();
+    public List<AstarNode> path = new List<AstarNode>();
     [HideInInspector]
     public List<GameObject> highlightNode = new List<GameObject>();
 
-    public override void GeneratePath(Node _startNode, Node _lastNode)
+    public override void GeneratePath(AstarNode _startNode, AstarNode _lastNode)
     {
-        Node curNode = _lastNode;
+        AstarNode curNode = _lastNode;
 
         while (curNode != _startNode)
         {
@@ -196,7 +196,7 @@ public class Map_HOMMS : Map
         }
     }
 
-    public override int GetNodeDistance(Node a, Node b)
+    public override int GetNodeDistance(AstarNode a, AstarNode b)
     {
         Vector2 unitV2a = GetNodeUnit(a).transform.position;
         Vector2 unitV2b = GetNodeUnit(b).transform.position;
@@ -210,12 +210,12 @@ public class Map_HOMMS : Map
             return 14 * x + 10 * (y - x);
     }
 
-    public Node GetNode(NodeUnit _nodeUnit)
+    public AstarNode GetNode(NodeUnit _nodeUnit)
     {
         return _nodeUnit.node;
     }
 
-    public Node GetNode(GameObject _nodeUnit)
+    public AstarNode GetNode(GameObject _nodeUnit)
     {
         return _nodeUnit.GetComponent<NodeUnit>().node;
     }
@@ -229,7 +229,7 @@ public class Map_HOMMS : Map
 
         return nodeUnits[x, y, z];
     }
-    public GameObject GetNodeUnit(Node node)
+    public GameObject GetNodeUnit(AstarNode node)
     {
         return GetNodeUnit(node.pos);
     }

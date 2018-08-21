@@ -9,7 +9,7 @@ public class MovementManager : MonoBehaviour
 
     Unit movingUnit;
 
-    List<Node> path;
+    List<AstarNode> path;
 
     int currentWayPointIndex = 0;
     Vector3 targetWayPoint;
@@ -23,7 +23,7 @@ public class MovementManager : MonoBehaviour
         map = GetComponent<Map_HOMMS>();
     }
 
-    public void MoveUnit(GameObject _unit, List<Node> _path)
+    public void MoveUnit(GameObject _unit, List<AstarNode> _path)
     {
         movingUnit = _unit.GetComponent<Unit>();
         path = _path;
@@ -85,7 +85,7 @@ public class MovementManager : MonoBehaviour
         movingUnit.RestoreFacing();
 
         //进入新格子
-        Node currentNode = path[currentWayPointIndex];
+        AstarNode currentNode = path[currentWayPointIndex];
 
         BattleManager.instance.LinkNodeWithUnit(movingUnit.gameObject, map.GetNodeUnit(currentNode));
 

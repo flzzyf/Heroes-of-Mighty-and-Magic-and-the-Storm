@@ -6,7 +6,7 @@ public class NodeUnit : MonoBehaviour
 {
     public SpriteRenderer bg;
     [HideInInspector]
-    public Node node;
+    public AstarNode node;
     [HideInInspector]
     public Unit unit;
 
@@ -81,7 +81,7 @@ public class NodeUnit : MonoBehaviour
     }
 
     Vector2 previousMousePos;
-    Node targetNode;    //发动攻击应到达的节点
+    AstarNode targetNode;    //发动攻击应到达的节点
 
     private void OnMouseOver()
     {
