@@ -44,7 +44,6 @@ public class GameMaster : MonoBehaviour {
     void Start ()
     {
         Cursor.visible = false;
-
 	}
 
 	void Update ()
