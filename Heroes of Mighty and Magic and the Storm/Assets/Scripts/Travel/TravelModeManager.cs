@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TravelModeManager : MonoBehaviour 
+public class TravelModeManager : Singleton<TravelModeManager>
 {
 
 
 	void Start () 
 	{
-		
+        NodeManager.Instance().GenerateNodes();
+        MapManager.Instance().GenerateMap();
 	}
 	
 	void Update () 

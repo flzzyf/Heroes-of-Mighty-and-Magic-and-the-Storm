@@ -14,6 +14,8 @@ public class MapManager : Singleton<MapManager>
     [HideInInspector]
     public GameObject[,] nodeItems;
 
+    public bool xy = true;
+
     public void GenerateMap()
     {
         int mapSizeX = NodeManager.Instance().nodeCountX;
@@ -33,6 +35,8 @@ public class MapManager : Singleton<MapManager>
         {
             //originGeneratePoint.y -= nodePaddingY / 2;
         }
+
+        Vector3 generatePos;
         for (int i = 0; i < mapSizeY; i++)
         {
             float specialX = 0;
@@ -46,7 +50,12 @@ public class MapManager : Singleton<MapManager>
                 float y = i * nodePaddingY;
                 Vector2 pos = new Vector2(j * nodePaddingX + specialX, y);
                 pos += originGeneratePoint;
-                GameObject go = Instantiate(prefab_node, pos, Quaternion.identity, ParentManager.Instance().GetParent("Node"));
+
+                if (xy)
+                    generatePos = pos;
+                else
+                    generatePos = new Vector3(pos.x, 0, pos.y);
+                GameObject go = Instantiate(prefab_node, generatePos, Quaternion.identity, ParentManager.Instance().GetParent("Node"));
                 go.name = "Node_" + i + "_" + j;
                 nodeItems[i, j] = go;
                 go.GetComponent<NodeItem>().pos = new Vector2Int(i, j);
