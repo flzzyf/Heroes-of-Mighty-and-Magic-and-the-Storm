@@ -16,6 +16,8 @@ public class MapManager : Singleton<MapManager>
 
     public bool xy = true;
 
+    public bool autoCentered = false;
+
     public void GenerateMap()
     {
         int mapSizeX = NodeManager.Instance().nodeCountX;
@@ -23,17 +25,12 @@ public class MapManager : Singleton<MapManager>
 
         nodeItems = new GameObject[mapSizeY, mapSizeX];
 
-        // 生成节点的真正源点
-        Vector2 originGeneratePoint;
-        originGeneratePoint.x = originPoint.x - mapSizeX / 2 * nodePaddingX;
-        if(mapSizeX % 2 == 0)
+        Vector2 originGeneratePoint = Vector2.zero;
+        if (autoCentered)
         {
-            //originGeneratePoint.x -= nodePaddingX / 2;
-        }
-        originGeneratePoint.y = originPoint.y - mapSizeY / 2 * nodePaddingY;
-        if (mapSizeY % 2 == 0)
-        {
-            //originGeneratePoint.y -= nodePaddingY / 2;
+            //自动居中
+            originGeneratePoint.x = originPoint.x - mapSizeX / 2 * nodePaddingX;
+            originGeneratePoint.y = originPoint.y - mapSizeY / 2 * nodePaddingY;
         }
 
         Vector3 generatePos;
@@ -111,6 +108,21 @@ public class MapManager : Singleton<MapManager>
         if (!_centerIncluded)
         {
             list.Remove(nodeItem);
+        }
+
+        return list;
+    }
+
+    public List<GameObject> FindPath(GameObject _start, GameObject _end)
+    {
+        List<GameObject> list = new List<GameObject>();
+
+        Node start = NodeManager.Instance().GetNode(_start.GetComponent<NodeItem>().pos);
+        Node end = NodeManager.Instance().GetNode(_end.GetComponent<NodeItem>().pos);
+
+        foreach (var item in NodeManager.Instance().FindPath(start, end))
+        {
+            list.Add(GetNodeItem(item.pos));
         }
 
         return list;

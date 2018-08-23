@@ -4039,6 +4039,48 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1001 &694951660
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277567378919100, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5635d1aace5f4a4a87383d83b25a5e9, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!213 &745103918
 Sprite:
   m_ObjectHideFlags: 0
@@ -4279,6 +4321,68 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &790279694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790279697}
+  - component: {fileID: 790279696}
+  - component: {fileID: 790279695}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790279695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790279694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f242c5255826894980c3bad5929bc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab_node: {fileID: 0}
+  nodePaddingX: 1
+  nodePaddingY: 1
+  originPoint: {x: 0, y: 0}
+  evenLineOffsetX: 0
+  xy: 1
+  autoCentered: 0
+--- !u!114 &790279696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790279694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6edb82f48ec154281d8cd129805e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeCountX: 20
+  nodeCountY: 20
+  specialEvenLine: 0
+--- !u!4 &790279697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 790279694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 38.71, y: 0, z: 26.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &797129162
 Sprite:
   m_ObjectHideFlags: 0
@@ -7436,11 +7540,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab_node: {fileID: 1770460259947540, guid: d5635d1aace5f4a4a87383d83b25a5e9,
     type: 2}
-  nodePaddingX: 1
-  nodePaddingY: 1
-  originPoint: {x: 0, y: 0}
+  nodePaddingX: 1.5
+  nodePaddingY: 1.5
+  originPoint: {x: 10, y: 10}
   evenLineOffsetX: 0
   xy: 0
+  autoCentered: 0
 --- !u!114 &1222465626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7452,8 +7557,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6edb82f48ec154281d8cd129805e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeCountX: 20
-  nodeCountY: 20
+  nodeCountX: 100
+  nodeCountY: 80
+  specialEvenLine: 0
 --- !u!114 &1222465627
 MonoBehaviour:
   m_ObjectHideFlags: 0
