@@ -4,50 +4,96 @@ using UnityEngine;
 
 public class TravelModeManager : Singleton<TravelModeManager>
 {
+    public GameObject lastHighlightNode;
+    public GameObject currentNode;
+    List<GameObject> lastPath;
 
-
-	void Start () 
+    void Start () 
 	{
-        NodeManager.Instance().GenerateNodes();
         MapManager.Instance().GenerateMap();
-	}
+
+        currentNode = MapManager.Instance().GetNodeItem(new Vector2Int(0, 0));
+    }
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (hit.collider.gameObject.tag == "MapNode")
             {
-                if (hit.collider.gameObject.tag == "MapNode")
+                if (lastHighlightNode == null || lastHighlightNode != hit.collider.gameObject)
                 {
-                    Debug.Log(" you clicked on " + hit.collider.gameObject.name);
-
-                    GameObject start = MapManager.Instance().GetNodeItem(new Vector2Int(0, 0));
-
-                    foreach (var item in MapManager.Instance().FindPath(start, hit.collider.gameObject))
+                    if (lastHighlightNode != null)
                     {
-                        item.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+                        lastHighlightNode.GetComponent<NodeItem>().highlighted = false;
+                        lastHighlightNode.GetComponent<NodeItem>().UpdateStatus();
+                    }
 
+                    lastHighlightNode = hit.collider.gameObject;
+
+                    lastHighlightNode.GetComponent<NodeItem>().highlighted = true;
+                    lastHighlightNode.GetComponent<NodeItem>().UpdateStatus();
+
+                    //清除之前的路径显示
+                    if (lastPath != null)
+                    {
+                        foreach (var item in lastPath)
+                        {
+                            item.gameObject.GetComponent<NodeItem>().isPath = false;
+                            item.gameObject.GetComponent<NodeItem_HOMM_Travel>().isGoal = false;
+                            item.gameObject.GetComponent<NodeItem_HOMM_Travel>().reachable = false;
+                            item.gameObject.GetComponent<NodeItem>().UpdateStatus();
+                        }
+                    }
+                    lastPath = AStarManager.Instance().FindPath(currentNode, hit.collider.gameObject);
+                    float range = 5;
+                    if (lastPath != null)
+                    {
+                        GameObject lastNode;
+                        for (int i = 1; i < lastPath.Count; i++)
+                        {
+                            lastNode = lastPath[i - 1];
+
+                            range -= Vector3.Distance(lastNode.transform.position, lastPath[i].transform.position);
+
+                            if (i != lastPath.Count - 1)
+                                lastPath[i].GetComponent<NodeItem>().isPath = true;
+                            else
+                            {
+                                lastPath[i].GetComponent<NodeItem_HOMM_Travel>().isGoal = true;
+                            }
+                            lastPath[i].GetComponent<NodeItem>().UpdateStatus();
+
+                            if (range > 0)
+                            {
+                                lastPath[i].GetComponent<NodeItem_HOMM_Travel>().reachable = true;
+                                lastPath[i].GetComponent<NodeItem>().UpdateStatus();
+
+                            }
+                            lastNode.GetComponent<NodeItem_HOMM_Travel>().ArrowFaceTarget(lastPath[i]);
+
+                        }
                     }
                 }
-            }
-        }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject.tag == "MapNode")
+                //左键点击
+                if (Input.GetMouseButtonDown(0))
                 {
-                    hit.collider.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.black;
-                    Node node = NodeManager.Instance().GetNode(hit.collider.gameObject.GetComponent<NodeItem>().pos);
-                    node.walkable = false;
+
+                    //foreach (var item in MapManager.Instance().GetNearbyNodeItems(hit.collider.gameObject))
+                    //{
+                    //    item.gameObject.GetComponent<NodeItem>().highlighted = true;
+                    //    item.gameObject.GetComponent<NodeItem>().ChangeStatus();
+                    //}
+                }
+
+                //右键点击
+                if (Input.GetMouseButtonDown(1))
+                {
+                    MapManager.Instance().GetNode(hit.collider.gameObject.gameObject.GetComponent<NodeItem>().pos).walkable = false;
                 }
             }
         }
