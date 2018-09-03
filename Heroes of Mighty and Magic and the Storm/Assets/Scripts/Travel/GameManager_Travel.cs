@@ -2,17 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TravelModeManager : Singleton<TravelModeManager>
+public class GameManager_Travel : Singleton<GameManager_Travel>
 {
+    [HideInInspector]
     public GameObject lastHighlightNode;
+    [HideInInspector]
     public GameObject currentNode;
     List<GameObject> lastPath;
 
-    void Start () 
-	{
+    [HideInInspector]
+    public GameObject currentHero;
+
+    public Transform[] spawnPoints;
+    public GameObject prefab_town;
+    public GameObject prefab_hero;
+
+    void Start()
+    {
         MapManager.Instance().GenerateMap();
 
         currentNode = MapManager.Instance().GetNodeItem(new Vector2Int(0, 0));
+
+        //玩家初始设置
+        InitPlayer(PlayerManager.Instance().players[0]);
+
     }
 
     void Update()
@@ -97,6 +110,27 @@ public class TravelModeManager : Singleton<TravelModeManager>
                 }
             }
         }
+    }
+
+    void InitPlayer(Player _player)
+    {
+        GameObject town = Instantiate(prefab_town, spawnPoints[0].position, Quaternion.identity);
+
+        Vector3 heroPos = town.GetComponent<Town>().interactPoint.position;
+        GameObject hero = Instantiate(prefab_hero, heroPos, Quaternion.identity);
+
+        //非AI
+        if (!_player.isAI)
+        {
+            //移动镜头到出生点
+            MoveCamera(hero.transform.position);
+        }
+    }
+
+    void MoveCamera(Vector3 _pos)
+    {
+        _pos.y = 8;
+        Camera.main.transform.position = _pos;
     }
 
 }
