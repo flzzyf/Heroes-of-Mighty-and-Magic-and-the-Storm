@@ -194,12 +194,12 @@ public class Unit : MonoBehaviour
     #endregion
     void Death()
     {
-        BattleManager.instance.unitActionList.Remove(gameObject);
-        BattleManager.instance.unitActionOrder.Remove(gameObject);
+        BattleManager.Instance().unitActionList.Remove(gameObject);
+        BattleManager.Instance().unitActionOrder.Remove(gameObject);
 
         dead = true;
 
-        BattleManager.instance.UnlinkNodeWithUnit(gameObject);
+        BattleManager.Instance().UnlinkNodeWithUnit(gameObject);
 
         gameObject.SetActive(false);
     }
@@ -231,5 +231,5 @@ public class Unit : MonoBehaviour
 
     }
 
-#endregion
+    #endregion
 }

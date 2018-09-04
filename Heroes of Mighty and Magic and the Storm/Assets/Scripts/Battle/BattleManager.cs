@@ -3,20 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BattleManager : MonoBehaviour
+public class BattleManager : Singleton<BattleManager>
 {
-    #region Singleton
-    [HideInInspector]
-    public static BattleManager instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(this);
-        instance = this;
-    }
-    #endregion
-
     //单位行动顺序表，单位行动队列
     public LinkedList<GameObject> unitActionOrder = new LinkedList<GameObject>();
     public LinkedList<GameObject> unitActionList = new LinkedList<GameObject>();
@@ -28,7 +16,7 @@ public class BattleManager : MonoBehaviour
 
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
-    List<int>[] playerUnitPos = { 
+    List<int>[] playerUnitPos = {
         new List<int>{3},
         new List<int>{1, 5},
         new List<int>{1, 3, 5},
@@ -162,7 +150,7 @@ public class BattleManager : MonoBehaviour
             go.GetComponent<Unit>().player = _hero;
 
             GameObject nodeUnit = map.GetNodeUnit(new Vector3(x, unitPosIndex, 0));
-            LinkNodeWithUnit(go,nodeUnit);
+            LinkNodeWithUnit(go, nodeUnit);
 
             AddUnitToActionList(ref unitActionOrder, go);
 
@@ -172,7 +160,7 @@ public class BattleManager : MonoBehaviour
     public void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
     {
         //取消与先前节点的链接
-        if(_unit.GetComponent<Unit>().nodeUnit != null)
+        if (_unit.GetComponent<Unit>().nodeUnit != null)
         {
             UnlinkNodeWithUnit(_unit);
         }
@@ -220,7 +208,7 @@ public class BattleManager : MonoBehaviour
     {
         List<AstarNode> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
 
-        for (int i = nodes.Count - 1; i >= 0 ; i--)
+        for (int i = nodes.Count - 1; i >= 0; i--)
         {
             if (map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
                 nodes.Remove(nodes[i]);
@@ -244,7 +232,7 @@ public class BattleManager : MonoBehaviour
 
         movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
 
-        while(movementManager.moving)
+        while (movementManager.moving)
             yield return null;
 
         roundManager.TurnEnd();
@@ -299,5 +287,5 @@ public class BattleManager : MonoBehaviour
         reachableNodes.Clear();
         attackableNodes.Clear();
     }
- 
+
 }

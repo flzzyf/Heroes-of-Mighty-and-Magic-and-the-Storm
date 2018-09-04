@@ -1,36 +1,43 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-    static T instance;
+    static T trueInstance = null;
+
+    public static T instance
+    {
+        get
+        {
+            return Instance();
+        }
+    }
 
     public static T Instance()
     {
-        if (instance == null)
+        if (trueInstance == null)
         {
-            //寻找现有脚本
-            instance = FindObjectOfType<T>();
-
+            trueInstance = FindObjectOfType<T>();
+            //有超过一个实例
             if (FindObjectsOfType<T>().Length > 1)
             {
-                //超过一个则选择最后一个，即场景中本来就有的
-                print("超过一个Singleton!");
-                instance = FindObjectsOfType<T>()[FindObjectsOfType<T>().Length - 1];
+                Debug.LogError("有超过一个实例！");
+                return trueInstance;
             }
-            //没有现有脚本
-            if (instance == null)
+            //不存在实例
+            if (trueInstance == null)
             {
-                string instanceName = typeof(T).Name;
-                print(typeof(T).Name + "没有现有脚本");
+                string trueInstanceName = typeof(T).Name;
+                Debug.LogError(trueInstanceName + "尚无实例！");
             }
         }
 
-        return instance;
+        return trueInstance;
     }
 
     protected virtual void OnDestroy()
     {
-        instance = null;
+        trueInstance = null;
     }
 }

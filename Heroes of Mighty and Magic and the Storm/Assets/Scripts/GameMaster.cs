@@ -2,22 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameMaster : MonoBehaviour {
-
-    #region Singleton
-    [HideInInspector]
-    public static GameMaster instance;
-
-
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(this);
-        instance = this;
-    }
-    #endregion
-
+public class GameMaster : Singleton<GameMaster>
+{
     public UnitType type;
 
     //----------------------
@@ -28,25 +14,28 @@ public class GameMaster : MonoBehaviour {
     #region 游戏暂停系统
     int pause = 0;
 
-    public void Pause(){
+    public void Pause()
+    {
         pause++;
     }
 
-    public void Unpause(){
+    public void Unpause()
+    {
         pause--;
     }
 
-    public bool isPause(){
+    public bool isPause()
+    {
         return pause > 0;
     }
     #endregion
 
-    void Start ()
+    void Start()
     {
         Cursor.visible = false;
-	}
+    }
 
-	void Update ()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -58,7 +47,7 @@ public class GameMaster : MonoBehaviour {
             BattleManager.instance.BattleStart();
 
         }
-	}
+    }
 
 
     public GameObject CreateUnit(UnitType _type, Vector3 _pos, int _num = 1, int _flip = 0)

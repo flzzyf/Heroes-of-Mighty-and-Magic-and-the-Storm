@@ -20,11 +20,11 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (GameMaster.instance.isPause())
+        if (GameMaster.Instance().isPause())
             return;
 
-        BattleManager.instance.mouseNode = node;
-        
+        BattleManager.Instance().mouseNode = node;
+
         ToggleBackgroundState(2);
 
         if (nodeType == 0)
@@ -32,28 +32,28 @@ public class NodeUnit : MonoBehaviour
             if (targetType == 1)
             {
                 //可到达
-                CustomCursor.instance.ChangeCursor("Reachable");
+                CustomCursor.Instance().ChangeCursor("Reachable");
             }
         }
         else if (nodeType == 1)
         {
             //不可到达
-            CustomCursor.instance.ChangeCursor("Stop");
+            CustomCursor.Instance().ChangeCursor("Stop");
 
         }
-        else if(nodeType == 2)
+        else if (nodeType == 2)
         {
-            
+
             //不可攻击单位
-            if (BattleManager.instance.isSamePlayer(unit.gameObject, BattleManager.instance.currentActionUnit))
+            if (BattleManager.Instance().isSamePlayer(unit.gameObject, BattleManager.Instance().currentActionUnit))
             {
                 //友军
-                CustomCursor.instance.ChangeCursor("Friend");
+                CustomCursor.Instance().ChangeCursor("Friend");
             }
             else
             {
                 //敌人
-                //CustomCursor.instance.ChangeCursor("Enemy");
+                //CustomCursor.Instance().ChangeCursor("Enemy");
                 unit.ChangeOutlineColor(GameSettings.instance.haloColor_enemy);
                 unit.OutlineFlashStart();
                 enemyFlashing = true;
@@ -64,17 +64,17 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseExit()
     {
-        BattleManager.instance.mouseNode = null;
+        BattleManager.Instance().mouseNode = null;
 
-        CustomCursor.instance.ChangeCursor();
+        CustomCursor.Instance().ChangeCursor();
 
         ToggleBackgroundState(backgroundState);
 
-        if(enemyFlashing)
+        if (enemyFlashing)
         {
             enemyFlashing = false;
             unit.OutlineFlashStop();
-            unit.ChangeOutlineColor(GameSettings.instance.haloColor_actionUnit);
+            unit.ChangeOutlineColor(GameSettings.Instance().haloColor_actionUnit);
 
         }
 
@@ -85,10 +85,10 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (GameMaster.instance.isPause())
+        if (GameMaster.Instance().isPause())
             return;
-        
-        if(targetType == 2 && previousMousePos != (Vector2)Input.mousePosition)
+
+        if (targetType == 2 && previousMousePos != (Vector2)Input.mousePosition)
         {
             previousMousePos = Input.mousePosition;
 
@@ -107,20 +107,20 @@ public class NodeUnit : MonoBehaviour
             int arrowIndex = (int)angle / 60;
 
             //攻击方向上的格子存在，且可到达便可发起攻击。目前还没考虑多格单位
-            targetNode = BattleManager.instance.map.GetNearbyOneNode(node, arrowIndex);
-            if(targetNode != null &&
-               BattleManager.instance.map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().targetType == 1)
+            targetNode = BattleManager.Instance().map.GetNearbyOneNode(node, arrowIndex);
+            if (targetNode != null &&
+               BattleManager.Instance().map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().targetType == 1)
             {
                 int arrowAngle = (arrowIndex * 60 + 210) % 360;
                 int arrowAngleFixed = 360 - arrowAngle;
 
-                CustomCursor.instance.ChangeCursor("Sword");
+                CustomCursor.Instance().ChangeCursor("Sword");
 
-                CustomCursor.instance.ChangeCursorAngle(arrowAngleFixed);
+                CustomCursor.Instance().ChangeCursorAngle(arrowAngleFixed);
             }
             else
             {
-                CustomCursor.instance.ChangeCursor("Enemy");
+                CustomCursor.Instance().ChangeCursor("Enemy");
 
             }
 
@@ -129,20 +129,20 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(targetNode != null)  //可攻击位置
+        if (targetNode != null)  //可攻击位置
         {
-            CustomCursor.instance.ChangeCursor();
+            CustomCursor.Instance().ChangeCursor();
             ToggleBackgroundState();
 
-            BattleManager.instance.AttackMove(targetNode);
+            BattleManager.Instance().AttackMove(targetNode);
 
         }
-        else if(targetType == 1)    //可到达
+        else if (targetType == 1)    //可到达
         {
-            CustomCursor.instance.ChangeCursor();
+            CustomCursor.Instance().ChangeCursor();
             ToggleBackgroundState();
 
-            BattleManager.instance.MoveUnit(node);
+            BattleManager.Instance().MoveUnit(node);
         }
 
     }
@@ -153,7 +153,7 @@ public class NodeUnit : MonoBehaviour
         if (_state != 2)
             backgroundState = _state;
 
-        bg.color = BattleManager.instance.backgroundStateColor[_state];
+        bg.color = BattleManager.Instance().backgroundStateColor[_state];
     }
 
 }

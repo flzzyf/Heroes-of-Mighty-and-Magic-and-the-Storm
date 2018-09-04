@@ -9,20 +9,8 @@ public class CursorGO
     public GameObject cursorGO;
 }
 
-public class CustomCursor : MonoBehaviour 
+public class CustomCursor : Singleton<CustomCursor>
 {
-    #region Singleton
-    [HideInInspector]
-    public static CustomCursor instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(this);
-        instance = this;
-    }
-    #endregion
-
     public Vector2 offset;
 
     public CursorGO[] cursors;
@@ -39,10 +27,10 @@ public class CustomCursor : MonoBehaviour
         }
     }
 
-    void FixedUpdate () 
+    void FixedUpdate()
     {
         transform.position = (Vector2)Input.mousePosition + offset;
-	}
+    }
 
     public void ChangeCursor(string _name = "Default")
     {

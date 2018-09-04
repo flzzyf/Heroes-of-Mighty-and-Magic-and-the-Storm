@@ -31,12 +31,12 @@ public class MovementManager : MonoBehaviour
         movingUnit.PlayAnimation("move", 1);
 
         //将先前的格子设为无人
-        BattleManager.instance.UnlinkNodeWithUnit(_unit);
+        BattleManager.Instance().UnlinkNodeWithUnit(_unit);
         //movingUnit.nodeUnit.GetComponent<NodeUnit>().node.walkable = true;
         //movingUnit.nodeUnit.GetComponent<NodeUnit>().unit = null;
 
         GetNextWayPoint();
-        GameMaster.instance.Pause();
+        GameMaster.Instance().Pause();
 
         StartCoroutine(Moving());
 
@@ -87,7 +87,7 @@ public class MovementManager : MonoBehaviour
         //进入新格子
         AstarNode currentNode = path[currentWayPointIndex];
 
-        BattleManager.instance.LinkNodeWithUnit(movingUnit.gameObject, map.GetNodeUnit(currentNode));
+        BattleManager.Instance().LinkNodeWithUnit(movingUnit.gameObject, map.GetNodeUnit(currentNode));
 
         //重置移动单位信息
         movingUnit = null;
@@ -96,7 +96,7 @@ public class MovementManager : MonoBehaviour
         path.Clear();
         map.path.Clear();
 
-        GameMaster.instance.Unpause();
+        GameMaster.Instance().Unpause();
 
     }
 

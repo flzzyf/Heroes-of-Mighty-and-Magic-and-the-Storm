@@ -2,20 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettings : MonoBehaviour 
+public class GameSettings : Singleton<GameSettings>
 {
-    #region Singleton
-    [HideInInspector]
-    public static GameSettings instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(this);
-        instance = this;
-    }
-    #endregion
-
     [Range(0, 1)]
     public float outlineFlashRangeMin;
     [Range(0, 1)]

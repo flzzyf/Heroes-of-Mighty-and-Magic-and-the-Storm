@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map_HOMMS : Map 
+public class Map_HOMMS : Map
 {
     public float nodeRadius = 1;
 
@@ -71,7 +71,7 @@ public class Map_HOMMS : Map
         {
             AstarNode node = GetNearbyOneNode(_node, i);
 
-            if(node != null)
+            if (node != null)
                 list.Add(node);
         }
         return list;
@@ -109,7 +109,7 @@ public class Map_HOMMS : Map
         for (int i = 0; i < _range; i++)
         {
             int a = openList.Count;
-            while(a-- > 0)
+            while (a-- > 0)
             {
                 it = openList[0];
 
@@ -125,7 +125,7 @@ public class Map_HOMMS : Map
                         continue;
                     }*/
 
-                    if(!closeList.Contains(item) && !openList.Contains(item))
+                    if (!closeList.Contains(item) && !openList.Contains(item))
                     {
                         openList.Add(item);
                         list.Add(item);
@@ -152,7 +152,7 @@ public class Map_HOMMS : Map
         {
             path.Add(curNode);
 
-            //GameObject go = BattleManager.instance.map.GetNodeUnit(curNode);
+            //GameObject go = BattleManager.Instance().map.GetNodeUnit(curNode);
 
             curNode = curNode.parentNode;
         }
@@ -164,7 +164,7 @@ public class Map_HOMMS : Map
     {
         foreach (var item in path)
         {
-            GameObject go = BattleManager.instance.map.GetNodeUnit(item);
+            GameObject go = BattleManager.Instance().map.GetNodeUnit(item);
 
             ToggleHighlightNode(go, false);
         }
@@ -177,7 +177,7 @@ public class Map_HOMMS : Map
         int backgroundState = _highlight ? 1 : 0;
         _go.GetComponent<NodeUnit>().ToggleBackgroundState(backgroundState);
 
-        if(_highlight)
+        if (_highlight)
         {
             highlightNode.Add(_go);
         }
@@ -189,7 +189,7 @@ public class Map_HOMMS : Map
 
     public void HideAllNode()
     {
-        while(highlightNode.Count > 0)
+        while (highlightNode.Count > 0)
         {
             GameObject go = highlightNode[0];
             ToggleHighlightNode(go, false);
