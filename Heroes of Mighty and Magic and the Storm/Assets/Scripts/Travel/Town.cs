@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Town : MonoBehaviour
+public class Town : NodeObject
 {
-    public Transform interactPoint;
+    public Vector3Int interactPoint;
     public int player;
 }

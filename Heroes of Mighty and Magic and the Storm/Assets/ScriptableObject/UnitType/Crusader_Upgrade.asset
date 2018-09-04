@@ -3,13 +3,13 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Crusader 1
+  m_Name: Crusader_Upgrade
   m_EditorClassIdentifier: 
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
   speed: 16
