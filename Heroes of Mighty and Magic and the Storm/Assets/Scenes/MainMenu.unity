@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - id: 0
+  - id: 1
     isAI: 0
     gold: 0
 --- !u!114 &84518062

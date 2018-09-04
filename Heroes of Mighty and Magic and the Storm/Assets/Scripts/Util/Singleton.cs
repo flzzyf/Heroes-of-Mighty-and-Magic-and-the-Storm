@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-    protected static T instance;
+    static T instance;
 
     public static T Instance()
     {
@@ -14,7 +14,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 
             if (FindObjectsOfType<T>().Length > 1)
             {
-                throw new Exception("超过一个Singleton!");
+                //超过一个则选择最后一个，即场景中本来就有的
+                print("超过一个Singleton!");
+                instance = FindObjectsOfType<T>()[FindObjectsOfType<T>().Length - 1];
             }
             //没有现有脚本
             if (instance == null)

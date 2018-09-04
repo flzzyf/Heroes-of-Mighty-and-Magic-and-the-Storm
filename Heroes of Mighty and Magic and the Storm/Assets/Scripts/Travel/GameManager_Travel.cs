@@ -24,7 +24,8 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
         currentNode = MapManager.Instance().GetNodeItem(new Vector2Int(0, 0));
 
         //玩家初始设置
-        InitPlayer(PlayerManager.Instance().players[0]);
+        if (PlayerManager.Instance().players[0].id == 0)
+            InitPlayer(PlayerManager.Instance().players[0]);
 
     }
 
@@ -126,11 +127,19 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
             MoveCamera(hero.transform.position);
         }
     }
-
+    //移动镜头到目的地
     void MoveCamera(Vector3 _pos)
     {
         _pos.y = 8;
         Camera.main.transform.position = _pos;
+    }
+
+    //高亮英雄（移动镜头，选中英雄）
+    void HighlightHero(GameObject _go)
+    {
+        MoveCamera(_go.transform.position);
+
+        currentHero = _go;
     }
 
 }
