@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : MonoBehaviour {
-
+public class Hero : NodeObject
+{
     public PocketUnit[] pocketUnits;
-
-	void Start () {
-		
-	}
-	
-
 }
 
 [System.Serializable]

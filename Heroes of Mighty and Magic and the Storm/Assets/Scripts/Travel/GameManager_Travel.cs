@@ -6,12 +6,11 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 {
     [HideInInspector]
     public GameObject lastHighlightNode;
-    [HideInInspector]
-    public GameObject currentNode;
     List<GameObject> lastPath;
 
     [HideInInspector]
     public GameObject currentHero;
+    GameObject currentNode;
 
     public Transform[] spawnPoints;
     public GameObject prefab_town;
@@ -21,11 +20,11 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
     {
         MapManager.Instance().GenerateMap();
 
-        currentNode = MapManager.Instance().GetNodeItem(new Vector2Int(0, 0));
-
         //玩家初始设置
         if (PlayerManager.Instance().players[0].id == 0)
             InitPlayer(PlayerManager.Instance().players[0]);
+
+        TurnStart(0);
 
     }
 
@@ -62,6 +61,7 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
                             item.gameObject.GetComponent<NodeItem>().UpdateStatus();
                         }
                     }
+                    currentNode = MapManager.instance.GetNodeItem(currentHero.GetComponent<Hero>().pos);
                     lastPath = AStarManager.Instance().FindPath(currentNode, hit.collider.gameObject);
                     float range = 5;
                     if (lastPath != null)
@@ -112,13 +112,13 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
             }
         }
     }
-
+    //玩家初始化，生成城镇和英雄
     void InitPlayer(Player _player)
     {
-        GameObject town = Instantiate(prefab_town, spawnPoints[0].position, Quaternion.identity);
-
-        Vector3 heroPos = town.GetComponent<Town>().interactPoint.position;
-        GameObject hero = Instantiate(prefab_hero, heroPos, Quaternion.identity);
+        GameObject town = CreateObjectOnNode(prefab_town, _player.startingPoint);
+        Vector2Int offset = town.GetComponent<Town>().interactPoint;
+        GameObject hero = CreateObjectOnNode(prefab_hero, _player.startingPoint + offset);
+        _player.heroes.Add(hero);
 
         //非AI
         if (!_player.isAI)
@@ -127,6 +127,16 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
             MoveCamera(hero.transform.position);
         }
     }
+    //在节点上创建物体
+    GameObject CreateObjectOnNode(GameObject _prefab, Vector2Int _pos)
+    {
+        GameObject node = MapManager.instance.GetNodeItem(_pos);
+
+        GameObject go = Instantiate(_prefab, node.transform.position, Quaternion.identity);
+        go.GetComponent<NodeObject>().pos = _pos;
+        return go;
+    }
+
     //移动镜头到目的地
     void MoveCamera(Vector3 _pos)
     {
@@ -140,6 +150,12 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
         MoveCamera(_go.transform.position);
 
         currentHero = _go;
+    }
+
+    void TurnStart(int _index)
+    {
+        Player player = PlayerManager.instance.players[_index];
+        HighlightHero(player.heroes[0]);
     }
 
 }

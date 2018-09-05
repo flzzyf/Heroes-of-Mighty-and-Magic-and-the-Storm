@@ -13,5 +13,9 @@ public class Player
     public int id;
     public bool isAI;
 
+    public Vector2Int startingPoint;
+
+    public List<GameObject> heroes;
+
     public int gold;
 }

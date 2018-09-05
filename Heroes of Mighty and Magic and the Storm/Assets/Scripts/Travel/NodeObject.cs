@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class NodeObject : MonoBehaviour
 {
-    public Vector3Int pos;
+    [HideInInspector]
+    public Vector2Int pos;
+
+    public int player;
 }

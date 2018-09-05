@@ -139,7 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4f5b30e810347db81aee73c71547bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactPoint: {fileID: 4147635231504818}
+  pos: {x: 0, y: 0}
+  interactPoint: {x: 2, y: -5}
   player: 0
 --- !u!212 &212853511585297080
 SpriteRenderer:
