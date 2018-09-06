@@ -8,7 +8,6 @@ public class Town : NodeObject
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position + new Vector3(interactPoint.x, 0, interactPoint.y),
-                            Vector3.one * 2);
+        Gizmos.DrawWireCube(transform.position + new Vector3(interactPoint.x, 0, interactPoint.y), Vector3.one * 3);
     }
 }
