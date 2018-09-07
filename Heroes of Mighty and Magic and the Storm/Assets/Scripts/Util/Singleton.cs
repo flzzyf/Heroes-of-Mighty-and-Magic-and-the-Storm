@@ -19,11 +19,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
         if (trueInstance == null)
         {
             trueInstance = FindObjectOfType<T>();
-            //有超过一个实例
+            //有超过一个实例，取最后一个，即最新的
             if (FindObjectsOfType<T>().Length > 1)
             {
-                Debug.LogError("有超过一个实例！");
-                return trueInstance;
+                return FindObjectsOfType<T>()[FindObjectsOfType<T>().Length - 1];
             }
             //不存在实例
             if (trueInstance == null)
