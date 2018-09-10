@@ -45,18 +45,18 @@ public class MapManager_HOMM : MapManager
         int y;
         for (int i = 0; i < 2; i++)
         {
-            y = i == 0? 1 : -1;
+            y = i == 0 ? 1 : -1;
             for (int j = 0; j < 2; j++)
             {
                 p = new Vector2Int(pos.x + j, pos.y + y);
 
                 //偶数行特殊处理
-                if(p.y % 2 == 0)
+                if (p.y % 2 == 0)
                 {
                     p.x--;
                 }
 
-                if(isNodeAvailable(p))
+                if (isNodeAvailable(p))
                 {
                     list.Add(nodes[p.x, p.y]);
                 }
@@ -64,5 +64,11 @@ public class MapManager_HOMM : MapManager
         }
 
         return list;
+    }
+
+    //切换隐藏地图
+    public void HideMap(bool _hide)
+    {
+
     }
 }
