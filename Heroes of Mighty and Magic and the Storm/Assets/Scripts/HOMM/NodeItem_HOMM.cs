@@ -15,13 +15,11 @@ public class NodeItem_HOMM : NodeItem
     {
         if (highlighted)
         {
-            gfx.color = MapManager.Instance().color_highlight;
             return;
         }
 
-        if(isPath)
+        if (isPath)
         {
-            gfx.color = MapManager.Instance().color_path;
             return;
         }
 

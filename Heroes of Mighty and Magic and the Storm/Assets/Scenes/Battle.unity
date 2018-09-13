@@ -1570,17 +1570,17 @@ GameObject:
   m_Component:
   - component: {fileID: 1127837001}
   - component: {fileID: 1127837000}
-  - component: {fileID: 1127836999}
   - component: {fileID: 1127836998}
-  - component: {fileID: 1127836997}
   - component: {fileID: 1127836996}
+  - component: {fileID: 1127836999}
+  - component: {fileID: 1127836997}
   m_Layer: 0
   m_Name: BattleManager (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1127836996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,9 +1602,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1127836995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3c6a6393e542742b52248fd9083c60, type: 3}
+  m_Script: {fileID: 11500000, guid: cb458279430ac3247b190f5131e51169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  size: {x: 15, y: 11}
+  nodeSize: {x: 1.2, y: 1.2}
+  prefab_node: {fileID: 1477900401895202, guid: f7217eeda4aa74bc3aa854bea26f540a,
+    type: 2}
+  color_highlight: {r: 1, g: 1, b: 1, a: 1}
+  color_path: {r: 1, g: 1, b: 1, a: 1}
+  is2d: 0
+  autoCentered: 1
+  layer_wall:
+    serializedVersion: 2
+    m_Bits: 0
+  nodeRadius: 1.2
 --- !u!114 &1127836998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,18 +1639,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1127836995}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f407c97fd3f34022ba6bda05df7f7ef, type: 3}
+  m_Script: {fileID: 11500000, guid: e41614f6afcd28142b7b442311cd9e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originPoint: {x: 0, y: 0, z: 0}
-  mapSizeX: 15
-  mapSizeY: 11
-  mapSizeZ: 1
-  nodeInterval: 2
-  nodePrefab: {fileID: 1477900401895202, guid: f7217eeda4aa74bc3aa854bea26f540a, type: 2}
-  nodeRadius: 1.2
-  nodeUnitParent: {fileID: 0}
-  highlightNode: []
 --- !u!114 &1127837000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2510,7 +2513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1496063836
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MapCoord { xy, xz };
 public class MapManager : Singleton<MapManager>
 {
     public Vector2Int size = new Vector2Int(5, 5);
     public Vector2 nodeSize = new Vector2(1, 1);
     public GameObject prefab_node;
-    public Color color_highlight = Color.white;
-    public Color color_path = Color.white;
 
-    public bool is2d;
+    public MapCoord coord;
     public bool autoCentered = false;
     public LayerMask layer_wall;
 
     protected Node[,] nodes;
     GameObject[,] nodeItems;
     Vector2 originGeneratePoint = Vector2.zero;
+
+    protected Vector3 pos;
+    float x, y;
 
     //生成地图
     public virtual void GenerateMap()
@@ -35,7 +37,7 @@ public class MapManager : Singleton<MapManager>
         {
             for (int x = 0; x < size.x; x++)
             {
-                nodeItems[x, y] = Instantiate(prefab_node, NodeInit(x, y), Quaternion.identity, ParentManager.Instance().GetParent("Node"));
+                nodeItems[x, y] = Instantiate(prefab_node, NodeInit(x, y), Quaternion.identity, parent);
                 nodeItems[x, y].GetComponent<NodeItem>().pos = new Vector2Int(x, y);
 
                 bool walkable = !Physics.CheckSphere(pos, nodeSize.x / 2, layer_wall);
@@ -44,8 +46,6 @@ public class MapManager : Singleton<MapManager>
         }
     }
 
-    protected Vector3 pos;
-    float x, y;
     public virtual Vector3 NodeInit(int _x, int _y)
     {
         //移动节点
@@ -57,7 +57,7 @@ public class MapManager : Singleton<MapManager>
             y -= originGeneratePoint.y;
         }
 
-        pos = is2d ? new Vector3(x, y, 0) : new Vector3(x, 0, y);
+        pos = coord == MapCoord.xy ? new Vector3(x, y, 0) : new Vector3(x, 0, y);
         return pos;
     }
 
@@ -82,10 +82,10 @@ public class MapManager : Singleton<MapManager>
             for (int j = -1; j < 2; j++)
             {
                 //去除中心点
-                if(!(i == 0 && j == 0))
+                if (!(i == 0 && j == 0))
                 {
                     p = new Vector2Int(pos.x + i, pos.y + j);
-                    if(0 <= p.x && p.x < size.x &&
+                    if (0 <= p.x && p.x < size.x &&
                        0 <= p.y && p.y < size.y)
                     {
                         list.Add(nodes[p.x, p.y]);
@@ -120,7 +120,15 @@ public class MapManager : Singleton<MapManager>
 
         return false;
     }
-        
+
+    public Transform parent
+    {
+        get
+        {
+            print(this.GetType().Name);
+            return ParentManager.instance.GetParent(this.GetType().Name);
+        }
+    }
 }
 
 public class Node

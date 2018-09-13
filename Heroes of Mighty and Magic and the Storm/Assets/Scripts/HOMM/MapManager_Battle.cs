@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager_HOMM : MapManager
+public class MapManager_Battle : MapManager
 {
     public float nodeRadius = 1;
 

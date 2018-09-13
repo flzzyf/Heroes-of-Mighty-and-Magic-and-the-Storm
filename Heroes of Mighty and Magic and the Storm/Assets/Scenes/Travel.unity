@@ -248,48 +248,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &583653033
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900316246497726, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &924984051
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,9 +452,7 @@ MonoBehaviour:
   nodeSize: {x: 3, y: 3}
   prefab_node: {fileID: 1770460259947540, guid: d5635d1aace5f4a4a87383d83b25a5e9,
     type: 2}
-  color_highlight: {r: 1, g: 1, b: 1, a: 1}
-  color_path: {r: 1, g: 1, b: 1, a: 1}
-  is2d: 0
+  coord: 1
   autoCentered: 0
   layer_wall:
     serializedVersion: 2
