@@ -10,7 +10,6 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 
     [HideInInspector]
     public GameObject currentHero;
-    GameObject currentNode;
 
     public Transform[] spawnPoints;
     public GameObject prefab_town;
@@ -30,87 +29,11 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (hit.collider.gameObject.tag == "MapNode")
-            {
-                if (lastHighlightNode == null || lastHighlightNode != hit.collider.gameObject)
-                {
-                    if (lastHighlightNode != null)
-                    {
-                        lastHighlightNode.GetComponent<NodeItem>().highlighted = false;
-                        lastHighlightNode.GetComponent<NodeItem>().UpdateStatus();
-                    }
-
-                    lastHighlightNode = hit.collider.gameObject;
-
-                    lastHighlightNode.GetComponent<NodeItem>().highlighted = true;
-                    lastHighlightNode.GetComponent<NodeItem>().UpdateStatus();
-
-                    //清除之前的路径显示
-                    if (lastPath != null)
-                    {
-                        foreach (var item in lastPath)
-                        {
-                            item.gameObject.GetComponent<NodeItem>().isPath = false;
-                            item.gameObject.GetComponent<NodeItem_HOMM_Travel>().isGoal = false;
-                            item.gameObject.GetComponent<NodeItem_HOMM_Travel>().reachable = false;
-                            item.gameObject.GetComponent<NodeItem>().UpdateStatus();
-                        }
-                    }
-                    currentNode = MapManager.instance.GetNodeItem(currentHero.GetComponent<Hero>().pos);
-                    lastPath = AStarManager.Instance().FindPath(currentNode, hit.collider.gameObject);
-                    float range = 5;
-                    if (lastPath != null)
-                    {
-                        GameObject lastNode;
-                        for (int i = 1; i < lastPath.Count; i++)
-                        {
-                            lastNode = lastPath[i - 1];
-
-                            range -= Vector3.Distance(lastNode.transform.position, lastPath[i].transform.position);
-
-                            if (i != lastPath.Count - 1)
-                                lastPath[i].GetComponent<NodeItem>().isPath = true;
-                            else
-                            {
-                                lastPath[i].GetComponent<NodeItem_HOMM_Travel>().isGoal = true;
-                            }
-                            lastPath[i].GetComponent<NodeItem>().UpdateStatus();
-
-                            if (range > 0)
-                            {
-                                lastPath[i].GetComponent<NodeItem_HOMM_Travel>().reachable = true;
-                                lastPath[i].GetComponent<NodeItem>().UpdateStatus();
-
-                            }
-                            lastNode.GetComponent<NodeItem_HOMM_Travel>().ArrowFaceTarget(lastPath[i]);
-
-                        }
-                    }
-                }
-
-                //左键点击
-                if (Input.GetMouseButtonDown(0))
-                {
-
-                    //foreach (var item in MapManager.Instance().GetNearbyNodeItems(hit.collider.gameObject))
-                    //{
-                    //    item.gameObject.GetComponent<NodeItem>().highlighted = true;
-                    //    item.gameObject.GetComponent<NodeItem>().ChangeStatus();
-                    //}
-                }
-
-                //右键点击
-                if (Input.GetMouseButtonDown(1))
-                {
-                    MapManager.Instance().GetNode(hit.collider.gameObject.gameObject.GetComponent<NodeItem>().pos).walkable = false;
-                }
-            }
+            ParentManager.instance.GetParent("MapManager").gameObject.SetActive(false);
         }
+
     }
     //玩家初始化，生成城镇和英雄
     void InitPlayer(Player _player)

@@ -39,11 +39,22 @@ public class MapManager : Singleton<MapManager>
             {
                 nodeItems[x, y] = Instantiate(prefab_node, NodeInit(x, y), Quaternion.identity, parent);
                 nodeItems[x, y].GetComponent<NodeItem>().pos = new Vector2Int(x, y);
+                nodeItems[x, y].GetComponent<NodeItem>().OnMousePress += OnNodePressed;
+                nodeItems[x, y].GetComponent<NodeItem>().OnMouseIn += OnNodeHovered;
 
                 bool walkable = !Physics.CheckSphere(pos, nodeSize.x / 2, layer_wall);
                 nodes[x, y] = new Node(x, y, walkable);
             }
         }
+    }
+
+    //节点被按下
+    public virtual void OnNodePressed(NodeItem _node)
+    {
+    }
+    //节点被高亮
+    public virtual void OnNodeHovered(NodeItem _node)
+    {
     }
 
     public virtual Vector3 NodeInit(int _x, int _y)
@@ -125,7 +136,6 @@ public class MapManager : Singleton<MapManager>
     {
         get
         {
-            print(this.GetType().Name);
             return ParentManager.instance.GetParent(this.GetType().Name);
         }
     }

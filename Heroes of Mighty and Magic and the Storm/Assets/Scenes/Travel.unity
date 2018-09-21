@@ -396,8 +396,8 @@ GameObject:
   - component: {fileID: 1222465624}
   - component: {fileID: 1222465627}
   - component: {fileID: 1222465623}
-  - component: {fileID: 1222465625}
   - component: {fileID: 1222465626}
+  - component: {fileID: 1222465625}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1222465622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f692cc85315ade8439a61430c7e39aa2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b20bdd906e834bb29e12f19370e41b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: {x: 40, y: 40}
@@ -457,6 +457,8 @@ MonoBehaviour:
   layer_wall:
     serializedVersion: 2
     m_Bits: 0
+  color_reachable: {r: 0.015331439, g: 0.9433962, b: 0, a: 1}
+  color_outOfReach: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1222465626
 MonoBehaviour:
   m_ObjectHideFlags: 0

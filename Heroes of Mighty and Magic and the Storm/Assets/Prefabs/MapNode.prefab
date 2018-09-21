@@ -116,8 +116,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children:
-  - {fileID: 4753058005796988}
   - {fileID: 4628902812044282}
+  - {fileID: 4753058005796988}
   - {fileID: 4526046573884534}
   m_Father: {fileID: 4277567378919100}
   m_RootOrder: 0
@@ -161,7 +161,7 @@ Transform:
   m_LocalScale: {x: 0.9, y: 0.90000045, z: 1}
   m_Children: []
   m_Father: {fileID: 4062214156356322}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4753058005796988
 Transform:
@@ -174,7 +174,7 @@ Transform:
   m_LocalScale: {x: 1.9738147, y: 1.9738165, z: 1.9738165}
   m_Children: []
   m_Father: {fileID: 4062214156356322}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4961636303906218
 Transform:
@@ -213,13 +213,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
-  gfx: {fileID: 0}
-  highlighted: 0
-  isPath: 0
-  arrow: {fileID: 1046072893232450}
-  goal: {fileID: 1545360598474012}
-  isGoal: 0
-  reachable: 0
+  gfx_arrow: {fileID: 1046072893232450}
+  gfx_goal: {fileID: 1545360598474012}
 --- !u!212 &212665022735324848
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,23 +6,26 @@ public class NodeItem_HOMM : NodeItem
 {
     public bool reachable;
 
+    enum NodeType { empty, path, hover }
+
+
     void Start()
     {
-        color_normal = gfx.color;
+        //color_normal = gfx.color;
     }
 
-    public override void UpdateStatus()
-    {
-        if (highlighted)
-        {
-            return;
-        }
+    // public override void UpdateStatus()
+    // {
+    //     // if (highlighted)
+    //     // {
+    //     //     return;
+    //     // }
 
-        if (isPath)
-        {
-            return;
-        }
+    //     // if (isPath)
+    //     // {
+    //     //     return;
+    //     // }
 
-        gfx.color = color_normal;
-    }
+    //     // gfx.color = color_normal;
+    // }
 }

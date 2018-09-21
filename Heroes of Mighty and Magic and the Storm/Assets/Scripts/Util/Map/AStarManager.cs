@@ -34,8 +34,6 @@ public class AStarManager : Singleton<AStarManager>
             if (curNode == endNode)
             {
                 //可通行
-                print("可通行");
-
                 return GeneratePath(startNode, endNode);
             }
             //判断周围节点
