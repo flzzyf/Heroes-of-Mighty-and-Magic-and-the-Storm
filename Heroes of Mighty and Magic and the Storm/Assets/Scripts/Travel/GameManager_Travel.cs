@@ -15,6 +15,11 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
     public GameObject prefab_town;
     public GameObject prefab_hero;
 
+    [HideInInspector]
+    public bool gamePaused;
+
+    public float heroSpeed = 1;
+
     void Start()
     {
         MapManager.Instance().GenerateMap();
@@ -41,6 +46,7 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
         GameObject town = CreateObjectOnNode(prefab_town, _player.startingPoint);
         Vector2Int offset = town.GetComponent<Town>().interactPoint;
         GameObject hero = CreateObjectOnNode(prefab_hero, _player.startingPoint + offset);
+        hero.GetComponent<Hero>().Init();
         _player.heroes.Add(hero);
 
         //非AI

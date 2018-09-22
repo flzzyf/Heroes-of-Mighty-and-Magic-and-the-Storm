@@ -424,6 +424,8 @@ MonoBehaviour:
     type: 2}
   prefab_hero: {fileID: 1952165180744556, guid: 37ccb3bc95d1e477ba14c64877197e3d,
     type: 2}
+  gamePaused: 0
+  heroSpeed: 25
 --- !u!4 &1222465624
 Transform:
   m_ObjectHideFlags: 0

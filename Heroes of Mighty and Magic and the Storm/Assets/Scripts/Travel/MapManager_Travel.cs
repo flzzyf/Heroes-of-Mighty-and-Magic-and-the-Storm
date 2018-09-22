@@ -9,9 +9,63 @@ public class MapManager_Travel : MapManager
 
     List<GameObject> lastPath;
 
+    //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
-        //清除之前的路径显示
+        //是终点则开始移动，否则重新计算路线
+        if (_node.gameObject.GetComponent<NodeItem_Travel>().type == TravelNodeType.goal)
+        {
+            MoveObjectAlongPath(GameManager_Travel.instance.currentHero.transform, lastPath);
+        }
+        else
+        {
+            //清除之前的路径显示
+            ClearPath();
+
+            GameObject currentNode = MapManager.instance.GetNodeItem(
+                GameManager_Travel.instance.currentHero.GetComponent<Hero>().pos);
+
+            lastPath = AStarManager.Instance().FindPath(currentNode, _node.gameObject);
+
+            int movementRate = GameManager_Travel.instance.currentHero.GetComponent<Hero>().currentMovementRate;
+            if (lastPath != null)
+            {
+                GameObject lastNode;
+                for (int i = 1; i < lastPath.Count; i++)
+                {
+                    lastNode = lastPath[i - 1];
+
+                    if (movementRate >= 0)
+                    {
+                        movementRate -= GetNodeDistance(lastNode.GetComponent<NodeItem>(), lastPath[i].GetComponent<NodeItem>());
+                        print(movementRate);
+                    }
+
+                    NodeItem_Travel node = lastPath[i].GetComponent<NodeItem_Travel>();
+
+                    if (i == lastPath.Count - 1)
+                    {
+                        //是终点
+                        node.UpdateStatus(TravelNodeType.goal);
+                    }
+                    else
+                    {
+                        node.UpdateStatus(TravelNodeType.path);
+                    }
+
+                    if (movementRate >= 0)
+                        node.ChangeColor(color_reachable);
+                    else
+                        node.ChangeColor(color_outOfReach);
+
+                    lastNode.GetComponent<NodeItem_Travel>().ArrowFaceTarget(lastPath[i]);
+                }
+            }
+        }
+    }
+    //清除之前的路径显示
+    void ClearPath()
+    {
         if (lastPath != null)
         {
             foreach (var item in lastPath)
@@ -19,50 +73,68 @@ public class MapManager_Travel : MapManager
                 item.gameObject.GetComponent<NodeItem_Travel>().UpdateStatus(TravelNodeType.empty);
             }
         }
-
-        GameObject currentNode = MapManager.instance.GetNodeItem(
-            GameManager_Travel.instance.currentHero.GetComponent<Hero>().pos);
-
-        lastPath = AStarManager.Instance().FindPath(currentNode, _node.gameObject);
-
-        float range = 5;
-        if (lastPath != null)
-        {
-            GameObject lastNode;
-            for (int i = 1; i < lastPath.Count; i++)
-            {
-                lastNode = lastPath[i - 1];
-
-                if (range >= 0)
-                {
-                    range -= GetNodeDistance(lastNode.GetComponent<NodeItem>(), lastPath[i].GetComponent<NodeItem>());
-                    print(range);
-                }
-
-                NodeItem_Travel node = lastPath[i].GetComponent<NodeItem_Travel>();
-
-                if (i == lastPath.Count - 1)
-                {
-                    //是终点
-                    node.UpdateStatus(TravelNodeType.goal);
-                }
-                else
-                {
-                    node.UpdateStatus(TravelNodeType.path);
-                }
-
-                if (range >= 0)
-                    node.ChangeColor(color_reachable);
-                else
-                    node.ChangeColor(color_outOfReach);
-
-                lastNode.GetComponent<NodeItem_Travel>().ArrowFaceTarget(lastPath[i]);
-            }
-        }
     }
 
-    float GetNodeDistance(NodeItem item1, NodeItem item2)
+    //获取节点间绝对距离
+    int GetNodeDistance(NodeItem item1, NodeItem item2)
     {
-        return Vector2Int.Distance(item1.pos, item2.pos);
+        if (Vector2Int.Distance(item1.pos, item2.pos) > 1)
+        {
+            return 144;
+        }
+        return 100;
+    }
+
+    //按照路径移动物体
+    void MoveObjectAlongPath(Transform _obj, List<GameObject> _path)
+    {
+        GameManager_Travel.instance.gamePaused = true;
+
+        ClearPath();
+
+        StartCoroutine(IEMoveObject(_obj, _path));
+    }
+
+    IEnumerator IEMoveObject(Transform _obj, List<GameObject> _path)
+    {
+        for (int i = 1; i < _path.Count; i++)
+        {
+            if (GameManager_Travel.instance.currentHero.GetComponent<Hero>().currentMovementRate <
+                            GetNodeDistance(lastPath[i - 1].GetComponent<NodeItem>(), lastPath[i].GetComponent<NodeItem>()))
+            {
+                break;
+            }
+
+            GameManager_Travel.instance.currentHero.GetComponent<NodeObject>().pos =
+                lastPath[i].GetComponent<NodeItem>().pos;
+
+            Vector3 targetPos = GetNodeItem(_path[i].GetComponent<NodeItem>().pos).transform.position;
+
+            while (Vector3.Distance(_obj.position, targetPos) > GameManager_Travel.instance.heroSpeed * Time.deltaTime)
+            {
+                Vector3 dir = targetPos - _obj.position;
+                _obj.Translate(dir.normalized * GameManager_Travel.instance.heroSpeed * Time.deltaTime);
+
+
+                yield return new WaitForSeconds(Time.deltaTime);
+            }
+
+            GameManager_Travel.instance.currentHero.GetComponent<Hero>().currentMovementRate -=
+                GetNodeDistance(lastPath[i - 1].GetComponent<NodeItem>(), lastPath[i].GetComponent<NodeItem>());
+
+
+        }
+
+        MoveObjectFinish();
+    }
+    //移动到目的地后
+    void MoveObjectFinish()
+    {
+        GameManager_Travel.instance.gamePaused = false;
+
+        //设置节点上的物体，设置英雄所在位置、节点
+
+
+        lastPath[lastPath.Count - 1].GetComponent<NodeItem_Travel>().nodeObject = GameManager_Travel.instance.currentHero;
     }
 }

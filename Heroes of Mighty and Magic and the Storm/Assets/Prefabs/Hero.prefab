@@ -113,6 +113,8 @@ MonoBehaviour:
   pos: {x: 0, y: 0}
   player: 0
   pocketUnits: []
+  movementRate: 1500
+  currentMovementRate: 1500
 --- !u!212 &212787357755870222
 SpriteRenderer:
   m_ObjectHideFlags: 1

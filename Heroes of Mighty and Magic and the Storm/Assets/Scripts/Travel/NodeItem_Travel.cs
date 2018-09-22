@@ -8,9 +8,15 @@ public class NodeItem_Travel : NodeItem
 {
     public GameObject gfx_arrow;
     public GameObject gfx_goal;
+    [HideInInspector]
+    public TravelNodeType type;
+
+    [HideInInspector]
+    public GameObject nodeObject;
 
     public void UpdateStatus(TravelNodeType _type)
     {
+        type = _type;
         if (_type == TravelNodeType.goal)
         {
             gfx_goal.SetActive(true);

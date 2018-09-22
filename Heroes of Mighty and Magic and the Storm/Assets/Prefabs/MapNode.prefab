@@ -209,12 +209,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1770460259947540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df0a6dcafea5b743b8a0a762b24d995, type: 3}
+  m_Script: {fileID: 11500000, guid: ffd31de274aca403ca5974b4951ebe9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0}
   gfx_arrow: {fileID: 1046072893232450}
   gfx_goal: {fileID: 1545360598474012}
+  type: 0
+  nodeObject: {fileID: 0}
 --- !u!212 &212665022735324848
 SpriteRenderer:
   m_ObjectHideFlags: 1

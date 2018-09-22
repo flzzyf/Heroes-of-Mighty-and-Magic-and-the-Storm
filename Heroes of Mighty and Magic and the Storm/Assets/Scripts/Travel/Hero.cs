@@ -5,6 +5,15 @@ using UnityEngine;
 public class Hero : NodeObject
 {
     public PocketUnit[] pocketUnits;
+    [HideInInspector]
+    public int movementRate = 1500;
+    [HideInInspector]
+    public int currentMovementRate;
+
+    public void Init()
+    {
+        currentMovementRate = movementRate;
+    }
 }
 
 [System.Serializable]
