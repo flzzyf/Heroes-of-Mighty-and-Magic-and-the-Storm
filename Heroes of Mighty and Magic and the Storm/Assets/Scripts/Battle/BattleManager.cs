@@ -11,9 +11,6 @@ public class BattleManager : Singleton<BattleManager>
 
     public GameObject[] playerHero;
 
-    [HideInInspector]
-    public Map_HOMMS map;
-
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
 
     List<int>[] playerUnitPos = {
@@ -33,8 +30,6 @@ public class BattleManager : Singleton<BattleManager>
     public GameObject currentActionUnit;
 
     int actionPlayer;
-
-    GameObject battleUnitParent;
 
     public GameObject[] heroPoint;
     GameObject[] heroes = new GameObject[2];
@@ -57,14 +52,24 @@ public class BattleManager : Singleton<BattleManager>
     [HideInInspector]
     public AstarNode mouseNode;
 
+    public MapManager_Battle map;
+
+    public BattleNodeBackground[] battleNodeBG;
+    [System.Serializable]
+    public class BattleNodeBackground
+    {
+        public string name;
+        public Color color;
+    }
+
     void Start()
     {
-        map = GetComponent<Map_HOMMS>();
+        map.GenerateMap();
+        map.parent.gameObject.SetActive(false);
+
+
         roundManager = new RoundManager();
         movementManager = GetComponent<MovementManager>();
-
-        //BattleStart();
-
     }
 
     public void BattleStart()
@@ -73,10 +78,9 @@ public class BattleManager : Singleton<BattleManager>
 
         //战斗开始效果触发
 
-        map.nodeUnitParent.SetActive(true);
+        map.parent.gameObject.SetActive(true);
         background.SetActive(true);
 
-        battleUnitParent = new GameObject("battleUnits");
         CreateHeroUnits(0);
         CreateHeroUnits(1);
 
@@ -88,7 +92,7 @@ public class BattleManager : Singleton<BattleManager>
         units[0].Clear();
         units[1].Clear();
 
-        map.nodeUnitParent.SetActive(false);
+        map.parent.gameObject.SetActive(false);
         background.SetActive(false);
     }
 
@@ -125,7 +129,7 @@ public class BattleManager : Singleton<BattleManager>
         }
 
     }
-
+    //创建玩家单位
     public void CreateHeroUnits(int _hero)
     {
         heroes[_hero] = Instantiate(heroUnitPrefab, heroPoint[_hero].transform.position, Quaternion.identity);
@@ -135,26 +139,40 @@ public class BattleManager : Singleton<BattleManager>
         Hero hero = playerHero[_hero].GetComponent<Hero>();
         for (int i = 0; i < hero.pocketUnits.Length; i++)
         {
-            int x = (_hero == 0) ? 0 : map.mapSizeX - 1;
+            int x = (_hero == 0) ? 0 : map.size.x - 1;
 
             int playerUnitPosIndex = playerUnitPos[hero.pocketUnits.Length - 1][i];
             int unitPosIndex = unitPos[playerUnitPosIndex];
+            //创建单位
+            GameObject go = CreateUnit(hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
+                       hero.pocketUnits[i].num, _hero);
 
-            GameObject go = GameMaster.instance.CreateUnit(hero.pocketUnits[i].type,
-                                                           map.nodeUnits[x, unitPosIndex, 0].transform.position,
-                                           hero.pocketUnits[i].num, _hero);
-
-            units[_hero].Add(go);
-            go.transform.parent = battleUnitParent.transform;
-
-            go.GetComponent<Unit>().player = _hero;
-
-            GameObject nodeUnit = map.GetNodeUnit(new Vector3(x, unitPosIndex, 0));
-            LinkNodeWithUnit(go, nodeUnit);
+            GameObject nodeUnit = map.GetNodeItem(new Vector2Int(x, unitPosIndex));
+            //LinkNodeWithUnit(go, nodeUnit);
 
             AddUnitToActionList(ref unitActionOrder, go);
-
         }
+    }
+    public GameObject prefab_unit;
+
+    GameObject CreateUnit(UnitType _type, Vector2Int _pos, int _num = 1, int _side = 0)
+    {
+        Vector2 createPos = map.GetNodeItem(_pos).transform.position;
+        GameObject go = Instantiate(prefab_unit, createPos, Quaternion.identity,
+                        ParentManager.instance.GetParent("BattleUnits"));
+
+        Unit unit = go.GetComponent<Unit>();
+        unit.type = _type;
+        unit.InitUnitType();
+        unit.ChangeNum(_num);
+        if (_side == 1)
+            unit.Flip();
+
+        units[_side].Add(go);
+
+        go.GetComponent<Unit>().player = _side;
+
+        return go;
     }
 
     public void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
@@ -169,7 +187,7 @@ public class BattleManager : Singleton<BattleManager>
         _nodeUnit.GetComponent<NodeUnit>().unit = _unit.GetComponent<Unit>();
 
         _unit.GetComponent<Unit>().nodeUnit = _nodeUnit;
-        map.GetNode(_nodeUnit).walkable = false;
+        //map.GetNode(_nodeUnit).walkable = false;
 
     }
 
@@ -181,10 +199,9 @@ public class BattleManager : Singleton<BattleManager>
         nodeUnit.GetComponent<NodeUnit>().unit = null;
 
         _unit.GetComponent<Unit>().nodeUnit = null;
-        map.GetNode(nodeUnit).walkable = false;
+        //map.GetNode(nodeUnit).walkable = false;
 
     }
-
 
     public void CheckVictoryOrDeath()
     {
@@ -206,65 +223,66 @@ public class BattleManager : Singleton<BattleManager>
 
     public List<AstarNode> GetUnitNearbyNode(GameObject _unit, int _range, int _type)
     {
-        List<AstarNode> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
+        List<AstarNode> nodes = new List<AstarNode>();
+        //List<AstarNode> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
 
-        for (int i = nodes.Count - 1; i >= 0; i--)
-        {
-            if (map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
-                nodes.Remove(nodes[i]);
-        }
+        // for (int i = nodes.Count - 1; i >= 0; i--)
+        // {
+        //     if (map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
+        //         nodes.Remove(nodes[i]);
+        // }
 
         return nodes;
     }
 
     public void MoveUnit(AstarNode _node)
     {
-        StartCoroutine(MoveUnitCor(_node));
+        //StartCoroutine(MoveUnitCor(_node));
     }
 
-    IEnumerator MoveUnitCor(AstarNode _node)
-    {
-        AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
+    // IEnumerator MoveUnitCor(AstarNode _node)
+    // {
+    //     AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
 
-        roundManager.ActionEnd();
+    //     roundManager.ActionEnd();
 
-        map.HideAllNode();
+    //     map.HideAllNode();
 
-        movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
+    //     movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
 
-        while (movementManager.moving)
-            yield return null;
+    //     while (movementManager.moving)
+    //         yield return null;
 
-        roundManager.TurnEnd();
-    }
+    //     roundManager.TurnEnd();
+    // }
 
     public void AttackMove(AstarNode _node)
     {
-        StartCoroutine(AttackMoveCor(_node, mouseNode));
+        //StartCoroutine(AttackMoveCor(_node, mouseNode));
     }
 
-    IEnumerator AttackMoveCor(AstarNode _node, AstarNode _target)
-    {
-        AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
+    // IEnumerator AttackMoveCor(AstarNode _node, AstarNode _target)
+    // {
+    //     AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
 
-        roundManager.ActionEnd();
+    //     roundManager.ActionEnd();
 
-        map.HideAllNode();
+    //     map.HideAllNode();
 
-        movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
+    //     movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
 
-        while (movementManager.moving)
-            yield return null;
+    //     while (movementManager.moving)
+    //         yield return null;
 
-        UnitActionManager.instance.Attack(currentActionUnit.GetComponent<Unit>(),
-                                          map.GetNodeUnit(_target).GetComponent<NodeUnit>().unit.GetComponent<Unit>());
+    //     UnitActionManager.instance.Attack(currentActionUnit.GetComponent<Unit>(),
+    //                                       map.GetNodeUnit(_target).GetComponent<NodeUnit>().unit.GetComponent<Unit>());
 
-        while (UnitActionManager.instance.operating)
-            yield return null;
+    //     while (UnitActionManager.instance.operating)
+    //         yield return null;
 
-        roundManager.TurnEnd();
+    //     roundManager.TurnEnd();
 
-    }
+    // }
 
     public bool isSamePlayer(GameObject _u1, GameObject _u2)
     {
@@ -272,20 +290,20 @@ public class BattleManager : Singleton<BattleManager>
     }
 
 
-    public void ResetAbleNodes()
-    {
-        foreach (AstarNode item in reachableNodes)
-        {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
-        }
+    // public void ResetAbleNodes()
+    // {
+    //     foreach (AstarNode item in reachableNodes)
+    //     {
+    //         map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
+    //     }
 
-        foreach (AstarNode item in attackableNodes)
-        {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
-        }
+    //     foreach (AstarNode item in attackableNodes)
+    //     {
+    //         map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
+    //     }
 
-        reachableNodes.Clear();
-        attackableNodes.Clear();
-    }
+    //     reachableNodes.Clear();
+    //     attackableNodes.Clear();
+    // }
 
 }

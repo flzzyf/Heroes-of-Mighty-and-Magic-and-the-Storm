@@ -9,6 +9,7 @@ public class NodeItem : MonoBehaviour
 
     public event System.Action<NodeItem> OnMousePress;
     public event System.Action<NodeItem> OnMouseIn;
+    public event System.Action<NodeItem> OnMouseOut;
 
     void OnMouseDown()
     {
@@ -18,5 +19,10 @@ public class NodeItem : MonoBehaviour
     void OnMouseEnter()
     {
         OnMouseIn(this);
+    }
+
+    void OnMouseExit()
+    {
+        OnMouseOut(this);
     }
 }

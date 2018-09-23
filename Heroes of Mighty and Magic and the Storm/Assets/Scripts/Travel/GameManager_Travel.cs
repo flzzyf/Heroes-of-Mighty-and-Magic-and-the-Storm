@@ -15,9 +15,6 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
     public GameObject prefab_town;
     public GameObject prefab_hero;
 
-    [HideInInspector]
-    public bool gamePaused;
-
     public float heroSpeed = 1;
 
     void Start()

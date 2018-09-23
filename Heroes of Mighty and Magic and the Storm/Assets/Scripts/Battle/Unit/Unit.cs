@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unit : MonoBehaviour
+public class Unit : NodeObject
 {
-
     public UnitType type;
 
     public SpriteRenderer sprite;

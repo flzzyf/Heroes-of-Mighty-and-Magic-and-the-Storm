@@ -107,23 +107,22 @@ public class NodeUnit : MonoBehaviour
             int arrowIndex = (int)angle / 60;
 
             //攻击方向上的格子存在，且可到达便可发起攻击。目前还没考虑多格单位
-            targetNode = BattleManager.Instance().map.GetNearbyOneNode(node, arrowIndex);
-            if (targetNode != null &&
-               BattleManager.Instance().map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().targetType == 1)
-            {
-                int arrowAngle = (arrowIndex * 60 + 210) % 360;
-                int arrowAngleFixed = 360 - arrowAngle;
+            // targetNode = BattleManager.Instance().map.GetNearbyOneNode(node, arrowIndex);
+            // if (targetNode != null &&
+            //    BattleManager.Instance().map.GetNodeUnit(targetNode).GetComponent<NodeUnit>().targetType == 1)
+            // {
+            //     int arrowAngle = (arrowIndex * 60 + 210) % 360;
+            //     int arrowAngleFixed = 360 - arrowAngle;
 
-                CustomCursor.Instance().ChangeCursor("Sword");
+            //     CustomCursor.Instance().ChangeCursor("Sword");
 
-                CustomCursor.Instance().ChangeCursorAngle(arrowAngleFixed);
-            }
-            else
-            {
-                CustomCursor.Instance().ChangeCursor("Enemy");
+            //     CustomCursor.Instance().ChangeCursorAngle(arrowAngleFixed);
+            // }
+            // else
+            // {
+            //     CustomCursor.Instance().ChangeCursor("Enemy");
 
-            }
-
+            // }
         }
     }
 

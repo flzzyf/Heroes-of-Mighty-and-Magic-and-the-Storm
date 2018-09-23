@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class RoundManager {
+public class RoundManager
+{
 
     BattleManager battleManager;
     Map_HOMMS map;
@@ -11,7 +12,7 @@ public class RoundManager {
     public RoundManager()
     {
         battleManager = BattleManager.instance;
-        map = battleManager.map;
+        //map = battleManager.map;
     }
 
     public void RoundStart()
@@ -45,7 +46,7 @@ public class RoundManager {
     {
         //zyf.Out("回合开始");
 
-        if(battleManager.unitActionList.Count > 0)
+        if (battleManager.unitActionList.Count > 0)
         {
             GameObject go = battleManager.unitActionList.First.Value;
             battleManager.unitActionList.Remove(go);
@@ -54,7 +55,8 @@ public class RoundManager {
 
             ActionStart(go, 0);
         }
-        else{
+        else
+        {
             zyf.Out("TurnStart BUG!", zyf.Type.tip);
         }
 
@@ -102,7 +104,7 @@ public class RoundManager {
 
         for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
-            if(battleManager.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit.gameObject, _unit))
+            if (battleManager.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit.gameObject, _unit))
             {
                 attackableNodes.RemoveAt(i);
             }
@@ -122,7 +124,7 @@ public class RoundManager {
     {
 
         //重置可到达和可攻击节点
-        battleManager.ResetAbleNodes();
+        //battleManager.ResetAbleNodes();
 
         battleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 

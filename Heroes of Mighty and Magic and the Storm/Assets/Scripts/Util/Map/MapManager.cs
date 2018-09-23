@@ -41,6 +41,7 @@ public class MapManager : Singleton<MapManager>
                 nodeItems[x, y].GetComponent<NodeItem>().pos = new Vector2Int(x, y);
                 nodeItems[x, y].GetComponent<NodeItem>().OnMousePress += OnNodePressed;
                 nodeItems[x, y].GetComponent<NodeItem>().OnMouseIn += OnNodeHovered;
+                nodeItems[x, y].GetComponent<NodeItem>().OnMouseOut += OnNodeUnhovered;
 
                 bool walkable = !Physics.CheckSphere(pos, nodeSize.x / 2, layer_wall);
                 nodes[x, y] = new Node(x, y, walkable);
@@ -49,13 +50,11 @@ public class MapManager : Singleton<MapManager>
     }
 
     //节点被按下
-    public virtual void OnNodePressed(NodeItem _node)
-    {
-    }
-    //节点被高亮
-    public virtual void OnNodeHovered(NodeItem _node)
-    {
-    }
+    public virtual void OnNodePressed(NodeItem _node) { }
+    //鼠标进入节点
+    public virtual void OnNodeHovered(NodeItem _node) { }
+    //鼠标离开节点
+    public virtual void OnNodeUnhovered(NodeItem _node) { }
 
     public virtual Vector3 NodeInit(int _x, int _y)
     {

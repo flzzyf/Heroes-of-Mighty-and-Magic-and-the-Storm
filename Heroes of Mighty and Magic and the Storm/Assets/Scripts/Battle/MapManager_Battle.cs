@@ -24,6 +24,8 @@ public class MapManager_Battle : MapManager
             pos.x += nodeSize.x / 2;
         }
 
+        pos.y *= -1;
+
         return pos;
     }
     //获取周围节点
@@ -70,5 +72,18 @@ public class MapManager_Battle : MapManager
     public void HideMap(bool _hide)
     {
 
+    }
+
+    public override void OnNodeHovered(NodeItem _node)
+    {
+        if (GameManager.instance.gamePaused)
+            return;
+
+        _node.gameObject.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("hover");
+    }
+
+    public override void OnNodeUnhovered(NodeItem _node)
+    {
+        _node.gameObject.GetComponent<NodeItem_Battle>().ChangeBackgoundColor();
     }
 }

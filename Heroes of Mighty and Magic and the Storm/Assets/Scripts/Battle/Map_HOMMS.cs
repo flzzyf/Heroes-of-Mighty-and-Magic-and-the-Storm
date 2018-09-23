@@ -164,9 +164,9 @@ public class Map_HOMMS : Map
     {
         foreach (var item in path)
         {
-            GameObject go = BattleManager.Instance().map.GetNodeUnit(item);
+            //GameObject go = BattleManager.Instance().map.GetNodeUnit(item);
 
-            ToggleHighlightNode(go, false);
+            //ToggleHighlightNode(go, false);
         }
 
         path.Clear();

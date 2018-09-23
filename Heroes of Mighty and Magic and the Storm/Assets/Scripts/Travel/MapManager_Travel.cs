@@ -12,6 +12,10 @@ public class MapManager_Travel : MapManager
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
+        //如果是游戏暂停状态则无视点击
+        if (GameManager.instance.gamePaused)
+            return;
+
         //是终点则开始移动，否则重新计算路线
         if (_node.gameObject.GetComponent<NodeItem_Travel>().type == TravelNodeType.goal)
         {
@@ -38,7 +42,6 @@ public class MapManager_Travel : MapManager
                     if (movementRate >= 0)
                     {
                         movementRate -= GetNodeDistance(lastNode.GetComponent<NodeItem>(), lastPath[i].GetComponent<NodeItem>());
-                        print(movementRate);
                     }
 
                     NodeItem_Travel node = lastPath[i].GetComponent<NodeItem_Travel>();
@@ -88,7 +91,7 @@ public class MapManager_Travel : MapManager
     //按照路径移动物体
     void MoveObjectAlongPath(Transform _obj, List<GameObject> _path)
     {
-        GameManager_Travel.instance.gamePaused = true;
+        GameManager.instance.gamePaused = true;
 
         ClearPath();
 
@@ -130,7 +133,7 @@ public class MapManager_Travel : MapManager
     //移动到目的地后
     void MoveObjectFinish()
     {
-        GameManager_Travel.instance.gamePaused = false;
+        GameManager.instance.gamePaused = false;
 
         //设置节点上的物体，设置英雄所在位置、节点
 
