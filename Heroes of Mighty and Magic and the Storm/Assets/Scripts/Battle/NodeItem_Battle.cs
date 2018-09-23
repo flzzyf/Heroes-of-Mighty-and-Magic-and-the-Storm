@@ -6,6 +6,8 @@ public class NodeItem_Battle : NodeItem
 {
     public SpriteRenderer bg;
 
+    public enum BattleNodeType { empty, walkable, attackable }
+
     public void ChangeBackgoundColor(string _color = "")
     {
         if (_color == "")

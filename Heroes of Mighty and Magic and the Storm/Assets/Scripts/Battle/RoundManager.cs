@@ -3,38 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class RoundManager
+public class RoundManager : Singleton<RoundManager>
 {
-
-    BattleManager battleManager;
     Map_HOMMS map;
-
-    public RoundManager()
-    {
-        battleManager = BattleManager.instance;
-        //map = battleManager.map;
-    }
 
     public void RoundStart()
     {
-        //zyf.Out("轮开始");
-
         //轮开始效果触发
 
-        battleManager.unitActionList = new LinkedList<GameObject>(battleManager.unitActionOrder);
+        BattleManager.instance.unitActionList = new LinkedList<GameObject>(BattleManager.instance.unitActionOrder);
 
         TurnStart();
     }
 
     void RoundEnd()
     {
-        //zyf.Out("轮结束");
-
         for (int i = 0; i < 2; i++)
         {
-            for (int j = 0; j < battleManager.units[i].Count; j++)
+            for (int j = 0; j < BattleManager.instance.units[i].Count; j++)
             {
-                Unit unit = battleManager.units[i][j].GetComponent<Unit>();
+                Unit unit = BattleManager.instance.units[i][j].GetComponent<Unit>();
                 unit.fightBackCount = unit.type.fightBackCount;
             }
         }
@@ -44,14 +32,12 @@ public class RoundManager
 
     void TurnStart()
     {
-        //zyf.Out("回合开始");
-
-        if (battleManager.unitActionList.Count > 0)
+        if (BattleManager.instance.unitActionList.Count > 0)
         {
-            GameObject go = battleManager.unitActionList.First.Value;
-            battleManager.unitActionList.Remove(go);
+            GameObject go = BattleManager.instance.unitActionList.First.Value;
+            BattleManager.instance.unitActionList.Remove(go);
 
-            battleManager.currentActionUnit = go;
+            BattleManager.instance.currentActionUnit = go;
 
             ActionStart(go, 0);
         }
@@ -64,13 +50,11 @@ public class RoundManager
 
     public void TurnEnd()
     {
-        //zyf.Out("回合结束");
-
         //士气高涨
 
         //print("剩余可行动单位数：" + actionUnits.Count); 
 
-        if (battleManager.unitActionList.Count > 0)
+        if (BattleManager.instance.unitActionList.Count > 0)
         {
             TurnStart();
         }
@@ -79,32 +63,39 @@ public class RoundManager
             RoundEnd();
         }
     }
-
+    //行动开始
     void ActionStart(GameObject _unit, int _player)
     {
         //非AI
 
-        battleManager.currentActionUnit = _unit;
+        BattleManager.instance.currentActionUnit = _unit;
 
         _unit.GetComponent<Unit>().OutlineFlashStart();
 
         int speed = _unit.GetComponent<Unit>().type.speed;
         //可抵达节点
-        List<AstarNode> reachableNodes = battleManager.GetUnitNearbyNode(_unit, speed, 0);
+        //List<AstarNode> reachableNodes = BattleManager.instance.GetUnitNearbyNode(_unit, speed, 0);
+        GameObject nodeItem = BattleManager.instance.map.GetNodeItem(_unit.GetComponent<Unit>().pos);
+        //GameObject nodeItem = BattleManager.instance.map.GetNodeItem(new Vector2Int(5, 5));
 
-        foreach (AstarNode item in reachableNodes)
+        // BattleManager.instance.map.GetNearbyNodeItem(nodeItem, 1)
+        //     .GetComponent<NodeItem_Battle>().ChangeBackgoundColor("hover");
+
+
+        List<GameObject> reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
+        for (int i = 0; i < reachableNodes.Count; i++)
         {
-            map.ToggleHighlightNode(map.GetNodeUnit(item));
-
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 1;
+            reachableNodes[i].GetComponent<NodeItem_Battle>().ChangeBackgoundColor("hover");
+            //修改为可到达
         }
 
 
-        List<AstarNode> attackableNodes = battleManager.GetUnitNearbyNode(_unit, speed + 1, 2);
+        //可攻击节点
+        List<AstarNode> attackableNodes = BattleManager.instance.GetUnitNearbyNode(_unit, speed + 1, 2);
 
         for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
-            if (battleManager.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit.gameObject, _unit))
+            if (BattleManager.instance.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit.gameObject, _unit))
             {
                 attackableNodes.RemoveAt(i);
             }
@@ -115,8 +106,8 @@ public class RoundManager
             map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 2;
         }
 
-        battleManager.reachableNodes = reachableNodes;
-        battleManager.attackableNodes = attackableNodes;
+        //BattleManager.instance.reachableNodes = reachableNodes;
+        //BattleManager.instance.attackableNodes = attackableNodes;
 
     }
 
@@ -124,11 +115,10 @@ public class RoundManager
     {
 
         //重置可到达和可攻击节点
-        //battleManager.ResetAbleNodes();
+        //BattleManager.instance.ResetAbleNodes();
 
-        battleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
+        BattleManager.instance.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
         //TurnEnd();
     }
-
 }

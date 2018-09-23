@@ -33,9 +33,6 @@ public class Unit : NodeObject
         {"move", 2}, {"attack", 1}
     };
 
-    [HideInInspector]
-    public int player;
-
     bool outlineFlashing;
     bool fading;
 

@@ -107,17 +107,44 @@ public class MapManager : Singleton<MapManager>
         return list;
     }
 
+    //获取范围内节点
+    public virtual List<Node> GetNodesWithinRange(Node _node, int _range)
+    {
+        List<Node> list = new List<Node>();
+        if (_range == 1)
+        {
+            list = GetNearbyNodes(_node);
+        }
+        else
+        {
+            list = GetNodesWithinRange(_node, _range - 1);
+            int listCount = list.Count;
+            for (int i = 0; i < listCount; i++)
+            {
+                foreach (Node item in GetNearbyNodes(list[i]))
+                {
+                    if (!list.Contains(item))
+                        list.Add(item);
+
+                }
+            }
+        }
+
+        //list.Remove(_node);
+
+        return list;
+    }
+
     //获取周围节点单位
-    public List<GameObject> GetNearbyNodeItems(GameObject _go)
+    public virtual List<GameObject> GetNodeItemsWithinRange(GameObject _go, int _range)
     {
         List<GameObject> list = new List<GameObject>();
-        foreach (var item in GetNearbyNodes(GetNode(_go.GetComponent<NodeItem>().pos)))
+        foreach (var item in GetNodesWithinRange(GetNode(_go.GetComponent<NodeItem>().pos), _range))
         {
             list.Add(GetNodeItem(item.pos));
         }
         return list;
     }
-
 
     //判断节点存在
     protected bool isNodeAvailable(Vector2Int _pos)

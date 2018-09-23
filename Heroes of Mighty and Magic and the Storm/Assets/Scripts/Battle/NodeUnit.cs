@@ -152,7 +152,7 @@ public class NodeUnit : MonoBehaviour
         if (_state != 2)
             backgroundState = _state;
 
-        bg.color = BattleManager.Instance().backgroundStateColor[_state];
+        //bg.color = BattleManager.Instance().backgroundStateColor[_state];
     }
 
 }

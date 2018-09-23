@@ -6,6 +6,25 @@ public class MapManager_Battle : MapManager
 {
     public float nodeRadius = 1;
 
+    //相邻节点偏移，顺序为从右上开始的顺时针
+    static Vector2Int[,] nearbyNodeOffset = {
+        {   new Vector2Int(1, -1),
+            new Vector2Int(1, 0),
+            new Vector2Int(1, 1),
+            new Vector2Int(0, 1),
+            new Vector2Int(-1, 0),
+            new Vector2Int(0, -1)
+        },
+
+        {   new Vector2Int(0, -1),
+            new Vector2Int(1, 0),
+            new Vector2Int(0, 1),
+            new Vector2Int(-1, 1),
+            new Vector2Int(-1, 0),
+            new Vector2Int(-1, -1)
+        }
+    };
+
     public override void GenerateMap()
     {
         nodeSize.x = nodeRadius * 2;
@@ -28,43 +47,47 @@ public class MapManager_Battle : MapManager
 
         return pos;
     }
+
+    //获取相邻的某个节点
+    public Node GetNearbyNode(Node _node, int _index)
+    {
+        //奇偶行特殊处理
+        int sign = _node.pos.y % 2 == 0 ? 0 : 1;
+
+        Vector2Int offset = _node.pos + nearbyNodeOffset[sign, _index];
+
+        if (isNodeAvailable(offset))
+            return GetNode(offset);
+        return null;
+    }
+
+    public GameObject GetNearbyNodeItem(GameObject _go, int _index)
+    {
+        return GetNodeItem(GetNearbyNode(GetNode(_go.GetComponent<NodeItem>().pos), _index).pos);
+    }
+
     //获取周围节点
     public override List<Node> GetNearbyNodes(Node _node)
     {
         List<Node> list = new List<Node>();
-        Vector2Int pos = _node.pos;
-        Vector2Int p;
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 6; i++)
         {
-            int sign = i == 0 ? 1 : -1;
-            if (isNodeAvailable(new Vector2Int(pos.x + sign, 0)))
-            {
-                list.Add(nodes[pos.x + sign, 0]);
-            }
+            if (GetNearbyNode(_node, i) != null)
+                list.Add(GetNearbyNode(_node, i));
         }
 
-        int y;
-        for (int i = 0; i < 2; i++)
+        return list;
+    }
+
+    //获取周围节点单位
+    public override List<GameObject> GetNodeItemsWithinRange(GameObject _go, int _range)
+    {
+        List<GameObject> list = new List<GameObject>();
+        foreach (var item in GetNodesWithinRange(GetNode(_go.GetComponent<NodeItem>().pos), _range))
         {
-            y = i == 0 ? 1 : -1;
-            for (int j = 0; j < 2; j++)
-            {
-                p = new Vector2Int(pos.x + j, pos.y + y);
-
-                //偶数行特殊处理
-                if (p.y % 2 == 0)
-                {
-                    p.x--;
-                }
-
-                if (isNodeAvailable(p))
-                {
-                    list.Add(nodes[p.x, p.y]);
-                }
-            }
+            list.Add(GetNodeItem(item.pos));
         }
-
         return list;
     }
 

@@ -10,9 +10,9 @@ public class BattleManager : Singleton<BattleManager>
     public LinkedList<GameObject> unitActionList = new LinkedList<GameObject>();
 
     public GameObject[] playerHero;
-
+    //玩家初始创建单位位置
     int[] unitPos = { 0, 2, 4, 5, 6, 8, 10 };
-
+    //玩家单位数量及其相应创建位置
     List<int>[] playerUnitPos = {
         new List<int>{3},
         new List<int>{1, 5},
@@ -30,15 +30,11 @@ public class BattleManager : Singleton<BattleManager>
     public GameObject currentActionUnit;
 
     int actionPlayer;
-
+    //英雄创建位置
     public GameObject[] heroPoint;
     GameObject[] heroes = new GameObject[2];
 
     public GameObject heroUnitPrefab;
-
-    public Color[] backgroundStateColor = new Color[3];
-
-    RoundManager roundManager;
 
     MovementManager movementManager;
 
@@ -49,6 +45,7 @@ public class BattleManager : Singleton<BattleManager>
 
     public GameObject background;
 
+    //鼠标所在节点
     [HideInInspector]
     public AstarNode mouseNode;
 
@@ -67,8 +64,6 @@ public class BattleManager : Singleton<BattleManager>
         map.GenerateMap();
         map.parent.gameObject.SetActive(false);
 
-
-        roundManager = new RoundManager();
         movementManager = GetComponent<MovementManager>();
     }
 
@@ -84,7 +79,7 @@ public class BattleManager : Singleton<BattleManager>
         CreateHeroUnits(0);
         CreateHeroUnits(1);
 
-        roundManager.RoundStart();
+        RoundManager.instance.RoundStart();
     }
 
     void BattleEnd()
@@ -162,6 +157,7 @@ public class BattleManager : Singleton<BattleManager>
                         ParentManager.instance.GetParent("BattleUnits"));
 
         Unit unit = go.GetComponent<Unit>();
+        unit.pos = _pos;
         unit.type = _type;
         unit.InitUnitType();
         unit.ChangeNum(_num);
