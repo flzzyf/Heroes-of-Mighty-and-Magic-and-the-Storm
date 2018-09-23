@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum MapCoord { xy, xz };
-public class MapManager : Singleton<MapManager>
+public class MapManager : MonoBehaviour
 {
     public Vector2Int size = new Vector2Int(5, 5);
     public Vector2 nodeSize = new Vector2(1, 1);
@@ -136,13 +136,16 @@ public class MapManager : Singleton<MapManager>
     }
 
     //获取周围节点单位
-    public virtual List<GameObject> GetNodeItemsWithinRange(GameObject _go, int _range)
+    public virtual List<GameObject> GetNodeItemsWithinRange(GameObject _go, int _range, bool _includeOrigin = false)
     {
         List<GameObject> list = new List<GameObject>();
         foreach (var item in GetNodesWithinRange(GetNode(_go.GetComponent<NodeItem>().pos), _range))
         {
             list.Add(GetNodeItem(item.pos));
         }
+
+        if (!_includeOrigin)
+            list.Remove(_go);
         return list;
     }
 

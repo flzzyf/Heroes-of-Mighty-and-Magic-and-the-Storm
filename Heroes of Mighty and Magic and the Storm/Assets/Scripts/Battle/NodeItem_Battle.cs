@@ -2,11 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BattleNodeType { empty, walkable, attackable, spellable }
+
 public class NodeItem_Battle : NodeItem
 {
     public SpriteRenderer bg;
+    [HideInInspector]
+    public BattleNodeType battleNodeType;
 
-    public enum BattleNodeType { empty, walkable, attackable }
+    public void ChangeNodeType(BattleNodeType _type)
+    {
+        battleNodeType = _type;
+
+        if (_type == BattleNodeType.walkable)
+        {
+            ChangeBackgoundColor("interactable");
+        }
+    }
 
     public void ChangeBackgoundColor(string _color = "")
     {
@@ -24,5 +36,24 @@ public class NodeItem_Battle : NodeItem
                 return;
             }
         }
+    }
+
+    public override void OnMouseEnter()
+    {
+        base.OnMouseEnter();
+        ChangeBackgoundColor("hover");
+    }
+
+    void OnMouseExit()
+    {
+        if (battleNodeType == BattleNodeType.empty)
+            ChangeBackgoundColor();
+        else
+            ChangeBackgoundColor("interactable");
+    }
+
+    void OnMouseOver()
+    {
+        BattleManager.instance.map.OnMouseMoved(this);
     }
 }

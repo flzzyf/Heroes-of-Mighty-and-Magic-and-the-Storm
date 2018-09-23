@@ -17,9 +17,11 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 
     public float heroSpeed = 1;
 
+    public MapManager_Travel map;
+
     void Start()
     {
-        MapManager.Instance().GenerateMap();
+        map.GenerateMap();
 
         //玩家初始设置
         if (PlayerManager.Instance().players[0].id == 0)
@@ -56,7 +58,7 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
     //在节点上创建物体
     GameObject CreateObjectOnNode(GameObject _prefab, Vector2Int _pos)
     {
-        GameObject node = MapManager.instance.GetNodeItem(_pos);
+        GameObject node = map.GetNodeItem(_pos);
 
         GameObject go = Instantiate(_prefab, node.transform.position, Quaternion.identity);
         go.GetComponent<NodeObject>().pos = _pos;

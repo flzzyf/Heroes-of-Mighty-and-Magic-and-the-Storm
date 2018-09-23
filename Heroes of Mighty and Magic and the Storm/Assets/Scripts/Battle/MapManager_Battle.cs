@@ -80,33 +80,47 @@ public class MapManager_Battle : MapManager
         return list;
     }
 
-    //获取周围节点单位
-    public override List<GameObject> GetNodeItemsWithinRange(GameObject _go, int _range)
-    {
-        List<GameObject> list = new List<GameObject>();
-        foreach (var item in GetNodesWithinRange(GetNode(_go.GetComponent<NodeItem>().pos), _range))
-        {
-            list.Add(GetNodeItem(item.pos));
-        }
-        return list;
-    }
-
     //切换隐藏地图
     public void HideMap(bool _hide)
     {
 
     }
 
+    //鼠标进入节点
     public override void OnNodeHovered(NodeItem _node)
     {
         if (GameManager.instance.gamePaused)
             return;
 
-        _node.gameObject.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("hover");
+        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+            CustomCursor.Instance().ChangeCursor("Sword");
+
     }
 
     public override void OnNodeUnhovered(NodeItem _node)
     {
-        _node.gameObject.GetComponent<NodeItem_Battle>().ChangeBackgoundColor();
+        CustomCursor.Instance().ChangeCursor();
+    }
+    //鼠标在节点内移动
+    public void OnMouseMoved(NodeItem _node)
+    {
+        //if可攻击
+        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        {
+            Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 dir = mousePoint - (Vector2)_node.transform.position;
+            dir.y -= 0.9f;
+            //计算鼠标和节点角度
+            float angle;
+            if (dir.x > 0)
+                angle = Vector3.Angle(dir, Vector3.up);
+            else
+                angle = 360 - Vector3.Angle(dir, Vector3.up);
+            //计算箭头角度
+            int arrowIndex = (int)angle / 60;
+            int arrowAngle = (arrowIndex * 60 + 210) % 360;
+            int arrowAngleFixed = 360 - arrowAngle;
+            CustomCursor.Instance().ChangeCursorAngle(arrowAngleFixed);
+        }
     }
 }

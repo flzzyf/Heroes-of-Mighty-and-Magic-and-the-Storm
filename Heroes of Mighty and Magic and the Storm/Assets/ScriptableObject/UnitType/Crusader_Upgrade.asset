@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Crusader_Upgrade
   m_EditorClassIdentifier: 
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
-  speed: 10
+  speed: 16
   att: 12
   def: 12
   hp: 100

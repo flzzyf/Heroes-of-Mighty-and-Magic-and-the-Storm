@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AStarManager : Singleton<AStarManager>
 {
+    public MapManager map;
+
     List<Node> FindPath(Vector2Int _startPos, Vector2Int _endPos)
     {
-        Node startNode = MapManager.Instance().GetNode(_startPos);
-        Node endNode = MapManager.Instance().GetNode(_endPos);
+        Node startNode = map.GetNode(_startPos);
+        Node endNode = map.GetNode(_endPos);
 
         //开集和闭集
         List<Node> openSet = new List<Node>();
@@ -37,7 +39,7 @@ public class AStarManager : Singleton<AStarManager>
                 return GeneratePath(startNode, endNode);
             }
             //判断周围节点
-            foreach (var item in MapManager.Instance().GetNearbyNodes(curNode))
+            foreach (var item in map.GetNearbyNodes(curNode))
             {
                 //如果不可通行或在闭集中，则跳过
                 if (!item.walkable || closeSet.Contains(item))
@@ -112,7 +114,7 @@ public class AStarManager : Singleton<AStarManager>
 
         foreach (var item in path)
         {
-            list.Add(MapManager.Instance().GetNodeItem(item.pos));
+            list.Add(map.GetNodeItem(item.pos));
         }
 
         return list;

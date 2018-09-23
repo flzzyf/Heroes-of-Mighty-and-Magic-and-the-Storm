@@ -3118,8 +3118,8 @@ MonoBehaviour:
   battleNodeBG:
   - name: hover
     color: {r: 0, g: 0, b: 0, a: 0.6156863}
-  - name: walkable
-    color: {r: 0, g: 0, b: 0, a: 0.21568628}
+  - name: interactable
+    color: {r: 0, g: 0, b: 0, a: 0.32156864}
   prefab_unit: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
     type: 2}
 --- !u!114 &2084107689

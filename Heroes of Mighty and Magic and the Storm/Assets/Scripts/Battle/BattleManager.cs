@@ -143,13 +143,14 @@ public class BattleManager : Singleton<BattleManager>
                        hero.pocketUnits[i].num, _hero);
 
             GameObject nodeUnit = map.GetNodeItem(new Vector2Int(x, unitPosIndex));
-            //LinkNodeWithUnit(go, nodeUnit);
+            LinkNodeWithUnit(go, nodeUnit);
 
             AddUnitToActionList(ref unitActionOrder, go);
         }
     }
     public GameObject prefab_unit;
 
+    //创建单位
     GameObject CreateUnit(UnitType _type, Vector2Int _pos, int _num = 1, int _side = 0)
     {
         Vector2 createPos = map.GetNodeItem(_pos).transform.position;
@@ -157,6 +158,7 @@ public class BattleManager : Singleton<BattleManager>
                         ParentManager.instance.GetParent("BattleUnits"));
 
         Unit unit = go.GetComponent<Unit>();
+        unit.nodeObjectType = NodeObjectType.unit;
         unit.pos = _pos;
         unit.type = _type;
         unit.InitUnitType();
@@ -170,33 +172,24 @@ public class BattleManager : Singleton<BattleManager>
 
         return go;
     }
-
+    //链接单位和节点
     public void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
     {
-        //取消与先前节点的链接
+        //如果已经和节点链接，取消链接
         if (_unit.GetComponent<Unit>().nodeUnit != null)
         {
             UnlinkNodeWithUnit(_unit);
         }
 
-        _nodeUnit.GetComponent<NodeUnit>().nodeType = 2;
-        _nodeUnit.GetComponent<NodeUnit>().unit = _unit.GetComponent<Unit>();
-
+        _nodeUnit.GetComponent<NodeItem>().nodeObject = _unit;
         _unit.GetComponent<Unit>().nodeUnit = _nodeUnit;
-        //map.GetNode(_nodeUnit).walkable = false;
-
     }
-
+    //取消链接单位和节点
     public void UnlinkNodeWithUnit(GameObject _unit)
     {
         GameObject nodeUnit = _unit.GetComponent<Unit>().nodeUnit;
-
-        nodeUnit.GetComponent<NodeUnit>().nodeType = 0;
-        nodeUnit.GetComponent<NodeUnit>().unit = null;
-
+        nodeUnit.GetComponent<NodeItem>().nodeObject = null;
         _unit.GetComponent<Unit>().nodeUnit = null;
-        //map.GetNode(nodeUnit).walkable = false;
-
     }
 
     public void CheckVictoryOrDeath()

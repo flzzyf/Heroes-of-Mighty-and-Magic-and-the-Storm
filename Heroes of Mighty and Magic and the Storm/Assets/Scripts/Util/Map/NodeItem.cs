@@ -11,12 +11,15 @@ public class NodeItem : MonoBehaviour
     public event System.Action<NodeItem> OnMouseIn;
     public event System.Action<NodeItem> OnMouseOut;
 
+    [HideInInspector]
+    public GameObject nodeObject;
+
     void OnMouseDown()
     {
         OnMousePress(this);
     }
 
-    void OnMouseEnter()
+    public virtual void OnMouseEnter()
     {
         OnMouseIn(this);
     }

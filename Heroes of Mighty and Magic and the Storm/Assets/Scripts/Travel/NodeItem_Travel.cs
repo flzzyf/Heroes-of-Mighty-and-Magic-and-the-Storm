@@ -11,9 +11,6 @@ public class NodeItem_Travel : NodeItem
     [HideInInspector]
     public TravelNodeType type;
 
-    [HideInInspector]
-    public GameObject nodeObject;
-
     public void UpdateStatus(TravelNodeType _type)
     {
         type = _type;

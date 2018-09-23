@@ -77,7 +77,6 @@ public class NodeUnit : MonoBehaviour
             unit.ChangeOutlineColor(GameSettings.Instance().haloColor_actionUnit);
 
         }
-
     }
 
     Vector2 previousMousePos;

@@ -26,7 +26,7 @@ public class MapManager_Travel : MapManager
             //清除之前的路径显示
             ClearPath();
 
-            GameObject currentNode = MapManager.instance.GetNodeItem(
+            GameObject currentNode = GetNodeItem(
                 GameManager_Travel.instance.currentHero.GetComponent<Hero>().pos);
 
             lastPath = AStarManager.Instance().FindPath(currentNode, _node.gameObject);

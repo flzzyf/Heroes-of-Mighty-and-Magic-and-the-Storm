@@ -5,8 +5,6 @@ using System;
 
 public class RoundManager : Singleton<RoundManager>
 {
-    Map_HOMMS map;
-
     public void RoundStart()
     {
         //轮开始效果触发
@@ -74,36 +72,35 @@ public class RoundManager : Singleton<RoundManager>
 
         int speed = _unit.GetComponent<Unit>().type.speed;
         //可抵达节点
-        //List<AstarNode> reachableNodes = BattleManager.instance.GetUnitNearbyNode(_unit, speed, 0);
         GameObject nodeItem = BattleManager.instance.map.GetNodeItem(_unit.GetComponent<Unit>().pos);
-        //GameObject nodeItem = BattleManager.instance.map.GetNodeItem(new Vector2Int(5, 5));
-
-        // BattleManager.instance.map.GetNearbyNodeItem(nodeItem, 1)
-        //     .GetComponent<NodeItem_Battle>().ChangeBackgoundColor("hover");
-
 
         List<GameObject> reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
+        //修改节点为可到达
         for (int i = 0; i < reachableNodes.Count; i++)
         {
-            reachableNodes[i].GetComponent<NodeItem_Battle>().ChangeBackgoundColor("hover");
-            //修改为可到达
+            reachableNodes[i].GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.walkable);
         }
 
-
         //可攻击节点
-        List<AstarNode> attackableNodes = BattleManager.instance.GetUnitNearbyNode(_unit, speed + 1, 2);
+        List<GameObject> attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1);
 
         for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
-            if (BattleManager.instance.isSamePlayer(map.GetNodeUnit(attackableNodes[i]).GetComponent<NodeUnit>().unit.gameObject, _unit))
+            //是单位而且是敌对
+            if (attackableNodes[i].GetComponent<NodeItem>().nodeObject != null &&
+                attackableNodes[i].GetComponent<NodeItem>().nodeObject.
+                    GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit &&
+                !BattleManager.instance.isSamePlayer(attackableNodes[i].GetComponent<NodeItem>().nodeObject, _unit))
             {
-                attackableNodes.RemoveAt(i);
             }
-        }
+            else
+                attackableNodes.RemoveAt(i);
 
-        foreach (AstarNode item in attackableNodes)
+        }
+        //将节点类型设为可攻击
+        foreach (var item in attackableNodes)
         {
-            map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 2;
+            item.GetComponent<NodeItem_Battle>().battleNodeType = BattleNodeType.attackable;
         }
 
         //BattleManager.instance.reachableNodes = reachableNodes;
