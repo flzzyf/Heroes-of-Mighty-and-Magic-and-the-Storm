@@ -17,5 +17,9 @@ public class GameManager : Singleton<GameManager>
         {
             BattleManager.instance.BattleStart();
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            BattleManager.instance.EnterBattle();
+        }
     }
 }

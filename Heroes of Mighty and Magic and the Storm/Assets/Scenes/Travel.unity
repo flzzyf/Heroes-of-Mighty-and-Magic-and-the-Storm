@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 61162793}
   - component: {fileID: 61162792}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Camera_Travel
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2317,6 +2317,7 @@ GameObject:
   - component: {fileID: 1222465626}
   - component: {fileID: 1222465625}
   - component: {fileID: 1222465628}
+  - component: {fileID: 1222465629}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2345,6 +2346,7 @@ MonoBehaviour:
     type: 2}
   heroSpeed: 25
   map: {fileID: 1222465625}
+  cam: {fileID: 61162793}
 --- !u!4 &1222465624
 Transform:
   m_ObjectHideFlags: 0
@@ -2420,6 +2422,18 @@ MonoBehaviour:
   outlineFlashSpeed: 1
   haloColor_actionUnit: {r: 0.9098039, g: 1, b: 0.3372549, a: 0}
   haloColor_enemy: {r: 0.88235295, g: 0.27249134, b: 0.360816, a: 0.497}
+--- !u!114 &1222465629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1222465622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff558fd00172462895636b603a94f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePaused: 0
 --- !u!1 &1297689013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,7 +2809,6 @@ GameObject:
   - component: {fileID: 1638976378}
   - component: {fileID: 1638976377}
   - component: {fileID: 1638976376}
-  - component: {fileID: 1638976375}
   - component: {fileID: 1638976374}
   m_Layer: 0
   m_Name: BattleManager
@@ -2815,18 +2828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b4f9eedcd1c4ae8bbf95a00aac3b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1638976375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638976373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ff558fd00172462895636b603a94f85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamePaused: 0
 --- !u!114 &1638976376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2893,6 +2894,7 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 0.6156863}
   - name: interactable
     color: {r: 0, g: 0, b: 0, a: 0.32156864}
+  cam: {fileID: 1845020237}
   prefab_unit: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
     type: 2}
 --- !u!114 &1638976380
@@ -3010,8 +3012,8 @@ GameObject:
   - component: {fileID: 1845020236}
   - component: {fileID: 1845020235}
   m_Layer: 0
-  m_Name: Main Camera (1)
-  m_TagString: MainCamera
+  m_Name: Camera_Battle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

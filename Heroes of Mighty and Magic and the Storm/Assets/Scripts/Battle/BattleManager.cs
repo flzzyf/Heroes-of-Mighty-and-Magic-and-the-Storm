@@ -59,6 +59,8 @@ public class BattleManager : Singleton<BattleManager>
         public Color color;
     }
 
+    public Camera cam;
+
     void Start()
     {
         map.GenerateMap();
@@ -67,15 +69,26 @@ public class BattleManager : Singleton<BattleManager>
         movementManager = GetComponent<MovementManager>();
     }
 
+    public void EnterBattle()
+    {
+        Camera.main.enabled = false;
+        cam.enabled = true;
+
+        map.parent.gameObject.SetActive(true);
+        background.SetActive(true);
+    }
+
+    public void QuitBattle()
+    {
+        map.parent.gameObject.SetActive(false);
+        background.SetActive(false);
+    }
+
     public void BattleStart()
     {
         //单位行动顺序计算
 
         //战斗开始效果触发
-
-        map.parent.gameObject.SetActive(true);
-        background.SetActive(true);
-
         CreateHeroUnits(0);
         CreateHeroUnits(1);
 
@@ -87,8 +100,6 @@ public class BattleManager : Singleton<BattleManager>
         units[0].Clear();
         units[1].Clear();
 
-        map.parent.gameObject.SetActive(false);
-        background.SetActive(false);
     }
 
     void AddUnitToActionList(ref LinkedList<GameObject> _list, GameObject _unit, bool _desc = true)

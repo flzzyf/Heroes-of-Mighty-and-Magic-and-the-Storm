@@ -19,8 +19,11 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 
     public MapManager_Travel map;
 
+    public Camera cam;
+
     void Start()
     {
+        print("旅行模式Start");
         map.GenerateMap();
 
         //玩家初始设置
@@ -29,16 +32,25 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 
         TurnStart(0);
 
+        EnterTravelMode();
+
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            ParentManager.instance.GetParent("MapManager").gameObject.SetActive(false);
+            //ParentManager.instance.GetParent("MapManager").gameObject.SetActive(false);
+            EnterTravelMode();
         }
-
     }
+
+    public void EnterTravelMode()
+    {
+        Camera.main.enabled = false;
+        cam.enabled = true;
+    }
+
     //玩家初始化，生成城镇和英雄
     void InitPlayer(Player _player)
     {

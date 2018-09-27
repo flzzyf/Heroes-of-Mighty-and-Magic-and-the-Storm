@@ -36,7 +36,7 @@ public class MovementManager : MonoBehaviour
         //movingUnit.nodeUnit.GetComponent<NodeUnit>().unit = null;
 
         GetNextWayPoint();
-        GameMaster.Instance().Pause();
+        //暂停
 
         StartCoroutine(Moving());
 
@@ -96,8 +96,7 @@ public class MovementManager : MonoBehaviour
         path.Clear();
         map.path.Clear();
 
-        GameMaster.Instance().Unpause();
-
+        //暂停
     }
 
     //获取下个路径点

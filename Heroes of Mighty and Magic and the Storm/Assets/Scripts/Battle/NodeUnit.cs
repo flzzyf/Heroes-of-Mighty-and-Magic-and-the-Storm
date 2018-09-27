@@ -20,9 +20,6 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (GameMaster.Instance().isPause())
-            return;
-
         BattleManager.Instance().mouseNode = node;
 
         ToggleBackgroundState(2);
@@ -84,9 +81,6 @@ public class NodeUnit : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (GameMaster.Instance().isPause())
-            return;
-
         if (targetType == 2 && previousMousePos != (Vector2)Input.mousePosition)
         {
             previousMousePos = Input.mousePosition;

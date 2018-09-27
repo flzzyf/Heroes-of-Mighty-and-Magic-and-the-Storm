@@ -120,6 +120,12 @@ public class AStarManager : Singleton<AStarManager>
         return list;
     }
 
+    public List<GameObject> FindPath(MapManager _map, GameObject _start, GameObject _end)
+    {
+        map = _map;
+        return FindPath(_start, _end);
+    }
+
     public List<Node> GetNodesWithinRange(Vector2Int _node, int _range)
     {
         List<Node> list = new List<Node>();
