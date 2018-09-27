@@ -5,6 +5,8 @@ using System;
 
 public class BattleManager : Singleton<BattleManager>
 {
+    public float unitSpeed = 8;
+
     //单位行动顺序表，单位行动队列
     public LinkedList<GameObject> unitActionOrder = new LinkedList<GameObject>();
     public LinkedList<GameObject> unitActionList = new LinkedList<GameObject>();
@@ -36,18 +38,12 @@ public class BattleManager : Singleton<BattleManager>
 
     public GameObject heroUnitPrefab;
 
-    MovementManager movementManager;
-
     [HideInInspector]
     public List<AstarNode> reachableNodes = new List<AstarNode>();
     [HideInInspector]
     public List<AstarNode> attackableNodes = new List<AstarNode>();
 
     public GameObject background;
-
-    //鼠标所在节点
-    [HideInInspector]
-    public AstarNode mouseNode;
 
     public MapManager_Battle map;
 
@@ -61,18 +57,18 @@ public class BattleManager : Singleton<BattleManager>
 
     public Camera cam;
 
-    void Start()
+    public void Init()
     {
         map.GenerateMap();
         map.parent.gameObject.SetActive(false);
 
-        movementManager = GetComponent<MovementManager>();
     }
 
     public void EnterBattle()
     {
         Camera.main.enabled = false;
         cam.enabled = true;
+        cam.tag = "MainCamera";
 
         map.parent.gameObject.SetActive(true);
         background.SetActive(true);
@@ -164,7 +160,7 @@ public class BattleManager : Singleton<BattleManager>
     //创建单位
     GameObject CreateUnit(UnitType _type, Vector2Int _pos, int _num = 1, int _side = 0)
     {
-        Vector2 createPos = map.GetNodeItem(_pos).transform.position;
+        Vector3 createPos = map.GetNodeItem(_pos).transform.position;
         GameObject go = Instantiate(prefab_unit, createPos, Quaternion.identity,
                         ParentManager.instance.GetParent("BattleUnits"));
 

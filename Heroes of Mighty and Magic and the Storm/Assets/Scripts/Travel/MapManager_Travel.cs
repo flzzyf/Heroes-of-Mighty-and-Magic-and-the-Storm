@@ -19,7 +19,7 @@ public class MapManager_Travel : MapManager
         //是终点则开始移动，否则重新计算路线
         if (_node.gameObject.GetComponent<NodeItem_Travel>().type == TravelNodeType.goal)
         {
-            MoveObjectAlongPath(GameManager_Travel.instance.currentHero.transform, path);
+            MoveObjectAlongPath(TravelManager.instance.currentHero.transform, path);
         }
         else
         {
@@ -27,11 +27,11 @@ public class MapManager_Travel : MapManager
             ClearPath();
 
             GameObject currentNode = GetNodeItem(
-                GameManager_Travel.instance.currentHero.GetComponent<Hero>().pos);
+                TravelManager.instance.currentHero.GetComponent<Hero>().pos);
 
             path = AStarManager.Instance().FindPath(this, currentNode, _node.gameObject);
 
-            int movementRate = GameManager_Travel.instance.currentHero.GetComponent<Hero>().currentMovementRate;
+            int movementRate = TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate;
             if (path != null)
             {
                 GameObject lastNode;
@@ -102,27 +102,27 @@ public class MapManager_Travel : MapManager
     {
         for (int i = 1; i < _path.Count; i++)
         {
-            if (GameManager_Travel.instance.currentHero.GetComponent<Hero>().currentMovementRate <
+            if (TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate <
                             GetNodeDistance(path[i - 1].GetComponent<NodeItem>(), path[i].GetComponent<NodeItem>()))
             {
                 break;
             }
 
-            GameManager_Travel.instance.currentHero.GetComponent<NodeObject>().pos =
+            TravelManager.instance.currentHero.GetComponent<NodeObject>().pos =
                 path[i].GetComponent<NodeItem>().pos;
 
             Vector3 targetPos = GetNodeItem(_path[i].GetComponent<NodeItem>().pos).transform.position;
 
-            while (Vector3.Distance(_obj.position, targetPos) > GameManager_Travel.instance.heroSpeed * Time.deltaTime)
+            while (Vector3.Distance(_obj.position, targetPos) > TravelManager.instance.heroSpeed * Time.deltaTime)
             {
                 Vector3 dir = targetPos - _obj.position;
-                _obj.Translate(dir.normalized * GameManager_Travel.instance.heroSpeed * Time.deltaTime);
+                _obj.Translate(dir.normalized * TravelManager.instance.heroSpeed * Time.deltaTime);
 
 
                 yield return new WaitForSeconds(Time.deltaTime);
             }
 
-            GameManager_Travel.instance.currentHero.GetComponent<Hero>().currentMovementRate -=
+            TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate -=
                 GetNodeDistance(path[i - 1].GetComponent<NodeItem>(), path[i].GetComponent<NodeItem>());
 
 
@@ -138,6 +138,6 @@ public class MapManager_Travel : MapManager
         //设置节点上的物体，设置英雄所在位置、节点
 
 
-        path[path.Count - 1].GetComponent<NodeItem_Travel>().nodeObject = GameManager_Travel.instance.currentHero;
+        path[path.Count - 1].GetComponent<NodeItem_Travel>().nodeObject = TravelManager.instance.currentHero;
     }
 }

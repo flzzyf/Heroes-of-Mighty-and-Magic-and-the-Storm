@@ -9,17 +9,24 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         Cursor.visible = false;
+
+        TravelManager.instance.Init();
+        BattleManager.instance.Init();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            BattleManager.instance.BattleStart();
+            BattleManager.instance.EnterBattle();
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            BattleManager.instance.EnterBattle();
+            TravelManager.instance.EnterTravelMode();
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            BattleManager.instance.BattleStart();
         }
     }
 }

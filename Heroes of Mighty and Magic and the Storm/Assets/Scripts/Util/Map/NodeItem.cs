@@ -24,7 +24,7 @@ public class NodeItem : MonoBehaviour
         OnMouseIn(this);
     }
 
-    void OnMouseExit()
+    public virtual void OnMouseExit()
     {
         OnMouseOut(this);
     }

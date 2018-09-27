@@ -14,17 +14,19 @@ public class NodeItem_Battle : NodeItem
     {
         battleNodeType = _type;
 
-        if (_type == BattleNodeType.walkable)
-        {
-            ChangeBackgoundColor("interactable");
-        }
+        ChangeBackgoundColor();
     }
 
+    //改变背景颜色，默认是根据节点类型自动选择
     public void ChangeBackgoundColor(string _color = "")
     {
         if (_color == "")
         {
-            bg.color = new Color(0, 0, 0, 0);
+            if (battleNodeType == BattleNodeType.empty)
+                bg.color = new Color(0, 0, 0, 0);
+            else
+                ChangeBackgoundColor("interactable");
+
             return;
         }
 
@@ -44,8 +46,11 @@ public class NodeItem_Battle : NodeItem
         ChangeBackgoundColor("hover");
     }
 
-    void OnMouseExit()
+
+    public override void OnMouseExit()
     {
+        base.OnMouseExit();
+
         if (battleNodeType == BattleNodeType.empty)
             ChangeBackgoundColor();
         else

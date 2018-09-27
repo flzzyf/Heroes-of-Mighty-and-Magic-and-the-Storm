@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager_Travel : Singleton<GameManager_Travel>
+public class TravelManager : Singleton<TravelManager>
 {
     [HideInInspector]
     public GameObject lastHighlightNode;
@@ -21,9 +21,8 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
 
     public Camera cam;
 
-    void Start()
+    public void Init()
     {
-        print("旅行模式Start");
         map.GenerateMap();
 
         //玩家初始设置
@@ -33,21 +32,12 @@ public class GameManager_Travel : Singleton<GameManager_Travel>
         TurnStart(0);
 
         EnterTravelMode();
-
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            //ParentManager.instance.GetParent("MapManager").gameObject.SetActive(false);
-            EnterTravelMode();
-        }
     }
 
     public void EnterTravelMode()
     {
         Camera.main.enabled = false;
+        cam.tag = "MainCamera";
         cam.enabled = true;
     }
 
