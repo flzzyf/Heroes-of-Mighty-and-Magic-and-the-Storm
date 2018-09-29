@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.F))
         {
             BattleManager.instance.EnterBattle();
+            BattleManager.instance.BattleStart();
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -26,7 +27,6 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            BattleManager.instance.BattleStart();
         }
     }
 }

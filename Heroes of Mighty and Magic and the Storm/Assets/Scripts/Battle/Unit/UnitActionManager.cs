@@ -3,20 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UnitActionManager : MonoBehaviour 
+public class UnitActionManager : Singleton<UnitActionManager>
 {
-    #region Singleton
-    [HideInInspector]
-    public static UnitActionManager instance;
-
-    private void Awake()
-    {
-        if (instance != null)
-            Destroy(this);
-        instance = this;
-    }
-    #endregion
-
     Unit attacker, defender;
 
     //攻击动画触发被击动画的时间点
@@ -49,14 +37,14 @@ public class UnitActionManager : MonoBehaviour
         }
 
         StartCoroutine(AttackTarget(_origin, _target));
-        while(waiting)
+        while (waiting)
             yield return new WaitForSeconds(Time.deltaTime);
 
         bool unitDead = _target.dead;
         if (!unitDead)  //如果没死
         {
             //可反击
-            if(_target.fightBackCount > 0)
+            if (_target.fightBackCount > 0)
             {
                 //print("反击");
                 _target.fightBackCount--;
@@ -142,7 +130,7 @@ public class UnitActionManager : MonoBehaviour
         attacker = _origin;
         defender = _target;
 
-        if(_origin.FaceTarget(_target) | _target.FaceTarget(_origin))
+        if (_origin.FaceTarget(_target) | _target.FaceTarget(_origin))
         {
             //需要转身
             return true;

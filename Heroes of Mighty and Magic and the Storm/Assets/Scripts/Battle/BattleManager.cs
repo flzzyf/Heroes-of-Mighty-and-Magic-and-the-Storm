@@ -217,20 +217,6 @@ public class BattleManager : Singleton<BattleManager>
         }
     }
 
-    public List<AstarNode> GetUnitNearbyNode(GameObject _unit, int _range, int _type)
-    {
-        List<AstarNode> nodes = new List<AstarNode>();
-        //List<AstarNode> nodes = map.GetNeighbourNode(map.GetNode(_unit.GetComponent<Unit>().nodeUnit), _range);
-
-        // for (int i = nodes.Count - 1; i >= 0; i--)
-        // {
-        //     if (map.GetNodeUnit(nodes[i]).GetComponent<NodeUnit>().nodeType != _type)
-        //         nodes.Remove(nodes[i]);
-        // }
-
-        return nodes;
-    }
-
     public void MoveUnit(AstarNode _node)
     {
         //StartCoroutine(MoveUnitCor(_node));
@@ -284,22 +270,5 @@ public class BattleManager : Singleton<BattleManager>
     {
         return _u1.GetComponent<Unit>().player == _u2.GetComponent<Unit>().player;
     }
-
-
-    // public void ResetAbleNodes()
-    // {
-    //     foreach (AstarNode item in reachableNodes)
-    //     {
-    //         map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
-    //     }
-
-    //     foreach (AstarNode item in attackableNodes)
-    //     {
-    //         map.GetNodeUnit(item).GetComponent<NodeUnit>().targetType = 0;
-    //     }
-
-    //     reachableNodes.Clear();
-    //     attackableNodes.Clear();
-    // }
 
 }
