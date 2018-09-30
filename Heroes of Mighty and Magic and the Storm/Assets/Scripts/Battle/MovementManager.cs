@@ -14,6 +14,7 @@ public class MovementManager : Singleton<MovementManager>
         GameManager.instance.gamePaused = true;
 
         moving = true;
+        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk);
 
         StartCoroutine(IEMoveObject(_obj, _path));
     }
@@ -34,6 +35,7 @@ public class MovementManager : Singleton<MovementManager>
             }
         }
 
+        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
         MoveObjectFinish(_path[_path.Count - 1]);
     }
     //移动到目的地后
@@ -42,6 +44,7 @@ public class MovementManager : Singleton<MovementManager>
         GameManager.instance.gamePaused = false;
 
         moving = false;
+
 
         //设置节点上的物体，设置英雄所在位置、节点
         BattleManager.instance.LinkNodeWithUnit(BattleManager.currentActionUnit, _endNode);

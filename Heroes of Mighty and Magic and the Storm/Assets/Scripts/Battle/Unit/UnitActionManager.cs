@@ -72,7 +72,7 @@ public class UnitActionManager : Singleton<UnitActionManager>
         float attackTime = _origin.GetAnimationLength("attack");
         float hitTime = attackTime * animAttackHitPercent;
 
-        _origin.PlayAnimation("attack");
+        _origin.PlayAnimation(Anim.attack);
         yield return new WaitForSeconds(hitTime);
         //print("被击");
 

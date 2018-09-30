@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum Anim { idle, walk, attack }
+
 public class Unit : NodeObject
 {
     public UnitType type;
@@ -24,10 +26,6 @@ public class Unit : NodeObject
 
     [HideInInspector]
     public GameObject nodeUnit;
-
-    Dictionary<string, string> animName = new Dictionary<string, string>{
-        {"move", "walking"}, {"attack", "Attack"}
-    };
 
     Dictionary<string, int> animIndex = new Dictionary<string, int>{
         {"move", 2}, {"attack", 1}
@@ -124,16 +122,19 @@ public class Unit : NodeObject
         return animator.runtimeAnimatorController.animationClips[index].length;
     }
 
-    public void PlayAnimation(string _anim, int _value = -1)
+    public void PlayAnimation(Anim _anim, bool _play = true)
     {
-        if (_value != -1)
+        if (_anim == Anim.idle)
         {
-            animator.SetBool(animName[_anim], (_value == 1) ? true : false);
 
         }
-        else
+        else if (_anim == Anim.walk)
         {
-            animator.Play(animName[_anim]);
+            animator.SetBool("walking", _play);
+        }
+        else if (_anim == Anim.attack)
+        {
+            animator.Play("Attack");
         }
     }
     #region Number and HP
