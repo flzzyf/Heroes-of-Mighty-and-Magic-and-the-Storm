@@ -5,8 +5,6 @@ using System;
 
 public class BattleManager : Singleton<BattleManager>
 {
-    public float unitSpeed = 8;
-
     //单位行动顺序表，单位行动队列
     public LinkedList<GameObject> unitActionOrder = new LinkedList<GameObject>();
     public LinkedList<GameObject> unitActionList = new LinkedList<GameObject>();
@@ -28,8 +26,7 @@ public class BattleManager : Singleton<BattleManager>
     [HideInInspector]
     public List<GameObject>[] units = { new List<GameObject>(), new List<GameObject>() };
 
-    [HideInInspector]
-    public GameObject currentActionUnit;
+    public static GameObject currentActionUnit;
 
     int actionPlayer;
     //英雄创建位置
@@ -37,11 +34,6 @@ public class BattleManager : Singleton<BattleManager>
     GameObject[] heroes = new GameObject[2];
 
     public GameObject heroUnitPrefab;
-
-    [HideInInspector]
-    public List<AstarNode> reachableNodes = new List<AstarNode>();
-    [HideInInspector]
-    public List<AstarNode> attackableNodes = new List<AstarNode>();
 
     public GameObject background;
 
@@ -168,7 +160,7 @@ public class BattleManager : Singleton<BattleManager>
         unit.nodeObjectType = NodeObjectType.unit;
         unit.pos = _pos;
         unit.type = _type;
-        unit.InitUnitType();
+        unit.Init();
         unit.ChangeNum(_num);
         if (_side == 1)
             unit.Flip();
@@ -217,10 +209,6 @@ public class BattleManager : Singleton<BattleManager>
         }
     }
 
-    public void MoveUnit(AstarNode _node)
-    {
-        //StartCoroutine(MoveUnitCor(_node));
-    }
 
     // IEnumerator MoveUnitCor(AstarNode _node)
     // {
@@ -238,10 +226,7 @@ public class BattleManager : Singleton<BattleManager>
     //     roundManager.TurnEnd();
     // }
 
-    public void AttackMove(AstarNode _node)
-    {
-        //StartCoroutine(AttackMoveCor(_node, mouseNode));
-    }
+
 
     // IEnumerator AttackMoveCor(AstarNode _node, AstarNode _target)
     // {

@@ -39,7 +39,7 @@ public class Unit : NodeObject
     [HideInInspector]
     public bool dead;
 
-    void Start()
+    public void Init()
     {
         if (type != null)
             InitUnitType();

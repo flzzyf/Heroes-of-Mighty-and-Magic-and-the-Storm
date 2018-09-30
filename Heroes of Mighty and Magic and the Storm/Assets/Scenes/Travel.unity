@@ -2313,9 +2313,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1222465624}
   - component: {fileID: 1222465627}
-  - component: {fileID: 1222465623}
-  - component: {fileID: 1222465626}
-  - component: {fileID: 1222465625}
   - component: {fileID: 1222465628}
   - component: {fileID: 1222465629}
   m_Layer: 0
@@ -2325,28 +2322,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1222465623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1222465622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c438548519be45b4eaf28dbe26b0283e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastHighlightNode: {fileID: 0}
-  currentHero: {fileID: 0}
-  spawnPoints:
-  - {fileID: 0}
-  prefab_town: {fileID: 1371131256057282, guid: 54dc79bbf21454dedb5e86f5ed2c72ea,
-    type: 2}
-  prefab_hero: {fileID: 1952165180744556, guid: 37ccb3bc95d1e477ba14c64877197e3d,
-    type: 2}
-  heroSpeed: 25
-  map: {fileID: 1222465625}
-  cam: {fileID: 61162793}
 --- !u!4 &1222465624
 Transform:
   m_ObjectHideFlags: 0
@@ -2360,40 +2335,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1222465625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1222465622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b20bdd906e834bb29e12f19370e41b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  size: {x: 40, y: 40}
-  nodeSize: {x: 3, y: 3}
-  prefab_node: {fileID: 1770460259947540, guid: d5635d1aace5f4a4a87383d83b25a5e9,
-    type: 2}
-  coord: 1
-  autoCentered: 0
-  layer_wall:
-    serializedVersion: 2
-    m_Bits: 0
-  color_reachable: {r: 0.015331439, g: 0.9433962, b: 0, a: 1}
-  color_outOfReach: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &1222465626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1222465622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e41614f6afcd28142b7b442311cd9e25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 1222465625}
 --- !u!114 &1222465627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2808,6 +2749,7 @@ GameObject:
   - component: {fileID: 1638976379}
   - component: {fileID: 1638976378}
   - component: {fileID: 1638976374}
+  - component: {fileID: 1638976375}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -2826,6 +2768,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b4f9eedcd1c4ae8bbf95a00aac3b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1638976375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638976373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9799d2e9b424c5f8a1f0ee96aa110e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnitSpeed: 8
 --- !u!114 &1638976378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2851,11 +2805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef937c26a1d32ba4ca34c178a2de09d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSpeed: 14
   playerHero:
   - {fileID: 284897467}
   - {fileID: 1134631092}
-  currentActionUnit: {fileID: 0}
   heroPoint:
   - {fileID: 82325663}
   - {fileID: 2035681049}
@@ -2906,6 +2858,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1662071096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1662071099}
+  - component: {fileID: 1662071098}
+  - component: {fileID: 1662071097}
+  m_Layer: 0
+  m_Name: TravelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1662071097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662071096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b20bdd906e834bb29e12f19370e41b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 40, y: 40}
+  nodeSize: {x: 3, y: 3}
+  prefab_node: {fileID: 1770460259947540, guid: d5635d1aace5f4a4a87383d83b25a5e9,
+    type: 2}
+  coord: 1
+  autoCentered: 0
+  layer_wall:
+    serializedVersion: 2
+    m_Bits: 0
+  color_reachable: {r: 0.015331439, g: 0.9433962, b: 0, a: 1}
+  color_outOfReach: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1662071098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662071096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c438548519be45b4eaf28dbe26b0283e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastHighlightNode: {fileID: 0}
+  currentHero: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  prefab_town: {fileID: 1371131256057282, guid: 54dc79bbf21454dedb5e86f5ed2c72ea,
+    type: 2}
+  prefab_hero: {fileID: 1952165180744556, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+    type: 2}
+  heroSpeed: 25
+  map: {fileID: 1662071097}
+  cam: {fileID: 61162793}
+--- !u!4 &1662071099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1662071096}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1737097459
 GameObject:

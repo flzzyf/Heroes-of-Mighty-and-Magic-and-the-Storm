@@ -108,9 +108,9 @@ public class MapManager_Battle : MapManager
             ClearPath();
         }
 
-        GameObject currentNode = BattleManager.instance.map.GetNodeItem(
-                BattleManager.instance.currentActionUnit.GetComponent<Unit>().pos);
-        path = AStarManager.Instance().FindPath(this, currentNode, _node.gameObject);
+        GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
+
+        path = AStarManager.FindPath(this, currentNode, _node.gameObject);
 
         foreach (var item in path)
         {
@@ -165,46 +165,11 @@ public class MapManager_Battle : MapManager
     {
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.walkable)
         {
-            MoveObjectAlongPath(BattleManager.instance.currentActionUnit.transform, path);
+            ClearPath();
+            RoundManager.order = new Order(OrderType.move, BattleManager.currentActionUnit, _node);
         }
     }
 
-    //按照路径移动物体
-    void MoveObjectAlongPath(Transform _obj, List<GameObject> _path)
-    {
-        GameManager.instance.gamePaused = true;
-
-        ClearPath();
-
-        StartCoroutine(IEMoveObject(_obj, _path));
-    }
-
-    IEnumerator IEMoveObject(Transform _obj, List<GameObject> _path)
-    {
-        for (int i = 1; i < _path.Count; i++)
-        {
-            Vector3 targetPos = _path[i].transform.position;
-
-            Vector3 dir = targetPos - _obj.position;
-            while (GetHorizontalDistance(_obj.position, targetPos) > BattleManager.instance.unitSpeed * Time.deltaTime)
-            {
-                _obj.Translate(dir.normalized * BattleManager.instance.unitSpeed * Time.deltaTime);
-
-                yield return null;
-            }
-        }
-
-        MoveObjectFinish();
-    }
-    //移动到目的地后
-    void MoveObjectFinish()
-    {
-        GameManager.instance.gamePaused = false;
-
-        //设置节点上的物体，设置英雄所在位置、节点
-
-        BattleManager.instance.LinkNodeWithUnit(BattleManager.instance.currentActionUnit, path[path.Count - 1]);
-    }
 
     //清除之前路径
     void ClearPath()
@@ -215,9 +180,4 @@ public class MapManager_Battle : MapManager
         }
     }
 
-    float GetHorizontalDistance(Vector3 _p1, Vector3 _p2)
-    {
-        _p2.z = _p1.z;
-        return Vector3.Distance(_p1, _p2);
-    }
 }

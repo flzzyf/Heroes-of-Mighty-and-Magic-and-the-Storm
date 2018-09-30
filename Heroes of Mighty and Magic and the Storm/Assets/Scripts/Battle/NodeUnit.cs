@@ -6,8 +6,6 @@ public class NodeUnit : MonoBehaviour
 {
     public SpriteRenderer bg;
     [HideInInspector]
-    public AstarNode node;
-    [HideInInspector]
     public Unit unit;
 
     int backgroundState;
@@ -42,7 +40,7 @@ public class NodeUnit : MonoBehaviour
         {
 
             //不可攻击单位
-            if (BattleManager.Instance().isSamePlayer(unit.gameObject, BattleManager.Instance().currentActionUnit))
+            if (BattleManager.instance.isSamePlayer(unit.gameObject, BattleManager.currentActionUnit))
             {
                 //友军
                 CustomCursor.Instance().ChangeCursor("Friend");

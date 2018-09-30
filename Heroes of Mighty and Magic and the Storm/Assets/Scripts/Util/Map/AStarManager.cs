@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AStarManager : Singleton<AStarManager>
+public class AStarManager
 {
-    public MapManager map;
+    public static MapManager map;
 
-    List<Node> FindPath(Vector2Int _startPos, Vector2Int _endPos)
+    static List<Node> FindPath(Vector2Int _startPos, Vector2Int _endPos)
     {
         Node startNode = map.GetNode(_startPos);
         Node endNode = map.GetNode(_endPos);
@@ -63,11 +63,10 @@ public class AStarManager : Singleton<AStarManager>
             }
         }
         //无法通行
-        print("无法通行");
         return null;
     }
 
-    List<Node> GeneratePath(Node _startNode, Node _endNode)
+    static List<Node> GeneratePath(Node _startNode, Node _endNode)
     {
         Node curNode = _endNode;
 
@@ -88,7 +87,7 @@ public class AStarManager : Singleton<AStarManager>
     }
 
     //节点间路径距离估计算法（只考虑XY轴）
-    public virtual int GetNodeDistance(Node a, Node b)
+    static int GetNodeDistance(Node a, Node b)
     {
         //先斜着走然后直走
         int x = Mathf.Abs(a.x - b.x);
@@ -100,8 +99,7 @@ public class AStarManager : Singleton<AStarManager>
             return 14 * x + 10 * (y - x);
     }
 
-    //A星寻路
-    public List<GameObject> FindPath(GameObject _start, GameObject _end)
+    static List<GameObject> FindPath(GameObject _start, GameObject _end)
     {
         List<GameObject> list = new List<GameObject>();
 
@@ -120,7 +118,7 @@ public class AStarManager : Singleton<AStarManager>
         return list;
     }
 
-    public List<GameObject> FindPath(MapManager _map, GameObject _start, GameObject _end)
+    public static List<GameObject> FindPath(MapManager _map, GameObject _start, GameObject _end)
     {
         map = _map;
         return FindPath(_start, _end);

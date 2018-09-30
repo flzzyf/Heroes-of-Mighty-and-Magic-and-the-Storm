@@ -29,7 +29,7 @@ public class MapManager_Travel : MapManager
             GameObject currentNode = GetNodeItem(
                 TravelManager.instance.currentHero.GetComponent<Hero>().pos);
 
-            path = AStarManager.Instance().FindPath(this, currentNode, _node.gameObject);
+            path = AStarManager.FindPath(this, currentNode, _node.gameObject);
 
             int movementRate = TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate;
             if (path != null)
@@ -103,13 +103,13 @@ public class MapManager_Travel : MapManager
         for (int i = 1; i < _path.Count; i++)
         {
             if (TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate <
-                            GetNodeDistance(path[i - 1].GetComponent<NodeItem>(), path[i].GetComponent<NodeItem>()))
+                            GetNodeDistance(_path[i - 1].GetComponent<NodeItem>(), _path[i].GetComponent<NodeItem>()))
             {
                 break;
             }
 
             TravelManager.instance.currentHero.GetComponent<NodeObject>().pos =
-                path[i].GetComponent<NodeItem>().pos;
+                _path[i].GetComponent<NodeItem>().pos;
 
             Vector3 targetPos = GetNodeItem(_path[i].GetComponent<NodeItem>().pos).transform.position;
 
@@ -123,7 +123,7 @@ public class MapManager_Travel : MapManager
             }
 
             TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate -=
-                GetNodeDistance(path[i - 1].GetComponent<NodeItem>(), path[i].GetComponent<NodeItem>());
+                GetNodeDistance(_path[i - 1].GetComponent<NodeItem>(), _path[i].GetComponent<NodeItem>());
 
 
         }

@@ -5,6 +5,8 @@ using System;
 
 public class RoundManager : Singleton<RoundManager>
 {
+    public static Order order;
+
     public void RoundStart()
     {
         //轮开始效果触发
@@ -35,7 +37,7 @@ public class RoundManager : Singleton<RoundManager>
             GameObject go = BattleManager.instance.unitActionList.First.Value;
             BattleManager.instance.unitActionList.Remove(go);
 
-            BattleManager.instance.currentActionUnit = go;
+            BattleManager.currentActionUnit = go;
 
             ActionStart(go, 0);
         }
@@ -66,10 +68,11 @@ public class RoundManager : Singleton<RoundManager>
     {
         //非AI
 
-        BattleManager.instance.currentActionUnit = _unit;
+        BattleManager.currentActionUnit = _unit;
 
         _unit.GetComponent<Unit>().OutlineFlashStart();
 
+        //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
         //可抵达节点
         GameObject nodeItem = BattleManager.instance.map.GetNodeItem(_unit.GetComponent<Unit>().pos);
@@ -103,9 +106,42 @@ public class RoundManager : Singleton<RoundManager>
             item.GetComponent<NodeItem_Battle>().battleNodeType = BattleNodeType.attackable;
         }
 
-        //BattleManager.instance.reachableNodes = reachableNodes;
-        //BattleManager.instance.attackableNodes = attackableNodes;
+        StartCoroutine(ActionStartCor());
+    }
 
+    IEnumerator ActionStartCor()
+    {
+        //在玩家下令前暂停
+        while (order == null)
+            yield return null;
+
+        InvokeOrder();
+
+        //在指令完成前暂停
+        while (order != null)
+            yield return null;
+
+        ActionEnd();
+    }
+    //执行指令
+    void InvokeOrder()
+    {
+        StartCoroutine(InvokeOrderCor());
+    }
+
+    IEnumerator InvokeOrderCor()
+    {
+        if (order.type == OrderType.move)
+        {
+            GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
+            List<GameObject> path = AStarManager.FindPath(BattleManager.instance.map, currentNode, order.targetNode.gameObject);
+            MovementManager.instance.MoveObjectAlongPath(order.origin.transform, path);
+
+            while (MovementManager.moving)
+                yield return null;
+        }
+
+        order = null;
     }
 
     public void ActionEnd()
@@ -114,8 +150,35 @@ public class RoundManager : Singleton<RoundManager>
         //重置可到达和可攻击节点
         //BattleManager.instance.ResetAbleNodes();
 
-        BattleManager.instance.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
+        BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
-        //TurnEnd();
+        TurnEnd();
+    }
+}
+
+public enum OrderType { move, attack, wait, defence, cast }
+
+public class Order
+{
+    public OrderType type;
+    public NodeItem targetNode;
+    public GameObject origin, target;
+
+    public Order(OrderType _type, GameObject _origin)
+    {
+        type = _type;
+        origin = _origin;
+    }
+    public Order(OrderType _type, GameObject _origin, GameObject _target)
+    {
+        type = _type;
+        origin = _origin;
+        target = _target;
+    }
+    public Order(OrderType _type, GameObject _origin, NodeItem _node)
+    {
+        type = _type;
+        origin = _origin;
+        targetNode = _node;
     }
 }
