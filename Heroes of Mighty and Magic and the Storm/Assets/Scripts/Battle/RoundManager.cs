@@ -78,7 +78,7 @@ public class RoundManager : Singleton<RoundManager>
 
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
-        GameObject nodeItem = _unit.GetComponent<Unit>().nodeUnit;
+        NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
         reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
 
         //修改节点为可到达，如果节点为空
@@ -139,9 +139,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         if (order.type == OrderType.move)
         {
-            GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit;
-            List<GameObject> path = AStarManager.FindPath(BattleManager.instance.map, currentNode, order.targetNode.gameObject);
-            MovementManager.instance.MoveObjectAlongPath(order.origin.transform, path);
+            MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
 
             while (MovementManager.moving)
                 yield return null;
@@ -179,8 +177,8 @@ public enum OrderType { move, attack, wait, defence, cast }
 public class Order
 {
     public OrderType type;
-    public NodeItem targetNode;
     public GameObject origin, target;
+    public List<NodeItem> path;
 
     public Order(OrderType _type, GameObject _origin)
     {
@@ -193,10 +191,10 @@ public class Order
         origin = _origin;
         target = _target;
     }
-    public Order(OrderType _type, GameObject _origin, NodeItem _node)
+    public Order(OrderType _type, GameObject _origin, List<NodeItem> _path)
     {
         type = _type;
         origin = _origin;
-        targetNode = _node;
+        path = _path;
     }
 }

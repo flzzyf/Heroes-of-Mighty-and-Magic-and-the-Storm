@@ -8,10 +8,10 @@ public class MovementManager : Singleton<MovementManager>
 
     public static bool moving;
     Transform movingObj;
-    List<GameObject> path;
+    List<NodeItem> path;
 
     //按照路径移动物体
-    public void MoveObjectAlongPath(Transform _obj, List<GameObject> _path)
+    public void MoveObjectAlongPath(Transform _obj, List<NodeItem> _path)
     {
         GameManager.instance.gamePaused = true;
 

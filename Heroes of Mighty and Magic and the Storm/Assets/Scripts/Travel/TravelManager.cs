@@ -60,10 +60,10 @@ public class TravelManager : Singleton<TravelManager>
     //在节点上创建物体
     GameObject CreateObjectOnNode(GameObject _prefab, Vector2Int _pos)
     {
-        GameObject node = map.GetNodeItem(_pos);
+        NodeItem node = map.GetNodeItem(_pos);
 
         GameObject go = Instantiate(_prefab, node.transform.position, Quaternion.identity);
-        go.GetComponent<NodeObject>().nodeUnit = map.GetNodeItem(_pos);
+        go.GetComponent<NodeObject>().nodeItem = map.GetNodeItem(_pos);
         return go;
     }
 

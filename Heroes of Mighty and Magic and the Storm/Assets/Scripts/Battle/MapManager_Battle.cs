@@ -6,7 +6,7 @@ public class MapManager_Battle : MapManager
 {
     public float nodeRadius = 1;
 
-    List<GameObject> path;
+    List<NodeItem> path;
 
     //相邻节点偏移，顺序为从右上开始的顺时针
     static Vector2Int[,] nearbyNodeOffset = {
@@ -63,9 +63,9 @@ public class MapManager_Battle : MapManager
         return null;
     }
 
-    public GameObject GetNearbyNodeItem(GameObject _go, int _index)
+    public NodeItem GetNearbyNodeItem(NodeItem _go, int _index)
     {
-        Node node = GetNearbyNode(GetNode(_go.GetComponent<NodeItem>().pos), _index);
+        Node node = GetNearbyNode(GetNode(_go.pos), _index);
         if (node != null)
         {
             return GetNodeItem(node.pos);
@@ -140,9 +140,9 @@ public class MapManager_Battle : MapManager
         {
             CursorManager.Instance().ChangeCursor("reachable");
 
-            GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
+            NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
 
-            path = AStarManager.FindPath(this, currentNode, _node.gameObject);
+            path = AStarManager.FindPath(this, currentNode, _node);
             path.Remove(currentNode);
 
             foreach (var item in path)
@@ -150,6 +150,11 @@ public class MapManager_Battle : MapManager
                 item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
             }
         }
+        //不可到达点
+        // else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.empty)
+        // {
+        //     CursorManager.Instance().ChangeCursor("stop");
+        // }
     }
 
     public override void OnNodeUnhovered(NodeItem _node)
@@ -184,7 +189,7 @@ public class MapManager_Battle : MapManager
             int arrowIndex = (int)angle / 60;
 
             //攻击方向上的格子存在，且可到达便可发起攻击。（目前还没考虑多格单位）
-            GameObject targetNode = GetNearbyNodeItem(_node.gameObject, arrowIndex);
+            NodeItem targetNode = GetNearbyNodeItem(_node, arrowIndex);
             if (targetNode != null &&
                targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
             {
@@ -209,7 +214,7 @@ public class MapManager_Battle : MapManager
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
         {
             ClearPath();
-            RoundManager.order = new Order(OrderType.move, BattleManager.currentActionUnit, _node);
+            RoundManager.order = new Order(OrderType.move, BattleManager.currentActionUnit, path);
 
             CursorManager.Instance().ChangeCursor();
             CursorManager.Instance().ChangeCursorAngle();

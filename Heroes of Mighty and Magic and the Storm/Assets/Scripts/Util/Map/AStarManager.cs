@@ -99,12 +99,12 @@ public class AStarManager
             return 14 * x + 10 * (y - x);
     }
 
-    static List<GameObject> FindPath(GameObject _start, GameObject _end)
+    static List<NodeItem> FindPath(NodeItem _start, NodeItem _end)
     {
-        List<GameObject> list = new List<GameObject>();
+        List<NodeItem> list = new List<NodeItem>();
 
-        Vector2Int startPos = _start.GetComponent<NodeItem>().pos;
-        Vector2Int endPos = _end.GetComponent<NodeItem>().pos;
+        Vector2Int startPos = _start.pos;
+        Vector2Int endPos = _end.pos;
 
         List<Node> path = FindPath(startPos, endPos);
         if (path == null)
@@ -118,7 +118,7 @@ public class AStarManager
         return list;
     }
 
-    public static List<GameObject> FindPath(MapManager _map, GameObject _start, GameObject _end)
+    public static List<NodeItem> FindPath(MapManager _map, NodeItem _start, NodeItem _end)
     {
         map = _map;
         return FindPath(_start, _end);

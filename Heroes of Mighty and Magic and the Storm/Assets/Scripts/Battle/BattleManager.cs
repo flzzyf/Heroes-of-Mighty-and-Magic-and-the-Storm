@@ -150,8 +150,8 @@ public class BattleManager : Singleton<BattleManager>
             GameObject go = CreateUnit(hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
                        hero.pocketUnits[i].num, _hero);
 
-            GameObject nodeUnit = map.GetNodeItem(new Vector2Int(x, unitPosIndex));
-            LinkNodeWithUnit(go, nodeUnit);
+            NodeItem nodeItem = map.GetNodeItem(new Vector2Int(x, unitPosIndex));
+            LinkNodeWithUnit(go, nodeItem);
 
             AddUnitToActionList(ref unitActionOrder, go);
         }
@@ -180,23 +180,23 @@ public class BattleManager : Singleton<BattleManager>
         return go;
     }
     //链接单位和节点
-    public void LinkNodeWithUnit(GameObject _unit, GameObject _nodeUnit)
+    public void LinkNodeWithUnit(GameObject _unit, NodeItem _nodeItem)
     {
         //如果已经和节点链接，取消链接
-        if (_unit.GetComponent<Unit>().nodeUnit != null)
+        if (_unit.GetComponent<Unit>().nodeItem != null)
         {
             UnlinkNodeWithUnit(_unit);
         }
 
-        _nodeUnit.GetComponent<NodeItem>().nodeObject = _unit;
-        _unit.GetComponent<Unit>().nodeUnit = _nodeUnit;
+        _nodeItem.GetComponent<NodeItem>().nodeObject = _unit;
+        _unit.GetComponent<Unit>().nodeItem = _nodeItem.GetComponent<NodeItem>();
     }
     //取消链接单位和节点
     public void UnlinkNodeWithUnit(GameObject _unit)
     {
-        GameObject nodeUnit = _unit.GetComponent<Unit>().nodeUnit;
+        NodeItem nodeUnit = _unit.GetComponent<Unit>().nodeItem;
         nodeUnit.GetComponent<NodeItem>().nodeObject = null;
-        _unit.GetComponent<Unit>().nodeUnit = null;
+        _unit.GetComponent<Unit>().nodeItem = null;
     }
 
     public void CheckVictoryOrDeath()
