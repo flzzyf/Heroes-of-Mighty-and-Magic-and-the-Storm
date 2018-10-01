@@ -11,7 +11,7 @@ public class Unit : NodeObject
 
     public SpriteRenderer sprite;
     public Animator animator;
-    public Text numUI;
+    public Text text_number;
 
     //朝向，-1为左，1为右
     int facing = 1;
@@ -138,7 +138,7 @@ public class Unit : NodeObject
     public void ChangeNum(int _amount)
     {
         num = _amount;
-        numUI.text = _amount.ToString();
+        text_number.text = _amount.ToString();
     }
 
     public void ChangeNum(int _amount, int _sign)
@@ -199,7 +199,7 @@ public class Unit : NodeObject
     }
 
     #region Outline
-    public void ChangeOutline(float _value = 0)
+    void ChangeOutline(float _value = 0)
     {
         Color color = sprite.material.GetColor("_Color");
         color.a = _value;
@@ -219,10 +219,18 @@ public class Unit : NodeObject
         ChangeOutline(0);
     }
 
-    public void ChangeOutlineColor(Color _color)
+    public void ChangeOutlineColor(string _color)
     {
-        sprite.material.SetColor("_Color", _color);
+        for (int i = 0; i < BattleManager.instance.outlineColor.Length; i++)
+        {
+            if (_color == BattleManager.instance.outlineColor[i].name)
+            {
+                sprite.material.SetColor("_Color", BattleManager.instance.outlineColor[i].color);
+                return;
+            }
+        }
 
+        print("未能找到颜色");
     }
 
     #endregion

@@ -49,6 +49,15 @@ public class BattleManager : Singleton<BattleManager>
 
     public Camera cam;
 
+    [System.Serializable]
+    public class OutlineColor
+    {
+        public string name;
+        public Color color = Color.white;
+    }
+
+    public OutlineColor[] outlineColor;
+
     public void Init()
     {
         map.GenerateMap();

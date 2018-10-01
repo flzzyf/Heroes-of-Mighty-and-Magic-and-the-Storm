@@ -27,13 +27,13 @@ public class NodeUnit : MonoBehaviour
             if (targetType == 1)
             {
                 //可到达
-                CustomCursor.Instance().ChangeCursor("Reachable");
+                //CustomCursor.Instance().ChangeCursor("Reachable");
             }
         }
         else if (nodeType == 1)
         {
             //不可到达
-            CustomCursor.Instance().ChangeCursor("Stop");
+            //CustomCursor.Instance().ChangeCursor("Stop");
 
         }
         else if (nodeType == 2)
@@ -43,13 +43,13 @@ public class NodeUnit : MonoBehaviour
             if (BattleManager.instance.isSamePlayer(unit.gameObject, BattleManager.currentActionUnit))
             {
                 //友军
-                CustomCursor.Instance().ChangeCursor("Friend");
+                //CustomCursor.Instance().ChangeCursor("Friend");
             }
             else
             {
                 //敌人
                 //CustomCursor.Instance().ChangeCursor("Enemy");
-                unit.ChangeOutlineColor(GameSettings.instance.haloColor_enemy);
+                //unit.ChangeOutlineColor(GameSettings.instance.haloColor_enemy);
                 unit.OutlineFlashStart();
                 enemyFlashing = true;
 
@@ -61,7 +61,7 @@ public class NodeUnit : MonoBehaviour
     {
         // BattleManager.Instance().mouseNode = null;
 
-        CustomCursor.Instance().ChangeCursor();
+        //CustomCursor.Instance().ChangeCursor();
 
         ToggleBackgroundState(backgroundState);
 
@@ -69,7 +69,7 @@ public class NodeUnit : MonoBehaviour
         {
             enemyFlashing = false;
             unit.OutlineFlashStop();
-            unit.ChangeOutlineColor(GameSettings.Instance().haloColor_actionUnit);
+            //unit.ChangeOutlineColor(GameSettings.Instance().haloColor_actionUnit);
 
         }
     }

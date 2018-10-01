@@ -93,6 +93,8 @@ public class MapManager_Battle : MapManager
 
     }
 
+    Unit lastFlashingUnit;
+
     //鼠标进入节点
     public override void OnNodeHovered(NodeItem _node)
     {
@@ -105,9 +107,39 @@ public class MapManager_Battle : MapManager
             ClearPath();
         }
 
-        //是可到达节点，则显示路径
-        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.walkable)
+        //如果是单位
+        if (_node.nodeObject != null &&
+            _node.nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit)
         {
+            //如果不是当前行动单位，开始闪烁
+            if (_node.nodeObject != BattleManager.currentActionUnit)
+            {
+                lastFlashingUnit = _node.nodeObject.GetComponent<Unit>();
+
+                if (BattleManager.instance.isSamePlayer(_node.nodeObject, BattleManager.currentActionUnit))
+                    lastFlashingUnit.ChangeOutlineColor("friend");
+                else
+                    lastFlashingUnit.ChangeOutlineColor("enemy");
+
+                lastFlashingUnit.OutlineFlashStart();
+            }
+
+            //根据敌友改变指针
+            if (BattleManager.instance.isSamePlayer(_node.nodeObject, BattleManager.currentActionUnit))
+            {
+                CursorManager.instance.ChangeCursor("friend");
+            }
+            else
+            {
+                CursorManager.instance.ChangeCursor("enemy");
+            }
+        }
+
+        //是可到达节点，则显示路径
+        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+        {
+            CursorManager.Instance().ChangeCursor("reachable");
+
             GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
 
             path = AStarManager.FindPath(this, currentNode, _node.gameObject);
@@ -118,13 +150,20 @@ public class MapManager_Battle : MapManager
                 item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
             }
         }
-        else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
-            CustomCursor.Instance().ChangeCursor("Sword");
     }
 
     public override void OnNodeUnhovered(NodeItem _node)
     {
-        CustomCursor.Instance().ChangeCursor();
+        CursorManager.Instance().ChangeCursor();
+        CursorManager.Instance().ChangeCursorAngle();
+
+
+        if (lastFlashingUnit != null)
+        {
+            lastFlashingUnit.OutlineFlashStop();
+
+            lastFlashingUnit = null;
+        }
     }
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
@@ -147,18 +186,19 @@ public class MapManager_Battle : MapManager
             //攻击方向上的格子存在，且可到达便可发起攻击。（目前还没考虑多格单位）
             GameObject targetNode = GetNearbyNodeItem(_node.gameObject, arrowIndex);
             if (targetNode != null &&
-               targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.walkable)
+               targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
             {
                 int arrowAngle = (arrowIndex * 60 + 210) % 360;
                 int arrowAngleFixed = 360 - arrowAngle;
 
-                CustomCursor.Instance().ChangeCursor("Sword");
+                CursorManager.Instance().ChangeCursor("sword");
 
-                CustomCursor.Instance().ChangeCursorAngle(arrowAngleFixed);
+                CursorManager.Instance().ChangeCursorAngle(arrowAngleFixed);
             }
             else
             {
-                CustomCursor.Instance().ChangeCursor("Enemy");
+                CursorManager.Instance().ChangeCursorAngle();
+                CursorManager.Instance().ChangeCursor("enemy");
             }
         }
     }
@@ -166,10 +206,13 @@ public class MapManager_Battle : MapManager
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
-        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.walkable)
+        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
         {
             ClearPath();
             RoundManager.order = new Order(OrderType.move, BattleManager.currentActionUnit, _node);
+
+            CursorManager.Instance().ChangeCursor();
+            CursorManager.Instance().ChangeCursorAngle();
         }
     }
 

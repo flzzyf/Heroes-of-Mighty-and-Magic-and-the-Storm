@@ -73,16 +73,19 @@ public class RoundManager : Singleton<RoundManager>
 
         BattleManager.currentActionUnit = _unit;
 
+        _unit.GetComponent<Unit>().ChangeOutlineColor("action");
         _unit.GetComponent<Unit>().OutlineFlashStart();
 
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
         GameObject nodeItem = _unit.GetComponent<Unit>().nodeUnit;
         reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
-        //修改节点为可到达
+
+        //修改节点为可到达，如果节点为空
         foreach (var item in reachableNodes)
         {
-            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.walkable);
+            if (item.nodeObject == null)
+                item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.reachable);
         }
 
         //（非远程

@@ -175,12 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700db35d252b048f9b0dac1e67923db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos: {x: 0, y: 0}
+  nodeUnit: {fileID: 0}
+  nodeObjectType: 0
   player: 0
   type: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17, type: 2}
   sprite: {fileID: 212793218877718154}
   animator: {fileID: 95442364063284570}
-  numUI: {fileID: 114659341685894064}
+  text_number: {fileID: 114659341685894064}
   speed: 0
   att: 0
   def: 0
@@ -188,8 +189,6 @@ MonoBehaviour:
   num: 0
   damage: {x: 0, y: 0}
   fightBackCount: 0
-  nodeUnit: {fileID: 0}
-  player: 0
   dead: 0
 --- !u!114 &114424747403416192
 MonoBehaviour:

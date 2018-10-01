@@ -11,7 +11,4 @@ public class GameSettings : Singleton<GameSettings>
 
     public float outlineFlashSpeed = 1;
 
-    public Color haloColor_actionUnit;
-    public Color haloColor_enemy;
-
 }

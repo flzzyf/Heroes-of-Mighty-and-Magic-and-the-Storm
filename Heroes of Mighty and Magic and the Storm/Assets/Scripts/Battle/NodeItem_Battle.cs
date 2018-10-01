@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleNodeType { empty, walkable, attackable, spellable }
+public enum BattleNodeType { empty, reachable, attackable, spellable }
 
 public class NodeItem_Battle : NodeItem
 {
