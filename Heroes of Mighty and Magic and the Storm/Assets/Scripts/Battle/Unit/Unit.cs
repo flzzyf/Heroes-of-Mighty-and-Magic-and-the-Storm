@@ -24,9 +24,6 @@ public class Unit : NodeObject
     [HideInInspector]
     public int fightBackCount;
 
-    [HideInInspector]
-    public GameObject nodeUnit;
-
     Dictionary<string, int> animIndex = new Dictionary<string, int>{
         {"move", 2}, {"attack", 1}
     };

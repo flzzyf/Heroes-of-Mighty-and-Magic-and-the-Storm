@@ -7,6 +7,9 @@ public class RoundManager : Singleton<RoundManager>
 {
     public static Order order;
 
+    List<NodeItem> reachableNodes;
+    List<NodeItem> attackableNodes;
+
     public void RoundStart()
     {
         //轮开始效果触发
@@ -74,26 +77,25 @@ public class RoundManager : Singleton<RoundManager>
 
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
-        //可抵达节点
-        GameObject nodeItem = BattleManager.instance.map.GetNodeItem(_unit.GetComponent<Unit>().pos);
-
-        List<GameObject> reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
+        GameObject nodeItem = _unit.GetComponent<Unit>().nodeUnit;
+        reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
         //修改节点为可到达
-        for (int i = 0; i < reachableNodes.Count; i++)
+        foreach (var item in reachableNodes)
         {
-            reachableNodes[i].GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.walkable);
+            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.walkable);
         }
 
+        //（非远程
+
         //可攻击节点
-        List<GameObject> attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1);
+        attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1);
 
         for (int i = attackableNodes.Count - 1; i >= 0; i--)
         {
             //是单位而且是敌对
-            if (attackableNodes[i].GetComponent<NodeItem>().nodeObject != null &&
-                attackableNodes[i].GetComponent<NodeItem>().nodeObject.
-                    GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit &&
-                !BattleManager.instance.isSamePlayer(attackableNodes[i].GetComponent<NodeItem>().nodeObject, _unit))
+            if (attackableNodes[i].nodeObject != null &&
+                attackableNodes[i].nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit &&
+                !BattleManager.instance.isSamePlayer(attackableNodes[i].nodeObject, _unit))
             {
             }
             else
@@ -115,6 +117,7 @@ public class RoundManager : Singleton<RoundManager>
         while (order == null)
             yield return null;
 
+        ResetNodes();
         InvokeOrder();
 
         //在指令完成前暂停
@@ -133,7 +136,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         if (order.type == OrderType.move)
         {
-            GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
+            GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit;
             List<GameObject> path = AStarManager.FindPath(BattleManager.instance.map, currentNode, order.targetNode.gameObject);
             MovementManager.instance.MoveObjectAlongPath(order.origin.transform, path);
 
@@ -153,6 +156,18 @@ public class RoundManager : Singleton<RoundManager>
         BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
         TurnEnd();
+    }
+
+    void ResetNodes()
+    {
+        foreach (var item in reachableNodes)
+        {
+            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
+        }
+        foreach (var item in attackableNodes)
+        {
+            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
+        }
     }
 }
 

@@ -158,7 +158,6 @@ public class BattleManager : Singleton<BattleManager>
 
         Unit unit = go.GetComponent<Unit>();
         unit.nodeObjectType = NodeObjectType.unit;
-        unit.pos = _pos;
         unit.type = _type;
         unit.Init();
         unit.ChangeNum(_num);

@@ -99,24 +99,27 @@ public class MapManager_Battle : MapManager
         if (GameManager.instance.gamePaused)
             return;
 
-        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
-            CustomCursor.Instance().ChangeCursor("Sword");
-
         //有则清除之前路径
         if (path != null)
         {
             ClearPath();
         }
 
-        GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
-
-        path = AStarManager.FindPath(this, currentNode, _node.gameObject);
-
-        foreach (var item in path)
+        //是可到达节点，则显示路径
+        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.walkable)
         {
-            item.gameObject.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
-        }
+            GameObject currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeUnit.gameObject;
 
+            path = AStarManager.FindPath(this, currentNode, _node.gameObject);
+            path.Remove(currentNode);
+
+            foreach (var item in path)
+            {
+                item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
+            }
+        }
+        else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+            CustomCursor.Instance().ChangeCursor("Sword");
     }
 
     public override void OnNodeUnhovered(NodeItem _node)
@@ -176,7 +179,7 @@ public class MapManager_Battle : MapManager
     {
         foreach (var item in path)
         {
-            item.gameObject.GetComponent<NodeItem_Battle>().ChangeBackgoundColor();
+            item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor();
         }
     }
 

@@ -26,8 +26,7 @@ public class MapManager_Travel : MapManager
             //清除之前的路径显示
             ClearPath();
 
-            GameObject currentNode = GetNodeItem(
-                TravelManager.instance.currentHero.GetComponent<Hero>().pos);
+            GameObject currentNode = TravelManager.instance.currentHero.GetComponent<Hero>().nodeUnit;
 
             path = AStarManager.FindPath(this, currentNode, _node.gameObject);
 
@@ -108,8 +107,7 @@ public class MapManager_Travel : MapManager
                 break;
             }
 
-            TravelManager.instance.currentHero.GetComponent<NodeObject>().pos =
-                _path[i].GetComponent<NodeItem>().pos;
+            TravelManager.instance.currentHero.GetComponent<NodeObject>().nodeUnit = _path[i];
 
             Vector3 targetPos = GetNodeItem(_path[i].GetComponent<NodeItem>().pos).transform.position;
 

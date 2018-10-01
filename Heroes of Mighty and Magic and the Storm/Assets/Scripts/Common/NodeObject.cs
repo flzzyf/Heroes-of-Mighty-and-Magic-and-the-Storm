@@ -7,7 +7,7 @@ public enum NodeObjectType { empty, unit, wall, corpse }
 public class NodeObject : MonoBehaviour
 {
     [HideInInspector]
-    public Vector2Int pos;
+    public GameObject nodeUnit;
 
     [HideInInspector]
     public NodeObjectType nodeObjectType;

@@ -136,16 +136,16 @@ public class MapManager : MonoBehaviour
     }
 
     //获取周围节点单位
-    public virtual List<GameObject> GetNodeItemsWithinRange(GameObject _go, int _range, bool _includeOrigin = false)
+    public virtual List<NodeItem> GetNodeItemsWithinRange(GameObject _go, int _range, bool _includeOrigin = false)
     {
-        List<GameObject> list = new List<GameObject>();
+        List<NodeItem> list = new List<NodeItem>();
         foreach (var item in GetNodesWithinRange(GetNode(_go.GetComponent<NodeItem>().pos), _range))
         {
-            list.Add(GetNodeItem(item.pos));
+            list.Add(GetNodeItem(item.pos).GetComponent<NodeItem>());
         }
 
         if (!_includeOrigin)
-            list.Remove(_go);
+            list.Remove(_go.GetComponent<NodeItem>());
         return list;
     }
 
