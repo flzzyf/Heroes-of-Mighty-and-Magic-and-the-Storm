@@ -190,13 +190,18 @@ public class BattleManager : Singleton<BattleManager>
 
         _nodeItem.GetComponent<NodeItem>().nodeObject = _unit;
         _unit.GetComponent<Unit>().nodeItem = _nodeItem.GetComponent<NodeItem>();
+
+        map.GetNode(_nodeItem.pos).walkable = false;
     }
     //取消链接单位和节点
     public void UnlinkNodeWithUnit(GameObject _unit)
     {
-        NodeItem nodeUnit = _unit.GetComponent<Unit>().nodeItem;
-        nodeUnit.GetComponent<NodeItem>().nodeObject = null;
+        NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
+        nodeItem.GetComponent<NodeItem>().nodeObject = null;
         _unit.GetComponent<Unit>().nodeItem = null;
+
+        map.GetNode(nodeItem.pos).walkable = true;
+
     }
 
     public void CheckVictoryOrDeath()
