@@ -14,7 +14,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         //轮开始效果触发
 
-        BattleManager.instance.unitActionList = new LinkedList<GameObject>(BattleManager.instance.unitActionOrder);
+        BattleManager.instance.unitActionList = new LinkedList<Unit>(BattleManager.instance.unitActionOrder);
 
         TurnStart();
     }
@@ -37,7 +37,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         if (BattleManager.instance.unitActionList.Count > 0)
         {
-            GameObject go = BattleManager.instance.unitActionList.First.Value;
+            Unit go = BattleManager.instance.unitActionList.First.Value;
             BattleManager.instance.unitActionList.Remove(go);
 
             BattleManager.currentActionUnit = go;
@@ -67,7 +67,7 @@ public class RoundManager : Singleton<RoundManager>
         }
     }
     //行动开始
-    void ActionStart(GameObject _unit, int _player)
+    void ActionStart(Unit _unit, int _player)
     {
         //非AI
 
@@ -98,7 +98,7 @@ public class RoundManager : Singleton<RoundManager>
             //是单位而且是敌对
             if (attackableNodes[i].nodeObject != null &&
                 attackableNodes[i].nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit &&
-                !BattleManager.instance.isSamePlayer(attackableNodes[i].nodeObject, _unit))
+                !BattleManager.instance.isSamePlayer(attackableNodes[i].nodeObject.GetComponent<Unit>(), _unit))
             {
             }
             else
@@ -139,21 +139,39 @@ public class RoundManager : Singleton<RoundManager>
     {
         if (order.type == OrderType.move)
         {
-            MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
+            if (order.origin.GetComponent<Unit>().type.moveType == MoveType.walk)
+            {
+                MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
+            }
+            else if (order.origin.GetComponent<Unit>().type.moveType == MoveType.fly)
+            {
+                MovementManager.instance.MoveUnitFlying(order.origin.transform, order.targetNode);
+            }
 
             while (MovementManager.moving)
                 yield return null;
         }
+        else if (order.type == OrderType.attack)
+        {
+            MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
+
+            while (MovementManager.moving)
+                yield return null;
+
+            //攻击
+            UnitActionManager.instance.Attack(order.origin.GetComponent<Unit>(),
+                    order.target.GetComponent<Unit>());
+
+            while (UnitActionManager.operating)
+                yield return null;
+        }
 
         order = null;
+        BattleManager.instance.CheckVictoryOrDeath();
     }
 
     public void ActionEnd()
     {
-
-        //重置可到达和可攻击节点
-        //BattleManager.instance.ResetAbleNodes();
-
         BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
         TurnEnd();
@@ -177,24 +195,40 @@ public enum OrderType { move, attack, wait, defence, cast }
 public class Order
 {
     public OrderType type;
-    public GameObject origin, target;
+    public Unit origin, target;
+    public NodeItem targetNode;
     public List<NodeItem> path;
 
-    public Order(OrderType _type, GameObject _origin)
+    public Order(OrderType _type, Unit _origin, List<NodeItem> _path)
     {
         type = _type;
         origin = _origin;
+        path = _path;
     }
-    public Order(OrderType _type, GameObject _origin, GameObject _target)
+    public Order(OrderType _type, Unit _origin, Unit _target)
     {
         type = _type;
         origin = _origin;
         target = _target;
     }
-    public Order(OrderType _type, GameObject _origin, List<NodeItem> _path)
+    public Order(OrderType _type, Unit _origin, List<NodeItem> _path, Unit _target)
     {
         type = _type;
         origin = _origin;
         path = _path;
+        target = _target;
+    }
+    public Order(OrderType _type, Unit _origin, NodeItem _targetNode)
+    {
+        type = _type;
+        origin = _origin;
+        targetNode = _targetNode;
+    }
+    public Order(OrderType _type, Unit _origin, NodeItem _targetNode, Unit _target)
+    {
+        type = _type;
+        origin = _origin;
+        targetNode = _targetNode;
+        target = _target;
     }
 }

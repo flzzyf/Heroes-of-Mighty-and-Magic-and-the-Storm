@@ -11,12 +11,12 @@ public class UnitActionManager : Singleton<UnitActionManager>
     public float animAttackHitPercent = 0.3f;
 
     public float animTurnbackTime = 1f;
-
+    //攻击需要转身
     bool turnback;
 
     bool waiting;
 
-    public bool operating;
+    public static bool operating;
 
     public void Attack(Unit _origin, Unit _target)
     {
@@ -130,7 +130,7 @@ public class UnitActionManager : Singleton<UnitActionManager>
         attacker = _origin;
         defender = _target;
 
-        if (_origin.FaceTarget(_target) | _target.FaceTarget(_origin))
+        if (_origin.FaceTarget(_target.gameObject) | _target.FaceTarget(_origin.gameObject))
         {
             //需要转身
             return true;

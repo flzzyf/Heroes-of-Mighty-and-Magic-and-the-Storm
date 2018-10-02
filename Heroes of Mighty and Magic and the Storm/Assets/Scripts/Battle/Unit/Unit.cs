@@ -104,11 +104,6 @@ public class Unit : NodeObject
     {
         return FaceTarget(_target.transform.position);
     }
-
-    public bool FaceTarget(Unit _target)
-    {
-        return FaceTarget(_target.transform.position);
-    }
     #endregion
 
     public float GetAnimationLength(string _anim)
@@ -188,12 +183,14 @@ public class Unit : NodeObject
     #endregion
     void Death()
     {
-        BattleManager.Instance().unitActionList.Remove(gameObject);
-        BattleManager.Instance().unitActionOrder.Remove(gameObject);
+        BattleManager.Instance().unitActionList.Remove(this);
+        BattleManager.Instance().unitActionOrder.Remove(this);
 
         dead = true;
 
-        BattleManager.Instance().UnlinkNodeWithUnit(gameObject);
+        BattleManager.instance.units[player].Remove(this);
+
+        BattleManager.Instance().UnlinkNodeWithUnit(this);
 
         gameObject.SetActive(false);
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MovementManager : Singleton<MovementManager>
 {
     public float UnitSpeed = 14;
+    public float flyingSpeed = 22;
 
     public static bool moving;
     Transform movingObj;
@@ -16,10 +17,9 @@ public class MovementManager : Singleton<MovementManager>
         GameManager.instance.gamePaused = true;
 
         movingObj = _obj;
-        path = _path;
+        MoveObjectStart();
 
-        moving = true;
-        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk);
+        path = _path;
 
         StartCoroutine(IEMoveObject());
     }
@@ -32,6 +32,10 @@ public class MovementManager : Singleton<MovementManager>
 
             Vector3 dir = targetPos - movingObj.position;
             dir.z = 0;
+
+            //改变单位朝向
+            movingObj.GetComponent<Unit>().FaceTarget(path[i].transform.position);
+
             while (GetHorizontalDistance(movingObj.position, targetPos) > UnitSpeed * Time.deltaTime)
             {
                 movingObj.Translate(dir.normalized * UnitSpeed * Time.deltaTime);
@@ -40,16 +44,24 @@ public class MovementManager : Singleton<MovementManager>
             }
         }
 
-        movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
-        MoveObjectFinish();
+        MoveObjectFinish(path[path.Count - 1]);
+    }
+    //开始移动单位
+    void MoveObjectStart()
+    {
+        moving = true;
+        movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk);
     }
     //移动到目的地后
-    void MoveObjectFinish()
+    void MoveObjectFinish(NodeItem _targetNode)
     {
         GameManager.instance.gamePaused = false;
 
+        movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
+        movingObj.GetComponent<Unit>().RestoreFacing();
+
         //设置节点上的物体，设置英雄所在位置、节点
-        BattleManager.instance.LinkNodeWithUnit(movingObj.gameObject, path[path.Count - 1]);
+        BattleManager.instance.LinkNodeWithUnit(movingObj.GetComponent<Unit>(), _targetNode);
 
         moving = false;
     }
@@ -58,5 +70,31 @@ public class MovementManager : Singleton<MovementManager>
     {
         _p2.z = _p1.z;
         return Vector3.Distance(_p1, _p2);
+    }
+
+    public void MoveUnitFlying(Transform _obj, NodeItem _node)
+    {
+        GameManager.instance.gamePaused = true;
+
+        movingObj = _obj;
+        MoveObjectStart();
+
+        StartCoroutine(MoveUnitFlyingCor(_node));
+    }
+
+    IEnumerator MoveUnitFlyingCor(NodeItem _node)
+    {
+        Vector3 targetPos = _node.transform.position;
+        Vector3 dir = targetPos - movingObj.position;
+        dir.z = 0;
+
+        while (GetHorizontalDistance(movingObj.position, targetPos) > flyingSpeed * Time.deltaTime)
+        {
+            movingObj.Translate(dir.normalized * flyingSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        MoveObjectFinish(_node);
     }
 }

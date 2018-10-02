@@ -12,7 +12,7 @@ public class NodeItem : MonoBehaviour
     public event System.Action<NodeItem> OnMouseOut;
 
     [HideInInspector]
-    public GameObject nodeObject;
+    public NodeObject nodeObject;
 
     void OnMouseDown()
     {

@@ -20,3 +20,4 @@ MonoBehaviour:
   price: 0
   damage: {x: 60, y: 60}
   fightBackCount: 1
+  moveType: 1

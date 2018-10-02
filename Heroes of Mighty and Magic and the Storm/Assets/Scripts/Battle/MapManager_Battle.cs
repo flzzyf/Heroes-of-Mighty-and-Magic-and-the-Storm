@@ -87,12 +87,6 @@ public class MapManager_Battle : MapManager
         return list;
     }
 
-    //切换隐藏地图
-    public void HideMap(bool _hide)
-    {
-
-    }
-
     Unit lastFlashingUnit;
 
     //鼠标进入节点
@@ -116,7 +110,8 @@ public class MapManager_Battle : MapManager
             {
                 lastFlashingUnit = _node.nodeObject.GetComponent<Unit>();
 
-                if (BattleManager.instance.isSamePlayer(_node.nodeObject, BattleManager.currentActionUnit))
+                if (BattleManager.instance.isSamePlayer(_node.nodeObject.GetComponent<Unit>(),
+                    BattleManager.currentActionUnit))
                     lastFlashingUnit.ChangeOutlineColor("friend");
                 else
                     lastFlashingUnit.ChangeOutlineColor("enemy");
@@ -125,7 +120,8 @@ public class MapManager_Battle : MapManager
             }
 
             //根据敌友改变指针
-            if (BattleManager.instance.isSamePlayer(_node.nodeObject, BattleManager.currentActionUnit))
+            if (BattleManager.instance.isSamePlayer(_node.nodeObject.GetComponent<Unit>(),
+                BattleManager.currentActionUnit))
             {
                 CursorManager.instance.ChangeCursor("friend");
             }
@@ -138,16 +134,14 @@ public class MapManager_Battle : MapManager
         //是可到达节点，则显示路径
         if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
         {
+
             CursorManager.Instance().ChangeCursor("reachable");
 
-            NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
-
-            path = AStarManager.FindPath(this, currentNode, _node);
-            path.Remove(currentNode);
-
-            foreach (var item in path)
+            //是地面移动单位，则计算路径
+            if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
             {
-                item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
+                NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
+                FindPath(currentNode, _node);
             }
         }
         //不可到达点
@@ -173,6 +167,9 @@ public class MapManager_Battle : MapManager
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
     {
+        if (GameManager.instance.gamePaused)
+            return;
+
         //if可攻击
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
@@ -197,13 +194,15 @@ public class MapManager_Battle : MapManager
                 int arrowAngleFixed = 360 - arrowAngle;
 
                 CursorManager.Instance().ChangeCursor("sword");
-
                 CursorManager.Instance().ChangeCursorAngle(arrowAngleFixed);
+
+                NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
+                FindPath(currentNode, targetNode);
             }
             else
             {
-                CursorManager.Instance().ChangeCursorAngle();
                 CursorManager.Instance().ChangeCursor("enemy");
+                CursorManager.Instance().ChangeCursorAngle();
             }
         }
     }
@@ -211,16 +210,34 @@ public class MapManager_Battle : MapManager
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
-        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType != BattleNodeType.empty)
         {
-            ClearPath();
-            RoundManager.order = new Order(OrderType.move, BattleManager.currentActionUnit, path);
-
+            if (path != null)
+                ClearPath();
             CursorManager.Instance().ChangeCursor();
             CursorManager.Instance().ChangeCursorAngle();
         }
-    }
+        //设定指令
+        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+        {
+            if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
+            {
+                RoundManager.order = new Order(OrderType.move,
+                                            BattleManager.currentActionUnit, path);
+            }
+            else if (BattleManager.currentActionUnit.type.moveType == MoveType.fly)
+            {
+                RoundManager.order = new Order(OrderType.move,
+                                                            BattleManager.currentActionUnit, _node);
+            }
 
+        }
+        else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        {
+            RoundManager.order = new Order(OrderType.attack,
+                        BattleManager.currentActionUnit, path, _node.nodeObject.GetComponent<Unit>());
+        }
+    }
 
     //清除之前路径
     void ClearPath()
@@ -228,6 +245,20 @@ public class MapManager_Battle : MapManager
         foreach (var item in path)
         {
             item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor();
+        }
+    }
+
+    void FindPath(NodeItem _origin, NodeItem _target)
+    {
+        if (path != null)
+            ClearPath();
+
+        path = AStarManager.FindPath(this, _origin, _target);
+        path.Remove(_origin);
+
+        foreach (var item in path)
+        {
+            item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
         }
     }
 

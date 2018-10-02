@@ -57,8 +57,15 @@ public class NodeItem_Battle : NodeItem
             ChangeBackgoundColor("interactable");
     }
 
+    Vector3 lastMousePos;
+    float mouseMoveSensitivity = 3;
     void OnMouseOver()
     {
-        BattleManager.instance.map.OnMouseMoved(this);
+        if (lastMousePos == Vector3.zero ||
+            Vector3.Distance(Input.mousePosition, lastMousePos) > mouseMoveSensitivity)
+        {
+            lastMousePos = Input.mousePosition;
+            BattleManager.instance.map.OnMouseMoved(this);
+        }
     }
 }

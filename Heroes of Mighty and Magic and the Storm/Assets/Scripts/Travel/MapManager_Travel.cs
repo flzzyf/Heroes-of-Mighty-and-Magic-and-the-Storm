@@ -134,8 +134,7 @@ public class MapManager_Travel : MapManager
         GameManager.instance.gamePaused = false;
 
         //设置节点上的物体，设置英雄所在位置、节点
-
-
-        path[path.Count - 1].GetComponent<NodeItem_Travel>().nodeObject = TravelManager.instance.currentHero;
+        path[path.Count - 1].GetComponent<NodeItem_Travel>().nodeObject =
+            TravelManager.instance.currentHero.GetComponent<NodeObject>();
     }
 }

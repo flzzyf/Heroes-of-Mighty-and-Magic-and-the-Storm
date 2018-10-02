@@ -1726,6 +1726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitSpeed: 8
+  flyingSpeed: 16
 --- !u!114 &1638976378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,7 +1740,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animAttackHitPercent: 0.3
   animTurnbackTime: 0.3
-  operating: 0
 --- !u!114 &1638976379
 MonoBehaviour:
   m_ObjectHideFlags: 0

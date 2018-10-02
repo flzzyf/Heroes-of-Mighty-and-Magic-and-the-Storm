@@ -6,8 +6,8 @@ using System;
 public class BattleManager : Singleton<BattleManager>
 {
     //单位行动顺序表，单位行动队列
-    public LinkedList<GameObject> unitActionOrder = new LinkedList<GameObject>();
-    public LinkedList<GameObject> unitActionList = new LinkedList<GameObject>();
+    public LinkedList<Unit> unitActionOrder = new LinkedList<Unit>();
+    public LinkedList<Unit> unitActionList = new LinkedList<Unit>();
 
     public GameObject[] playerHero;
     //玩家初始创建单位位置
@@ -24,9 +24,9 @@ public class BattleManager : Singleton<BattleManager>
     };
 
     [HideInInspector]
-    public List<GameObject>[] units = { new List<GameObject>(), new List<GameObject>() };
+    public List<Unit>[] units = { new List<Unit>(), new List<Unit>() };
 
-    public static GameObject currentActionUnit;
+    public static Unit currentActionUnit;
 
     int actionPlayer;
     //英雄创建位置
@@ -99,7 +99,7 @@ public class BattleManager : Singleton<BattleManager>
 
     }
 
-    void AddUnitToActionList(ref LinkedList<GameObject> _list, GameObject _unit, bool _desc = true)
+    void AddUnitToActionList(ref LinkedList<Unit> _list, Unit _unit, bool _desc = true)
     {
         if (_list.Count == 0)
         {
@@ -107,7 +107,7 @@ public class BattleManager : Singleton<BattleManager>
         }
         else
         {
-            LinkedListNode<GameObject> node = _list.First;
+            LinkedListNode<Unit> node = _list.First;
 
             while (node != null)
             {
@@ -147,19 +147,19 @@ public class BattleManager : Singleton<BattleManager>
             int playerUnitPosIndex = playerUnitPos[hero.pocketUnits.Length - 1][i];
             int unitPosIndex = unitPos[playerUnitPosIndex];
             //创建单位
-            GameObject go = CreateUnit(hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
+            Unit unit = CreateUnit(hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
                        hero.pocketUnits[i].num, _hero);
 
             NodeItem nodeItem = map.GetNodeItem(new Vector2Int(x, unitPosIndex));
-            LinkNodeWithUnit(go, nodeItem);
+            LinkNodeWithUnit(unit, nodeItem);
 
-            AddUnitToActionList(ref unitActionOrder, go);
+            AddUnitToActionList(ref unitActionOrder, unit);
         }
     }
     public GameObject prefab_unit;
 
     //创建单位
-    GameObject CreateUnit(UnitType _type, Vector2Int _pos, int _num = 1, int _side = 0)
+    Unit CreateUnit(UnitType _type, Vector2Int _pos, int _num = 1, int _side = 0)
     {
         Vector3 createPos = map.GetNodeItem(_pos).transform.position;
         GameObject go = Instantiate(prefab_unit, createPos, Quaternion.identity,
@@ -173,14 +173,14 @@ public class BattleManager : Singleton<BattleManager>
         if (_side == 1)
             unit.Flip();
 
-        units[_side].Add(go);
+        units[_side].Add(go.GetComponent<Unit>());
 
         go.GetComponent<Unit>().player = _side;
 
-        return go;
+        return unit;
     }
     //链接单位和节点
-    public void LinkNodeWithUnit(GameObject _unit, NodeItem _nodeItem)
+    public void LinkNodeWithUnit(Unit _unit, NodeItem _nodeItem)
     {
         //如果已经和节点链接，取消链接
         if (_unit.GetComponent<Unit>().nodeItem != null)
@@ -188,26 +188,26 @@ public class BattleManager : Singleton<BattleManager>
             UnlinkNodeWithUnit(_unit);
         }
 
-        _nodeItem.GetComponent<NodeItem>().nodeObject = _unit;
+        _nodeItem.nodeObject = _unit;
         _unit.GetComponent<Unit>().nodeItem = _nodeItem.GetComponent<NodeItem>();
 
         map.GetNode(_nodeItem.pos).walkable = false;
     }
     //取消链接单位和节点
-    public void UnlinkNodeWithUnit(GameObject _unit)
+    public void UnlinkNodeWithUnit(Unit _unit)
     {
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
-        nodeItem.GetComponent<NodeItem>().nodeObject = null;
+        nodeItem.nodeObject = null;
         _unit.GetComponent<Unit>().nodeItem = null;
 
         map.GetNode(nodeItem.pos).walkable = true;
 
     }
 
+    //胜负判定，如果有一方全灭
     public void CheckVictoryOrDeath()
     {
-        //胜负判定，如果有一方全灭
-        if (units[0].Count == units[1].Count)
+        if (units[0].Count == 0 && units[1].Count == 0)
         {
             print("平局");
         }
@@ -215,58 +215,15 @@ public class BattleManager : Singleton<BattleManager>
         {
             print("玩家1获胜");
         }
-        else
+        else if (units[1].Count == 0)
         {
             print("玩家0获胜");
-
         }
     }
 
-
-    // IEnumerator MoveUnitCor(AstarNode _node)
-    // {
-    //     AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
-
-    //     roundManager.ActionEnd();
-
-    //     map.HideAllNode();
-
-    //     movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
-
-    //     while (movementManager.moving)
-    //         yield return null;
-
-    //     roundManager.TurnEnd();
-    // }
-
-
-
-    // IEnumerator AttackMoveCor(AstarNode _node, AstarNode _target)
-    // {
-    //     AStar.instance.FindPath(map, currentActionUnit.GetComponent<Unit>().nodeUnit.GetComponent<NodeUnit>().node, _node);
-
-    //     roundManager.ActionEnd();
-
-    //     map.HideAllNode();
-
-    //     movementManager.MoveUnit(currentActionUnit, new List<AstarNode>(map.path));
-
-    //     while (movementManager.moving)
-    //         yield return null;
-
-    //     UnitActionManager.instance.Attack(currentActionUnit.GetComponent<Unit>(),
-    //                                       map.GetNodeUnit(_target).GetComponent<NodeUnit>().unit.GetComponent<Unit>());
-
-    //     while (UnitActionManager.instance.operating)
-    //         yield return null;
-
-    //     roundManager.TurnEnd();
-
-    // }
-
-    public bool isSamePlayer(GameObject _u1, GameObject _u2)
+    public bool isSamePlayer(Unit _u1, Unit _u2)
     {
-        return _u1.GetComponent<Unit>().player == _u2.GetComponent<Unit>().player;
+        return _u1.player == _u2.player;
     }
 
 }
