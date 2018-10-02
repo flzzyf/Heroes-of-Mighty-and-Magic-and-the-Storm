@@ -135,7 +135,7 @@ public class MapManager_Battle : MapManager
         if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
         {
 
-            CursorManager.Instance().ChangeCursor("reachable");
+            CursorManager.instance.ChangeCursor("reachable");
 
             //是地面移动单位，则计算路径
             if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
@@ -147,15 +147,14 @@ public class MapManager_Battle : MapManager
         //不可到达点
         // else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.empty)
         // {
-        //     CursorManager.Instance().ChangeCursor("stop");
+        //     CursorManager.instance.ChangeCursor("stop");
         // }
     }
 
     public override void OnNodeUnhovered(NodeItem _node)
     {
-        CursorManager.Instance().ChangeCursor();
-        CursorManager.Instance().ChangeCursorAngle();
-
+        CursorManager.instance.ChangeCursor();
+        CursorManager.instance.ChangeCursorAngle();
 
         if (lastFlashingUnit != null)
         {
@@ -165,12 +164,26 @@ public class MapManager_Battle : MapManager
         }
     }
     bool closeToTarget;
+
+    Vector3 lastMousePos;
+    float mouseMoveSensitivity = 3;
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
     {
+        // if (Vector3.Distance(Input.mousePosition, lastMousePos) < mouseMoveSensitivity)
+        // {
+        //     return;
+        // }
+        // else
+        // {
+        //     lastMousePos = Input.mousePosition;
+        // }
+
         if (GameManager.instance.gamePaused)
             return;
 
+
+        print("hover");
         //if可攻击
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
@@ -195,8 +208,8 @@ public class MapManager_Battle : MapManager
                 int arrowAngle = (arrowIndex * 60 + 210) % 360;
                 int arrowAngleFixed = 360 - arrowAngle;
 
-                CursorManager.Instance().ChangeCursor("sword");
-                CursorManager.Instance().ChangeCursorAngle(arrowAngleFixed);
+                CursorManager.instance.ChangeCursor("sword");
+                CursorManager.instance.ChangeCursorAngle(arrowAngleFixed);
 
                 if (!targetNode.nodeObject == BattleManager.currentActionUnit)
                 {
@@ -212,8 +225,8 @@ public class MapManager_Battle : MapManager
             }
             else
             {
-                CursorManager.Instance().ChangeCursor("enemy");
-                CursorManager.Instance().ChangeCursorAngle();
+                CursorManager.instance.ChangeCursor("enemy");
+                CursorManager.instance.ChangeCursorAngle();
             }
         }
     }
@@ -228,8 +241,8 @@ public class MapManager_Battle : MapManager
         {
             if (path != null)
                 ClearPath();
-            CursorManager.Instance().ChangeCursor();
-            CursorManager.Instance().ChangeCursorAngle();
+            CursorManager.instance.ChangeCursor();
+            CursorManager.instance.ChangeCursorAngle();
         }
         //设定指令
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
@@ -267,7 +280,7 @@ public class MapManager_Battle : MapManager
     {
         foreach (var item in path)
         {
-            item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor();
+            item.GetComponent<NodeItem_Battle>().RestoreBackgroundColor();
         }
     }
 

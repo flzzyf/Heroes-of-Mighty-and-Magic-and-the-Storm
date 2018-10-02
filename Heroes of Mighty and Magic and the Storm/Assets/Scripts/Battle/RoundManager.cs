@@ -108,7 +108,7 @@ public class RoundManager : Singleton<RoundManager>
         //将节点类型设为可攻击
         foreach (var item in attackableNodes)
         {
-            item.GetComponent<NodeItem_Battle>().battleNodeType = BattleNodeType.attackable;
+            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.attackable);
         }
 
         StartCoroutine(ActionStartCor());

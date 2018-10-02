@@ -97,13 +97,12 @@ public class UnitActionManager : Singleton<UnitActionManager>
     {
         ApplyDamage(_target, _origin);
         yield return new WaitForSeconds(Time.deltaTime);
-
     }
 
     bool ApplyDamage(Unit _origin, Unit _target)
     {
-        int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y);
-        //print("随机初始伤害：" + damage);
+        int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
+        print("随机初始伤害：" + damage);
         float damageRate = DamageRate(_origin.att, _target.def);
         damage = (int)(damage * damageRate);
         damage *= _origin.num;

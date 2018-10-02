@@ -10,22 +10,32 @@ public class NodeItem_Battle : NodeItem
     [HideInInspector]
     public BattleNodeType battleNodeType;
 
+    string color;
+
     public void ChangeNodeType(BattleNodeType _type)
     {
         battleNodeType = _type;
 
-        ChangeBackgoundColor();
+        if (color == "hover")
+        {
+            return;
+        }
+
+        if (battleNodeType == BattleNodeType.empty)
+            ChangeBackgoundColor();
+        else
+            ChangeBackgoundColor("interactable");
     }
 
     //改变背景颜色，默认是根据节点类型自动选择
     public void ChangeBackgoundColor(string _color = "")
     {
+        color = _color;
+
+        //自动选择颜色
         if (_color == "")
         {
-            if (battleNodeType == BattleNodeType.empty)
-                bg.color = new Color(0, 0, 0, 0);
-            else
-                ChangeBackgoundColor("interactable");
+            bg.color = new Color(0, 0, 0, 0);
 
             return;
         }
@@ -40,32 +50,30 @@ public class NodeItem_Battle : NodeItem
         }
     }
 
-    public override void OnMouseEnter()
+    public void RestoreBackgroundColor()
     {
-        base.OnMouseEnter();
-        ChangeBackgoundColor("hover");
-    }
-
-
-    public override void OnMouseExit()
-    {
-        base.OnMouseExit();
-
         if (battleNodeType == BattleNodeType.empty)
             ChangeBackgoundColor();
         else
             ChangeBackgoundColor("interactable");
     }
 
-    Vector3 lastMousePos;
-    float mouseMoveSensitivity = 3;
+    public override void OnMouseEnter()
+    {
+        base.OnMouseEnter();
+
+        ChangeBackgoundColor("hover");
+    }
+
+    public override void OnMouseExit()
+    {
+        base.OnMouseExit();
+
+        RestoreBackgroundColor();
+    }
+
     void OnMouseOver()
     {
-        if (lastMousePos == Vector3.zero ||
-            Vector3.Distance(Input.mousePosition, lastMousePos) > mouseMoveSensitivity)
-        {
-            lastMousePos = Input.mousePosition;
-            BattleManager.instance.map.OnMouseMoved(this);
-        }
+        BattleManager.instance.map.OnMouseMoved(this);
     }
 }
