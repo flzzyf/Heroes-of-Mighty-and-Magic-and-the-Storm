@@ -164,6 +164,7 @@ public class MapManager_Battle : MapManager
             lastFlashingUnit = null;
         }
     }
+    bool closeToTarget;
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
     {
@@ -188,7 +189,8 @@ public class MapManager_Battle : MapManager
             //攻击方向上的格子存在，且可到达便可发起攻击。（目前还没考虑多格单位）
             NodeItem targetNode = GetNearbyNodeItem(_node, arrowIndex);
             if (targetNode != null &&
-               targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+               (targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable ||
+                targetNode.nodeObject == BattleManager.currentActionUnit))
             {
                 int arrowAngle = (arrowIndex * 60 + 210) % 360;
                 int arrowAngleFixed = 360 - arrowAngle;
@@ -196,8 +198,17 @@ public class MapManager_Battle : MapManager
                 CursorManager.Instance().ChangeCursor("sword");
                 CursorManager.Instance().ChangeCursorAngle(arrowAngleFixed);
 
-                NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
-                FindPath(currentNode, targetNode);
+                if (!targetNode.nodeObject == BattleManager.currentActionUnit)
+                {
+                    closeToTarget = false;
+
+                    NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
+                    FindPath(currentNode, targetNode);
+                }
+                else
+                {
+                    closeToTarget = true;
+                }
             }
             else
             {
@@ -210,6 +221,9 @@ public class MapManager_Battle : MapManager
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
+        if (GameManager.instance.gamePaused)
+            return;
+
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType != BattleNodeType.empty)
         {
             if (path != null)
@@ -234,8 +248,17 @@ public class MapManager_Battle : MapManager
         }
         else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
-            RoundManager.order = new Order(OrderType.attack,
+            if (closeToTarget)
+            {
+                RoundManager.order = new Order(OrderType.attack,
+                                        BattleManager.currentActionUnit, _node.nodeObject.GetComponent<Unit>());
+            }
+            else
+            {
+                RoundManager.order = new Order(OrderType.attack,
                         BattleManager.currentActionUnit, path, _node.nodeObject.GetComponent<Unit>());
+            }
+
         }
     }
 

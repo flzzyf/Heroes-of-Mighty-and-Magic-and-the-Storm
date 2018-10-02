@@ -123,9 +123,12 @@ public class RoundManager : Singleton<RoundManager>
         ResetNodes();
         InvokeOrder();
 
+        GameManager.instance.gamePaused = true;
         //在指令完成前暂停
         while (order != null)
             yield return null;
+
+        GameManager.instance.gamePaused = false;
 
         ActionEnd();
     }
@@ -153,10 +156,13 @@ public class RoundManager : Singleton<RoundManager>
         }
         else if (order.type == OrderType.attack)
         {
-            MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
+            if (order.path != null)
+            {
+                MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
 
-            while (MovementManager.moving)
-                yield return null;
+                while (MovementManager.moving)
+                    yield return null;
+            }
 
             //攻击
             UnitActionManager.instance.Attack(order.origin.GetComponent<Unit>(),
