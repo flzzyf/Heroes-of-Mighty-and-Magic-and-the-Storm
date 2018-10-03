@@ -205,6 +205,8 @@ public class Unit : NodeObject
 
     public void OutlineFlashStart()
     {
+        sprite.material.SetFloat("_LineWidth", 5);
+
         outlineFlashing = true;
         fading = true;
         ChangeOutline(GameSettings.instance.outlineFlashRangeMax);
@@ -212,6 +214,8 @@ public class Unit : NodeObject
 
     public void OutlineFlashStop()
     {
+        sprite.material.SetFloat("_LineWidth", 0);
+
         outlineFlashing = false;
         ChangeOutline(0);
     }

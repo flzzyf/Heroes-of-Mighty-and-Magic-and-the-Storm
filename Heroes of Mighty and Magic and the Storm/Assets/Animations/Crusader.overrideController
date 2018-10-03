@@ -3,14 +3,14 @@
 --- !u!221 &22100000
 AnimatorOverrideController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Crusader
   m_Controller: {fileID: 9100000, guid: 181596479889b424b8444fdafc002018, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: 89dd101d4ad889242bc96d802a088293, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 89dd101d4ad889242bc96d802a088293, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: fb5b06402be26ae41b2a74c7ce6efc59, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: fb5b06402be26ae41b2a74c7ce6efc59, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 8a6a93ead4b9cd44392826694ff562bb, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 8a6a93ead4b9cd44392826694ff562bb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 38faad31fc0c13441b333c51cff71fa1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 38faad31fc0c13441b333c51cff71fa1, type: 2}

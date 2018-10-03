@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700db35d252b048f9b0dac1e67923db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeUnit: {fileID: 0}
+  nodeItem: {fileID: 0}
   nodeObjectType: 0
   player: 0
   type: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17, type: 2}
