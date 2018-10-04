@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Crusader
   m_EditorClassIdentifier: 
   animControl: {fileID: 22100000, guid: 6e4dc350c5f0347ec825e4d680ee2d3e, type: 2}
-  speed: 6
-  att: 12
+  speed: 5
+  att: 10
   def: 12
   hp: 35
   growth: 4
@@ -22,5 +22,6 @@ MonoBehaviour:
   damage: {x: 6, y: 9}
   moveType: 0
   attackType: 0
+  missile: {fileID: 0}
   traits:
   - {fileID: 11400000, guid: b6531edd0af6149708a8847bca964a54, type: 2}

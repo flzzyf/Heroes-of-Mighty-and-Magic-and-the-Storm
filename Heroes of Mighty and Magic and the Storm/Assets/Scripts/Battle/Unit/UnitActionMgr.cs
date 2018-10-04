@@ -94,6 +94,9 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         while (order == null)
             yield return null;
 
+        //停止闪烁
+        BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
+
         ResetNodes();
         InvokeOrder();
 
@@ -138,8 +141,16 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             }
 
             //攻击
-            UnitAttackMgr.instance.Attack(order.origin.GetComponent<Unit>(),
-                    order.target.GetComponent<Unit>());
+            if (!isRangeAttack)
+            {
+                UnitAttackMgr.instance.Attack(order.origin.GetComponent<Unit>(),
+                                    order.target.GetComponent<Unit>());
+            }
+            else
+            {
+                UnitAttackMgr.instance.RangeAttack(order.origin.GetComponent<Unit>(),
+                                    order.target.GetComponent<Unit>());
+            }
 
             while (UnitAttackMgr.operating)
                 yield return null;
@@ -151,7 +162,6 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     public void ActionEnd()
     {
-        BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
         RoundManager.instance.TurnEnd();
     }

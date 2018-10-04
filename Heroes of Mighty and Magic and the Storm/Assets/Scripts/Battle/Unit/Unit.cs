@@ -12,6 +12,7 @@ public class Unit : NodeObject
     public SpriteRenderer sprite;
     public Animator animator;
     public Text text_number;
+    public GameObject ui;
 
     //朝向，-1为左，1为右
     int facing = 1;
@@ -190,7 +191,8 @@ public class Unit : NodeObject
 
         BattleManager.Instance().UnlinkNodeWithUnit(this);
 
-        gameObject.SetActive(false);
+        animator.Play("Death");
+        ui.SetActive(false);
     }
 
     #region Outline

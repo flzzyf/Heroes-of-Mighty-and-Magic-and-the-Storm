@@ -167,14 +167,18 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         Transform missile = Instantiate(attacker.type.missile, launchPos, Quaternion.identity).transform;
 
         Vector2 dir = targetPos - launchPos;
-        print(dir);
 
         while (Vector2.Distance(missile.position, targetPos) > missileSpeed * Time.deltaTime)
         {
-            missile.Translate(dir, Space.World);
+            missile.Translate(dir.normalized * missileSpeed * Time.deltaTime, Space.World);
             yield return null;
         }
 
-        print("命中");
+        Destroy(missile.gameObject);
+        StartCoroutine(Damage(attacker, defender));
+
+        //播放被击动画
+
+        operating = false;
     }
 }

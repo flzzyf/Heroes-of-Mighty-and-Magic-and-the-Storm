@@ -15,13 +15,14 @@ MonoBehaviour:
   speed: 14
   att: 12
   def: 12
-  hp: 100
+  hp: 35
   growth: 9
   cost: 400
   AIValue: 558
   damage: {x: 7, y: 10}
   moveType: 1
   attackType: 0
+  missile: {fileID: 0}
   traits:
   - {fileID: 11400000, guid: 7e057f72f500f4ed0b504b55402bab82, type: 2}
   - {fileID: 11400000, guid: a1fc1a8796b58439c93bfd2935ddfc71, type: 2}
