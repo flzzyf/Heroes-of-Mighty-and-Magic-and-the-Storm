@@ -16,8 +16,10 @@ MonoBehaviour:
   att: 12
   def: 12
   hp: 100
-  amount: 6
-  price: 0
-  damage: {x: 60, y: 60}
-  fightBackCount: 1
+  growth: 9
+  cost: 400
+  AIValue: 558
+  damage: {x: 7, y: 10}
+  retaliations: 1
   moveType: 1
+  attackType: 0

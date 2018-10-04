@@ -44,10 +44,10 @@ public class UnitActionManager : Singleton<UnitActionManager>
         if (!unitDead)  //如果没死
         {
             //可反击
-            if (_target.fightBackCount > 0)
+            if (_target.retaliations > 0)
             {
                 //print("反击");
-                _target.fightBackCount--;
+                _target.retaliations--;
 
                 StartCoroutine(AttackTarget(_target, _origin));
                 while (waiting)

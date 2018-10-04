@@ -89,9 +89,12 @@ public class MapManager_Battle : MapManager
 
     Unit lastFlashingUnit;
 
+    public NodeItem playerHovered;
     //鼠标进入节点
     public override void OnNodeHovered(NodeItem _node)
     {
+        playerHovered = _node;
+
         if (GameManager.instance.gamePaused)
             return;
 
@@ -153,6 +156,8 @@ public class MapManager_Battle : MapManager
 
     public override void OnNodeUnhovered(NodeItem _node)
     {
+        playerHovered = null;
+
         CursorManager.instance.ChangeCursor();
         CursorManager.instance.ChangeCursorAngle();
 
@@ -163,6 +168,7 @@ public class MapManager_Battle : MapManager
             lastFlashingUnit = null;
         }
     }
+    //贴着攻击目标
     bool closeToTarget;
 
     Vector3 lastMousePos;
@@ -170,20 +176,19 @@ public class MapManager_Battle : MapManager
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
     {
-        // if (Vector3.Distance(Input.mousePosition, lastMousePos) < mouseMoveSensitivity)
-        // {
-        //     return;
-        // }
-        // else
-        // {
-        //     lastMousePos = Input.mousePosition;
-        // }
-
         if (GameManager.instance.gamePaused)
             return;
 
+        //不响应鼠标小范围移动
+        if (Vector3.Distance(Input.mousePosition, lastMousePos) < mouseMoveSensitivity)
+        {
+            return;
+        }
+        else
+        {
+            lastMousePos = Input.mousePosition;
+        }
 
-        print("hover");
         //if可攻击
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {

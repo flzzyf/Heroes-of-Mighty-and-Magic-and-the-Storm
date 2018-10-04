@@ -22,7 +22,7 @@ public class Unit : NodeObject
     [HideInInspector]
     public Vector2 damage;
     [HideInInspector]
-    public int fightBackCount;
+    public int retaliations;
 
     Dictionary<string, int> animIndex = new Dictionary<string, int>{
         {"move", 2}, {"attack", 1}
@@ -71,7 +71,7 @@ public class Unit : NodeObject
         def = type.def;
         damage = type.damage;
         currentHP = type.hp;
-        fightBackCount = type.fightBackCount;
+        retaliations = type.retaliations;
     }
     #region Facing
     public void Flip()

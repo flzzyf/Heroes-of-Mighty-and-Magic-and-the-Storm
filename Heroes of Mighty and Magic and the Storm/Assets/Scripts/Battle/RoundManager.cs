@@ -21,12 +21,13 @@ public class RoundManager : Singleton<RoundManager>
 
     void RoundEnd()
     {
+        //重置双方单位反击次数
         for (int i = 0; i < 2; i++)
         {
             for (int j = 0; j < BattleManager.instance.units[i].Count; j++)
             {
-                Unit unit = BattleManager.instance.units[i][j].GetComponent<Unit>();
-                unit.fightBackCount = unit.type.fightBackCount;
+                Unit unit = BattleManager.instance.units[i][j];
+                unit.retaliations = unit.type.retaliations;
             }
         }
 
@@ -109,6 +110,12 @@ public class RoundManager : Singleton<RoundManager>
         foreach (var item in attackableNodes)
         {
             item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.attackable);
+        }
+
+        MapManager_Battle map = BattleManager.instance.map;
+        if (map.playerHovered != null)
+        {
+            map.OnNodeHovered(map.playerHovered);
         }
 
         StartCoroutine(ActionStartCor());
