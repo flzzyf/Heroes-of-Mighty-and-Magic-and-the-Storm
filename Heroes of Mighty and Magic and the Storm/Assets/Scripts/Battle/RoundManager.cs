@@ -25,11 +25,12 @@ public class RoundManager : Singleton<RoundManager>
                 //根据特质改变反击次数
                 if (unit.PossessTrait("Two Retaliations"))
                 {
-                    print("反击两次");
                     unit.retaliations = 2;
                 }
                 else if (unit.PossessTrait("Unlimited Retaliations"))
+                {
                     unit.retaliations = 99;
+                }
                 else
                     unit.retaliations = 1;
             }
@@ -47,6 +48,7 @@ public class RoundManager : Singleton<RoundManager>
 
     void TurnStart()
     {
+        //还有未行动单位
         if (BattleManager.instance.unitActionList.Count > 0)
         {
             Unit go = BattleManager.instance.unitActionList.First.Value;
