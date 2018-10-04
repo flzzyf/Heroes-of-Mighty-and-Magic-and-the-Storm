@@ -16,20 +16,31 @@ public class RoundManager : Singleton<RoundManager>
 
         BattleManager.instance.unitActionList = new LinkedList<Unit>(BattleManager.instance.unitActionOrder);
 
-        TurnStart();
-    }
-
-    void RoundEnd()
-    {
         //重置双方单位反击次数
         for (int i = 0; i < 2; i++)
         {
             for (int j = 0; j < BattleManager.instance.units[i].Count; j++)
             {
                 Unit unit = BattleManager.instance.units[i][j];
-                unit.retaliations = unit.type.retaliations;
+                //根据特质改变反击次数
+                if (unit.PossessTrait("Two Retaliations"))
+                {
+                    print("反击两次");
+                    unit.retaliations = 2;
+                }
+                else if (unit.PossessTrait("Unlimited Retaliations"))
+                    unit.retaliations = 99;
+                else
+                    unit.retaliations = 1;
             }
         }
+
+        TurnStart();
+    }
+
+    void RoundEnd()
+    {
+
 
         RoundStart();
     }

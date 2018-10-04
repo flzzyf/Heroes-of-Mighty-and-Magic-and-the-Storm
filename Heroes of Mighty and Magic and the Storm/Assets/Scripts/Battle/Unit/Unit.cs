@@ -65,13 +65,11 @@ public class Unit : NodeObject
     {
         animator.runtimeAnimatorController = type.animControl;
 
-
         speed = type.speed;
         att = type.att;
         def = type.def;
         damage = type.damage;
         currentHP = type.hp;
-        retaliations = type.retaliations;
     }
     #region Facing
     public void Flip()
@@ -235,4 +233,9 @@ public class Unit : NodeObject
     }
 
     #endregion
+    //拥有特质
+    public bool PossessTrait(string _name)
+    {
+        return type.traits.Contains(TraitManager.instance.GetTrait(_name));
+    }
 }

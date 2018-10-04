@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "UnitType")]
 public class UnitType : ScriptableObject
@@ -12,11 +14,10 @@ public class UnitType : ScriptableObject
     public int cost;
     public int AIValue;
     public Vector2Int damage;
-    [Header("反击次数")]
-    public int retaliations = 1;
     public MoveType moveType;
     public AttackType attackType;
     //特殊能力
+    public List<Trait> traits;
 }
 
 public enum MoveType { walk, fly, blink }

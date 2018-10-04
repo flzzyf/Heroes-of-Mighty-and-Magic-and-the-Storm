@@ -20,6 +20,7 @@ MonoBehaviour:
   cost: 100
   AIValue: 126
   damage: {x: 2, y: 3}
-  retaliations: 1
   moveType: 0
   attackType: 1
+  traits:
+  - {fileID: 11400000, guid: 7e057f72f500f4ed0b504b55402bab82, type: 2}

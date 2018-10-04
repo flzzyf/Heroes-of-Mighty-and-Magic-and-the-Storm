@@ -1443,6 +1443,7 @@ GameObject:
   - component: {fileID: 1222465628}
   - component: {fileID: 1222465629}
   - component: {fileID: 1222465623}
+  - component: {fileID: 1222465625}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1491,6 +1492,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1222465625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1222465622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9733d68421e8d46898af5137e04a0520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  traits:
+  - {fileID: 11400000, guid: 7e057f72f500f4ed0b504b55402bab82, type: 2}
+  - {fileID: 11400000, guid: c7a55d3adf04041fca9c7ec94d875042, type: 2}
+  - {fileID: 11400000, guid: b6531edd0af6149708a8847bca964a54, type: 2}
+  - {fileID: 11400000, guid: a1fc1a8796b58439c93bfd2935ddfc71, type: 2}
 --- !u!114 &1222465627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,6 +1816,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   nodeRadius: 1.2
+  playerHovered: {fileID: 0}
 --- !u!4 &1638976381
 Transform:
   m_ObjectHideFlags: 0
