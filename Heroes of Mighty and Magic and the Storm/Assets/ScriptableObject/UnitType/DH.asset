@@ -22,5 +22,6 @@ MonoBehaviour:
   damage: {x: 2, y: 3}
   moveType: 0
   attackType: 1
+  missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}
   traits:
   - {fileID: 11400000, guid: 7e057f72f500f4ed0b504b55402bab82, type: 2}

@@ -16,7 +16,7 @@ public class UnitType : ScriptableObject
     public Vector2Int damage;
     public MoveType moveType;
     public AttackType attackType;
-    //特殊能力
+    public GameObject missile;
     public List<Trait> traits;
 }
 

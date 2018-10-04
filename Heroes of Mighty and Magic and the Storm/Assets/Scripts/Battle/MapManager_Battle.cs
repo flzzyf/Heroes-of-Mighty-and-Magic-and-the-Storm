@@ -147,6 +147,10 @@ public class MapManager_Battle : MapManager
                 FindPath(currentNode, _node);
             }
         }
+        else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        {
+            CursorManager.instance.ChangeCursor("arrow");
+        }
         //不可到达点
         // else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.empty)
         // {
@@ -188,6 +192,10 @@ public class MapManager_Battle : MapManager
         {
             lastMousePos = Input.mousePosition;
         }
+
+        //如果是远程攻击，直接跳过
+        if (UnitActionMgr.isRangeAttack)
+            return;
 
         //if可攻击
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
@@ -254,26 +262,26 @@ public class MapManager_Battle : MapManager
         {
             if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
             {
-                RoundManager.order = new Order(OrderType.move,
+                UnitActionMgr.order = new Order(OrderType.move,
                                             BattleManager.currentActionUnit, path);
             }
             else if (BattleManager.currentActionUnit.type.moveType == MoveType.fly)
             {
-                RoundManager.order = new Order(OrderType.move,
+                UnitActionMgr.order = new Order(OrderType.move,
                                                             BattleManager.currentActionUnit, _node);
             }
 
         }
         else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
-            if (closeToTarget)
+            if (closeToTarget || UnitActionMgr.isRangeAttack)
             {
-                RoundManager.order = new Order(OrderType.attack,
+                UnitActionMgr.order = new Order(OrderType.attack,
                                         BattleManager.currentActionUnit, _node.nodeObject.GetComponent<Unit>());
             }
             else
             {
-                RoundManager.order = new Order(OrderType.attack,
+                UnitActionMgr.order = new Order(OrderType.attack,
                         BattleManager.currentActionUnit, path, _node.nodeObject.GetComponent<Unit>());
             }
 

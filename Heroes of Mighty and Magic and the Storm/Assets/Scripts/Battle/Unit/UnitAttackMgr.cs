@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class UnitActionManager : Singleton<UnitActionManager>
+public class UnitAttackMgr : Singleton<UnitAttackMgr>
 {
     Unit attacker, defender;
 
     //攻击动画触发被击动画的时间点
     public float animAttackHitPercent = 0.3f;
 
-    public float animTurnbackTime = 1f;
+    public float animTurnbackTime = 0.3f;
     //攻击需要转身
     bool turnback;
 
     bool waiting;
 
     public static bool operating;
+
+    public float missileSpeed = 10;
 
     public void Attack(Unit _origin, Unit _target)
     {
@@ -26,6 +27,16 @@ public class UnitActionManager : Singleton<UnitActionManager>
         defender = _target;
 
         StartCoroutine(AttackStart(_origin, _target));
+    }
+
+    public void RangeAttack(Unit _origin, Unit _target)
+    {
+        operating = true;
+
+        attacker = _origin;
+        defender = _target;
+
+        StartCoroutine(RangeAttack());
     }
 
     IEnumerator AttackStart(Unit _origin, Unit _target)
@@ -102,7 +113,7 @@ public class UnitActionManager : Singleton<UnitActionManager>
     bool ApplyDamage(Unit _origin, Unit _target)
     {
         int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
-        print("随机初始伤害：" + damage);
+        //print("随机初始伤害：" + damage);
         float damageRate = DamageRate(_origin.att, _target.def);
         damage = (int)(damage * damageRate);
         damage *= _origin.num;
@@ -149,4 +160,21 @@ public class UnitActionManager : Singleton<UnitActionManager>
         _unit.RestoreFacing();
     }
 
+    IEnumerator RangeAttack()
+    {
+        Vector3 launchPos = attacker.transform.position;
+        Vector3 targetPos = defender.transform.position;
+        Transform missile = Instantiate(attacker.type.missile, launchPos, Quaternion.identity).transform;
+
+        Vector2 dir = targetPos - launchPos;
+        print(dir);
+
+        while (Vector2.Distance(missile.position, targetPos) > missileSpeed * Time.deltaTime)
+        {
+            missile.Translate(dir, Space.World);
+            yield return null;
+        }
+
+        print("命中");
+    }
 }

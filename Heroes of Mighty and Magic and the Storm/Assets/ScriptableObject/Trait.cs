@@ -3,6 +3,6 @@
 [CreateAssetMenu(menuName = "Trait")]
 public class Trait : ScriptableObject
 {
-    public new string name;
+    public string traitName;
     public float chance = 1;
 }
