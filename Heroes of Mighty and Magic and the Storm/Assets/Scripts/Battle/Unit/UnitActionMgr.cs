@@ -140,6 +140,14 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
                     yield return null;
             }
 
+            if (order.targetNode != null)
+            {
+                MovementManager.instance.MoveUnitFlying(order.origin.transform, order.targetNode);
+
+                while (MovementManager.moving)
+                    yield return null;
+            }
+
             //攻击
             if (!isRangeAttack)
             {

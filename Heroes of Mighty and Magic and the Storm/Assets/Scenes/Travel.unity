@@ -3389,7 +3389,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.68
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3563,7 +3563,7 @@ Prefab:
         type: 2}
       propertyPath: pocketUnits.Array.data[1].type
       value: 
-      objectReference: {fileID: 11400000, guid: 9408235d15743ef45a532e7241bae581,
+      objectReference: {fileID: 11400000, guid: b51140075c8904a85ae90209cbe68b8c,
         type: 2}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
@@ -5060,7 +5060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitSpeed: 8
-  flyingSpeed: 20
+  flyingSpeed: 26
 --- !u!114 &1638976376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5967,6 +5967,16 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1682532355
+      objectReference: {fileID: 0}
+    - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7941d79ee91184110bce8696cb055256, type: 2}

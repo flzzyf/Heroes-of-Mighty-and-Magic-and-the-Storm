@@ -83,6 +83,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         float attackTime = _origin.GetAnimationLength("attack");
         float hitTime = attackTime * animAttackHitPercent;
 
+        _origin.sprite.sortingLayerName = "ActionUnit";
+
         _origin.PlayAnimation(Anim.attack);
         yield return new WaitForSeconds(hitTime);
         //print("被击");
@@ -100,6 +102,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         }
 
         yield return new WaitForSeconds(attackTime - hitTime);
+
+        _origin.sprite.sortingLayerName = "Unit";
 
         waiting = false;
     }

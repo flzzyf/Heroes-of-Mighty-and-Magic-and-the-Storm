@@ -222,6 +222,8 @@ public class Unit : NodeObject
 
         animator.Play("Death");
         ui.SetActive(false);
+
+        sprite.sortingLayerName = "DeadUnit";
     }
 
     #region Outline

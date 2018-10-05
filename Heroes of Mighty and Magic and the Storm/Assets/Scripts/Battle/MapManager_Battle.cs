@@ -177,6 +177,9 @@ public class MapManager_Battle : MapManager
 
     Vector3 lastMousePos;
     float mouseMoveSensitivity = 3;
+
+    NodeItem targetNode;
+
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
     {
@@ -213,7 +216,7 @@ public class MapManager_Battle : MapManager
             int arrowIndex = (int)angle / 60;
 
             //攻击方向上的格子存在，且可到达便可发起攻击。（目前还没考虑多格单位）
-            NodeItem targetNode = GetNearbyNodeItem(_node, arrowIndex);
+            targetNode = GetNearbyNodeItem(_node, arrowIndex);
             if (targetNode != null &&
                (targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable ||
                 targetNode.nodeObject == BattleManager.currentActionUnit))
@@ -228,8 +231,12 @@ public class MapManager_Battle : MapManager
                 {
                     closeToTarget = false;
 
-                    NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
-                    FindPath(currentNode, targetNode);
+                    //是近战单位则显示路径
+                    if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
+                    {
+                        NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
+                        FindPath(currentNode, targetNode);
+                    }
                 }
                 else
                 {
@@ -281,8 +288,12 @@ public class MapManager_Battle : MapManager
             }
             else
             {
-                UnitActionMgr.order = new Order(OrderType.attack,
-                        BattleManager.currentActionUnit, path, _node.nodeObject.GetComponent<Unit>());
+                if ((BattleManager.currentActionUnit.type.moveType == MoveType.walk))
+                    UnitActionMgr.order = new Order(OrderType.attack,
+                            BattleManager.currentActionUnit, path, _node.nodeObject.GetComponent<Unit>());
+                else
+                    UnitActionMgr.order = new Order(OrderType.attack,
+                                BattleManager.currentActionUnit, targetNode, _node.nodeObject.GetComponent<Unit>());
             }
 
         }
