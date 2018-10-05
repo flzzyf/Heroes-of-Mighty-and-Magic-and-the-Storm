@@ -95,6 +95,8 @@ public class MovementManager : Singleton<MovementManager>
             yield return null;
         }
 
+        movingObj.position = targetPos;
+
         MoveObjectFinish(_node);
     }
 }

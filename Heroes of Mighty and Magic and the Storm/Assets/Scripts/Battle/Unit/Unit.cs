@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Anim { idle, walk, attack }
+public enum Anim { idle, walk, attack, flip, death, defend, hit }
 
 public class Unit : NodeObject
 {
@@ -13,9 +13,6 @@ public class Unit : NodeObject
     public Animator animator;
     public Text text_number;
     public GameObject ui;
-
-    //朝向，-1为左，1为右
-    int facing = 1;
 
     //单位属性
     [HideInInspector]
@@ -73,41 +70,69 @@ public class Unit : NodeObject
         currentHP = type.hp;
     }
     #region Facing
-    public void Flip()
+
+    bool facingRight { get { return sprite.flipX == false; } }
+
+    IEnumerator FlipWithAnimation()
+    {
+        PlayAnimation(Anim.flip);
+
+        yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime / 2);
+
+        sprite.flipX = !sprite.flipX;
+    }
+
+    void Flip()
     {
         sprite.flipX = !sprite.flipX;
-        facing *= -1;
+    }
+
+    public void SetFacing(int _facing)
+    {
+        bool flipX = _facing == 0 ? false : true;
+        sprite.flipX = flipX;
     }
 
     public void RestoreFacing()
     {
-        int playerFacing = player == 0 ? 1 : -1;
+        bool playerFacingRight = player == 0 ? true : false;
 
-        if (playerFacing != facing)
-            Flip();
+        if (playerFacingRight != facingRight)
+        {
+            StartCoroutine(FlipWithAnimation());
+        }
     }
 
-    public bool FaceTarget(Vector2 _target)
+    //面向目标（是否有转身动画）
+    public bool FaceTarget(Vector2 _target, bool _flip = false)
     {
-        int targetInTheRight = (_target.x > transform.position.x) ? 1 : -1;
+        bool targetInTheRight = (_target.x > transform.position.x) ? true : false;
 
-        if (targetInTheRight != facing)
+        //朝向和目标相反，需要转身
+        if (targetInTheRight != facingRight)
         {
-            Flip();
-            return true;
+            if (_flip)
+            {
+                StartCoroutine(FlipWithAnimation());
+                return true;
+            }
+            else
+            {
+                Flip();
+            }
+
         }
         return false;
     }
 
-    public bool FaceTarget(GameObject _target)
+    public bool FaceTarget(Unit _target, bool _flip = false)
     {
-        return FaceTarget(_target.transform.position);
+        return FaceTarget(_target.transform.position, _flip);
     }
     #endregion
 
     public float GetAnimationLength(string _anim)
     {
-        //print(_anim);
         int index = animIndex[_anim];
 
         return animator.runtimeAnimatorController.animationClips[index].length;
@@ -115,17 +140,21 @@ public class Unit : NodeObject
 
     public void PlayAnimation(Anim _anim, bool _play = true)
     {
-        if (_anim == Anim.idle)
-        {
-
-        }
-        else if (_anim == Anim.walk)
+        if (_anim == Anim.walk)
         {
             animator.SetBool("walking", _play);
         }
         else if (_anim == Anim.attack)
         {
             animator.Play("Attack");
+        }
+        else if (_anim == Anim.flip)
+        {
+            animator.Play("Flip");
+        }
+        else if (_anim == Anim.death)
+        {
+            animator.Play("Death");
         }
     }
     #region Number and HP

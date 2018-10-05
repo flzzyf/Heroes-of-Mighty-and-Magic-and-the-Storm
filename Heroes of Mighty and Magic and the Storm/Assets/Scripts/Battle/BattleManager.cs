@@ -49,7 +49,7 @@ public class BattleManager : Singleton<BattleManager>
         public Color color;
     }
 
-    public Camera cam;
+    public GameObject cam;
 
     [System.Serializable]
     public class OutlineColor
@@ -69,8 +69,8 @@ public class BattleManager : Singleton<BattleManager>
 
     public void EnterBattle()
     {
-        Camera.main.enabled = false;
-        cam.enabled = true;
+        Camera.main.gameObject.SetActive(false);
+        cam.SetActive(true);
         cam.tag = "MainCamera";
 
         map.parent.gameObject.SetActive(true);
@@ -173,8 +173,7 @@ public class BattleManager : Singleton<BattleManager>
         unit.type = _type;
         unit.Init();
         unit.ChangeNum(_num);
-        if (_side == 1)
-            unit.Flip();
+        unit.SetFacing(_side);
 
         units[_side].Add(go.GetComponent<Unit>());
 

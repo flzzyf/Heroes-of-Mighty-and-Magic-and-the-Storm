@@ -140,7 +140,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         attacker = _origin;
         defender = _target;
 
-        if (_origin.FaceTarget(_target.gameObject) | _target.FaceTarget(_origin.gameObject))
+        if (_origin.FaceTarget(_target, true) |
+             _target.FaceTarget(_origin, true))
         {
             //需要转身
             return true;
@@ -151,13 +152,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     void UnitInteractEnd()  //交互结束
     {
-        RestoreFacing(attacker);
-        RestoreFacing(defender);
-    }
-    //恢复单位朝向，根据其所属玩家方。进攻方0右，防守方1左
-    void RestoreFacing(Unit _unit)
-    {
-        _unit.RestoreFacing();
+        attacker.RestoreFacing();
+        defender.RestoreFacing();
     }
 
     IEnumerator RangeAttack()
@@ -167,6 +163,12 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         {
             yield return new WaitForSeconds(animTurnbackTime);
         }
+
+        float attackTime = attacker.GetAnimationLength("attack");
+        float hitTime = attackTime * animAttackHitPercent;
+
+        attacker.PlayAnimation(Anim.attack);
+        yield return new WaitForSeconds(hitTime);
 
         Vector3 launchPos = attacker.transform.position + attacker.type.launchPos;
         Vector3 targetPos = defender.transform.position + defender.type.impactPos;
