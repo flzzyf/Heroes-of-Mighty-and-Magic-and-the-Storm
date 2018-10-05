@@ -89,6 +89,8 @@ public class BattleManager : Singleton<BattleManager>
         unitActionList = new LinkedList<Unit>();
         waitingUnitList = new LinkedList<Unit>();
 
+        SoundManager.instance.Play("Combat02");
+
         //战斗开始效果触发
         CreateHeroUnits(0);
         CreateHeroUnits(1);

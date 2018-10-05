@@ -80,6 +80,12 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
     {
         waiting = true;
 
+        //播放攻击音效
+        if (_origin.type.sound_attack != null)
+        {
+            GameManager.instance.audioSource.PlayOneShot(_origin.type.sound_attack);
+        }
+
         float attackTime = _origin.GetAnimationLength("attack");
         float hitTime = attackTime * animAttackHitPercent;
 
@@ -87,6 +93,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         _origin.PlayAnimation(Anim.attack);
         yield return new WaitForSeconds(hitTime);
+
         //print("被击");
 
         StartCoroutine(Damage(_origin, _target));

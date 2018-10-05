@@ -6,6 +6,8 @@ public class GameManager : Singleton<GameManager>
 {
     public bool gamePaused;
 
+    public AudioSource audioSource;
+
     void Start()
     {
         Cursor.visible = false;

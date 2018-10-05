@@ -24,6 +24,10 @@ public class UnitType : ScriptableObject
     [Header("远程攻击才需要")]
     public GameObject missile;
     public Vector3 launchPos;
+    [Header("音效")]
+    public AudioClip sound_attack;
+    public AudioClip sound_attackImpact;
+    public AudioClip sound_death;
 
     public Vector3 impactPos
     {
