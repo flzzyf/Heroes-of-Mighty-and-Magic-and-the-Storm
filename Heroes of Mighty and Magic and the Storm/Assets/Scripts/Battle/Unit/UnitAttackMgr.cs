@@ -168,8 +168,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             yield return new WaitForSeconds(animTurnbackTime);
         }
 
-        Vector3 launchPos = attacker.transform.position;
-        Vector3 targetPos = defender.transform.position;
+        Vector3 launchPos = attacker.transform.position + attacker.type.launchPos;
+        Vector3 targetPos = defender.transform.position + defender.type.impactPos;
         Transform missile = Instantiate(attacker.type.missile, launchPos, Quaternion.identity).transform;
 
         Vector2 dir = targetPos - launchPos;

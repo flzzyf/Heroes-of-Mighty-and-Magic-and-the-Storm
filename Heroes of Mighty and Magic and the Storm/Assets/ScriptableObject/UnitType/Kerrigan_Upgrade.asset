@@ -9,19 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Kerrigan
+  m_Name: Kerrigan_Upgrade
   m_EditorClassIdentifier: 
   animControl: {fileID: 22100000, guid: f49d92953bc4a1c4aa12287e896f59e4, type: 2}
-  speed: 5
   att: 10
-  def: 12
-  hp: 35
-  growth: 4
-  cost: 300
-  AIValue: 445
-  damage: {x: 6, y: 9}
+  def: 10
+  hp: 40
+  damage: {x: 5, y: 8}
+  speed: 9
   moveType: 1
   attackType: 0
   missile: {fileID: 0}
   traits:
   - {fileID: 11400000, guid: c7a55d3adf04041fca9c7ec94d875042, type: 2}
+  - {fileID: 11400000, guid: 79574837f5ff64e96b19de9a248af39d, type: 2}
+  growth: 4
+  cost: 500
+  AIValue: 783

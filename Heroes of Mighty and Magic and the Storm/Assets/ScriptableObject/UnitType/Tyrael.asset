@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: Tyrael
   m_EditorClassIdentifier: 
   animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
-  speed: 5
-  att: 10
-  def: 12
-  hp: 35
-  growth: 4
-  cost: 300
-  AIValue: 445
-  damage: {x: 6, y: 9}
+  att: 20
+  def: 20
+  hp: 200
+  damage: {x: 50, y: 50}
+  speed: 12
   moveType: 1
   attackType: 0
   missile: {fileID: 0}
   traits: []
+  growth: 1
+  cost: 3000
+  AIValue: 5019
