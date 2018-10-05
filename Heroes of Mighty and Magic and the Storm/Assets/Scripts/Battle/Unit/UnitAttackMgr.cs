@@ -29,16 +29,6 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         StartCoroutine(AttackStart(_origin, _target));
     }
 
-    public void RangeAttack(Unit _origin, Unit _target)
-    {
-        operating = true;
-
-        attacker = _origin;
-        defender = _target;
-
-        StartCoroutine(RangeAttack());
-    }
-
     IEnumerator AttackStart(Unit _origin, Unit _target)
     {
         turnback = UnitInteract(_origin, _target);
@@ -49,10 +39,11 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         StartCoroutine(AttackTarget(_origin, _target));
         while (waiting)
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
 
-        bool unitDead = _target.dead;
-        if (!unitDead)  //如果没死
+
+        //反击：如果目标没死，攻击者没有“不受反击”
+        if (!_target.dead && !_origin.PossessTrait("No Retaliation"))
         {
             //可反击
             if (_target.retaliations > 0)
@@ -62,7 +53,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
                 StartCoroutine(AttackTarget(_target, _origin));
                 while (waiting)
-                    yield return new WaitForSeconds(Time.deltaTime);
+                    yield return null;
             }
         }
         //print("攻击结束");
@@ -96,32 +87,25 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         //print("被击");
 
-        StartCoroutine(Damage(_origin, _target));
 
-        bool unitDead = _target.dead;
-        if (unitDead)
-        {
-            //死亡动画
-        }
-        else
-        {
-            //被击动画
-        }
+        int damage = ApplyDamage(_origin, _target);
 
         yield return new WaitForSeconds(attackTime - hitTime);
 
         _origin.sprite.sortingLayerName = "Unit";
 
+        //吸血效果
+        if (_origin.currentHP < _origin.type.hp && _origin.PossessTrait("Life Drain"))
+        {
+            _origin.ModifyHp(damage, true);
+
+            yield return new WaitForSeconds(2);
+        }
+
         waiting = false;
     }
 
-    IEnumerator Damage(Unit _origin, Unit _target)
-    {
-        ApplyDamage(_origin, _target);
-        yield return new WaitForSeconds(Time.deltaTime);
-    }
-
-    bool ApplyDamage(Unit _origin, Unit _target)
+    int ApplyDamage(Unit _origin, Unit _target)
     {
         int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
         //print("随机初始伤害：" + damage);
@@ -131,7 +115,9 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //print("伤害倍率：" + damageRate);
 
         //print("造成伤害：" + damage);
-        return _target.TakeDamage(damage);
+
+        _target.ModifyHp(damage * -1);
+        return damage;
     }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算
@@ -167,6 +153,16 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         defender.RestoreFacing();
     }
 
+    public void RangeAttack(Unit _origin, Unit _target)
+    {
+        operating = true;
+
+        attacker = _origin;
+        defender = _target;
+
+        StartCoroutine(RangeAttack());
+    }
+
     IEnumerator RangeAttack()
     {
         turnback = UnitInteract(attacker, defender);
@@ -196,7 +192,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         }
 
         Destroy(missile.gameObject);
-        StartCoroutine(Damage(attacker, defender));
+
+        ApplyDamage(attacker, defender);
 
         //播放被击动画
 

@@ -32,6 +32,9 @@ public class Unit : NodeObject
     [HideInInspector]
     public bool dead;
 
+    [HideInInspector]
+    public int originalNum;
+
     public void Init()
     {
         if (type != null)
@@ -160,53 +163,96 @@ public class Unit : NodeObject
         }
     }
     #region Number and HP
-    public void ChangeNum(int _amount)
+    public void SetNum(int _amount)
     {
         num = _amount;
         text_number.text = _amount.ToString();
     }
 
-    public void ChangeNum(int _amount, int _sign)
+    public void ChangeNum(int _amount)
     {
-        int n = num + _amount * _sign;
+        int n = num + _amount;
 
-        ChangeNum(n);
+        SetNum(n);
     }
 
-    public void ChangeHp(int _amount)
+    public void SetHp(int _amount)
     {
         currentHP = _amount;
     }
 
-    public void ChangeHp(int _amount, int _sign)
+    void ChangeHp(int _amount)
     {
-        int n = currentHP + _amount * _sign;
+        SetHp(currentHP + _amount);
+    }
 
-        ChangeHp(n);
+    public void ModifyHp(int _amount, bool _canResurrect = false)
+    {
+        if (_amount > 0)
+        {
+            //大于0为治疗
+            RestoreHp(_amount, _canResurrect);
+        }
+        else if (_amount < 0)
+        {
+            //小于0为伤害
+            TakeDamage(_amount * -1);
+        }
+    }
+    //恢复生命
+    void RestoreHp(int _amount, bool _canResurrect = false)
+    {
+        int hp = currentHP + _amount;
+        if (hp <= type.hp)
+        {
+            SetHp(hp);
+        }
+        else
+        {
+            //治疗量超过最大生命，如果不能复活
+            if (!_canResurrect)
+            {
+                SetHp(type.hp);
+            }
+            else
+            {
+                int resurrectCount = hp / type.hp;
+                SetHp(hp % type.hp);
+
+                //复活不能超过战斗开始时数量
+                if (num + resurrectCount < originalNum)
+                {
+                    ChangeNum(resurrectCount);
+                }
+                else
+                {
+                    SetNum(originalNum);
+                }
+
+                print("复活个数：" + resurrectCount);
+            }
+        }
     }
     //造成伤害，导致单位死亡
-    public bool TakeDamage(int _amount)
+    void TakeDamage(int _amount)
     {
         if (_amount > (num - 1) * type.hp + currentHP)
         {
             //死了
             Death();
-
-            return true;
         }
 
         if (_amount < currentHP)
         {
-            ChangeHp(_amount, -1);
+            ChangeHp(_amount * -1);
         }
         else
         {
             int deathNum = 1 + _amount / type.hp;
-            ChangeNum(deathNum, -1);
+            ChangeNum(deathNum * -1);
             int remainHp = type.hp - (_amount - currentHP);
             ChangeHp(remainHp);
         }
-        return false;
 
         //print("剩余生命:" + currentHP);
     }
@@ -215,6 +261,7 @@ public class Unit : NodeObject
     {
         BattleManager.Instance().unitActionList.Remove(this);
         BattleManager.Instance().unitActionOrder.Remove(this);
+        BattleManager.Instance().waitingUnitList.Remove(this);
 
         dead = true;
 

@@ -176,6 +176,7 @@ public class BattleManager : Singleton<BattleManager>
         unit.Init();
         unit.ChangeNum(_num);
         unit.SetFacing(_side);
+        unit.originalNum = _num;
 
         units[_side].Add(go.GetComponent<Unit>());
 
