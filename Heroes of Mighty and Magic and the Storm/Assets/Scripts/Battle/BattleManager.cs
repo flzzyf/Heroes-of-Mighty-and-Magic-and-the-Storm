@@ -5,9 +5,12 @@ using System;
 
 public class BattleManager : Singleton<BattleManager>
 {
-    //单位行动顺序表，单位行动队列
-    public LinkedList<Unit> unitActionOrder = new LinkedList<Unit>();
-    public LinkedList<Unit> unitActionList = new LinkedList<Unit>();
+    //单位行动顺序表：在战斗开始时就定好
+    public LinkedList<Unit> unitActionOrder;
+    //单位行动队列：在每轮开始时重置为顺序表
+    public LinkedList<Unit> unitActionList;
+    //等待的单位
+    public LinkedList<Unit> waitingUnitList;
 
     public GameObject[] playerHero;
     //玩家初始创建单位位置
@@ -28,7 +31,6 @@ public class BattleManager : Singleton<BattleManager>
 
     public static Unit currentActionUnit;
 
-    int actionPlayer;
     //英雄创建位置
     public GameObject[] heroPoint;
     GameObject[] heroes = new GameObject[2];
@@ -83,7 +85,9 @@ public class BattleManager : Singleton<BattleManager>
 
     public void BattleStart()
     {
-        //单位行动顺序计算
+        unitActionOrder = new LinkedList<Unit>();
+        unitActionList = new LinkedList<Unit>();
+        waitingUnitList = new LinkedList<Unit>();
 
         //战斗开始效果触发
         CreateHeroUnits(0);
@@ -96,10 +100,9 @@ public class BattleManager : Singleton<BattleManager>
     {
         units[0].Clear();
         units[1].Clear();
-
     }
 
-    void AddUnitToActionList(ref LinkedList<Unit> _list, Unit _unit, bool _desc = true)
+    public void AddUnitToActionList(ref LinkedList<Unit> _list, Unit _unit, bool _desc = true)
     {
         if (_list.Count == 0)
         {

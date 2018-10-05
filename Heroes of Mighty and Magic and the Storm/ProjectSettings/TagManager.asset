@@ -51,6 +51,15 @@ TagManager:
   - name: Node
     uniqueID: 2099290843
     locked: 0
+  - name: DeadUnit
+    uniqueID: 3799749383
+    locked: 0
   - name: Unit
     uniqueID: 1682532355
+    locked: 0
+  - name: Effect
+    uniqueID: 346083629
+    locked: 0
+  - name: Missile
+    uniqueID: 1370511679
     locked: 0

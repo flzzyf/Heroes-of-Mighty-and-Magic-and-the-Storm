@@ -9,6 +9,7 @@ public class RoundManager : Singleton<RoundManager>
     {
         //轮开始效果触发
 
+        //将单位行动队列设为预设顺序
         BattleManager.instance.unitActionList = new LinkedList<Unit>(BattleManager.instance.unitActionOrder);
 
         //重置双方单位反击次数
@@ -36,36 +37,47 @@ public class RoundManager : Singleton<RoundManager>
 
     void RoundEnd()
     {
+        //print("轮结束");
+
         RoundStart();
     }
 
     void TurnStart()
     {
-        //还有未行动单位
+        Unit go;
         if (BattleManager.instance.unitActionList.Count > 0)
         {
-            Unit go = BattleManager.instance.unitActionList.First.Value;
+            go = BattleManager.instance.unitActionList.First.Value;
             BattleManager.instance.unitActionList.Remove(go);
 
-            BattleManager.currentActionUnit = go;
 
             //测试版由玩家0来操控单位
-            UnitActionMgr.instance.ActionStart(go, 0);
+        }
+        else if (BattleManager.instance.waitingUnitList.Count > 0)
+        {
+            go = BattleManager.instance.waitingUnitList.First.Value;
+            BattleManager.instance.waitingUnitList.Remove(go);
         }
         else
         {
-            zyf.Out("TurnStart BUG!", zyf.Type.tip);
+            print("TurnStart BUG");
+            return;
         }
 
+        BattleManager.currentActionUnit = go;
+
+        UnitActionMgr.instance.ActionStart(go, 0);
     }
 
     public void TurnEnd()
     {
         //士气高涨
 
-        //print("剩余可行动单位数：" + actionUnits.Count); 
+        //检查胜负
+        BattleManager.instance.CheckVictoryOrDeath();
 
-        if (BattleManager.instance.unitActionList.Count > 0)
+        if (BattleManager.instance.unitActionList.Count > 0 ||
+            BattleManager.instance.waitingUnitList.Count > 0)
         {
             TurnStart();
         }

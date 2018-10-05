@@ -87,7 +87,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         yield return new WaitForSeconds(hitTime);
         //print("被击");
 
-        StartCoroutine(Damage(_target, _origin));
+        StartCoroutine(Damage(_origin, _target));
 
         bool unitDead = _target.dead;
         if (unitDead)
@@ -106,7 +106,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     IEnumerator Damage(Unit _origin, Unit _target)
     {
-        ApplyDamage(_target, _origin);
+        ApplyDamage(_origin, _target);
         yield return new WaitForSeconds(Time.deltaTime);
     }
 
@@ -162,11 +162,19 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     IEnumerator RangeAttack()
     {
+        turnback = UnitInteract(attacker, defender);
+        if (turnback)
+        {
+            yield return new WaitForSeconds(animTurnbackTime);
+        }
+
         Vector3 launchPos = attacker.transform.position;
         Vector3 targetPos = defender.transform.position;
         Transform missile = Instantiate(attacker.type.missile, launchPos, Quaternion.identity).transform;
 
         Vector2 dir = targetPos - launchPos;
+
+        FaceTarget2D(missile, targetPos);
 
         while (Vector2.Distance(missile.position, targetPos) > missileSpeed * Time.deltaTime)
         {
@@ -181,4 +189,11 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         operating = false;
     }
+
+    void FaceTarget2D(Transform _origin, Vector3 _target)
+    {
+        Vector3 dir = _target - _origin.position;
+        _origin.up = dir.normalized;
+    }
+
 }

@@ -155,14 +155,17 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             while (UnitAttackMgr.operating)
                 yield return null;
         }
+        else if (order.type == OrderType.wait)
+        {
+            BattleManager bm = BattleManager.instance;
+            bm.AddUnitToActionList(ref bm.waitingUnitList, BattleManager.currentActionUnit, false);
+        }
 
         order = null;
-        BattleManager.instance.CheckVictoryOrDeath();
     }
 
     public void ActionEnd()
     {
-
         RoundManager.instance.TurnEnd();
     }
 
@@ -206,6 +209,11 @@ public class Order
     public NodeItem targetNode;
     public List<NodeItem> path;
 
+    public Order(OrderType _type, Unit _origin)
+    {
+        type = _type;
+        origin = _origin;
+    }
     public Order(OrderType _type, Unit _origin, List<NodeItem> _path)
     {
         type = _type;
