@@ -221,6 +221,7 @@ public class MapManager_Battle : MapManager
                (targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable ||
                 targetNode.nodeObject == BattleManager.currentActionUnit))
             {
+                //根据角度显示攻击箭头
                 int arrowAngle = (arrowIndex * 60 + 210) % 360;
                 int arrowAngleFixed = 360 - arrowAngle;
 
@@ -308,18 +309,23 @@ public class MapManager_Battle : MapManager
         }
     }
 
-    void FindPath(NodeItem _origin, NodeItem _target)
+    //寻找路径
+    bool FindPath(NodeItem _origin, NodeItem _target)
     {
         if (path != null)
             ClearPath();
 
         path = AStarManager.FindPath(this, _origin, _target);
+        if (path == null)
+            return false;
+
         path.Remove(_origin);
 
         foreach (var item in path)
         {
             item.GetComponent<NodeItem_Battle>().ChangeBackgoundColor("path");
         }
+        return true;
     }
 
 }

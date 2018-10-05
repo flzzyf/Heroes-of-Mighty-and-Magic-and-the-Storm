@@ -25,7 +25,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
-        reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed);
+        reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed, true);
 
         //修改节点为可到达，如果节点为空
         foreach (var item in reachableNodes)
@@ -47,7 +47,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         if (!isRangeAttack)
         {
             //可攻击节点
-            attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1);
+            attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1, true);
 
             for (int i = attackableNodes.Count - 1; i >= 0; i--)
             {

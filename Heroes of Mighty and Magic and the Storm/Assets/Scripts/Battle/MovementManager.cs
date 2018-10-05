@@ -36,7 +36,7 @@ public class MovementManager : Singleton<MovementManager>
             //改变单位朝向
             movingObj.GetComponent<Unit>().FaceTarget(path[i].transform.position);
 
-            while (GetHorizontalDistance(movingObj.position, targetPos) > UnitSpeed * Time.deltaTime)
+            while (Vector2.Distance(movingObj.position, targetPos) > UnitSpeed * Time.deltaTime)
             {
                 movingObj.Translate(dir.normalized * UnitSpeed * Time.deltaTime);
 
@@ -44,7 +44,7 @@ public class MovementManager : Singleton<MovementManager>
             }
         }
 
-        MoveObjectFinish(path[path.Count - 1]);
+        StartCoroutine(MoveObjectFinish(path[path.Count - 1]));
     }
     //开始移动单位
     void MoveObjectStart()
@@ -53,23 +53,22 @@ public class MovementManager : Singleton<MovementManager>
         movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk);
     }
     //移动到目的地后
-    void MoveObjectFinish(NodeItem _targetNode)
+    IEnumerator MoveObjectFinish(NodeItem _targetNode)
     {
         GameManager.instance.gamePaused = false;
 
         movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
-        movingObj.GetComponent<Unit>().RestoreFacing();
+
+        if (movingObj.GetComponent<Unit>().RestoreFacing())
+        {
+            //需要转身
+            yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
+        }
 
         //设置节点上的物体，设置英雄所在位置、节点
         BattleManager.instance.LinkNodeWithUnit(movingObj.GetComponent<Unit>(), _targetNode);
 
         moving = false;
-    }
-
-    float GetHorizontalDistance(Vector3 _p1, Vector3 _p2)
-    {
-        _p2.z = _p1.z;
-        return Vector3.Distance(_p1, _p2);
     }
 
     public void MoveUnitFlying(Transform _obj, NodeItem _node)
@@ -88,7 +87,7 @@ public class MovementManager : Singleton<MovementManager>
         Vector3 dir = targetPos - movingObj.position;
         dir.z = 0;
 
-        while (GetHorizontalDistance(movingObj.position, targetPos) > flyingSpeed * Time.deltaTime)
+        while (Vector2.Distance(movingObj.position, targetPos) > flyingSpeed * Time.deltaTime)
         {
             movingObj.Translate(dir.normalized * flyingSpeed * Time.deltaTime);
 
@@ -97,6 +96,6 @@ public class MovementManager : Singleton<MovementManager>
 
         movingObj.position = targetPos;
 
-        MoveObjectFinish(_node);
+        StartCoroutine(MoveObjectFinish(_node));
     }
 }

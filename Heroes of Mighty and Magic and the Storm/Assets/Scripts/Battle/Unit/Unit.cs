@@ -93,14 +93,17 @@ public class Unit : NodeObject
         sprite.flipX = flipX;
     }
 
-    public void RestoreFacing()
+    public bool RestoreFacing()
     {
         bool playerFacingRight = player == 0 ? true : false;
 
         if (playerFacingRight != facingRight)
         {
             StartCoroutine(FlipWithAnimation());
+            return true;
         }
+
+        return false;
     }
 
     //面向目标（是否有转身动画）
@@ -120,7 +123,6 @@ public class Unit : NodeObject
             {
                 Flip();
             }
-
         }
         return false;
     }

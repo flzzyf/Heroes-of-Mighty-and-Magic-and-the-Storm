@@ -5149,7 +5149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitSpeed: 8
-  flyingSpeed: 26
+  flyingSpeed: 30
 --- !u!114 &1638976376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5163,7 +5163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animAttackHitPercent: 0.3
   animTurnbackTime: 0.5
-  missileSpeed: 60
+  missileSpeed: 75
 --- !u!114 &1638976378
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -109,7 +109,7 @@ public class MapManager : MonoBehaviour
     }
 
     //获取范围内节点
-    public virtual List<Node> GetNodesWithinRange(Node _node, int _range)
+    public virtual List<Node> GetNodesWithinRange(Node _node, int _range, bool _walkable)
     {
         List<Node> list = new List<Node>();
         if (_range == 1)
@@ -118,29 +118,29 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            list = GetNodesWithinRange(_node, _range - 1);
+            list = GetNodesWithinRange(_node, _range - 1, _walkable);
             int listCount = list.Count;
             for (int i = 0; i < listCount; i++)
             {
-                foreach (Node item in GetNearbyNodes(list[i]))
-                {
-                    if (!list.Contains(item))
-                        list.Add(item);
-
-                }
+                //如果要求是可到达节点
+                if ((!_walkable || (_walkable && list[i].walkable)))
+                    foreach (Node item in GetNearbyNodes(list[i]))
+                    {
+                        if (!list.Contains(item))
+                            list.Add(item);
+                    }
             }
         }
-
-        //list.Remove(_node);
 
         return list;
     }
 
     //获取周围节点单位
-    public virtual List<NodeItem> GetNodeItemsWithinRange(NodeItem _go, int _range, bool _includeOrigin = false)
+    public virtual List<NodeItem> GetNodeItemsWithinRange(NodeItem _go, int _range,
+           bool _walkable = false, bool _includeOrigin = false)
     {
         List<NodeItem> list = new List<NodeItem>();
-        foreach (var item in GetNodesWithinRange(GetNode(_go.pos), _range))
+        foreach (var item in GetNodesWithinRange(GetNode(_go.pos), _range, _walkable))
         {
             list.Add(GetNodeItem(item.pos));
         }
