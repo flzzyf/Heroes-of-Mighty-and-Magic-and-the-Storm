@@ -285,7 +285,7 @@ public class Unit : NodeObject
 
     public void OutlineFlashStart()
     {
-        sprite.material.SetFloat("_LineWidth", 5);
+        sprite.material.SetFloat("_LineWidth", 8);
 
         outlineFlashing = true;
         fading = true;
