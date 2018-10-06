@@ -161,8 +161,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     void UnitInteractEnd()  //交互结束
     {
-        attacker.RestoreFacing();
-        defender.RestoreFacing();
+        if (!attacker.dead)
+            attacker.RestoreFacing();
+        if (!defender.dead)
+            defender.RestoreFacing();
     }
 
     public void RangeAttack(Unit _origin, Unit _target)

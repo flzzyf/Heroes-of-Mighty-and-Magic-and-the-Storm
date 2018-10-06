@@ -243,25 +243,19 @@ public class Unit : NodeObject
     //造成伤害，导致单位死亡
     void TakeDamage(int _amount)
     {
-        if (_amount > (num - 1) * type.hp + currentHP)
+        //如果致命
+        if (_amount >= (num - 1) * type.hp + currentHP)
         {
-            //死了
             Death();
-        }
-
-        if (_amount < currentHP)
-        {
-            ChangeHp(_amount * -1);
         }
         else
         {
-            int deathNum = 1 + _amount / type.hp;
-            ChangeNum(deathNum * -1);
-            int remainHp = type.hp - (_amount - currentHP);
-            ChangeHp(remainHp);
-        }
+            //不致命
+            int currentHpTotal = (num - 1) * type.hp + currentHP - _amount;
 
-        //print("剩余生命:" + currentHP);
+            SetNum((currentHpTotal / type.hp) + 1);
+            SetHp(currentHP % type.hp);
+        }
     }
     #endregion
     void Death()
