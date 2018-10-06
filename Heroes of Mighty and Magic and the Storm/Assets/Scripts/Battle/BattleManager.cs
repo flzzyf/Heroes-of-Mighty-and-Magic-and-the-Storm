@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class BattleManager : Singleton<BattleManager>
@@ -60,11 +61,12 @@ public class BattleManager : Singleton<BattleManager>
 
     public OutlineColor[] outlineColor;
 
+    public Button button_wait;
+
     public void Init()
     {
         map.GenerateMap();
         map.parent.gameObject.SetActive(false);
-
     }
 
     void Update()
@@ -77,7 +79,9 @@ public class BattleManager : Singleton<BattleManager>
 
     public void Wait()
     {
-        UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
+        //不在等待队列才能等待
+        if (button_wait.interactable)
+            UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
     }
 
     public void EnterBattle()

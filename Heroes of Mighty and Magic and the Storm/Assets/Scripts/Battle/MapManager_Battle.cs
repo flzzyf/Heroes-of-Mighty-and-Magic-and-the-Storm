@@ -278,7 +278,6 @@ public class MapManager_Battle : MapManager
                 UnitActionMgr.order = new Order(OrderType.move,
                                                             BattleManager.currentActionUnit, _node);
             }
-
         }
         else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {

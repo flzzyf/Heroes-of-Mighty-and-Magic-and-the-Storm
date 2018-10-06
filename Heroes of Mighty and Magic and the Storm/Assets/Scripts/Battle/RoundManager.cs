@@ -38,6 +38,8 @@ public class RoundManager : Singleton<RoundManager>
     void RoundEnd()
     {
         //print("轮结束");
+        //启用暂停按钮
+        BattleManager.instance.button_wait.interactable = true;
 
         RoundStart();
     }
@@ -49,14 +51,14 @@ public class RoundManager : Singleton<RoundManager>
         {
             go = BattleManager.instance.unitActionList.First.Value;
             BattleManager.instance.unitActionList.Remove(go);
-
-
-            //测试版由玩家0来操控单位
         }
         else if (BattleManager.instance.waitingUnitList.Count > 0)
         {
             go = BattleManager.instance.waitingUnitList.First.Value;
             BattleManager.instance.waitingUnitList.Remove(go);
+
+            //禁用等待按钮
+            BattleManager.instance.button_wait.interactable = false;
         }
         else
         {
@@ -66,6 +68,7 @@ public class RoundManager : Singleton<RoundManager>
 
         BattleManager.currentActionUnit = go;
 
+        //测试版由玩家0来操控单位
         UnitActionMgr.instance.ActionStart(go, 0);
     }
 
