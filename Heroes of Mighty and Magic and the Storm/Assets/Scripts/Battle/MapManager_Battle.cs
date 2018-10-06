@@ -317,7 +317,10 @@ public class MapManager_Battle : MapManager
 
         path = AStarManager.FindPath(this, _origin, _target);
         if (path == null)
+        {
+            //print("未能找到路径");
             return false;
+        }
 
         path.Remove(_origin);
 

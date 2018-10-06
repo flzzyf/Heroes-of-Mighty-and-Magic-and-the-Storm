@@ -161,6 +161,14 @@ public class Unit : NodeObject
         {
             animator.Play("Death");
         }
+        else if (_anim == Anim.defend)
+        {
+            animator.Play("Defend");
+        }
+        else if (_anim == Anim.hit)
+        {
+            animator.Play("Hit");
+        }
     }
     #region Number and HP
     public void SetNum(int _amount)
@@ -284,7 +292,7 @@ public class Unit : NodeObject
 
     public void OutlineFlashStart()
     {
-        sprite.material.SetFloat("_LineWidth", 8);
+        sprite.material.SetFloat("_LineWidth", 13);
 
         outlineFlashing = true;
         fading = true;

@@ -86,6 +86,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         yield return new WaitForSeconds(hitTime);
 
         //print("被击");
+        //播放被击和防御动画
+        _target.PlayAnimation(Anim.defend);
 
 
         int damage = ApplyDamage(_origin, _target);
@@ -116,6 +118,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     int ApplyDamage(Unit _origin, Unit _target)
     {
+
         int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
         //print("随机初始伤害：" + damage);
         float damageRate = DamageRate(_origin.att, _target.def);
@@ -201,6 +204,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         }
 
         Destroy(missile.gameObject);
+
+        defender.PlayAnimation(Anim.defend);
 
         ApplyDamage(attacker, defender);
 

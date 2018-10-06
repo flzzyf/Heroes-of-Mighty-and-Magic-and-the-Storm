@@ -3086,10 +3086,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -4053,8 +4053,8 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 243137447790009008, guid: f536da5662304472bb3480c1c0cc4790,
       type: 2}
     multipleSound: 0
-  - name: LifeDrain
-    clip: {fileID: 8300000, guid: e97836c7fb52bd94ca4733981726710f, type: 3}
+  - name: BattleBegin03
+    clip: {fileID: 8300000, guid: 42f63ea1604f3144cb5572bb5a5e982a, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -5752,7 +5752,7 @@ RectTransform:
   m_GameObject: {fileID: 1554008063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1395583818}
   - {fileID: 1134005690}
@@ -6589,17 +6589,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1670020046}
-  m_LocalRotation: {x: -0, y: -0, z: 0.3590441, w: 0.9333206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1554008064}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.083}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 188.1, y: 46.2}
+  m_AnchoredPosition: {x: 33.8, y: -31.9}
+  m_SizeDelta: {x: 136.69, y: 136.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1670020048
 MonoBehaviour:
@@ -6620,7 +6620,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9e8d9cfe5ab1c944c84d843ad25b2cf1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7634769c4c497c9479c8f1db0f3f7bfa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7162,7 +7162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1764981993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8103,7 +8103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -8647,7 +8647,7 @@ GameObject:
   - component: {fileID: 2076084213}
   - component: {fileID: 2076084214}
   m_Layer: 5
-  m_Name: Sword
+  m_Name: Arrow_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

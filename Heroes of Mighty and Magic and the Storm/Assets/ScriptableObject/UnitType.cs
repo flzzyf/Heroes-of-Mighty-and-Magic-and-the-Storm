@@ -44,3 +44,4 @@ public class UnitType : ScriptableObject
 public enum MoveType { walk, fly, blink }
 public enum AttackType { melee, range }
 public enum UnitSize { small, middle, big }
+public enum ArmorType { flesh, metal }

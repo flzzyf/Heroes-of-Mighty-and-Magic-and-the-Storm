@@ -26,7 +26,7 @@ public class MovementManager : Singleton<MovementManager>
 
     IEnumerator IEMoveObject()
     {
-        for (int i = 1; i < path.Count; i++)
+        for (int i = 0; i < path.Count; i++)
         {
             Vector3 targetPos = path[i].transform.position;
 
