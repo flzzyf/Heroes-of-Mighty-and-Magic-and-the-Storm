@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UnitAttackMgr : Singleton<UnitAttackMgr>
 {
-    Unit attacker, defender;
-
     //攻击动画触发被击动画的时间点
     public float animAttackHitPercent = 0.3f;
 
@@ -19,17 +17,14 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     public float missileSpeed = 10;
 
-    public void Attack(Unit _origin, Unit _target)
+    public void Attack(Unit _origin, Unit _target, bool _rangeAttack = false)
     {
         operating = true;
 
-        attacker = _origin;
-        defender = _target;
-
-        StartCoroutine(AttackStart(_origin, _target));
+        StartCoroutine(AttackStart(_origin, _target, _rangeAttack));
     }
 
-    IEnumerator AttackStart(Unit _origin, Unit _target)
+    IEnumerator AttackStart(Unit _origin, Unit _target, bool _rangeAttack = false)
     {
         turnback = UnitInteract(_origin, _target);
         if (turnback)
@@ -37,37 +32,52 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             yield return new WaitForSeconds(animTurnbackTime);
         }
 
-        StartCoroutine(AttackTarget(_origin, _target));
+        if (!_rangeAttack)
+            StartCoroutine(MeleeAttack(_origin, _target));
+        else
+            StartCoroutine(RangeAttack(_origin, _target));
+
         while (waiting)
             yield return null;
 
 
-        //反击：如果目标没死，攻击者没有“不受反击”
-        if (!_target.dead && !_origin.PossessTrait("No Retaliation"))
+        //反击：非远程攻击，目标没死，目标还可反击，攻击者没有“不受反击”
+        if (!_rangeAttack &&
+            !_target.dead &&
+            _target.retaliations > 0 &&
+            !_origin.PossessTrait("No Retaliation"))
         {
-            //可反击
-            if (_target.retaliations > 0)
-            {
-                //print("反击");
-                _target.retaliations--;
+            _target.retaliations--;
 
-                StartCoroutine(AttackTarget(_target, _origin));
-                while (waiting)
-                    yield return null;
-            }
+            StartCoroutine(MeleeAttack(_target, _origin));
+            while (waiting)
+                yield return null;
         }
+
+        //攻击两次：都没死
+        if (!_origin.dead && !_target.dead &&
+            _origin.PossessTrait("Double Attack"))
+        {
+            if (!_rangeAttack)
+                StartCoroutine(MeleeAttack(_origin, _target));
+            else
+                StartCoroutine(RangeAttack(_origin, _target));
+
+            while (waiting)
+                yield return null;
+        }
+
         //print("攻击结束");
         if (turnback)
         {
-            UnitInteractEnd();
+            UnitInteractEnd(_origin, _target);
             yield return new WaitForSeconds(animTurnbackTime);
         }
 
         operating = false;
-
     }
 
-    IEnumerator AttackTarget(Unit _origin, Unit _target)
+    IEnumerator MeleeAttack(Unit _origin, Unit _target)
     {
         waiting = true;
 
@@ -89,7 +99,6 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //播放被击和防御动画
         _target.PlayAnimation(Anim.defend);
 
-
         int damage = ApplyDamage(_origin, _target);
 
         yield return new WaitForSeconds(attackTime - hitTime);
@@ -108,10 +117,44 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             GameObject fx = Instantiate(TraitManager.instance.GetTrait("Life Drain").fx_trigger,
                 _origin.transform.position, Quaternion.identity);
 
-            Destroy(fx, 2);
+            Destroy(fx, 1.5f);
 
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.5f);
         }
+        waiting = false;
+    }
+
+    IEnumerator RangeAttack(Unit _origin, Unit _target)
+    {
+        waiting = true;
+
+        float attackTime = _origin.GetAnimationLength("attack");
+        float hitTime = attackTime * animAttackHitPercent;
+
+        _origin.PlayAnimation(Anim.attack);
+        yield return new WaitForSeconds(hitTime);
+
+        Vector3 launchPos = _origin.transform.position + _origin.type.launchPos;
+        Vector3 targetPos = _target.transform.position + _target.type.impactPos;
+        Transform missile = Instantiate(_origin.type.missile, launchPos, Quaternion.identity).transform;
+
+        Vector2 dir = targetPos - launchPos;
+
+        FaceTarget2D(missile, targetPos);
+
+        while (Vector2.Distance(missile.position, targetPos) > missileSpeed * Time.deltaTime)
+        {
+            missile.Translate(dir.normalized * missileSpeed * Time.deltaTime, Space.World);
+            yield return null;
+        }
+
+        Destroy(missile.gameObject);
+
+        _target.PlayAnimation(Anim.defend);
+
+        ApplyDamage(_origin, _target);
+
+        yield return new WaitForSeconds(.8f);
 
         waiting = false;
     }
@@ -131,7 +174,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         string text = string.Format("{0}造成{1}点伤害", _origin.type.unitName, damage);
         if (damage >= _target.type.hp)
-            text += string.Format(",{0}个{1}死了。", Mathf.Min(damage / _target.type.hp, _target.num)
+            text += string.Format(",{0}个{1}死了", Mathf.Min(damage / _target.type.hp, _target.num)
             , _target.type.unitName);
         BattleInfoMgr.instance.AddText(text);
 
@@ -158,9 +201,6 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     bool UnitInteract(Unit _origin, Unit _target)   //交互开始
     {
-        attacker = _origin;
-        defender = _target;
-
         if (_origin.FaceTarget(_target, true) |
              _target.FaceTarget(_origin, true))
         {
@@ -171,61 +211,12 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     }
 
-    void UnitInteractEnd()  //交互结束
+    void UnitInteractEnd(Unit _origin, Unit _target)  //交互结束
     {
-        if (!attacker.dead)
-            attacker.RestoreFacing();
-        if (!defender.dead)
-            defender.RestoreFacing();
-    }
-
-    public void RangeAttack(Unit _origin, Unit _target)
-    {
-        operating = true;
-
-        attacker = _origin;
-        defender = _target;
-
-        StartCoroutine(RangeAttack());
-    }
-
-    IEnumerator RangeAttack()
-    {
-        turnback = UnitInteract(attacker, defender);
-        if (turnback)
-        {
-            yield return new WaitForSeconds(animTurnbackTime);
-        }
-
-        float attackTime = attacker.GetAnimationLength("attack");
-        float hitTime = attackTime * animAttackHitPercent;
-
-        attacker.PlayAnimation(Anim.attack);
-        yield return new WaitForSeconds(hitTime);
-
-        Vector3 launchPos = attacker.transform.position + attacker.type.launchPos;
-        Vector3 targetPos = defender.transform.position + defender.type.impactPos;
-        Transform missile = Instantiate(attacker.type.missile, launchPos, Quaternion.identity).transform;
-
-        Vector2 dir = targetPos - launchPos;
-
-        FaceTarget2D(missile, targetPos);
-
-        while (Vector2.Distance(missile.position, targetPos) > missileSpeed * Time.deltaTime)
-        {
-            missile.Translate(dir.normalized * missileSpeed * Time.deltaTime, Space.World);
-            yield return null;
-        }
-
-        Destroy(missile.gameObject);
-
-        defender.PlayAnimation(Anim.defend);
-
-        ApplyDamage(attacker, defender);
-
-        //播放被击动画
-
-        operating = false;
+        if (!_origin.dead)
+            _origin.RestoreFacing();
+        if (!_target.dead)
+            _target.RestoreFacing();
     }
 
     void FaceTarget2D(Transform _origin, Vector3 _target)

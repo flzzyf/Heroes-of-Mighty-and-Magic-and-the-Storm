@@ -9,21 +9,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: DH
+  m_Name: DH_Upgrade
   m_EditorClassIdentifier: 
-  unitName: "\u730E\u9B54\u4EBA"
+  unitName: "\u7EF4\u62C9"
   animControl: {fileID: 22100000, guid: 2c08322721f84aa4fa6be6c7410648bb, type: 2}
   att: 6
   def: 3
   hp: 10
   damage: {x: 2, y: 3}
-  speed: 4
+  speed: 6
   moveType: 0
   attackType: 1
-  traits: []
+  traits:
+  - {fileID: 11400000, guid: 7e057f72f500f4ed0b504b55402bab82, type: 2}
   growth: 9
   AIValue: 126
-  cost: 100
+  cost: 150
   size: 1
   armorType: 0
   missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}
