@@ -9,15 +9,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Medivh
+  m_Name: Medivh_Upgrade
   m_EditorClassIdentifier: 
-  unitName: "\u5148\u77E5"
+  unitName: "\u9EA6\u8FEA\u6587"
   animControl: {fileID: 22100000, guid: 5c23de08b8a1d7d4da2f90a6640c3dbf, type: 2}
   att: 12
-  def: 7
+  def: 10
   hp: 30
   damage: {x: 10, y: 12}
-  speed: 5
+  speed: 7
   moveType: 0
   attackType: 1
   traits: []

@@ -9,21 +9,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Medivh
+  m_Name: Kel_Upgrade
   m_EditorClassIdentifier: 
-  unitName: "\u5148\u77E5"
-  animControl: {fileID: 22100000, guid: 5c23de08b8a1d7d4da2f90a6640c3dbf, type: 2}
-  att: 12
-  def: 7
-  hp: 30
-  damage: {x: 10, y: 12}
-  speed: 5
+  unitName: "\u514B\u5C14\u82CF\u52A0\u5FB7"
+  animControl: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e, type: 2}
+  att: 13
+  def: 10
+  hp: 40
+  damage: {x: 11, y: 15}
+  speed: 7
   moveType: 0
   attackType: 1
   traits: []
   growth: 3
   AIValue: 126
-  cost: 100
+  cost: 600
   size: 1
   armorType: 0
   missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}

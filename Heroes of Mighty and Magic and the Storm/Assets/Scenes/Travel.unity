@@ -3814,7 +3814,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4477178211263224, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3883,7 +3883,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4912642036706332, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
@@ -3935,12 +3935,23 @@ Prefab:
         type: 2}
       propertyPath: pocketUnits.Array.data[2].type
       value: 
-      objectReference: {fileID: 11400000, guid: 007652fb73bad9f4faaad033a6b7c8d0,
+      objectReference: {fileID: 11400000, guid: c525427b5c4ce4115bfe240fdcfc78b7,
         type: 2}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[2].num
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[3].type
+      value: 
+      objectReference: {fileID: 11400000, guid: 0778e37c5e17e4edc8f0acf90292f59b,
+        type: 2}
+    - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
+        type: 2}
+      propertyPath: pocketUnits.Array.data[3].num
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
@@ -5608,8 +5619,8 @@ Transform:
   - {fileID: 30077798}
   - {fileID: 2022425691}
   - {fileID: 82325664}
-  - {fileID: 1209137174}
   - {fileID: 2088821903}
+  - {fileID: 1209137174}
   - {fileID: 2035681050}
   - {fileID: 1764981993}
   m_Father: {fileID: 0}
@@ -8878,7 +8889,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[2].num
-      value: 8
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
@@ -8889,7 +8900,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[3].num
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
