@@ -38,7 +38,7 @@ public class BattleManager : Singleton<BattleManager>
 
     public GameObject heroUnitPrefab;
 
-    public GameObject background;
+    public GameObject battleObjectParent;
 
     public MapManager_Battle map;
 
@@ -96,13 +96,13 @@ public class BattleManager : Singleton<BattleManager>
         cam.tag = "MainCamera";
 
         map.parent.gameObject.SetActive(true);
-        background.SetActive(true);
+        battleObjectParent.SetActive(true);
     }
 
     public void QuitBattle()
     {
         map.parent.gameObject.SetActive(false);
-        background.SetActive(false);
+        battleObjectParent.SetActive(false);
     }
 
     public void BattleStart()

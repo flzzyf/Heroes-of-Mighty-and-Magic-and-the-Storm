@@ -97,7 +97,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         //print("被击");
         //播放被击和防御动画
-        _target.PlayAnimation(Anim.defend);
+        _target.PlayAnimation(Anim.hit);
 
         int damage = ApplyDamage(_origin, _target);
 
@@ -150,7 +150,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         Destroy(missile.gameObject);
 
-        _target.PlayAnimation(Anim.defend);
+        _target.PlayAnimation(Anim.hit);
 
         ApplyDamage(_origin, _target);
 
