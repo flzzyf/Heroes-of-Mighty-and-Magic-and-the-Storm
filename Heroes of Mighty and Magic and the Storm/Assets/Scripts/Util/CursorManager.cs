@@ -18,6 +18,11 @@ public class CursorManager : Singleton<CursorManager>
 
     GameObject currentCursor;
 
+    void Start()
+    {
+        ChangeCursor();
+    }
+
     void FixedUpdate()
     {
         cursorParent.position = (Vector2)Input.mousePosition + offset;
