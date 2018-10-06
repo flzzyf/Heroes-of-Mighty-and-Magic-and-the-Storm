@@ -74,7 +74,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //播放攻击音效
         if (_origin.type.sound_attack != null)
         {
-            GameManager.instance.audioSource.PlayOneShot(_origin.type.sound_attack);
+            GameManager.instance.PlaySound(_origin.type.sound_attack);
         }
 
         float attackTime = _origin.GetAnimationLength("attack");
@@ -94,12 +94,21 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         _origin.sprite.sortingLayerName = "Unit";
 
-        //吸血效果
-        if (_origin.currentHP < _origin.type.hp && _origin.PossessTrait("Life Drain"))
+        //吸血效果，生命值不满或者死了人
+        if ((_origin.currentHP < _origin.type.hp ||
+            _origin.num < _origin.originalNum) &&
+            _origin.PossessTrait("Life Drain"))
         {
             _origin.ModifyHp(damage, true);
 
-            yield return new WaitForSeconds(2);
+            //创建吸血效果，播放音效
+            GameManager.instance.PlaySound(TraitManager.instance.GetTrait("Life Drain").sound_trigger);
+            GameObject fx = Instantiate(TraitManager.instance.GetTrait("Life Drain").fx_trigger,
+                _origin.transform.position, Quaternion.identity);
+
+            Destroy(fx, 2);
+
+            yield return new WaitForSeconds(2.5f);
         }
 
         waiting = false;

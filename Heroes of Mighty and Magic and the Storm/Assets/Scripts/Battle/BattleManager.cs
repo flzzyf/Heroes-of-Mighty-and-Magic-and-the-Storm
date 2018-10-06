@@ -67,6 +67,19 @@ public class BattleManager : Singleton<BattleManager>
 
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Wait();
+        }
+    }
+
+    public void Wait()
+    {
+        UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
+    }
+
     public void EnterBattle()
     {
         Camera.main.gameObject.SetActive(false);

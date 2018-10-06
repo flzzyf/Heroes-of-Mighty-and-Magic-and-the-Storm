@@ -19,8 +19,7 @@ MonoBehaviour:
   speed: 5
   moveType: 0
   attackType: 0
-  traits:
-  - {fileID: 11400000, guid: b6531edd0af6149708a8847bca964a54, type: 2}
+  traits: []
   growth: 4
   AIValue: 445
   cost: 300

@@ -27,9 +27,10 @@ public class GameManager : Singleton<GameManager>
         {
             TravelManager.instance.EnterTravelMode();
         }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
-        }
+    }
+
+    public void PlaySound(AudioClip _clip)
+    {
+        audioSource.PlayOneShot(_clip);
     }
 }

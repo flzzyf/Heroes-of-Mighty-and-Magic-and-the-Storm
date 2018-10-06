@@ -229,7 +229,6 @@ public class Unit : NodeObject
                     SetNum(originalNum);
                 }
 
-                print("复活个数：" + resurrectCount);
             }
         }
     }

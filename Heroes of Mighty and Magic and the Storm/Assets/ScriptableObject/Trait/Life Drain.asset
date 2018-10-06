@@ -13,3 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   traitName: "\u5438\u8840"
   chance: 1
+  sound_trigger: {fileID: 8300000, guid: e97836c7fb52bd94ca4733981726710f, type: 3}
+  fx_trigger: {fileID: 1032375084178968, guid: 6f45f905c48f94c1785ee79895e6b383, type: 2}
