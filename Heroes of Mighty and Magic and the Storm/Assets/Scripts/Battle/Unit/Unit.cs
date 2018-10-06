@@ -254,7 +254,7 @@ public class Unit : NodeObject
             int currentHpTotal = (num - 1) * type.hp + currentHP - _amount;
 
             SetNum((currentHpTotal / type.hp) + 1);
-            SetHp(currentHP % type.hp);
+            SetHp(currentHpTotal % type.hp);
         }
     }
     #endregion

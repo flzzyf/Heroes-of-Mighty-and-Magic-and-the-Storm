@@ -5,6 +5,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(menuName = "UnitType")]
 public class UnitType : ScriptableObject
 {
+    public string unitName;
     public RuntimeAnimatorController animControl;
 
     public int att, def, hp;
@@ -21,6 +22,8 @@ public class UnitType : ScriptableObject
     public int cost;
 
     public UnitSize size = UnitSize.middle;
+    public ArmorType armorType;
+
     [Header("远程攻击才需要")]
     public GameObject missile;
     public Vector3 launchPos;

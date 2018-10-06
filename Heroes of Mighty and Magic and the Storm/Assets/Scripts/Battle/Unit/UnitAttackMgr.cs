@@ -118,18 +118,30 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     int ApplyDamage(Unit _origin, Unit _target)
     {
-
         int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
         //print("随机初始伤害：" + damage);
         float damageRate = DamageRate(_origin.att, _target.def);
         damage = (int)(damage * damageRate);
+        //至少也有1点伤害
+        if (damage <= 0) damage = 1;
         damage *= _origin.num;
         //print("伤害倍率：" + damageRate);
 
         //print("造成伤害：" + damage);
 
+        string text = string.Format("{0}造成{1}点伤害", _origin.type.unitName, damage);
+        if (damage >= _target.type.hp)
+            text += string.Format(",{0}个{1}死了。", Mathf.Min(damage / _target.type.hp, _target.num)
+            , _target.type.unitName);
+        BattleInfoMgr.instance.AddText(text);
+
         _target.ModifyHp(damage * -1);
         return damage;
+    }
+
+    public float GetDamageRate(Unit _origin, Unit _target)
+    {
+        return DamageRate(_origin.att, _target.def);
     }
 
     float DamageRate(int _att, int _def)    //攻防伤害倍率计算

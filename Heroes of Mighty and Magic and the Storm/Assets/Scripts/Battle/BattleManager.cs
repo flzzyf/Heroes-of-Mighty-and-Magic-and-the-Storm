@@ -80,8 +80,13 @@ public class BattleManager : Singleton<BattleManager>
     public void Wait()
     {
         //不在等待队列才能等待
-        if (button_wait.interactable)
-            UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
+        if (!button_wait.interactable)
+            return;
+
+        BattleInfoMgr.instance.AddText(BattleManager.currentActionUnit.type.unitName +
+             "暂停，等待更佳的机会行动");
+
+        UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
     }
 
     public void EnterBattle()

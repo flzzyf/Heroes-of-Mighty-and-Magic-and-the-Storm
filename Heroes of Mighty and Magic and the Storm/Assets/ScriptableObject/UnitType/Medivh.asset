@@ -11,16 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: Medivh
   m_EditorClassIdentifier: 
+  unitName: "\u9EA6\u8FEA\u6587"
   animControl: {fileID: 22100000, guid: 5c23de08b8a1d7d4da2f90a6640c3dbf, type: 2}
-  att: 6
-  def: 3
-  hp: 10
-  damage: {x: 2, y: 3}
-  speed: 4
+  att: 12
+  def: 7
+  hp: 30
+  damage: {x: 10, y: 12}
+  speed: 5
   moveType: 0
   attackType: 1
   traits: []
-  growth: 9
+  growth: 3
   AIValue: 126
   cost: 100
   size: 1

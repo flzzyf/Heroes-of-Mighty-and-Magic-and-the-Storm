@@ -11,16 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: Kel
   m_EditorClassIdentifier: 
+  unitName: "\u514B\u5C14\u82CF\u52A0\u5FB7"
   animControl: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e, type: 2}
-  att: 6
-  def: 3
-  hp: 10
-  damage: {x: 2, y: 3}
-  speed: 4
+  att: 13
+  def: 10
+  hp: 30
+  damage: {x: 11, y: 13}
+  speed: 6
   moveType: 0
   attackType: 1
   traits: []
-  growth: 9
+  growth: 3
   AIValue: 126
   cost: 100
   size: 1

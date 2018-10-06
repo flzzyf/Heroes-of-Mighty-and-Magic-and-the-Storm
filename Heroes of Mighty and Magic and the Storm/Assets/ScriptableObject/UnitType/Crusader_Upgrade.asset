@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: Crusader_Upgrade
   m_EditorClassIdentifier: 
+  unitName: "\u4E54\u6C49\u5A1C"
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
   att: 12
   def: 12
@@ -25,6 +26,7 @@ MonoBehaviour:
   AIValue: 558
   cost: 400
   size: 1
+  armorType: 0
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0, z: 0}
   sound_attack: {fileID: 0}

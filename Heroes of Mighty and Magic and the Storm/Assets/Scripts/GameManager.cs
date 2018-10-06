@@ -27,6 +27,14 @@ public class GameManager : Singleton<GameManager>
         {
             TravelManager.instance.EnterTravelMode();
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            BattleInfoMgr.instance.AddText("qwe");
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            BattleInfoMgr.instance.AddText("asd");
+        }
     }
 
     public void PlaySound(AudioClip _clip)

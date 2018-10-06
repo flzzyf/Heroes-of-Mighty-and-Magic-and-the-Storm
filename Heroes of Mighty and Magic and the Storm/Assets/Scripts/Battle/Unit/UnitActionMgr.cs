@@ -94,6 +94,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         while (order == null)
             yield return null;
 
+        //BattleInfoMgr.instance.ClearText();
+
         //停止闪烁
         BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 

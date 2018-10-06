@@ -150,6 +150,15 @@ public class MapManager_Battle : MapManager
         else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
             CursorManager.instance.ChangeCursor("arrow");
+
+            //显示文本
+            float damageRate = UnitAttackMgr.instance.GetDamageRate(
+                    BattleManager.currentActionUnit, _node.nodeObject.GetComponent<Unit>());
+            int num = BattleManager.currentActionUnit.num;
+            BattleInfoMgr.instance.SetText(string.Format("攻击{0}（伤害{1}-{2}）",
+                _node.nodeObject.GetComponent<Unit>().type.unitName,
+                (int)(BattleManager.currentActionUnit.type.damage.x * num * damageRate),
+                (int)(BattleManager.currentActionUnit.type.damage.y * num * damageRate)));
         }
         //不可到达点
         // else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.empty)
