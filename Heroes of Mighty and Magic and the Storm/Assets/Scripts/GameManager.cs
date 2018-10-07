@@ -29,11 +29,11 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            BattleInfoMgr.instance.AddText("qwe");
+            QualitySettings.SetQualityLevel(3);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            BattleInfoMgr.instance.AddText("asd");
+            QualitySettings.SetQualityLevel(0);
         }
     }
 

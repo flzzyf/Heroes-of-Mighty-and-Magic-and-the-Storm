@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 480295662}
   - component: {fileID: 480295661}
   m_Layer: 0
-  m_Name: Button (6)
+  m_Name: Button_Magic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1064,7 +1064,7 @@ RectTransform:
   m_Children:
   - {fileID: 1740206888}
   m_Father: {fileID: 493391725}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1319,10 +1319,10 @@ RectTransform:
   - {fileID: 1151706666}
   - {fileID: 635946112}
   - {fileID: 1464839148}
-  - {fileID: 633984726}
   - {fileID: 1630989784}
-  - {fileID: 1414796852}
   - {fileID: 480295660}
+  - {fileID: 1414796852}
+  - {fileID: 633984726}
   - {fileID: 13077864}
   m_Father: {fileID: 1764981993}
   m_RootOrder: 4
@@ -1711,8 +1711,9 @@ GameObject:
   - component: {fileID: 633984729}
   - component: {fileID: 633984728}
   - component: {fileID: 633984727}
+  - component: {fileID: 633984730}
   m_Layer: 0
-  m_Name: Button (3)
+  m_Name: Button_Defend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1730,7 +1731,7 @@ RectTransform:
   m_Children:
   - {fileID: 2058627174}
   m_Father: {fileID: 493391725}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1756,11 +1757,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.8018868, g: 0.7905393, b: 0.7905393, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.41
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -1772,10 +1773,21 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 633984728}
+  m_TargetGraphic: {fileID: 2058627175}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1638976379}
+        m_MethodName: Defend
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &633984728
@@ -1812,6 +1824,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 633984725}
   m_CullTransparentMesh: 0
+--- !u!114 &633984730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 633984725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: "\u9632\u5FA1"
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &635946111
 GameObject:
   m_ObjectHideFlags: 0
@@ -3794,7 +3836,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95353328489820648, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -5092,6 +5134,7 @@ GameObject:
   - component: {fileID: 1414796855}
   - component: {fileID: 1414796854}
   - component: {fileID: 1414796853}
+  - component: {fileID: 1414796856}
   m_Layer: 0
   m_Name: Button_Wait
   m_TagString: Untagged
@@ -5204,6 +5247,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1414796851}
   m_CullTransparentMesh: 0
+--- !u!114 &1414796856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1414796851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetText
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: "\u7B49\u5F85"
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1418723121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6062,7 +6135,7 @@ RectTransform:
   m_Children:
   - {fileID: 2019059670}
   m_Father: {fileID: 493391725}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}

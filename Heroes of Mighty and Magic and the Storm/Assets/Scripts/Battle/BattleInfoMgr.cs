@@ -51,23 +51,21 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         ClearText();
     }
 
-    public void AddText_Damage(Unit _origin, Unit _target, int _damage)
+    public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)
     {
         string text = string.Format("{0}造成{1}点伤害", _origin.type.unitName, _damage);
         if (_damage >= _target.type.hp)
-            text += string.Format("，{0}个{1}死了", Mathf.Min(_damage / _target.type.hp, _target.num)
-            , _target.type.unitName);
+            text += string.Format("，{0}个{1}死了", _deathNum, _target.type.unitName);
 
         AddText(text);
     }
 
-    public void AddText_LifeDrain(Unit _origin, Unit _target, int _damage)
+    public void AddText_LifeDrain(Unit _origin, Unit _target, int _damage, int _resurrectNum)
     {
         string text = string.Format("{0}从{1}吸收了{2}点生命", _origin.type.unitName,
             _target.type.unitName, _damage);
-        if (_damage >= _origin.type.hp - _origin.currentHP)
-            text += string.Format("，{0}个{1}复活了", (_damage + _origin.currentHP) / _origin.type.hp,
-            _origin.type.unitName);
+        if (_resurrectNum > 0)
+            text += string.Format("，并有{0}个复活了", _resurrectNum);
 
         AddText(text);
     }

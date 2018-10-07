@@ -160,6 +160,10 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             BattleManager bm = BattleManager.instance;
             bm.AddUnitToActionList(ref bm.waitingUnitList, BattleManager.currentActionUnit, false);
         }
+        else if (order.type == OrderType.defend)
+        {
+            //获得+1防御力buff一回合
+        }
 
         order = null;
     }
@@ -200,7 +204,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     }
 }
 
-public enum OrderType { move, attack, wait, defence, cast }
+public enum OrderType { move, attack, wait, defend, cast }
 
 public class Order
 {

@@ -75,6 +75,10 @@ public class BattleManager : Singleton<BattleManager>
         {
             Wait();
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Defend();
+        }
     }
 
     public void Wait()
@@ -87,6 +91,15 @@ public class BattleManager : Singleton<BattleManager>
              "暂停，等待更佳的机会行动");
 
         UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
+    }
+
+    public void Defend()
+    {
+        BattleInfoMgr.instance.AddText(BattleManager.currentActionUnit.type.unitName +
+             "选择防御，获得+1防御力");
+
+        UnitActionMgr.order = new Order(OrderType.defend, BattleManager.currentActionUnit);
+
     }
 
     public void EnterBattle()

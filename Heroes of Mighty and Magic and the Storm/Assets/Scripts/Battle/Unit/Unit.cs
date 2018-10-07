@@ -171,6 +171,13 @@ public class Unit : NodeObject
         }
     }
     #region Number and HP
+    //初始总共血量
+    public int originalHp { get { return originalNum * type.hp; } }
+    //当前总共血量
+    public int totalHp { get { return ((num - 1) * type.hp) + currentHP; } }
+    //失去的血量
+    public int missedHp { get { return originalHp - totalHp; } }
+
     public void SetNum(int _amount)
     {
         num = _amount;
@@ -194,72 +201,76 @@ public class Unit : NodeObject
         SetHp(currentHP + _amount);
     }
 
-    public void ModifyHp(int _amount, bool _canResurrect = false)
+    public int ModifyHp(int _amount, bool _canResurrect = false)
     {
         if (_amount > 0)
         {
             //大于0为治疗
-            RestoreHp(_amount, _canResurrect);
+            return RestoreHp(_amount, _canResurrect);
         }
         else if (_amount < 0)
         {
             //小于0为伤害
-            TakeDamage(_amount * -1);
+            return TakeDamage(_amount * -1);
         }
+
+        return 0;
     }
-    //恢复生命
-    void RestoreHp(int _amount, bool _canResurrect = false)
+    //恢复生命，返回复活数量
+    int RestoreHp(int _amount, bool _canResurrect = false)
     {
+        //回复之后的生命值
         int hp = currentHP + _amount;
-        if (hp <= type.hp)
+
+        //回复不溢出或者无法复活，直接设血为不超过最大生命的量
+        if (hp <= type.hp || !_canResurrect)
         {
-            SetHp(hp);
+            SetHp(Mathf.Min(type.hp, hp));
+            return 0;
         }
         else
         {
-            //治疗量超过最大生命，如果不能复活
-            if (!_canResurrect)
-            {
-                SetHp(type.hp);
-            }
-            else
-            {
-                int resurrectCount = hp / type.hp;
-                SetHp(hp % type.hp);
-
-                //复活不能超过战斗开始时数量
-                if (num + resurrectCount < originalNum)
-                {
-                    ChangeNum(resurrectCount);
-                }
-                else
-                {
-                    SetNum(originalNum);
-                }
-
-            }
+            //可以复活，而且血量超过最大生命
+            SetHp(hp % type.hp);
+            //int resurrectNum = (hp - hp % type.hp) / type.hp + 1;
+            //int resurrectNum = (hp - type.hp) / type.hp + 1;
+            int resurrectNum = hp % type.hp > 0 ? hp / type.hp : hp / type.hp - 1;
+            ChangeNum(resurrectNum);
+            return resurrectNum;
         }
     }
-    //造成伤害，导致单位死亡
-    void TakeDamage(int _amount)
+    //造成伤害，返回单位死亡数量
+    int TakeDamage(int _amount)
     {
+        int remainHpTotal = totalHp - _amount;
         //如果致命
-        if (_amount >= (num - 1) * type.hp + currentHP)
+        if (remainHpTotal <= 0)
         {
+            int deathNum = num;
             Death();
+
+            return deathNum;
         }
         else
         {
             //不致命
-            int currentHpTotal = (num - 1) * type.hp + currentHP - _amount;
+            int deathNum = _amount / type.hp;
+            int remainHp = remainHpTotal % type.hp;
+            if (remainHp == 0) remainHp = type.hp;
+            print(remainHp);
 
-            SetNum((currentHpTotal / type.hp) + 1);
-            SetHp(currentHpTotal % type.hp);
+            if (deathNum != 0)
+                ChangeNum(deathNum * -1);
+            SetHp(remainHp);
+            return deathNum;
         }
     }
     #endregion
     void Death()
     {
+        SetNum(0);
+        SetHp(0);
+
         BattleManager.Instance().unitActionList.Remove(this);
         BattleManager.Instance().unitActionOrder.Remove(this);
         BattleManager.Instance().waitingUnitList.Remove(this);

@@ -110,10 +110,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             _origin.num < _origin.originalNum) &&
             _origin.PossessTrait("Life Drain"))
         {
-            _origin.ModifyHp(damage, true);
+            int resurrectNum = _origin.ModifyHp(damage, true);
 
             //吸血文本
-            BattleInfoMgr.instance.AddText_LifeDrain(_origin, _target, damage);
+            BattleInfoMgr.instance.AddText_LifeDrain(_origin, _target, damage, resurrectNum);
 
             //创建吸血效果，播放音效
             GameManager.instance.PlaySound(TraitManager.instance.GetTrait("Life Drain").sound_trigger);
@@ -174,9 +174,12 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //print("伤害倍率：" + damageRate);
         //print("造成伤害：" + damage);
 
-        BattleInfoMgr.instance.AddText_Damage(_origin, _target, damage);
+        //伤害不能超过单位剩余生命
+        damage = Mathf.Min(damage, _target.totalHp);
 
-        _target.ModifyHp(damage * -1);
+        int deathNum = _target.ModifyHp(damage * -1);
+        BattleInfoMgr.instance.AddText_Damage(_origin, _target, damage, deathNum);
+
         return damage;
     }
 
