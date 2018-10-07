@@ -166,6 +166,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     int ApplyDamage(Unit _origin, Unit _target)
     {
+        ImpactSoundMgr.PlayImpactSound(_origin, _target);
+
         int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
         //print("随机初始伤害：" + damage);
         float damageRate = DamageRate(_origin.att, _target.def);
