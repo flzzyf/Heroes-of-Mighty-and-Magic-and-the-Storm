@@ -266,4 +266,20 @@ public class BattleManager : Singleton<BattleManager>
         return _u1.player == _u2.player;
     }
 
+    public GameObject UI_UnitStat;
+    public Text[] text_unitStat;
+
+    public void ShowUnitStatUI(bool _show, Unit _unit)
+    {
+        UI_UnitStat.SetActive(_show);
+
+        if (_show)
+        {
+            text_unitStat[0].text = _unit.type.att + "";
+            text_unitStat[1].text = _unit.type.def + "";
+            text_unitStat[2].text = _unit.type.damage.x + "-" + _unit.type.damage.y;
+            text_unitStat[3].text = _unit.type.hp + "";
+        }
+    }
+
 }

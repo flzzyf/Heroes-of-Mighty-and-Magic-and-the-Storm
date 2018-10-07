@@ -108,6 +108,9 @@ public class MapManager_Battle : MapManager
         if (_node.nodeObject != null &&
             _node.nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit)
         {
+            //显示并更新单位属性UI
+            BattleManager.instance.ShowUnitStatUI(true, _node.nodeObject.GetComponent<Unit>());
+
             //如果不是当前行动单位，开始闪烁
             if (_node.nodeObject != BattleManager.currentActionUnit)
             {

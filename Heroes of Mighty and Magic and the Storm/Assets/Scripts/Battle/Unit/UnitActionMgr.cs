@@ -94,7 +94,9 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         while (order == null)
             yield return null;
 
-        //停止闪烁
+        BattleManager.currentActionUnit.UI.SetActive(false);
+
+        //玩家下令，开始执行命令
         BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
 
         ResetNodes();
@@ -104,6 +106,9 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         //在指令完成前暂停
         while (order != null)
             yield return null;
+
+        //命令执行完毕
+        BattleManager.currentActionUnit.UI.SetActive(true);
 
         GameManager.instance.gamePaused = false;
 
