@@ -269,7 +269,7 @@ public class BattleManager : Singleton<BattleManager>
     public GameObject UI_UnitStat;
     public Text[] text_unitStat;
 
-    public void ShowUnitStatUI(bool _show, Unit _unit)
+    public void ShowUnitStatUI(bool _show, Unit _unit = null)
     {
         UI_UnitStat.SetActive(_show);
 

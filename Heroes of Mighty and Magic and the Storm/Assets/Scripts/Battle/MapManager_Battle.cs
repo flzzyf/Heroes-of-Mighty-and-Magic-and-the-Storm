@@ -172,6 +172,9 @@ public class MapManager_Battle : MapManager
 
     public override void OnNodeUnhovered(NodeItem _node)
     {
+        //显示并更新单位属性UI
+        BattleManager.instance.ShowUnitStatUI(false);
+
         playerHovered = null;
 
         CursorManager.instance.ChangeCursor();

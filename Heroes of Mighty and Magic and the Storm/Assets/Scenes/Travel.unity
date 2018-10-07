@@ -6957,7 +6957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1500115233
 Transform:
   m_ObjectHideFlags: 0
@@ -7894,7 +7894,7 @@ MonoBehaviour:
   button_wait: {fileID: 1414796853}
   prefab_unit: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
     type: 2}
-  UI_UnitStat: {fileID: 91319951}
+  UI_UnitStat: {fileID: 1111564370}
   text_unitStat:
   - {fileID: 2025873722}
   - {fileID: 2074898314}
@@ -9819,7 +9819,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -9842,6 +9842,10 @@ Prefab:
       value: 
       objectReference: {fileID: 22100000, guid: 950705c3924ee6f4f846a7f9eec9c157,
         type: 2}
+    - target: {fileID: 1487516444817172, guid: 7941d79ee91184110bce8696cb055256, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7941d79ee91184110bce8696cb055256, type: 2}
   m_IsPrefabAsset: 0

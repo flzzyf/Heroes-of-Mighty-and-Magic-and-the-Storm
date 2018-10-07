@@ -108,7 +108,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             yield return null;
 
         //命令执行完毕
-        BattleManager.currentActionUnit.UI.SetActive(true);
+        if (!BattleManager.currentActionUnit.dead)
+            BattleManager.currentActionUnit.UI.SetActive(true);
 
         GameManager.instance.gamePaused = false;
 

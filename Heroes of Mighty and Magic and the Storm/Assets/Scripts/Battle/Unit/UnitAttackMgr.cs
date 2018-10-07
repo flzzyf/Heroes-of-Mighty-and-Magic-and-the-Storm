@@ -198,6 +198,9 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         else if (_att < _def)
             r = (1 - (_def - _att) * 0.025f);
 
+        //最高400%伤害
+        r = Mathf.Min(4, r);
+
         return r;
     }
 

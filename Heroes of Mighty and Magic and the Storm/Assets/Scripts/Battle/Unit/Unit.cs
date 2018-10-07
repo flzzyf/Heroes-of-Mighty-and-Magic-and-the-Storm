@@ -261,7 +261,6 @@ public class Unit : NodeObject
             int deathNum = _amount / type.hp;
             int remainHp = remainHpTotal % type.hp;
             if (remainHp == 0) remainHp = type.hp;
-            print(remainHp);
 
             if (deathNum != 0)
                 ChangeNum(deathNum * -1);
