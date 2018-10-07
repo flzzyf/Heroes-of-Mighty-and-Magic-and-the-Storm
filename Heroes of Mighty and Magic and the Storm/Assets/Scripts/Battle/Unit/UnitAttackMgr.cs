@@ -112,6 +112,9 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         {
             _origin.ModifyHp(damage, true);
 
+            //吸血文本
+            BattleInfoMgr.instance.AddText_LifeDrain(_origin, _target, damage);
+
             //创建吸血效果，播放音效
             GameManager.instance.PlaySound(TraitManager.instance.GetTrait("Life Drain").sound_trigger);
             GameObject fx = Instantiate(TraitManager.instance.GetTrait("Life Drain").fx_trigger,
@@ -169,14 +172,9 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         if (damage <= 0) damage = 1;
         damage *= _origin.num;
         //print("伤害倍率：" + damageRate);
-
         //print("造成伤害：" + damage);
 
-        string text = string.Format("{0}造成{1}点伤害", _origin.type.unitName, damage);
-        if (damage >= _target.type.hp)
-            text += string.Format(",{0}个{1}死了", Mathf.Min(damage / _target.type.hp, _target.num)
-            , _target.type.unitName);
-        BattleInfoMgr.instance.AddText(text);
+        BattleInfoMgr.instance.AddText_Damage(_origin, _target, damage);
 
         _target.ModifyHp(damage * -1);
         return damage;
