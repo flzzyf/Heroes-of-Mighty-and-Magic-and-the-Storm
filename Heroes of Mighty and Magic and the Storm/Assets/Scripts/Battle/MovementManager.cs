@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class MovementManager : Singleton<MovementManager>
 {
-    public float UnitSpeed = 14;
-    public float flyingSpeed = 22;
+    public float unitSpeedOriginal = 14;
+    public float unitSpeedMultipler = 0.5f;
+    public float flyingSpeedmultipler = 1.5f;
 
     public static bool moving;
-    Transform movingObj;
     List<NodeItem> path;
 
     //按照路径移动物体
@@ -16,57 +16,59 @@ public class MovementManager : Singleton<MovementManager>
     {
         GameManager.instance.gamePaused = true;
 
-        movingObj = _obj;
-        MoveObjectStart();
+        MoveObjectStart(_obj);
 
         path = _path;
 
-        StartCoroutine(IEMoveObject());
+        StartCoroutine(IEMoveObject(_obj));
     }
 
-    IEnumerator IEMoveObject()
+    IEnumerator IEMoveObject(Transform _obj)
     {
+        float speed = _obj.GetComponent<Unit>().speed;
+        speed = unitSpeedOriginal + unitSpeedMultipler * speed;
+
         for (int i = 0; i < path.Count; i++)
         {
             Vector3 targetPos = path[i].transform.position;
 
-            Vector3 dir = targetPos - movingObj.position;
+            Vector3 dir = targetPos - _obj.position;
             dir.z = 0;
 
             //改变单位朝向
-            movingObj.GetComponent<Unit>().FaceTarget(path[i].transform.position);
+            _obj.GetComponent<Unit>().FaceTarget(path[i].transform.position);
 
-            while (Vector2.Distance(movingObj.position, targetPos) > UnitSpeed * Time.deltaTime)
+            while (Vector2.Distance(_obj.position, targetPos) > speed * Time.deltaTime)
             {
-                movingObj.Translate(dir.normalized * UnitSpeed * Time.deltaTime);
+                _obj.Translate(dir.normalized * speed * Time.deltaTime);
 
                 yield return null;
             }
         }
 
-        StartCoroutine(MoveObjectFinish(path[path.Count - 1]));
+        StartCoroutine(MoveObjectFinish(_obj, path[path.Count - 1]));
     }
     //开始移动单位
-    void MoveObjectStart()
+    void MoveObjectStart(Transform _obj)
     {
         moving = true;
-        movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk);
+        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk);
     }
     //移动到目的地后
-    IEnumerator MoveObjectFinish(NodeItem _targetNode)
+    IEnumerator MoveObjectFinish(Transform _obj, NodeItem _targetNode)
     {
         GameManager.instance.gamePaused = false;
 
-        movingObj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
+        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
 
-        if (movingObj.GetComponent<Unit>().RestoreFacing())
+        if (_obj.GetComponent<Unit>().RestoreFacing())
         {
             //需要转身
             yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
         }
 
         //设置节点上的物体，设置英雄所在位置、节点
-        BattleManager.instance.LinkNodeWithUnit(movingObj.GetComponent<Unit>(), _targetNode);
+        BattleManager.instance.LinkNodeWithUnit(_obj.GetComponent<Unit>(), _targetNode);
 
         moving = false;
     }
@@ -75,27 +77,29 @@ public class MovementManager : Singleton<MovementManager>
     {
         GameManager.instance.gamePaused = true;
 
-        movingObj = _obj;
-        MoveObjectStart();
+        MoveObjectStart(_obj);
 
-        StartCoroutine(MoveUnitFlyingCor(_node));
+        StartCoroutine(MoveUnitFlyingCor(_obj, _node));
     }
 
-    IEnumerator MoveUnitFlyingCor(NodeItem _node)
+    IEnumerator MoveUnitFlyingCor(Transform _obj, NodeItem _node)
     {
+        float speed = _obj.GetComponent<Unit>().speed;
+        speed = unitSpeedOriginal + unitSpeedMultipler * speed * flyingSpeedmultipler;
+
         Vector3 targetPos = _node.transform.position;
-        Vector3 dir = targetPos - movingObj.position;
+        Vector3 dir = targetPos - _obj.position;
         dir.z = 0;
 
-        while (Vector2.Distance(movingObj.position, targetPos) > flyingSpeed * Time.deltaTime)
+        while (Vector2.Distance(_obj.position, targetPos) > speed * Time.deltaTime)
         {
-            movingObj.Translate(dir.normalized * flyingSpeed * Time.deltaTime);
+            _obj.Translate(dir.normalized * speed * Time.deltaTime);
 
             yield return null;
         }
 
-        movingObj.position = targetPos;
+        _obj.position = targetPos;
 
-        StartCoroutine(MoveObjectFinish(_node));
+        StartCoroutine(MoveObjectFinish(_obj, _node));
     }
 }

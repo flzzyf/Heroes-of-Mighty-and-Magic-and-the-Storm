@@ -12,7 +12,7 @@ public class Unit : NodeObject
     public SpriteRenderer sprite;
     public Animator animator;
     public Text text_number;
-    public GameObject ui;
+    public GameObject UI;
 
     //单位属性
     [HideInInspector]
@@ -74,7 +74,7 @@ public class Unit : NodeObject
     }
     #region Facing
 
-    bool facingRight { get { return sprite.flipX == false; } }
+    public bool facingRight { get { return sprite.flipX == false; } }
 
     IEnumerator FlipWithAnimation()
     {
@@ -88,12 +88,16 @@ public class Unit : NodeObject
     void Flip()
     {
         sprite.flipX = !sprite.flipX;
+        Vector3 UIPos = UI.transform.GetComponent<RectTransform>().localPosition;
+        UIPos.x *= -1;
+        UI.transform.GetComponent<RectTransform>().localPosition = UIPos;
     }
 
     public void SetFacing(int _facing)
     {
         bool flipX = _facing == 0 ? false : true;
-        sprite.flipX = flipX;
+        if (sprite.flipX != flipX)
+            Flip();
     }
 
     public bool RestoreFacing()
@@ -282,7 +286,7 @@ public class Unit : NodeObject
         BattleManager.Instance().UnlinkNodeWithUnit(this);
 
         animator.Play("Death");
-        ui.SetActive(false);
+        UI.SetActive(false);
 
         sprite.sortingLayerName = "DeadUnit";
     }

@@ -137,8 +137,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         _origin.PlayAnimation(Anim.attack);
         yield return new WaitForSeconds(hitTime);
 
-        Vector3 launchPos = _origin.transform.position + _origin.type.launchPos;
-        Vector3 targetPos = _target.transform.position + _target.type.impactPos;
+        Vector2 launchOffset = _origin.type.launchPos;
+        if (!_origin.facingRight) launchOffset.x *= -1;
+        Vector3 launchPos = _origin.transform.position + (Vector3)launchOffset;
+        Vector3 targetPos = _target.transform.position + (Vector3)_target.type.impactPos;
         Transform missile = Instantiate(_origin.type.missile, launchPos, Quaternion.identity).transform;
 
         Vector2 dir = targetPos - launchPos;
