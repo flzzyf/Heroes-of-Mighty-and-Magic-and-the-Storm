@@ -28,7 +28,9 @@ MonoBehaviour:
   size: 1
   armorType: 0
   missile: {fileID: 0}
-  launchPos: {x: 0, y: 0, z: 0}
-  sound_attack: {fileID: 0}
+  launchPos: {x: 0, y: 0}
+  sound_attack: {fileID: 8300000, guid: 1610339ba07df8549bd7801ebab77563, type: 3}
   sound_attackImpact: {fileID: 0}
+  sound_walk: {fileID: 8300000, guid: 6034f1994172dc940bb61fbc4bc2291b, type: 3}
+  sound_hit: {fileID: 0}
   sound_death: {fileID: 0}

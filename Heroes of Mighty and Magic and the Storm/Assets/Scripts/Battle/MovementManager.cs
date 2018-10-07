@@ -53,6 +53,19 @@ public class MovementManager : Singleton<MovementManager>
     {
         moving = true;
         _obj.GetComponent<Unit>().PlayAnimation(Anim.walk);
+
+        if (_obj.GetComponent<Unit>().type.sound_walk != null)
+            StartCoroutine(PlayMoveSound(_obj.GetComponent<Unit>()));
+    }
+
+    IEnumerator PlayMoveSound(Unit _unit)
+    {
+        while (moving)
+        {
+            GameManager.instance.PlaySound(_unit.type.sound_walk[Random.Range(0, _unit.type.sound_walk.Length)]);
+
+            yield return new WaitForSeconds(Random.Range(.35f, .45f));
+        }
     }
     //移动到目的地后
     IEnumerator MoveObjectFinish(Transform _obj, NodeItem _targetNode)

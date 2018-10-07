@@ -30,6 +30,8 @@ public class UnitType : ScriptableObject
     [Header("音效")]
     public AudioClip sound_attack;
     public AudioClip sound_attackImpact;
+    public AudioClip[] sound_walk;
+    public AudioClip sound_hit;
     public AudioClip sound_death;
 
     public Vector2 impactPos
