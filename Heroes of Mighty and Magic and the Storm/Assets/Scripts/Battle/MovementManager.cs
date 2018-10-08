@@ -62,7 +62,8 @@ public class MovementManager : Singleton<MovementManager>
     {
         while (moving)
         {
-            GameManager.instance.PlaySound(_unit.type.sound_walk[Random.Range(0, _unit.type.sound_walk.Length)]);
+            if (_unit.type.sound_walk.Length != 0)
+                GameManager.instance.PlaySound(_unit.type.sound_walk[Random.Range(0, _unit.type.sound_walk.Length)]);
 
             yield return new WaitForSeconds(Random.Range(.35f, .45f));
         }

@@ -44,15 +44,6 @@ public class Unit : NodeObject
         {
             //print(GetLengthByName("Leoric_Attack"));
             PlayAnimation(Anim.attack);
-
-            //animator.GetCurrentAnimatorStateInfo(0).;
-            print(animator.runtimeAnimatorController);
-
-
-            foreach (var item in animator.runtimeAnimatorController.animationClips)
-            {
-                print(item.name);
-            }
         }
     }
 
@@ -168,16 +159,26 @@ public class Unit : NodeObject
             animator.Play("Hit");
         }
 
-        StartCoroutine(PlayAnimationCor());
+        if (_anim != Anim.walk)
+            StartCoroutine(PlayAnimationCor());
     }
 
+    [HideInInspector]
+    public bool isPlayingAnimation;
     IEnumerator PlayAnimationCor()
     {
+        UI.SetActive(false);
+
+        isPlayingAnimation = true;
         yield return null;
         float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
-        print(animationTime);
+        //print(animationTime);
+
         yield return new WaitForSeconds(animationTime);
-        print("播放完成");
+        //print("播放完成");
+        isPlayingAnimation = false;
+
+        UI.SetActive(true);
     }
 
     public float GetLengthByName(string name)

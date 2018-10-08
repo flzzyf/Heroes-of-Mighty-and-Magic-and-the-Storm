@@ -26,7 +26,6 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     void ChangeHalo(Unit _unit, float _value = 0)
     {
-        print(_value);
         Color color = _unit.sprite.material.GetColor("_Color");
         color.a = _value;
         _unit.sprite.material.SetColor("_Color", color);
