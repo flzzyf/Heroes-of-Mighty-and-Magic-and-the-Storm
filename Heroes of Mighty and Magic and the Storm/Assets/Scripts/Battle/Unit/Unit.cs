@@ -26,9 +26,6 @@ public class Unit : NodeObject
         {"move", 2}, {"attack", 1}
     };
 
-    bool outlineFlashing;
-    bool fading;
-
     [HideInInspector]
     public bool dead;
 
@@ -39,26 +36,23 @@ public class Unit : NodeObject
     {
         if (type != null)
             InitUnitType();
-
     }
 
-    private void Update()
+    void Update()
     {
-        if (outlineFlashing)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            Color color = sprite.material.GetColor("_Color");
+            //print(GetLengthByName("Leoric_Attack"));
+            PlayAnimation(Anim.attack);
 
-            float alpha = color.a;
+            //animator.GetCurrentAnimatorStateInfo(0).;
+            print(animator.runtimeAnimatorController);
 
-            if (alpha > GameSettings.instance.outlineFlashRangeMax || alpha < GameSettings.instance.outlineFlashRangeMin)
+
+            foreach (var item in animator.runtimeAnimatorController.animationClips)
             {
-                alpha = Mathf.Clamp(alpha, GameSettings.instance.outlineFlashRangeMin, GameSettings.instance.outlineFlashRangeMax);
-
-                fading = !fading;
+                print(item.name);
             }
-
-            int sign = fading ? -1 : 1;
-            ChangeOutline(alpha + sign * GameSettings.instance.outlineFlashSpeed * Time.deltaTime);
         }
     }
 
@@ -173,7 +167,39 @@ public class Unit : NodeObject
         {
             animator.Play("Hit");
         }
+
+        StartCoroutine(PlayAnimationCor());
     }
+
+    IEnumerator PlayAnimationCor()
+    {
+        yield return null;
+        float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
+        print(animationTime);
+        yield return new WaitForSeconds(animationTime);
+        print("播放完成");
+    }
+
+    public float GetLengthByName(string name)
+    {
+        float length = 0;
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+
+        foreach (AnimationClip clip in clips)
+        {
+            print(clip.name);
+
+            if (clip.name.Equals(name))
+            {
+                length = clip.length;
+                break;
+            }
+        }
+
+
+        return length;
+    }
+
     #region Number and HP
     //初始总共血量
     public int originalHp { get { return originalNum * type.hp; } }
@@ -290,46 +316,6 @@ public class Unit : NodeObject
         sprite.sortingLayerName = "DeadUnit";
     }
 
-    #region Outline
-    void ChangeOutline(float _value = 0)
-    {
-        Color color = sprite.material.GetColor("_Color");
-        color.a = _value;
-        sprite.material.SetColor("_Color", color);
-    }
-
-    public void OutlineFlashStart()
-    {
-        sprite.material.SetFloat("_LineWidth", 13);
-
-        outlineFlashing = true;
-        fading = true;
-        ChangeOutline(GameSettings.instance.outlineFlashRangeMax);
-    }
-
-    public void OutlineFlashStop()
-    {
-        sprite.material.SetFloat("_LineWidth", 0);
-
-        outlineFlashing = false;
-        ChangeOutline(0);
-    }
-
-    public void ChangeOutlineColor(string _color)
-    {
-        for (int i = 0; i < BattleManager.instance.outlineColor.Length; i++)
-        {
-            if (_color == BattleManager.instance.outlineColor[i].name)
-            {
-                sprite.material.SetColor("_Color", BattleManager.instance.outlineColor[i].color);
-                return;
-            }
-        }
-
-        print("未能找到颜色");
-    }
-
-    #endregion
     //拥有特质
     public bool PossessTrait(string _name)
     {

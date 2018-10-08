@@ -19,9 +19,6 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
         BattleManager.currentActionUnit = _unit;
 
-        _unit.GetComponent<Unit>().ChangeOutlineColor("action");
-        _unit.GetComponent<Unit>().OutlineFlashStart();
-
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
@@ -85,19 +82,21 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             map.OnNodeHovered(map.playerHovered);
         }
 
-        StartCoroutine(ActionStartCor());
+        StartCoroutine(ActionStartCor(_unit));
     }
 
-    IEnumerator ActionStartCor()
+    IEnumerator ActionStartCor(Unit _unit)
     {
+        UnitHaloMgr.instance.HaloFlashStart(_unit, "action");
+
         //在玩家下令前暂停
         while (order == null)
             yield return null;
 
-        BattleManager.currentActionUnit.UI.SetActive(false);
+        _unit.UI.SetActive(false);
 
         //玩家下令，开始执行命令
-        BattleManager.currentActionUnit.GetComponent<Unit>().OutlineFlashStop();
+        UnitHaloMgr.instance.HaloFlashStop(_unit);
 
         ResetNodes();
         InvokeOrder();
@@ -108,8 +107,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             yield return null;
 
         //命令执行完毕
-        if (!BattleManager.currentActionUnit.dead)
-            BattleManager.currentActionUnit.UI.SetActive(true);
+        if (!_unit.dead)
+            _unit.UI.SetActive(true);
 
         GameManager.instance.gamePaused = false;
 

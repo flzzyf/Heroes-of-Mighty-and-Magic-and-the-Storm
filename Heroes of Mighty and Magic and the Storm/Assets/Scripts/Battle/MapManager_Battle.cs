@@ -118,11 +118,9 @@ public class MapManager_Battle : MapManager
 
                 if (BattleManager.instance.isSamePlayer(_node.nodeObject.GetComponent<Unit>(),
                     BattleManager.currentActionUnit))
-                    lastFlashingUnit.ChangeOutlineColor("friend");
+                    UnitHaloMgr.instance.HaloFlashStart(lastFlashingUnit, "friend");
                 else
-                    lastFlashingUnit.ChangeOutlineColor("enemy");
-
-                lastFlashingUnit.OutlineFlashStart();
+                    UnitHaloMgr.instance.HaloFlashStart(lastFlashingUnit, "enemy");
             }
 
             //根据敌友改变指针
@@ -182,7 +180,7 @@ public class MapManager_Battle : MapManager
 
         if (lastFlashingUnit != null)
         {
-            lastFlashingUnit.OutlineFlashStop();
+            UnitHaloMgr.instance.HaloFlashStop(lastFlashingUnit);
 
             lastFlashingUnit = null;
         }

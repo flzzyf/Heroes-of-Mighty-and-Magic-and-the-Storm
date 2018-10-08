@@ -52,15 +52,6 @@ public class BattleManager : Singleton<BattleManager>
 
     public GameObject cam;
 
-    [System.Serializable]
-    public class OutlineColor
-    {
-        public string name;
-        public Color color = Color.white;
-    }
-
-    public OutlineColor[] outlineColor;
-
     public Button button_wait;
 
     public void Init()

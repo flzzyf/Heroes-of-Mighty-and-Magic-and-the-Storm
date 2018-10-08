@@ -5003,7 +5003,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1222465624}
   - component: {fileID: 1222465627}
-  - component: {fileID: 1222465628}
   - component: {fileID: 1222465629}
   - component: {fileID: 1222465623}
   - component: {fileID: 1222465625}
@@ -5172,20 +5171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grandparent: {fileID: 0}
---- !u!114 &1222465628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1222465622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a981695f8d5fb4122913d630490e6fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineFlashRangeMin: 0.2
-  outlineFlashRangeMax: 0.7
-  outlineFlashSpeed: 1
 --- !u!114 &1222465629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7840,6 +7825,7 @@ GameObject:
   - component: {fileID: 1638976375}
   - component: {fileID: 1638976376}
   - component: {fileID: 1638976377}
+  - component: {fileID: 1638976382}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -7938,13 +7924,6 @@ MonoBehaviour:
   - name: path
     color: {r: 0, g: 0, b: 0, a: 0.5882353}
   cam: {fileID: 1845020234}
-  outlineColor:
-  - name: action
-    color: {r: 0.9098039, g: 1, b: 0.3372549, a: 1}
-  - name: enemy
-    color: {r: 1, g: 0.01978819, b: 0, a: 1}
-  - name: friend
-    color: {r: 0, g: 1, b: 0.12295079, a: 1}
   button_wait: {fileID: 1414796853}
   prefab_unit: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
     type: 2}
@@ -7989,6 +7968,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638976382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638976373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871c4e595b48145358dd73e6ba823082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  haloFlashRangeMin: 0.2
+  haloFlashRangeMax: 0.7
+  haloFlashSpeed: 1
+  haloColor:
+  - name: action
+    color: {r: 0.9528302, g: 0.90755206, b: 0.31910825, a: 1}
+  - name: enemy
+    color: {r: 0.9528302, g: 0, b: 0, a: 1}
+  - name: friend
+    color: {r: 0, g: 1, b: 0.15811014, a: 1}
 --- !u!1 &1662071096
 GameObject:
   m_ObjectHideFlags: 0
@@ -9873,7 +9873,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
