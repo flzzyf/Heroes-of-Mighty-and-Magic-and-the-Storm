@@ -52,7 +52,7 @@ public class MovementManager : Singleton<MovementManager>
     void MoveObjectStart(Transform _obj)
     {
         moving = true;
-        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk);
+        _obj.GetComponent<Unit>().PlayAnimation(Anim.Walk);
 
         if (_obj.GetComponent<Unit>().type.sound_walk != null)
             StartCoroutine(PlayMoveSound(_obj.GetComponent<Unit>()));
@@ -73,7 +73,7 @@ public class MovementManager : Singleton<MovementManager>
     {
         GameManager.instance.gamePaused = false;
 
-        _obj.GetComponent<Unit>().PlayAnimation(Anim.walk, false);
+        _obj.GetComponent<Unit>().PlayAnimation(Anim.Walk, false);
 
         if (_obj.GetComponent<Unit>().RestoreFacing())
         {

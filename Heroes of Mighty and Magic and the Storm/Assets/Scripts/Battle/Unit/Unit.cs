@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.Animations;
 
-public enum Anim { idle, walk, attack, flip, death, defend, hit }
+public enum Anim { Idle, Walk, Attack, Flip, Death, Defend, Hit }
 
 public class Unit : NodeObject
 {
@@ -22,10 +23,6 @@ public class Unit : NodeObject
     [HideInInspector]
     public int retaliations;
 
-    Dictionary<string, int> animIndex = new Dictionary<string, int>{
-        {"move", 2}, {"attack", 1}
-    };
-
     [HideInInspector]
     public bool dead;
 
@@ -43,8 +40,31 @@ public class Unit : NodeObject
         if (Input.GetKeyDown(KeyCode.F))
         {
             //print(GetLengthByName("Leoric_Attack"));
-            PlayAnimation(Anim.attack);
+            //PlayAnimation(Anim.attack);
+            //StartCoroutine(PlayAnim());
+            //print(GetAnimName(Anim.Attack));
         }
+    }
+
+    public float GetAnimationLength(Anim _anim)
+    {
+        AnimatorOverrideController ac = animator.runtimeAnimatorController as AnimatorOverrideController;
+        for (int i = 0; i < ac.clips.Length; i++)
+        {
+            if (ac.clips[i].originalClip.name == _anim.ToString() &&
+                ac.clips[i].overrideClip != null)
+            {
+                return ac.clips[i].overrideClip.length;
+            }
+        }
+        return -1;
+    }
+
+    //播放动画，返回时长
+    float PlayAnimation(Anim _anim)
+    {
+        animator.Play(_anim.ToString());
+        return GetAnimationLength(_anim);
     }
 
     public void InitUnitType()
@@ -63,7 +83,7 @@ public class Unit : NodeObject
 
     IEnumerator FlipWithAnimation()
     {
-        PlayAnimation(Anim.flip);
+        PlayAnimation(Anim.Flip);
 
         yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime / 2);
 
@@ -125,58 +145,26 @@ public class Unit : NodeObject
     }
     #endregion
 
-    public float GetAnimationLength(string _anim)
-    {
-        int index = animIndex[_anim];
-
-        return animator.runtimeAnimatorController.animationClips[index].length;
-    }
-
     public void PlayAnimation(Anim _anim, bool _play = true)
     {
-        if (_anim == Anim.walk)
+        if (_anim == Anim.Walk)
         {
             animator.SetBool("walking", _play);
         }
-        else if (_anim == Anim.attack)
+        else
         {
-            animator.Play("Attack");
+            StartCoroutine(PlayAnimationCor(_anim));
         }
-        else if (_anim == Anim.flip)
-        {
-            animator.Play("Flip");
-        }
-        else if (_anim == Anim.death)
-        {
-            animator.Play("Death");
-        }
-        else if (_anim == Anim.defend)
-        {
-            animator.Play("Defend");
-        }
-        else if (_anim == Anim.hit)
-        {
-            animator.Play("Hit");
-        }
-
-        if (_anim != Anim.walk)
-            StartCoroutine(PlayAnimationCor());
     }
 
     [HideInInspector]
     public bool isPlayingAnimation;
-    IEnumerator PlayAnimationCor()
+    IEnumerator PlayAnimationCor(Anim _anim)
     {
         UI.SetActive(false);
 
-        isPlayingAnimation = true;
-        yield return null;
-        float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
-        //print(animationTime);
-
-        yield return new WaitForSeconds(animationTime);
-        //print("播放完成");
-        isPlayingAnimation = false;
+        float time = PlayAnimation(_anim);
+        yield return new WaitForSeconds(time);
 
         UI.SetActive(true);
     }

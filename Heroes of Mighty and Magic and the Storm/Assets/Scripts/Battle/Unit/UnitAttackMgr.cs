@@ -87,17 +87,17 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             GameManager.instance.PlaySound(_origin.type.sound_attack);
         }
 
-        float attackTime = _origin.GetAnimationLength("attack");
+        float attackTime = _origin.GetAnimationLength(Anim.Attack);
         float hitTime = attackTime * animAttackHitPercent;
 
         _origin.sprite.sortingLayerName = "ActionUnit";
 
-        _origin.PlayAnimation(Anim.attack);
+        _origin.PlayAnimation(Anim.Attack);
         yield return new WaitForSeconds(hitTime);
 
         //print("被击");
         //播放被击和防御动画
-        _target.PlayAnimation(Anim.hit);
+        _target.PlayAnimation(Anim.Hit);
 
         int damage = ApplyDamage(_origin, _target);
 
@@ -131,10 +131,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
     {
         waiting = true;
 
-        float attackTime = _origin.GetAnimationLength("attack");
+        _origin.PlayAnimation(Anim.Attack);
+        float attackTime = _origin.GetAnimationLength(Anim.Attack);
         float hitTime = attackTime * animAttackHitPercent;
 
-        _origin.PlayAnimation(Anim.attack);
         yield return new WaitForSeconds(hitTime);
 
         Vector2 launchOffset = _origin.type.launchPos;
@@ -155,7 +155,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         Destroy(missile.gameObject);
 
-        _target.PlayAnimation(Anim.hit);
+        _target.PlayAnimation(Anim.Hit);
 
         ApplyDamage(_origin, _target);
 
