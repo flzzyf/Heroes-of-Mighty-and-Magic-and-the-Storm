@@ -8,15 +8,9 @@ AnimatorOverrideController:
   m_Name: Tyrael
   m_Controller: {fileID: 9100000, guid: 181596479889b424b8444fdafc002018, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 89dd101d4ad889242bc96d802a088293, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 41c5f3a76ac6a64459ff2113f45b1e49, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 8a6a93ead4b9cd44392826694ff562bb, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: f2d51a11bbe41da448000f481fbd6926, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 38faad31fc0c13441b333c51cff71fa1, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 7321c17c270bb574798bab3245bd1df0, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: b43e9ae47f321b1408be75459531bdbc, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: b43e9ae47f321b1408be75459531bdbc, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: d616b6575ae801446a2a567e767443a5, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d616b6575ae801446a2a567e767443a5, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 69fc14c75859e3c429d34a4654ff578e, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 69fc14c75859e3c429d34a4654ff578e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6a0d3618b4b23483eaa14eeb6784c5d3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2ad66844626eff44e89f1bba0b306805, type: 2}

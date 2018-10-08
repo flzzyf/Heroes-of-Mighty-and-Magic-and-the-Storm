@@ -35,17 +35,6 @@ public class Unit : NodeObject
             InitUnitType();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            //print(GetLengthByName("Leoric_Attack"));
-            //PlayAnimation(Anim.attack);
-            //StartCoroutine(PlayAnim());
-            //print(GetAnimName(Anim.Attack));
-        }
-    }
-
     public float GetAnimationLength(Anim _anim)
     {
         AnimatorOverrideController ac = animator.runtimeAnimatorController as AnimatorOverrideController;
@@ -162,10 +151,12 @@ public class Unit : NodeObject
     IEnumerator PlayAnimationCor(Anim _anim)
     {
         UI.SetActive(false);
+        GetComponent<AxisZControl>().offsetZ = -1;
 
         float time = PlayAnimation(_anim);
         yield return new WaitForSeconds(time);
 
+        GetComponent<AxisZControl>().offsetZ = 0;
         UI.SetActive(true);
     }
 
@@ -302,7 +293,7 @@ public class Unit : NodeObject
         animator.Play("Death");
         UI.SetActive(false);
 
-        sprite.sortingLayerName = "DeadUnit";
+        GetComponent<AxisZControl>().offsetZ = 1;
     }
 
     //拥有特质

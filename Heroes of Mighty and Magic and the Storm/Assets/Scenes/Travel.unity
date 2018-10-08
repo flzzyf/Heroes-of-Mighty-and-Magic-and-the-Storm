@@ -4922,7 +4922,7 @@ Prefab:
         type: 2}
       propertyPath: pocketUnits.Array.data[1].type
       value: 
-      objectReference: {fileID: 11400000, guid: b51140075c8904a85ae90209cbe68b8c,
+      objectReference: {fileID: 11400000, guid: 9408235d15743ef45a532e7241bae581,
         type: 2}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
@@ -7982,6 +7982,7 @@ MonoBehaviour:
   haloFlashRangeMin: 0.2
   haloFlashRangeMax: 0.7
   haloFlashSpeed: 1
+  haloWidth: 14
   haloColor:
   - name: action
     color: {r: 0.9528302, g: 0.90755206, b: 0.31910825, a: 1}
@@ -8788,16 +8789,16 @@ Canvas:
   m_GameObject: {fileID: 1764981992}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 1845020237}
+  m_PlaneDistance: 30
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 758565401
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!1 &1787470152
@@ -9873,7 +9874,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
