@@ -66,7 +66,9 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         {
             if (UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit))
             {
-                if (AStarManager.GetNodeItemDistance(BattleManager.currentActionUnit.nodeItem,
+                //有近战伤害不减的特质，或者距离10以内
+                if (BattleManager.currentActionUnit.PossessTrait("No Melee Penalty") ||
+                     AStarManager.GetNodeItemDistance(BattleManager.currentActionUnit.nodeItem,
                     _node, true) <= BattleManager.instance.rangeAttackRange)
                     CursorManager.instance.ChangeCursor("arrow");
                 else

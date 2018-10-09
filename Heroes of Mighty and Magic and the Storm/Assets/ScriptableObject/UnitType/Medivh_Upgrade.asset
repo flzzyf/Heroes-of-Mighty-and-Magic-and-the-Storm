@@ -20,14 +20,17 @@ MonoBehaviour:
   speed: 7
   moveType: 0
   attackType: 1
-  traits: []
+  traits:
+  - {fileID: 11400000, guid: e0909c4d6f8084d8c915e27a67f1ff28, type: 2}
   growth: 3
   AIValue: 126
   cost: 100
   size: 1
   armorType: 0
   missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}
-  launchPos: {x: 1.3, y: 2.35, z: 0}
+  launchPos: {x: 1.3, y: 2.35}
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
+  sound_walk: []
+  sound_hit: {fileID: 0}
   sound_death: {fileID: 0}

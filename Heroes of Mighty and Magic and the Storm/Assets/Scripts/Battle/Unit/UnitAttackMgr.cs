@@ -183,8 +183,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         float damageRate = DamageRate(_origin.att, _target.def);
         //print("伤害倍率：" + damageRate);
 
-        //远程攻击，超过10格伤害减半
-        if (_isRangeAttack && AStarManager.GetNodeItemDistance(_origin.nodeItem, _target.nodeItem, true)
+        //远程攻击，没有近战伤害不减的特质，超过10格伤害减半
+        if (_isRangeAttack &&
+        !_origin.PossessTrait("No Melee Penalty") &&
+        AStarManager.GetNodeItemDistance(_origin.nodeItem, _target.nodeItem, true)
             > BattleManager.instance.rangeAttackRange)
         {
             damageRate /= 2;
