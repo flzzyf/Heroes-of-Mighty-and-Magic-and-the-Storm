@@ -17,7 +17,7 @@ MonoBehaviour:
   def: 10
   hp: 40
   damage: {x: 5, y: 8}
-  speed: 9
+  speed: 20
   moveType: 1
   attackType: 0
   traits:
@@ -29,7 +29,9 @@ MonoBehaviour:
   size: 1
   armorType: 0
   missile: {fileID: 0}
-  launchPos: {x: 0, y: 0, z: 0}
+  launchPos: {x: 0, y: 0}
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
+  sound_walk: []
+  sound_hit: {fileID: 0}
   sound_death: {fileID: 0}

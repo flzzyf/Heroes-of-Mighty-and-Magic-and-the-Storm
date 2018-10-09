@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Anim { Idle, Walk, Attack, Flip, Death, Defend, Hit }
 
 public class Unit : NodeObject
 {
@@ -34,29 +33,6 @@ public class Unit : NodeObject
             InitUnitType();
     }
 
-    public float GetAnimationLength(Anim _anim)
-    {
-        AnimatorOverrideController ac = animator.runtimeAnimatorController as AnimatorOverrideController;
-#pragma warning disable 0618
-        for (int i = 0; i < ac.clips.Length; i++)
-        {
-            if (ac.clips[i].originalClip.name == _anim.ToString() &&
-                ac.clips[i].overrideClip != null)
-            {
-                return ac.clips[i].overrideClip.length;
-            }
-        }
-#pragma warning restore 0618
-        return -1;
-    }
-
-    //播放动画，返回时长
-    float PlayAnimation(Anim _anim)
-    {
-        animator.Play(_anim.ToString());
-        return GetAnimationLength(_anim);
-    }
-
     public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
@@ -73,7 +49,7 @@ public class Unit : NodeObject
 
     IEnumerator FlipWithAnimation()
     {
-        PlayAnimation(Anim.Flip);
+        UnitAnimMgr.instance.PlayAnimation(this, Anim.Flip);
 
         yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime / 2);
 
@@ -135,50 +111,6 @@ public class Unit : NodeObject
     }
     #endregion
 
-    public void PlayAnimation(Anim _anim, bool _play = true)
-    {
-        if (_anim == Anim.Walk)
-        {
-            animator.SetBool("walking", _play);
-        }
-        else
-        {
-            StartCoroutine(PlayAnimationCor(_anim));
-        }
-    }
-
-    [HideInInspector]
-    public bool isPlayingAnimation;
-    IEnumerator PlayAnimationCor(Anim _anim)
-    {
-        UI.SetActive(false);
-        GetComponent<AxisZControl>().offsetZ = -1;
-
-        float time = PlayAnimation(_anim);
-        yield return new WaitForSeconds(time);
-
-        GetComponent<AxisZControl>().offsetZ = 0;
-        UI.SetActive(true);
-    }
-
-    public float GetLengthByName(string name)
-    {
-        float length = 0;
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
-
-        foreach (AnimationClip clip in clips)
-        {
-            print(clip.name);
-
-            if (clip.name.Equals(name))
-            {
-                length = clip.length;
-                break;
-            }
-        }
-
-        return length;
-    }
 
     #region Number and HP
     //初始总共血量

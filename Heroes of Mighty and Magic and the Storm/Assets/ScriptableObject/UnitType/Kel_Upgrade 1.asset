@@ -9,25 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Tyrael
+  m_Name: Kel_Upgrade 1
   m_EditorClassIdentifier: 
-  unitName: "\u6B63\u4E49\u5929\u4F7F"
-  animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
-  att: 20
-  def: 20
-  hp: 200
-  damage: {x: 50, y: 50}
-  speed: 8
-  moveType: 1
-  attackType: 0
+  unitName: "\u514B\u5C14\u82CF\u52A0\u5FB7"
+  animControl: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e, type: 2}
+  att: 13
+  def: 10
+  hp: 40
+  damage: {x: 11, y: 15}
+  speed: 7
+  moveType: 0
+  attackType: 1
   traits: []
-  growth: 1
-  AIValue: 5019
-  cost: 3000
+  growth: 3
+  AIValue: 126
+  cost: 600
   size: 1
   armorType: 0
-  missile: {fileID: 0}
-  launchPos: {x: 0, y: 0}
+  missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}
+  launchPos: {x: 1.3, y: 2.35}
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
   sound_walk: []

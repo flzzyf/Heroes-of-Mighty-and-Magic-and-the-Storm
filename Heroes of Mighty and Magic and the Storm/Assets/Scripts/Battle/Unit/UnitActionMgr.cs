@@ -32,8 +32,6 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         while (order == null)
             yield return null;
 
-        _unit.UI.SetActive(false);
-
         //发出指令后，开始执行命令
         UnitHaloMgr.instance.HaloFlashStop(_unit);
 
@@ -46,9 +44,6 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             yield return null;
 
         //命令执行完毕
-        if (!_unit.dead)
-            _unit.UI.SetActive(true);
-
         GameManager.instance.gamePaused = false;
 
         ActionEnd();
@@ -120,13 +115,13 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     {
         if (order.type == OrderType.move)
         {
-            if (order.origin.GetComponent<Unit>().type.moveType == MoveType.walk)
+            if (order.origin.type.moveType == MoveType.walk)
             {
-                MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
+                MovementManager.instance.MoveObjectAlongPath(order.origin, order.path);
             }
-            else if (order.origin.GetComponent<Unit>().type.moveType == MoveType.fly)
+            else if (order.origin.type.moveType == MoveType.fly)
             {
-                MovementManager.instance.MoveUnitFlying(order.origin.transform, order.targetNode);
+                MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
             }
 
             while (MovementManager.moving)
@@ -136,7 +131,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         {
             if (order.path != null)
             {
-                MovementManager.instance.MoveObjectAlongPath(order.origin.transform, order.path);
+                MovementManager.instance.MoveObjectAlongPath(order.origin, order.path);
 
                 while (MovementManager.moving)
                     yield return null;
@@ -144,7 +139,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
             if (order.targetNode != null)
             {
-                MovementManager.instance.MoveUnitFlying(order.origin.transform, order.targetNode);
+                MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
 
                 while (MovementManager.moving)
                     yield return null;

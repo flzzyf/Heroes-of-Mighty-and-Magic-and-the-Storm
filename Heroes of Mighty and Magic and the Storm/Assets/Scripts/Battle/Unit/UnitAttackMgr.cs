@@ -87,23 +87,18 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             GameManager.instance.PlaySound(_origin.type.sound_attack);
         }
 
-        float attackTime = _origin.GetAnimationLength(Anim.Attack);
+        float attackTime = UnitAnimMgr.instance.PlayAnimation(_origin, Anim.Attack);
         float hitTime = attackTime * animAttackHitPercent;
 
-        _origin.sprite.sortingLayerName = "ActionUnit";
-
-        _origin.PlayAnimation(Anim.Attack);
         yield return new WaitForSeconds(hitTime);
 
-        //print("被击");
         //播放被击和防御动画
-        _target.PlayAnimation(Anim.Hit);
+        //如果有防御buff
+        UnitAnimMgr.instance.PlayAnimation(_target, Anim.Hit);
 
         int damage = ApplyDamage(_origin, _target);
 
         yield return new WaitForSeconds(attackTime - hitTime);
-
-        _origin.sprite.sortingLayerName = "Unit";
 
         //吸血效果，生命值不满或者死了人
         if ((_origin.currentHP < _origin.type.hp ||
@@ -131,8 +126,8 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
     {
         waiting = true;
 
-        _origin.PlayAnimation(Anim.Attack);
-        float attackTime = _origin.GetAnimationLength(Anim.Attack);
+        float attackTime = UnitAnimMgr.instance.PlayAnimation(_origin, Anim.Attack);
+
         float hitTime = attackTime * animAttackHitPercent;
 
         yield return new WaitForSeconds(hitTime);
@@ -155,7 +150,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         Destroy(missile.gameObject);
 
-        _target.PlayAnimation(Anim.Hit);
+        UnitAnimMgr.instance.PlayAnimation(_target, Anim.Hit);
 
         ApplyDamage(_origin, _target);
 

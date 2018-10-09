@@ -13,7 +13,6 @@ public class AIActionMgr : Singleton<AIActionMgr>
         if (_unit.type.attackType == AttackType.range)
         {
             //是远程攻击
-            NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
 
             //如果没被近身
             //攻击最近目标
@@ -65,5 +64,27 @@ public class AIActionMgr : Singleton<AIActionMgr>
 
 
         }
+    }
+
+    Unit GetNearestUnit(Unit _unit, List<NodeItem> _list)
+    {
+        int nearestIndex = 0;
+        int nearestDistance = GetUnitDistance(_list[0].nodeObject.GetComponent<Unit>(), _unit);
+
+        for (int i = 0; i < _list.Count; i++)
+        {
+            if (GetUnitDistance(_unit, _list[i].nodeObject.GetComponent<Unit>()) < nearestDistance)
+            {
+                nearestIndex = i;
+                nearestDistance = GetUnitDistance(_unit, _list[i].nodeObject.GetComponent<Unit>());
+            }
+        }
+
+        return _list[nearestIndex].nodeObject.GetComponent<Unit>();
+    }
+
+    int GetUnitDistance(Unit _origin, Unit _target)
+    {
+        return AStarManager.FindPath(BattleManager.instance.map, _origin.nodeItem, _target.nodeItem).Count;
     }
 }

@@ -216,10 +216,10 @@ public class MapManager_Battle : MapManager
         }
 
         //if可攻击
-        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
             //如果是远程攻击，直接跳过
-            if (UnitActionMgr.IsRangeAttack(_node.nodeObject.GetComponent<Unit>()))
+            if (UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit))
                 return;
 
             Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -277,7 +277,7 @@ public class MapManager_Battle : MapManager
         if (GameManager.instance.gamePaused)
             return;
 
-        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType != BattleNodeType.empty)
+        if (_node.GetComponent<NodeItem_Battle>().battleNodeType != BattleNodeType.empty)
         {
             if (path != null)
                 ClearPath();
@@ -285,7 +285,7 @@ public class MapManager_Battle : MapManager
             CursorManager.instance.ChangeCursorAngle();
         }
         //设定指令
-        if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
         {
             if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
             {
@@ -298,11 +298,11 @@ public class MapManager_Battle : MapManager
                                                             BattleManager.currentActionUnit, _node);
             }
         }
-        else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
             Unit unit = _node.nodeObject.GetComponent<Unit>();
 
-            if (!closeToTarget || UnitActionMgr.IsRangeAttack(unit))
+            if (UnitActionMgr.IsRangeAttack(unit))
             {
                 UnitActionMgr.order = new Order(OrderType.rangeAttack,
                                         BattleManager.currentActionUnit, unit);

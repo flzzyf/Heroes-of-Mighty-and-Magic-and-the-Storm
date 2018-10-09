@@ -9,21 +9,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
-  m_Name: Tyrael
+  m_Name: Kerrigan_Upgrade
   m_EditorClassIdentifier: 
-  unitName: "\u6B63\u4E49\u5929\u4F7F"
-  animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
-  att: 20
-  def: 20
-  hp: 200
-  damage: {x: 50, y: 50}
-  speed: 8
+  unitName: "\u51EF\u745E\u7518"
+  animControl: {fileID: 22100000, guid: f49d92953bc4a1c4aa12287e896f59e4, type: 2}
+  att: 10
+  def: 10
+  hp: 40
+  damage: {x: 5, y: 8}
+  speed: 9
   moveType: 1
   attackType: 0
-  traits: []
-  growth: 1
-  AIValue: 5019
-  cost: 3000
+  traits:
+  - {fileID: 11400000, guid: c7a55d3adf04041fca9c7ec94d875042, type: 2}
+  - {fileID: 11400000, guid: 79574837f5ff64e96b19de9a248af39d, type: 2}
+  growth: 4
+  AIValue: 783
+  cost: 500
   size: 1
   armorType: 0
   missile: {fileID: 0}
