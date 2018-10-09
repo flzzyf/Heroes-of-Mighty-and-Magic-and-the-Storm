@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Animations;
 
 public enum Anim { Idle, Walk, Attack, Flip, Death, Defend, Hit }
 
