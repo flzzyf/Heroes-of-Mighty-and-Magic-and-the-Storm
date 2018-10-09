@@ -8,20 +8,29 @@ public class GameManager : Singleton<GameManager>
 
     public AudioSource audioSource;
 
+    public Hero[] testHeroes;
+
     void Start()
     {
-        Cursor.visible = false;
-
         TravelManager.instance.Init();
         BattleManager.instance.Init();
+
+        TravelManager.instance.EnterTravelMode();
+        TravelManager.instance.TurnStart(0);
+
+        //添加测试英雄
+        PlayerManager.instance.players[0].heroes.Add(testHeroes[0]);
+        PlayerManager.instance.players[1].heroes.Add(testHeroes[1]);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            BattleManager.instance.EnterBattle();
-            BattleManager.instance.BattleStart();
+            Hero attacker = PlayerManager.instance.players[0].heroes[1];
+            Hero defender = PlayerManager.instance.players[1].heroes[1];
+            TravelManager.instance.BattleBegin(attacker, defender);
+
         }
         if (Input.GetKeyDown(KeyCode.G))
         {

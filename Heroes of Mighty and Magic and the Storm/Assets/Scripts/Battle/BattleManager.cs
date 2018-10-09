@@ -93,24 +93,24 @@ public class BattleManager : Singleton<BattleManager>
 
     }
 
-    public void EnterBattle()
+    public void EnterBattleMode(bool _enter = true)
     {
-        Camera.main.gameObject.SetActive(false);
-        cam.SetActive(true);
-        cam.tag = "MainCamera";
+        battleObjectParent.SetActive(_enter);
 
-        map.parent.gameObject.SetActive(true);
-        battleObjectParent.SetActive(true);
+        if (_enter)
+        {
+            cam.tag = "MainCamera";
+        }
+
+        cam.SetActive(_enter);
+
+        map.parent.gameObject.SetActive(_enter);
     }
 
-    public void QuitBattle()
+    public void BattleStart(Hero _attacker, Hero _defender)
     {
-        map.parent.gameObject.SetActive(false);
-        battleObjectParent.SetActive(false);
-    }
+        EnterBattleMode();
 
-    public void BattleStart()
-    {
         unitActionOrder = new LinkedList<Unit>();
         unitActionList = new LinkedList<Unit>();
         waitingUnitList = new LinkedList<Unit>();
@@ -118,8 +118,8 @@ public class BattleManager : Singleton<BattleManager>
         SoundManager.instance.Play("Combat02");
 
         //战斗开始效果触发
-        CreateHeroUnits(0);
-        CreateHeroUnits(1);
+        CreateHeroUnits(_attacker, 0);
+        CreateHeroUnits(_defender, 1);
 
         RoundManager.instance.RoundStart();
     }
@@ -164,22 +164,24 @@ public class BattleManager : Singleton<BattleManager>
 
     }
     //创建玩家单位
-    public void CreateHeroUnits(int _hero)
+    public void CreateHeroUnits(Hero _hero, int _side)
     {
-        heroes[_hero] = Instantiate(heroUnitPrefab, heroPoint[_hero].transform.position, Quaternion.identity);
-        if (_hero == 1)
-            heroes[_hero].GetComponent<SpriteRenderer>().flipX = !heroes[_hero].GetComponent<SpriteRenderer>().flipX;
+        GameObject heroUnit = Instantiate(heroUnitPrefab,
+            heroPoint[_side].transform.position, Quaternion.identity);
+        heroes[_side] = heroUnit;
 
-        Hero hero = playerHero[_hero].GetComponent<Hero>();
-        for (int i = 0; i < hero.pocketUnits.Length; i++)
+        //在右边则翻转英雄
+        if (_side == 1)
+            heroes[_side].GetComponent<SpriteRenderer>().flipX = true;
+
+        int x = (_side == 0) ? 0 : map.size.x - 1;
+        for (int i = 0; i < _hero.pocketUnits.Length; i++)
         {
-            int x = (_hero == 0) ? 0 : map.size.x - 1;
-
-            int playerUnitPosIndex = playerUnitPos[hero.pocketUnits.Length - 1][i];
+            int playerUnitPosIndex = playerUnitPos[_hero.pocketUnits.Length - 1][i];
             int unitPosIndex = unitPos[playerUnitPosIndex];
             //创建单位
-            Unit unit = CreateUnit(hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
-                       hero.pocketUnits[i].num, _hero);
+            Unit unit = CreateUnit(_hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
+                       _hero.pocketUnits[i].num, _side);
 
             NodeItem nodeItem = map.GetNodeItem(new Vector2Int(x, unitPosIndex));
             LinkNodeWithUnit(unit, nodeItem);

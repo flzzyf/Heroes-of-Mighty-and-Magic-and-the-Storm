@@ -9,7 +9,7 @@ public class TravelManager : Singleton<TravelManager>
     List<GameObject> lastPath;
 
     [HideInInspector]
-    public GameObject currentHero;
+    public Hero currentHero;
 
     public Transform[] spawnPoints;
     public GameObject prefab_town;
@@ -26,19 +26,20 @@ public class TravelManager : Singleton<TravelManager>
         map.GenerateMap();
 
         //玩家初始设置
-        if (PlayerManager.Instance().players[0].id == 0)
-            InitPlayer(PlayerManager.Instance().players[0]);
-
-        TurnStart(0);
-
-        EnterTravelMode();
+        for (int i = 0; i < PlayerManager.instance.players.Length; i++)
+        {
+            InitPlayer(PlayerManager.instance.players[i]);
+        }
     }
 
-    public void EnterTravelMode()
+    public void EnterTravelMode(bool _enter = true)
     {
-        Camera.main.gameObject.SetActive(false);
-        cam.tag = "MainCamera";
-        cam.SetActive(true);
+        if (_enter)
+        {
+            cam.tag = "MainCamera";
+        }
+
+        cam.SetActive(_enter);
     }
 
     //玩家初始化，生成城镇和英雄
@@ -46,8 +47,8 @@ public class TravelManager : Singleton<TravelManager>
     {
         GameObject town = CreateObjectOnNode(prefab_town, _player.startingPoint);
         Vector2Int offset = town.GetComponent<Town>().interactPoint;
-        GameObject hero = CreateObjectOnNode(prefab_hero, _player.startingPoint + offset);
-        hero.GetComponent<Hero>().Init();
+        Hero hero = CreateObjectOnNode(prefab_hero, _player.startingPoint + offset).GetComponent<Hero>();
+        hero.Init();
         _player.heroes.Add(hero);
 
         //非AI
@@ -75,17 +76,24 @@ public class TravelManager : Singleton<TravelManager>
     }
 
     //高亮英雄（移动镜头，选中英雄）
-    void HighlightHero(GameObject _go)
+    void HighlightHero(Hero _go)
     {
         MoveCamera(_go.transform.position);
 
         currentHero = _go;
     }
 
-    void TurnStart(int _index)
+    public void TurnStart(int _index)
     {
         Player player = PlayerManager.instance.players[_index];
         HighlightHero(player.heroes[0]);
     }
 
+    public void BattleBegin(Hero _attacker, Hero _defender)
+    {
+        EnterTravelMode(false);
+
+        BattleManager.instance.EnterBattleMode();
+        BattleManager.instance.BattleStart(_attacker, _defender);
+    }
 }

@@ -20,10 +20,12 @@ public class CursorManager : Singleton<CursorManager>
 
     void Start()
     {
+        Cursor.visible = false;
+
         ChangeCursor();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         cursorParent.position = (Vector2)Input.mousePosition + offset;
     }

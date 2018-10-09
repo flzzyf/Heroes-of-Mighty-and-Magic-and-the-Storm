@@ -37,6 +37,7 @@ public class Unit : NodeObject
     public float GetAnimationLength(Anim _anim)
     {
         AnimatorOverrideController ac = animator.runtimeAnimatorController as AnimatorOverrideController;
+#pragma warning disable 0618
         for (int i = 0; i < ac.clips.Length; i++)
         {
             if (ac.clips[i].originalClip.name == _anim.ToString() &&
@@ -45,6 +46,7 @@ public class Unit : NodeObject
                 return ac.clips[i].overrideClip.length;
             }
         }
+#pragma warning restore 0618
         return -1;
     }
 

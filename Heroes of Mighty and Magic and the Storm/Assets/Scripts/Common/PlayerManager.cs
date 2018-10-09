@@ -15,7 +15,7 @@ public class Player
 
     public Vector2Int startingPoint;
 
-    public List<GameObject> heroes;
+    public List<Hero> heroes;
 
     public int gold;
 }
