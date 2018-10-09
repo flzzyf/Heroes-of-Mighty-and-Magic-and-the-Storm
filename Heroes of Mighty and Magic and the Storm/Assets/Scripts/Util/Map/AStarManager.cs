@@ -6,7 +6,7 @@ public class AStarManager
 {
     public static MapManager map;
 
-    static List<Node> FindPath(Vector2Int _startPos, Vector2Int _endPos)
+    static List<Node> FindPath(Vector2Int _startPos, Vector2Int _endPos, bool _ignoreObstacle = false)
     {
         Node startNode = map.GetNode(_startPos);
         Node endNode = map.GetNode(_endPos);
@@ -42,7 +42,7 @@ public class AStarManager
             foreach (var item in map.GetNearbyNodes(curNode))
             {
                 //如果不可通行或在闭集中，则跳过
-                if (!item.walkable || closeSet.Contains(item))
+                if ((!_ignoreObstacle && !item.walkable) || closeSet.Contains(item))
                 {
                     continue;
                 }
@@ -99,14 +99,14 @@ public class AStarManager
             return 14 * x + 10 * (y - x);
     }
 
-    static List<NodeItem> FindPath(NodeItem _start, NodeItem _end)
+    static List<NodeItem> FindPath(NodeItem _start, NodeItem _end, bool _ignoreObstacle = false)
     {
         List<NodeItem> list = new List<NodeItem>();
 
         Vector2Int startPos = _start.pos;
         Vector2Int endPos = _end.pos;
 
-        List<Node> path = FindPath(startPos, endPos);
+        List<Node> path = FindPath(startPos, endPos, _ignoreObstacle);
         if (path == null)
             return null;
 
@@ -118,16 +118,17 @@ public class AStarManager
         return list;
     }
 
-    public static List<NodeItem> FindPath(MapManager _map, NodeItem _start, NodeItem _end)
+    public static List<NodeItem> FindPath(MapManager _map, NodeItem _start, NodeItem _end, bool _ignoreObstacle = false)
     {
         map = _map;
-        return FindPath(_start, _end);
+        return FindPath(_start, _end, _ignoreObstacle);
     }
 
-    public List<Node> GetNodesWithinRange(Vector2Int _node, int _range)
+    //获取节点间距离
+    public static int GetNodeItemDistance(NodeItem _origin, NodeItem _target, bool _ignoreObstacle = false)
     {
-        List<Node> list = new List<Node>();
+        List<NodeItem> path = FindPath(BattleManager.instance.map, _origin, _target, _ignoreObstacle);
 
-        return list;
+        return path.Count - 1;
     }
 }

@@ -88,23 +88,23 @@ public class MapManager_Battle : MapManager
     //鼠标进入节点
     public override void OnNodeHovered(NodeItem _node)
     {
-        BattleNodeMgr.instance.OnNodeHovered(_node);
+        BattleNodeMgr.instance.OnNodeHovered(_node.GetComponent<NodeItem_Battle>());
     }
 
     public override void OnNodeUnhovered(NodeItem _node)
     {
-        BattleNodeMgr.instance.OnNodeUnhovered(_node);
+        BattleNodeMgr.instance.OnNodeUnhovered(_node.GetComponent<NodeItem_Battle>());
     }
 
     //鼠标在节点内移动
     public void OnMouseMoved(NodeItem _node)
     {
-        BattleNodeMgr.instance.OnMouseMoved(_node);
+        BattleNodeMgr.instance.OnMouseMoved(_node.GetComponent<NodeItem_Battle>());
     }
 
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
-        BattleNodeMgr.instance.OnNodePressed(_node);
+        BattleNodeMgr.instance.OnNodePressed(_node.GetComponent<NodeItem_Battle>());
     }
 }

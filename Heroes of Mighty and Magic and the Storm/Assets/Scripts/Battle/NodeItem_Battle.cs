@@ -10,6 +10,8 @@ public class NodeItem_Battle : NodeItem
     [HideInInspector]
     public BattleNodeType battleNodeType;
 
+    public Unit unit { get { return nodeObject.GetComponent<Unit>(); } }
+
     string color;
 
     public void ChangeNodeType(BattleNodeType _type)

@@ -152,26 +152,20 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         UnitAnimMgr.instance.PlayAnimation(_target, Anim.Hit);
 
-        ApplyDamage(_origin, _target);
+        ApplyDamage(_origin, _target, true);
 
         yield return new WaitForSeconds(.8f);
 
         waiting = false;
     }
 
-    int ApplyDamage(Unit _origin, Unit _target)
+    int ApplyDamage(Unit _origin, Unit _target, bool _isRangeAttack = false)
     {
         ImpactSoundMgr.PlayImpactSound(_origin, _target);
 
-        int damage = Random.Range((int)_origin.damage.x, (int)_origin.damage.y + 1);
+        Vector2Int range = GetDamageRange(_origin, _target, _isRangeAttack);
+        int damage = Random.Range(range.x, range.y + 1);
         //print("随机初始伤害：" + damage);
-        float damageRate = DamageRate(_origin.att, _target.def);
-        damage = (int)(damage * damageRate);
-        //至少也有1点伤害
-        if (damage <= 0) damage = 1;
-        damage *= _origin.num;
-        //print("伤害倍率：" + damageRate);
-        //print("造成伤害：" + damage);
 
         //伤害不能超过单位剩余生命
         damage = Mathf.Min(damage, _target.totalHp);
@@ -182,12 +176,31 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         return damage;
     }
 
-    public float GetDamageRate(Unit _origin, Unit _target)
+    public static Vector2Int GetDamageRange(Unit _origin, Unit _target, bool _isRangeAttack = false)
     {
-        return DamageRate(_origin.att, _target.def);
+        Vector2Int range = _origin.damage;
+
+        float damageRate = DamageRate(_origin.att, _target.def);
+        //print("伤害倍率：" + damageRate);
+
+        //远程攻击，超过10格伤害减半
+        if (_isRangeAttack && AStarManager.GetNodeItemDistance(_origin.nodeItem, _target.nodeItem, true)
+            > BattleManager.instance.rangeAttackRange)
+        {
+            damageRate /= 2;
+        }
+
+        range.x = (int)(range.x * damageRate);
+        range.y = (int)(range.y * damageRate);
+
+        //至少也有1点
+        range.x = Mathf.Max(range.x, 1);
+        range.y = Mathf.Max(range.y, 1);
+
+        return range * _origin.num;
     }
 
-    float DamageRate(int _att, int _def)    //攻防伤害倍率计算
+    static float DamageRate(int _att, int _def)    //攻防伤害倍率计算
     {
         float r = 1;
         if (_att > _def)

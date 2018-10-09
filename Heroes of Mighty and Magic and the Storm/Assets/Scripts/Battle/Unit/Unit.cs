@@ -17,7 +17,7 @@ public class Unit : NodeObject
     [HideInInspector]
     public int speed, att, def, currentHP, num;
     [HideInInspector]
-    public Vector2 damage;
+    public Vector2Int damage;
     [HideInInspector]
     public int retaliations;
 

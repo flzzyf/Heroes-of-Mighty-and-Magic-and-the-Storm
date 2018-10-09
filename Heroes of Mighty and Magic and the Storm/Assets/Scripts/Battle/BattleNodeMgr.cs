@@ -6,7 +6,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 {
     List<NodeItem> path;
 
-    Unit lastFlashingUnit;
     [HideInInspector]
     public NodeItem playerHovered;
 
@@ -15,35 +14,32 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     NodeItem targetNode;
 
-    public void OnNodeHovered(NodeItem _node)
+    public void OnNodeHovered(NodeItem_Battle _node)
     {
         playerHovered = _node;
 
         if (!GameManager.playerControl)
             return;
 
-
         //如果是单位
         if (_node.nodeObject != null &&
-            _node.nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit)
+            _node.nodeObject.nodeObjectType == NodeObjectType.unit)
         {
             //显示并更新单位属性UI
-            BattleManager.instance.ShowUnitStatUI(true, _node.nodeObject.GetComponent<Unit>());
+            BattleManager.instance.ShowUnitStatUI(true, _node.unit);
 
             //如果不是当前行动单位，开始闪烁
             if (_node.nodeObject != BattleManager.currentActionUnit)
             {
-                lastFlashingUnit = _node.nodeObject.GetComponent<Unit>();
-
-                if (BattleManager.instance.isSamePlayer(_node.nodeObject.GetComponent<Unit>(),
+                if (BattleManager.instance.isSamePlayer(_node.unit,
                     BattleManager.currentActionUnit))
-                    UnitHaloMgr.instance.HaloFlashStart(lastFlashingUnit, "friend");
+                    UnitHaloMgr.instance.HaloFlashStart(_node.unit, "friend");
                 else
-                    UnitHaloMgr.instance.HaloFlashStart(lastFlashingUnit, "enemy");
+                    UnitHaloMgr.instance.HaloFlashStart(_node.unit, "enemy");
             }
 
             //根据敌友改变指针
-            if (BattleManager.instance.isSamePlayer(_node.nodeObject.GetComponent<Unit>(),
+            if (BattleManager.instance.isSamePlayer(_node.unit,
                 BattleManager.currentActionUnit))
             {
                 CursorManager.instance.ChangeCursor("friend");
@@ -55,7 +51,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         }
 
         //是可到达节点，则显示路径
-        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+        if (_node.battleNodeType == BattleNodeType.reachable)
         {
             CursorManager.instance.ChangeCursor("reachable");
 
@@ -66,27 +62,32 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
                 FindPath(currentNode, _node);
             }
         }
-        else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        else if (_node.battleNodeType == BattleNodeType.attackable)
         {
-            CursorManager.instance.ChangeCursor("arrow");
+            if (UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit))
+            {
+                if (AStarManager.GetNodeItemDistance(BattleManager.currentActionUnit.nodeItem,
+                    _node, true) <= BattleManager.instance.rangeAttackRange)
+                    CursorManager.instance.ChangeCursor("arrow");
+                else
+                    CursorManager.instance.ChangeCursor("arrow_penalty");
+            }
 
             //显示文本
-            float damageRate = UnitAttackMgr.instance.GetDamageRate(
-                    BattleManager.currentActionUnit, _node.nodeObject.GetComponent<Unit>());
-            int num = BattleManager.currentActionUnit.num;
+            bool isRangeAttack = UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit);
+            Vector2Int range = UnitAttackMgr.GetDamageRange(BattleManager.currentActionUnit, _node.unit, isRangeAttack);
+
             BattleInfoMgr.instance.SetText(string.Format("攻击{0}（伤害{1}-{2}）",
-                _node.nodeObject.GetComponent<Unit>().type.unitName,
-                (int)(BattleManager.currentActionUnit.type.damage.x * num * damageRate),
-                (int)(BattleManager.currentActionUnit.type.damage.y * num * damageRate)));
+                _node.unit.type.unitName, range.x, range.y));
         }
         //不可到达点
-        // else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.empty)
+        // else if (_node.battleNodeType == BattleNodeType.empty)
         // {
         //     CursorManager.instance.ChangeCursor("stop");
         // }
     }
 
-    public void OnNodeUnhovered(NodeItem _node)
+    public void OnNodeUnhovered(NodeItem_Battle _node)
     {
         CursorManager.instance.ChangeCursor();
         CursorManager.instance.ChangeCursorAngle();
@@ -94,11 +95,11 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         //显示并更新单位属性UI
         BattleManager.instance.ShowUnitStatUI(false);
 
-        if (lastFlashingUnit != null)
+        if (_node.nodeObject != null &&
+            _node.nodeObject.nodeObjectType == NodeObjectType.unit &&
+            _node.unit != BattleManager.currentActionUnit)
         {
-            UnitHaloMgr.instance.HaloFlashStop(lastFlashingUnit);
-
-            lastFlashingUnit = null;
+            UnitHaloMgr.instance.HaloFlashStop(_node.unit);
         }
 
         //有则清除之前路径
@@ -111,7 +112,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
     }
 
 
-    public void OnMouseMoved(NodeItem _node)
+    public void OnMouseMoved(NodeItem_Battle _node)
     {
         if (!GameManager.playerControl)
             return;
@@ -130,7 +131,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         }
 
         //if可攻击
-        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        if (_node.battleNodeType == BattleNodeType.attackable)
         {
             //如果是远程攻击，直接跳过
             if (UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit))
@@ -149,7 +150,8 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             int arrowIndex = (int)angle / 60;
 
             //攻击方向上的格子存在，且可到达便可发起攻击。（目前还没考虑多格单位）
-            targetNode = BattleManager.instance.map.GetNearbyNodeItem(_node, arrowIndex);
+            targetNode = BattleManager.instance.map.
+                GetNearbyNodeItem(_node, arrowIndex);
             if (targetNode != null &&
                (targetNode.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable ||
                 targetNode.nodeObject == BattleManager.currentActionUnit))
@@ -180,13 +182,13 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
     }
 
 
-    public void OnNodePressed(NodeItem _node)
+    public void OnNodePressed(NodeItem_Battle _node)
     {
         if (!GameManager.playerControl)
             return;
 
         //设定指令
-        if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.reachable)
+        if (_node.battleNodeType == BattleNodeType.reachable)
         {
             if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
             {
@@ -199,9 +201,9 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
                                                             BattleManager.currentActionUnit, _node);
             }
         }
-        else if (_node.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
+        else if (_node.battleNodeType == BattleNodeType.attackable)
         {
-            Unit target = _node.nodeObject.GetComponent<Unit>();
+            Unit target = _node.unit;
 
             if (UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit))
             {
@@ -226,7 +228,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             }
         }
 
-        if (_node.GetComponent<NodeItem_Battle>().battleNodeType != BattleNodeType.empty)
+        if (_node.battleNodeType != BattleNodeType.empty)
         {
             if (path != null)
                 ClearPath();
@@ -258,8 +260,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             //print("未能找到路径");
             return false;
         }
-
-        path.Remove(_origin);
 
         foreach (var item in path)
         {

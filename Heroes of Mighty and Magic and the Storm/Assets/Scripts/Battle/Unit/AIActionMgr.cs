@@ -10,11 +10,9 @@ public class AIActionMgr : Singleton<AIActionMgr>
         List<NodeItem> attackableNodes = new List<NodeItem>();
         int enemyHero = (_unit.player + 1) % 2;
 
+        //远程单位，且没有被近身
         if (_unit.type.attackType == AttackType.range)
         {
-            //是远程攻击
-
-            //如果没被近身
             //攻击最近目标
             attackableNodes = new List<NodeItem>();
             for (int i = 0; i < BattleManager.instance.units[enemyHero].Count; i++)
