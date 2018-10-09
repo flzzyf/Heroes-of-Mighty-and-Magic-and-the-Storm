@@ -5,8 +5,10 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public bool gamePaused;
+    public static bool playerControl;
 
     public AudioSource audioSource;
+    public float randomPitch = 0.3f;
 
     public Hero[] testHeroes;
 
@@ -48,8 +50,11 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void PlaySound(AudioClip _clip)
+    public void PlaySound(AudioClip _clip, bool _random = false)
     {
+        if (_random)
+            audioSource.pitch = 1 + Random.Range(0, 1f) * randomPitch;
+
         audioSource.PlayOneShot(_clip);
     }
 }

@@ -51,6 +51,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     public void PlayerActionStart(Unit _unit)
     {
+        GameManager.playerControl = true;
+
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
@@ -100,9 +102,9 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
         //将当前鼠标高亮节点，触发高亮事件
         MapManager_Battle map = BattleManager.instance.map;
-        if (map.playerHovered != null)
+        if (BattleNodeMgr.instance.playerHovered != null)
         {
-            map.OnNodeHovered(map.playerHovered);
+            map.OnNodeHovered(BattleNodeMgr.instance.playerHovered);
         }
     }
 
