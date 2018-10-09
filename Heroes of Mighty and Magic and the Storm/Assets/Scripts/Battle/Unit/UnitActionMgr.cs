@@ -10,19 +10,56 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     public static Order order;
 
-    public static bool isRangeAttack;
-
-    public void ActionStart(Unit _unit, int _player)
+    public void ActionStart(Unit _unit)
     {
-        //非AI
-        //if(PlayerManager.instance.players[_player].isAI)
+        StartCoroutine(ActionStartCor(_unit));
+    }
 
-        BattleManager.currentActionUnit = _unit;
+    IEnumerator ActionStartCor(Unit _unit)
+    {
+        UnitHaloMgr.instance.HaloFlashStart(_unit, "action");
 
+        if (!PlayerManager.instance.players[_unit.player].isAI)
+        {
+            PlayerActionStart(_unit);
+        }
+        else
+        {
+            AIActionMgr.instance.AIActionStart(_unit);
+        }
+
+        //在下令前暂停
+        while (order == null)
+            yield return null;
+
+        _unit.UI.SetActive(false);
+
+        //发出指令后，开始执行命令
+        UnitHaloMgr.instance.HaloFlashStop(_unit);
+
+        ResetNodes();
+        InvokeOrder();
+
+        GameManager.instance.gamePaused = true;
+        //在指令完成前暂停
+        while (order != null)
+            yield return null;
+
+        //命令执行完毕
+        if (!_unit.dead)
+            _unit.UI.SetActive(true);
+
+        GameManager.instance.gamePaused = false;
+
+        ActionEnd();
+    }
+
+    public void PlayerActionStart(Unit _unit)
+    {
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
-        reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed, true);
+        reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed, false);
 
         //修改节点为可到达，如果节点为空
         foreach (var item in reachableNodes)
@@ -31,17 +68,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
                 item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.reachable);
         }
 
-        //判定远程攻击：是远程攻击单位且没被近身
-        if (_unit.type.attackType == AttackType.range && !UnitIsCloseToEnemy(_unit))
-        {
-            isRangeAttack = true;
-        }
-        else
-        {
-            isRangeAttack = false;
-        }
         //是近战，或者被近身的远程单位
-        if (!isRangeAttack)
+        if (!IsRangeAttack(_unit))
         {
             //可攻击节点
             attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1, true);
@@ -81,42 +109,10 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         {
             map.OnNodeHovered(map.playerHovered);
         }
-
-        StartCoroutine(ActionStartCor(_unit));
     }
 
-    IEnumerator ActionStartCor(Unit _unit)
-    {
-        UnitHaloMgr.instance.HaloFlashStart(_unit, "action");
-
-
-        //在玩家下令前暂停
-        while (order == null)
-            yield return null;
-
-        _unit.UI.SetActive(false);
-
-        //玩家下令，开始执行命令
-        UnitHaloMgr.instance.HaloFlashStop(_unit);
-
-        ResetNodes();
-        InvokeOrder();
-
-        GameManager.instance.gamePaused = true;
-        //在指令完成前暂停
-        while (order != null)
-            yield return null;
-
-        //命令执行完毕
-        if (!_unit.dead)
-            _unit.UI.SetActive(true);
-
-        GameManager.instance.gamePaused = false;
-
-        ActionEnd();
-    }
     //执行指令
-    void InvokeOrder()
+    public void InvokeOrder()
     {
         StartCoroutine(InvokeOrderCor());
     }
@@ -155,8 +151,14 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             }
 
             //攻击
-            UnitAttackMgr.instance.Attack(order.origin.GetComponent<Unit>(),
-                                order.target.GetComponent<Unit>(), isRangeAttack);
+            UnitAttackMgr.instance.Attack(order.origin, order.target);
+
+            while (UnitAttackMgr.operating)
+                yield return null;
+        }
+        else if (order.type == OrderType.rangeAttack)
+        {
+            UnitAttackMgr.instance.Attack(order.origin, order.target, true);
 
             while (UnitAttackMgr.operating)
                 yield return null;
@@ -181,18 +183,27 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     void ResetNodes()
     {
-        foreach (var item in reachableNodes)
-        {
-            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
-        }
-        foreach (var item in attackableNodes)
-        {
-            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
-        }
+        if (reachableNodes != null)
+            foreach (var item in reachableNodes)
+            {
+                item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
+            }
+        if (attackableNodes != null)
+            foreach (var item in attackableNodes)
+            {
+                item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
+            }
     }
 
+    //判定远程攻击：是远程攻击单位且没被近身
+    public static bool IsRangeAttack(Unit _unit)
+    {
+        if (_unit.type.attackType == AttackType.range && !UnitIsCloseToEnemy(_unit))
+            return true;
+        return false;
+    }
     //单位临近节点中有敌人
-    bool UnitIsCloseToEnemy(Unit _unit)
+    static bool UnitIsCloseToEnemy(Unit _unit)
     {
         for (int i = 0; i < 6; i++)
         {
@@ -210,7 +221,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     }
 }
 
-public enum OrderType { move, attack, wait, defend, cast }
+public enum OrderType { move, attack, rangeAttack, wait, defend, cast }
 
 public class Order
 {

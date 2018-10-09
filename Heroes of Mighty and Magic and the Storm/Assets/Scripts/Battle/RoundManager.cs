@@ -46,16 +46,16 @@ public class RoundManager : Singleton<RoundManager>
 
     void TurnStart()
     {
-        Unit go;
+        Unit unit;
         if (BattleManager.instance.unitActionList.Count > 0)
         {
-            go = BattleManager.instance.unitActionList.First.Value;
-            BattleManager.instance.unitActionList.Remove(go);
+            unit = BattleManager.instance.unitActionList.First.Value;
+            BattleManager.instance.unitActionList.Remove(unit);
         }
         else if (BattleManager.instance.waitingUnitList.Count > 0)
         {
-            go = BattleManager.instance.waitingUnitList.First.Value;
-            BattleManager.instance.waitingUnitList.Remove(go);
+            unit = BattleManager.instance.waitingUnitList.First.Value;
+            BattleManager.instance.waitingUnitList.Remove(unit);
 
             //禁用等待按钮
             BattleManager.instance.button_wait.interactable = false;
@@ -66,10 +66,9 @@ public class RoundManager : Singleton<RoundManager>
             return;
         }
 
-        BattleManager.currentActionUnit = go;
+        BattleManager.currentActionUnit = unit;
 
-        //测试版由玩家0来操控单位
-        UnitActionMgr.instance.ActionStart(go, 0);
+        UnitActionMgr.instance.ActionStart(unit);
     }
 
     public void TurnEnd()

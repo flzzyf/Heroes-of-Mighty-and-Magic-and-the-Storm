@@ -629,34 +629,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 64287802}
   m_CullTransparentMesh: 0
---- !u!1 &82325663
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 82325664}
-  m_Layer: 0
-  m_Name: HeroPoint_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &82325664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 82325663}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.02, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1500115233}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &91319951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,8 +6880,6 @@ Transform:
   - {fileID: 1845020238}
   - {fileID: 30077798}
   - {fileID: 2022425691}
-  - {fileID: 82325664}
-  - {fileID: 2035681050}
   - {fileID: 1764981993}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -7714,14 +7684,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1638976381}
-  - component: {fileID: 1638976380}
   - component: {fileID: 1638976379}
+  - component: {fileID: 1638976380}
   - component: {fileID: 1638976378}
   - component: {fileID: 1638976374}
   - component: {fileID: 1638976375}
   - component: {fileID: 1638976376}
   - component: {fileID: 1638976377}
   - component: {fileID: 1638976382}
+  - component: {fileID: 1638976383}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -7805,9 +7776,6 @@ MonoBehaviour:
   playerHero:
   - {fileID: 284897467}
   - {fileID: 1134631092}
-  heroPoint:
-  - {fileID: 82325663}
-  - {fileID: 2035681049}
   heroUnitPrefab: {fileID: 1979650282545042, guid: 03d4db01882b8403c9d1dd0f03262b5e,
     type: 2}
   battleObjectParent: {fileID: 1500115232}
@@ -7821,6 +7789,10 @@ MonoBehaviour:
     color: {r: 0, g: 0, b: 0, a: 0.5882353}
   cam: {fileID: 1845020234}
   button_wait: {fileID: 1414796853}
+  heroUnitPos:
+  - {x: -2.02, y: 0.25}
+  - {x: 37.34, y: 0.25}
+  rangeAttackRange: 10
   prefab_unit: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
     type: 2}
   UI_UnitStat: {fileID: 1111564370}
@@ -7886,6 +7858,17 @@ MonoBehaviour:
     color: {r: 0.9528302, g: 0, b: 0, a: 1}
   - name: friend
     color: {r: 0, g: 1, b: 0.15811014, a: 1}
+--- !u!114 &1638976383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1638976373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8cfa3f5da26d46bdb0da8875a99a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1662071096
 GameObject:
   m_ObjectHideFlags: 0
@@ -8633,7 +8616,7 @@ RectTransform:
   - {fileID: 1111564371}
   - {fileID: 1418723122}
   m_Father: {fileID: 1500115233}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10135,34 +10118,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2025873720}
   m_CullTransparentMesh: 0
---- !u!1 &2035681049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2035681050}
-  m_Layer: 0
-  m_Name: HeroPoint_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2035681050
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2035681049}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.34, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1500115233}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2046621774
 GameObject:
   m_ObjectHideFlags: 0

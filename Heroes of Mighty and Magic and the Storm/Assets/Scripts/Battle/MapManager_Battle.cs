@@ -98,6 +98,9 @@ public class MapManager_Battle : MapManager
         if (GameManager.instance.gamePaused)
             return;
 
+        if (BattleManager.currentActionUnit.player != GameManager.player)
+            return;
+
         //有则清除之前路径
         if (path != null)
         {
@@ -199,6 +202,9 @@ public class MapManager_Battle : MapManager
         if (GameManager.instance.gamePaused)
             return;
 
+        if (BattleManager.currentActionUnit.player != GameManager.player)
+            return;
+
         //不响应鼠标小范围移动
         if (Vector3.Distance(Input.mousePosition, lastMousePos) < mouseMoveSensitivity)
         {
@@ -209,13 +215,13 @@ public class MapManager_Battle : MapManager
             lastMousePos = Input.mousePosition;
         }
 
-        //如果是远程攻击，直接跳过
-        if (UnitActionMgr.isRangeAttack)
-            return;
-
         //if可攻击
         if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
+            //如果是远程攻击，直接跳过
+            if (UnitActionMgr.IsRangeAttack(_node.nodeObject.GetComponent<Unit>()))
+                return;
+
             Vector2 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 dir = mousePoint - (Vector2)_node.transform.position;
             dir.y -= 0.9f;
@@ -294,19 +300,21 @@ public class MapManager_Battle : MapManager
         }
         else if (_node.gameObject.GetComponent<NodeItem_Battle>().battleNodeType == BattleNodeType.attackable)
         {
-            if (closeToTarget || UnitActionMgr.isRangeAttack)
+            Unit unit = _node.nodeObject.GetComponent<Unit>();
+
+            if (!closeToTarget || UnitActionMgr.IsRangeAttack(unit))
             {
-                UnitActionMgr.order = new Order(OrderType.attack,
-                                        BattleManager.currentActionUnit, _node.nodeObject.GetComponent<Unit>());
+                UnitActionMgr.order = new Order(OrderType.rangeAttack,
+                                        BattleManager.currentActionUnit, unit);
             }
             else
             {
                 if ((BattleManager.currentActionUnit.type.moveType == MoveType.walk))
                     UnitActionMgr.order = new Order(OrderType.attack,
-                            BattleManager.currentActionUnit, path, _node.nodeObject.GetComponent<Unit>());
+                            BattleManager.currentActionUnit, path, unit);
                 else
                     UnitActionMgr.order = new Order(OrderType.attack,
-                                BattleManager.currentActionUnit, targetNode, _node.nodeObject.GetComponent<Unit>());
+                                BattleManager.currentActionUnit, targetNode, unit);
             }
 
         }

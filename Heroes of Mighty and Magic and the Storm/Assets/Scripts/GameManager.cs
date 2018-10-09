@@ -10,6 +10,8 @@ public class GameManager : Singleton<GameManager>
 
     public Hero[] testHeroes;
 
+    public static int player;
+
     void Start()
     {
         TravelManager.instance.Init();

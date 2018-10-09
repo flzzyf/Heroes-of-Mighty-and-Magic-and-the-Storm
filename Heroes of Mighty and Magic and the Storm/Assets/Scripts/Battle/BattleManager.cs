@@ -32,8 +32,6 @@ public class BattleManager : Singleton<BattleManager>
 
     public static Unit currentActionUnit;
 
-    //英雄创建位置
-    public GameObject[] heroPoint;
     GameObject[] heroes = new GameObject[2];
 
     public GameObject heroUnitPrefab;
@@ -53,6 +51,10 @@ public class BattleManager : Singleton<BattleManager>
     public GameObject cam;
 
     public Button button_wait;
+
+    public Vector2[] heroUnitPos;
+
+    public int rangeAttackRange = 10;
 
     public void Init()
     {
@@ -166,8 +168,7 @@ public class BattleManager : Singleton<BattleManager>
     //创建玩家单位
     public void CreateHeroUnits(Hero _hero, int _side)
     {
-        GameObject heroUnit = Instantiate(heroUnitPrefab,
-            heroPoint[_side].transform.position, Quaternion.identity);
+        GameObject heroUnit = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
         heroes[_side] = heroUnit;
 
         //在右边则翻转英雄
@@ -275,4 +276,9 @@ public class BattleManager : Singleton<BattleManager>
         }
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(heroUnitPos[0], .5f);
+        Gizmos.DrawWireSphere(heroUnitPos[1], .5f);
+    }
 }
