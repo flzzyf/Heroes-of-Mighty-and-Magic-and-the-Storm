@@ -11,5 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7242ba3c4f2a743eeacf8d403c2dcccf, type: 3}
   m_Name: No Retaliation
   m_EditorClassIdentifier: 
-  traitName: "\u4E0D\u53D7\u53CD\u51FB"
+  traitName: "\u653B\u51FB\u4E0D\u53D7\u53CD\u51FB"
   chance: 1
+  sound_trigger: {fileID: 0}
+  fx_trigger: {fileID: 0}

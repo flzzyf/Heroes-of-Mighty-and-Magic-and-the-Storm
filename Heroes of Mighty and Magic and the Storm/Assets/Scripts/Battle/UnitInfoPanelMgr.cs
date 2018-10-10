@@ -9,6 +9,7 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     public Text text_name;
     public GameObject text_ammo_title;
     public Text text_att, text_def, text_ammo, text_damage, text_hpMax, text_hp, text_speed;
+    public Text text_num, text_trait;
 
     //更新并显示UI
     public void UpdatePanel(Unit _unit)
@@ -32,6 +33,16 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         text_hpMax.text = _unit.type.hp + "";
         text_hp.text = _unit.currentHP + "";
         text_speed.text = _unit.type.speed + "";
+        text_num.text = _unit.num + "";
+
+        //特质文本
+        string text = "";
+        for (int i = 0; i < _unit.type.traits.Count; i++)
+        {
+            if (i > 0) text += ", ";
+            text += _unit.type.traits[i].traitName;
+        }
+        text_trait.text = text;
     }
 
     public void HidePanel()
