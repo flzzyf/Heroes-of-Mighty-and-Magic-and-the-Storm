@@ -33,14 +33,22 @@ public class AStarManager
             openSet.Remove(curNode);
             closeSet.Add(curNode);
             //如果就是终点
-            if (curNode == endNode)
-            {
-                //可通行
-                return GeneratePath(startNode, endNode);
-            }
+            // if (curNode == endNode)
+            // {
+            //     //可通行
+            //     return GeneratePath(startNode, endNode);
+            // }
             //判断周围节点
             foreach (var item in map.GetNearbyNodes(curNode))
             {
+                //如果是终点，结束
+                if (item == endNode)
+                {
+                    //可通行
+                    item.parentNode = curNode;
+
+                    return GeneratePath(startNode, endNode);
+                }
                 //如果不可通行或在闭集中，则跳过
                 if ((!_ignoreObstacle && !item.walkable) || closeSet.Contains(item))
                 {

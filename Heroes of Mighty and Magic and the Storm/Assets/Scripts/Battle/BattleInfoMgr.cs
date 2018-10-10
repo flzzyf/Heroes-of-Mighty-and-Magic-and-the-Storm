@@ -9,7 +9,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
 
     List<string> textList = new List<string>();
 
-    bool tempText;
+    bool tempText = true;
 
     public void SetText(string _text)
     {

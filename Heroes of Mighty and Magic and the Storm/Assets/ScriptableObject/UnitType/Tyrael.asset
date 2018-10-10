@@ -17,7 +17,7 @@ MonoBehaviour:
   def: 20
   hp: 200
   damage: {x: 50, y: 50}
-  speed: 8
+  speed: 12
   moveType: 1
   attackType: 0
   traits: []
@@ -26,6 +26,7 @@ MonoBehaviour:
   cost: 3000
   size: 1
   armorType: 0
+  ammo: 12
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0}
   sound_attack: {fileID: 0}
