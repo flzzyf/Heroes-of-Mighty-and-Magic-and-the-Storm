@@ -8,17 +8,17 @@ AnimatorOverrideController:
   m_Name: Crusader_Upgrade
   m_Controller: {fileID: 9100000, guid: 181596479889b424b8444fdafc002018, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 6a0d3618b4b23483eaa14eeb6784c5d3, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 89dd101d4ad889242bc96d802a088293, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 459b1c018136946d799339b8853ec829, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: b43e9ae47f321b1408be75459531bdbc, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 7961d6880a7d54f4da3c17101e35ba63, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d616b6575ae801446a2a567e767443a5, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1dfa1126cfb424fb8ad4ebbfe64b7d2a, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 69fc14c75859e3c429d34a4654ff578e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 062fa4891535a614cafa10a40877b66b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6a0d3618b4b23483eaa14eeb6784c5d3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 363bd623442b4e348bb4814a5ac1b5f0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7961d6880a7d54f4da3c17101e35ba63, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1b826d08730475c4caf3330243fa2b14, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 054e0bb4230f94c25a0531fba79dc0c9, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 69fc14c75859e3c429d34a4654ff578e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 983d60d8f3c148e4d95f73aec9900552, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 84b92919a373842c99142eed34769c05, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 38faad31fc0c13441b333c51cff71fa1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8d83fbb49ed95f74f8cf2ed7f35c0778, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 957c48cdd87894a70947149b2048fbbd, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 8a6a93ead4b9cd44392826694ff562bb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 85858cc8b4ed9a04794b0d17460c4b1e, type: 2}
