@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8d03eee5a51d5f6418191689f87e4046
+guid: b8f02cb0009374c10870cb7349f06c22
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: HappyZcool-2016
+  fontName: MF DianHei (Noncommercial)
   fontNames:
-  - HappyZcool-2016
+  - MF DianHei (Noncommercial)
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

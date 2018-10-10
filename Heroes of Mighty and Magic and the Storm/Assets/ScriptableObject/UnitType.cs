@@ -25,6 +25,7 @@ public class UnitType : ScriptableObject
     public ArmorType armorType;
 
     [Header("远程攻击才需要")]
+    public int ammo = 12;
     public GameObject missile;
     public Vector2 launchPos;
     [Header("音效")]

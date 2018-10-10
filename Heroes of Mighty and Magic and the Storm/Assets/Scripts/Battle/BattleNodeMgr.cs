@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BattleNodeMgr : Singleton<BattleNodeMgr>
 {
@@ -116,6 +117,18 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnMouseMoved(NodeItem_Battle _node)
     {
+        //右键点击
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (_node.nodeObject.nodeObjectType == NodeObjectType.unit)
+            {
+                UnitInfoPanelMgr.instance.UpdatePanel(_node.unit);
+            }
+
+            return;
+        }
+
+
         if (!GameManager.playerControl)
             return;
 
@@ -188,6 +201,12 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
     {
         if (!GameManager.playerControl)
             return;
+
+        //点击在按UI钮上
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
 
         //设定指令
         if (_node.battleNodeType == BattleNodeType.reachable)
