@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Kel
   m_EditorClassIdentifier: 
   unitName: "\u5DEB\u5996"
+  icon: {fileID: 0}
   animControl: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e, type: 2}
   att: 13
   def: 10
   hp: 30
   damage: {x: 11, y: 13}
-  speed: 24
-  moveType: 0
+  speed: 6
   attackType: 1
   traits: []
   growth: 3
@@ -26,6 +26,7 @@ MonoBehaviour:
   cost: 100
   size: 1
   armorType: 0
+  ammo: 12
   missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}
   launchPos: {x: 1.3, y: 2.35}
   sound_attack: {fileID: 0}

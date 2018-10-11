@@ -4,7 +4,27 @@ using UnityEngine;
 
 public class BattleResultMgr : MonoBehaviour
 {
-    public Dictionary<UnitType, int>[] casualties;
+    public GameObject resultUI;
+    //战损记录字典
+    Dictionary<UnitType, int>[] casualties;
+
+    public void ShowResultUI(bool _show = true)
+    {
+        if (_show)
+        {
+            UpdateResultUI();
+        }
+
+        resultUI.SetActive(_show);
+    }
+
+    void UpdateResultUI()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+
+        }
+    }
 
     public void Clear()
     {

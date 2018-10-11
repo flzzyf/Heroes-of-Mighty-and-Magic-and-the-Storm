@@ -18,7 +18,7 @@ MonoBehaviour:
   def: 10
   hp: 40
   damage: {x: 5, y: 8}
-  speed: 20
+  speed: 9
   attackType: 0
   traits:
   - {fileID: 11400000, guid: 8d29db8314585433086022487b87e65b, type: 2}
