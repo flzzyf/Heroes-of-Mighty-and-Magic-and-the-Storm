@@ -61,7 +61,6 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
                 icon.icon.sprite = item.Key.icon;
                 Vector2 size = icon.icon.GetComponent<RectTransform>().sizeDelta;
                 float rate = (float)item.Key.icon.texture.width / item.Key.icon.texture.height;
-                print(rate);
                 size.x = icon.icon.GetComponent<RectTransform>().sizeDelta.y * rate;
                 icon.icon.GetComponent<RectTransform>().sizeDelta = size;
 

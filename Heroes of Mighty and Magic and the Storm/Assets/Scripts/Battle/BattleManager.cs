@@ -75,12 +75,12 @@ public class BattleManager : Singleton<BattleManager>
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (GameManager.playerControl)
+            if (GameManager.playerControl && players[currentActionUnit.player] == GameManager.player)
                 Wait();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (GameManager.playerControl)
+            if (GameManager.playerControl && players[currentActionUnit.player] == GameManager.player)
                 Defend();
         }
     }
@@ -223,9 +223,9 @@ public class BattleManager : Singleton<BattleManager>
         unit.SetFacing(_side);
         unit.originalNum = _num;
 
-        units[_side].Add(go.GetComponent<Unit>());
+        units[_side].Add(unit);
 
-        go.GetComponent<Unit>().player = _side;
+        unit.player = _side;
 
         return unit;
     }
