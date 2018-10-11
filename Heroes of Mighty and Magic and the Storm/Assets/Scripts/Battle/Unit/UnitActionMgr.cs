@@ -32,6 +32,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         while (order == null)
             yield return null;
 
+        GameManager.playerControl = false;
+
         //发出指令后，开始执行命令
         UnitHaloMgr.instance.HaloFlashStop(_unit);
 

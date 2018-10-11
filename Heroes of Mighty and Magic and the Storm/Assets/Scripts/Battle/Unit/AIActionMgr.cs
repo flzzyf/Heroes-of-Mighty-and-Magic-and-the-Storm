@@ -43,7 +43,6 @@ public class AIActionMgr : Singleton<AIActionMgr>
             }
             else
             {
-                print("攻击范围内无目标");
                 //攻击范围内无目标
                 target = GetNearestUnit(_unit, enemyList);
                 //且可到达

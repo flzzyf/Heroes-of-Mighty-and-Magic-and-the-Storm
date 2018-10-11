@@ -66,11 +66,13 @@ public class BattleManager : Singleton<BattleManager>
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Wait();
+            if (GameManager.playerControl)
+                Wait();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Defend();
+            if (GameManager.playerControl)
+                Defend();
         }
     }
 

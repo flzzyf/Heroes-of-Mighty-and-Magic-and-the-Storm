@@ -120,7 +120,8 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         //右键点击
         if (Input.GetMouseButtonDown(1))
         {
-            if (_node.nodeObject.nodeObjectType == NodeObjectType.unit)
+            if (_node.nodeObject != null &&
+                _node.nodeObject.nodeObjectType == NodeObjectType.unit)
             {
                 UnitInfoPanelMgr.instance.UpdatePanel(_node.unit);
             }
