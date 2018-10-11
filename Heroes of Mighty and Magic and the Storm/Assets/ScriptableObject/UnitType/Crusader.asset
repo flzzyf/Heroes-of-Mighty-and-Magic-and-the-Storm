@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Crusader
   m_EditorClassIdentifier: 
   unitName: "\u5723\u6559\u519B"
-  animControl: {fileID: 22100000, guid: 6e4dc350c5f0347ec825e4d680ee2d3e, type: 2}
+  icon: {fileID: 0}
+  animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
   att: 10
   def: 12
   hp: 35
   damage: {x: 6, y: 9}
   speed: 5
-  moveType: 0
   attackType: 0
   traits: []
   growth: 4
@@ -26,10 +26,14 @@ MonoBehaviour:
   cost: 300
   size: 1
   armorType: 0
+  ammo: 12
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0}
   sound_attack: {fileID: 8300000, guid: 1610339ba07df8549bd7801ebab77563, type: 3}
   sound_attackImpact: {fileID: 0}
-  sound_walk: {fileID: 8300000, guid: 6034f1994172dc940bb61fbc4bc2291b, type: 3}
+  sound_walk:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sound_hit: {fileID: 0}
   sound_death: {fileID: 0}

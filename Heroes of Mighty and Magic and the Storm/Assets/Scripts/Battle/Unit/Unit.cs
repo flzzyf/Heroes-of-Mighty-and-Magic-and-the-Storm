@@ -128,9 +128,10 @@ public class Unit : NodeObject
 
     public void ChangeNum(int _amount)
     {
-        int n = num + _amount;
+        int side = player == BattleManager.players[0] ? 0 : 1;
+        BattleResultMgr.instance.ChangeCasualties(side, type, _amount);
 
-        SetNum(n);
+        SetNum(num + _amount);
     }
 
     public void SetHp(int _amount)

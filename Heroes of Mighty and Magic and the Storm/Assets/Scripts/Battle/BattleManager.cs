@@ -32,7 +32,9 @@ public class BattleManager : Singleton<BattleManager>
 
     public static Unit currentActionUnit;
 
-    GameObject[] heroes = new GameObject[2];
+    public static int[] players;
+    public static Hero[] heroes;
+    public static GameObject[] heroUnits;
 
     public GameObject heroUnitPrefab;
 
@@ -60,6 +62,13 @@ public class BattleManager : Singleton<BattleManager>
     {
         map.GenerateMap();
         map.parent.gameObject.SetActive(false);
+
+        BattleResultMgr.instance.Init();
+
+        players = new int[2];
+        heroes = new Hero[2];
+        heroUnits = new GameObject[2];
+
     }
 
     void Update()
@@ -114,6 +123,12 @@ public class BattleManager : Singleton<BattleManager>
     public void BattleStart(Hero _attacker, Hero _defender)
     {
         EnterBattleMode();
+
+        heroes[0] = _attacker;
+        heroes[1] = _defender;
+
+        players[0] = _attacker.player;
+        players[1] = _defender.player;
 
         unitActionOrder = new LinkedList<Unit>();
         unitActionList = new LinkedList<Unit>();
@@ -170,12 +185,11 @@ public class BattleManager : Singleton<BattleManager>
     //创建玩家单位
     public void CreateHeroUnits(Hero _hero, int _side)
     {
-        GameObject heroUnit = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
-        heroes[_side] = heroUnit;
+        heroUnits[_side] = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
 
         //在右边则翻转英雄
         if (_side == 1)
-            heroes[_side].GetComponent<SpriteRenderer>().flipX = true;
+            heroUnits[_side].GetComponent<SpriteRenderer>().flipX = true;
 
         int x = (_side == 0) ? 0 : map.size.x - 1;
         for (int i = 0; i < _hero.pocketUnits.Length; i++)
@@ -205,7 +219,7 @@ public class BattleManager : Singleton<BattleManager>
         unit.nodeObjectType = NodeObjectType.unit;
         unit.type = _type;
         unit.Init();
-        unit.ChangeNum(_num);
+        unit.SetNum(_num);
         unit.SetFacing(_side);
         unit.originalNum = _num;
 

@@ -42,11 +42,20 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            QualitySettings.SetQualityLevel(3);
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < BattleResultMgr.instance.parent_units[i].childCount; j++)
+                {
+                    int childCount = BattleResultMgr.instance.parent_units[i].childCount - 1;
+                    if (BattleResultMgr.instance.parent_units[i].GetChild(childCount).gameObject.activeSelf)
+                        Destroy(BattleResultMgr.instance.parent_units[i].GetChild(childCount));
+                }
+            }
+            BattleResultMgr.instance.ShowResultUI(0);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            QualitySettings.SetQualityLevel(0);
+            BattleResultMgr.instance.ShowResultUI(1);
         }
     }
 

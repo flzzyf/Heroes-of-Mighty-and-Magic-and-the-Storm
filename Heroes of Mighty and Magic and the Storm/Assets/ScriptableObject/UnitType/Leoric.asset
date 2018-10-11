@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Leoric
   m_EditorClassIdentifier: 
   unitName: "\u9AB7\u9AC5\u738B"
+  icon: {fileID: 21300000, guid: fccc6da7f2dc0704cbd6c63ef7962679, type: 3}
   animControl: {fileID: 22100000, guid: 950705c3924ee6f4f846a7f9eec9c157, type: 2}
   att: 5
   def: 4
   hp: 6
   damage: {x: 1, y: 3}
   speed: 4
-  moveType: 0
   attackType: 0
   traits: []
   growth: 12
@@ -26,8 +26,11 @@ MonoBehaviour:
   cost: 300
   size: 2
   armorType: 1
+  ammo: 12
   missile: {fileID: 0}
-  launchPos: {x: 0, y: 0, z: 0}
+  launchPos: {x: 0, y: 0}
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
+  sound_walk: []
+  sound_hit: {fileID: 0}
   sound_death: {fileID: 0}

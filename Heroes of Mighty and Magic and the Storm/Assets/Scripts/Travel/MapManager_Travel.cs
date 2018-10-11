@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MapManager_Travel : MapManager
 {
@@ -12,6 +13,12 @@ public class MapManager_Travel : MapManager
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
+        //点击在按UI钮上
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         //如果是游戏暂停状态则无视点击
         if (GameManager.instance.gamePaused)
             return;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Kel
   m_EditorClassIdentifier: 
   unitName: "\u5DEB\u5996"
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fceaa451e658f114daa02af4322a0e0d, type: 3}
   animControl: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e, type: 2}
   att: 13
   def: 10

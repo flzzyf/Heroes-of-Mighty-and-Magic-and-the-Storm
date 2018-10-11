@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hero : NodeObject
 {
+    public HeroType heroType;
     public PocketUnit[] pocketUnits;
     [HideInInspector]
     public int movementRate = 1500;

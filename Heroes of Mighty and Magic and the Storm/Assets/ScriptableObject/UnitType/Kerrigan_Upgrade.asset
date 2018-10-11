@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Kerrigan_Upgrade
   m_EditorClassIdentifier: 
   unitName: "\u51EF\u745E\u7518"
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f8a35c6fc36f88f4e8bf9a85eb362e3f, type: 3}
   animControl: {fileID: 22100000, guid: f49d92953bc4a1c4aa12287e896f59e4, type: 2}
   att: 10
   def: 10
