@@ -17,6 +17,13 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnNodeHovered(NodeItem_Battle _node)
     {
+
+        //点击在按UI钮上
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
         playerHovered = _node;
 
         if (!GameManager.playerControl)
