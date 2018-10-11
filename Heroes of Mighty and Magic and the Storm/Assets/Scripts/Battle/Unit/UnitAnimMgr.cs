@@ -60,7 +60,8 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
     }
     void PlayAnimEnd(Unit _unit)
     {
-        _unit.UI.SetActive(true);
+        if (!_unit.dead)
+            _unit.UI.SetActive(true);
         _unit.GetComponent<AxisZControl>().offsetZ = 0;
     }
 }

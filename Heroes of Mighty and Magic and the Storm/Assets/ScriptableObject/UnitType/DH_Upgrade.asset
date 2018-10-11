@@ -17,7 +17,7 @@ MonoBehaviour:
   def: 3
   hp: 10
   damage: {x: 2, y: 3}
-  speed: 6
+  speed: 30
   moveType: 0
   attackType: 1
   traits:
