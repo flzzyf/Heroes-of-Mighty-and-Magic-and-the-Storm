@@ -57,7 +57,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             CursorManager.instance.ChangeCursor("reachable");
 
             //是地面移动单位，则计算路径
-            if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
+            if (BattleManager.currentActionUnit.isWalker)
             {
                 NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
                 FindPath(currentNode, _node);
@@ -182,7 +182,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
                 if (!targetNode.nodeObject == BattleManager.currentActionUnit)
                 {
                     //是近战单位则显示路径
-                    if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
+                    if (BattleManager.currentActionUnit.isWalker)
                     {
                         NodeItem currentNode = BattleManager.currentActionUnit.GetComponent<Unit>().nodeItem;
                         FindPath(currentNode, targetNode);
@@ -212,12 +212,12 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         //设定指令
         if (_node.battleNodeType == BattleNodeType.reachable)
         {
-            if (BattleManager.currentActionUnit.type.moveType == MoveType.walk)
+            if (BattleManager.currentActionUnit.isWalker)
             {
                 UnitActionMgr.order = new Order(OrderType.move,
                                             BattleManager.currentActionUnit, path);
             }
-            else if (BattleManager.currentActionUnit.type.moveType == MoveType.fly)
+            else if (BattleManager.currentActionUnit.PossessTrait("Flying"))
             {
                 UnitActionMgr.order = new Order(OrderType.move,
                                                             BattleManager.currentActionUnit, _node);
@@ -234,7 +234,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             }
             else
             {
-                if ((BattleManager.currentActionUnit.type.moveType == MoveType.walk))
+                if (BattleManager.currentActionUnit.isWalker)
                 {
                     if (path != null)
                         UnitActionMgr.order = new Order(OrderType.attack,

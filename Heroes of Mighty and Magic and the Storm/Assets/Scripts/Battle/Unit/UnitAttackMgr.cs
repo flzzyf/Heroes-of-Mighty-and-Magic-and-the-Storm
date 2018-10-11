@@ -111,8 +111,9 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             BattleInfoMgr.instance.AddText_LifeDrain(_origin, _target, damage, resurrectNum);
 
             //创建吸血效果，播放音效
-            GameManager.instance.PlaySound(TraitManager.instance.GetTrait("Life Drain").sound_trigger);
-            GameObject fx = Instantiate(TraitManager.instance.GetTrait("Life Drain").fx_trigger,
+            Trait_Effect trait = (Trait_Effect)(TraitManager.instance.GetTrait("Life Drain"));
+            GameManager.instance.PlaySound(trait.sound_trigger);
+            GameObject fx = Instantiate(trait.fx_trigger,
                 _origin.transform.position, Quaternion.identity);
 
             Destroy(fx, 1.5f);

@@ -233,4 +233,7 @@ public class Unit : NodeObject
     {
         return type.traits.Contains(TraitManager.instance.GetTrait(_name));
     }
+
+    //是地面行走者（非飞行和瞬移）
+    public bool isWalker { get { return !PossessTrait("Flying") && !PossessTrait("Teleporting"); } }
 }

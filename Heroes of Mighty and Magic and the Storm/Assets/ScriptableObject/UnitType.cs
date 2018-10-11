@@ -6,13 +6,13 @@ using System.Collections.Generic;
 public class UnitType : ScriptableObject
 {
     public string unitName;
+    public Sprite icon;
     public RuntimeAnimatorController animControl;
 
     public int att, def, hp;
     public Vector2Int damage;
     public int speed = 5;
 
-    public MoveType moveType;
     public AttackType attackType;
     public List<Trait> traits;
 
@@ -47,7 +47,6 @@ public class UnitType : ScriptableObject
     }
 }
 
-public enum MoveType { walk, fly, blink }
 public enum AttackType { melee, range }
 public enum UnitSize { small, middle, big }
 public enum ArmorType { flesh, metal }

@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Name: Tyrael
   m_EditorClassIdentifier: 
   unitName: "\u6B63\u4E49\u5929\u4F7F"
+  icon: {fileID: 0}
   animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
   att: 20
   def: 20
   hp: 200
   damage: {x: 50, y: 50}
   speed: 12
-  moveType: 1
   attackType: 0
-  traits: []
+  traits:
+  - {fileID: 11400000, guid: 8d29db8314585433086022487b87e65b, type: 2}
   growth: 1
   AIValue: 5019
   cost: 3000

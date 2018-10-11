@@ -119,11 +119,11 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     {
         if (order.type == OrderType.move)
         {
-            if (order.origin.type.moveType == MoveType.walk)
+            if (order.origin.isWalker)
             {
                 MovementManager.instance.MoveObjectAlongPath(order.origin, order.path);
             }
-            else if (order.origin.type.moveType == MoveType.fly)
+            else if (order.origin.PossessTrait("Flying"))
             {
                 MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
             }

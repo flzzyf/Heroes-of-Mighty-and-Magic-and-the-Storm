@@ -6,7 +6,6 @@ public class AIActionMgr : Singleton<AIActionMgr>
 {
     public void AIActionStart(Unit _unit)
     {
-        List<NodeItem> attackableNodes = new List<NodeItem>();
         int enemyHero = (_unit.player + 1) % 2;
         bool isRangeAttack = UnitActionMgr.IsRangeAttack(_unit);
         List<Unit> enemyList = BattleManager.instance.units[enemyHero];
@@ -32,7 +31,7 @@ public class AIActionMgr : Singleton<AIActionMgr>
                             _unit.nodeItem, target.nodeItem);
                 path.RemoveAt(path.Count - 1);
 
-                if (_unit.type.moveType == MoveType.walk)
+                if (_unit.isWalker)
                 {
                     UnitActionMgr.order = new Order(OrderType.attack, _unit, path, target);
                 }
@@ -53,7 +52,7 @@ public class AIActionMgr : Singleton<AIActionMgr>
                 //去掉移动力之外的部分
                 path.RemoveRange(speed, path.Count - speed);
 
-                if (_unit.type.moveType == MoveType.walk)
+                if (_unit.isWalker)
                 {
                     UnitActionMgr.order = new Order(OrderType.move, _unit, path, target);
                 }
@@ -107,7 +106,7 @@ public class AIActionMgr : Singleton<AIActionMgr>
         int speed = _unit.GetComponent<Unit>().type.speed;
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
 
-        bool walkable = _unit.type.moveType == MoveType.walk ? true : false;
+        bool walkable = _unit.isWalker ? true : false;
         List<NodeItem> reachableNodes = BattleManager.instance.map.
             GetNodeItemsWithinRange(nodeItem, speed, walkable);
         List<NodeItem> attackableNodes = BattleManager.instance.map.
