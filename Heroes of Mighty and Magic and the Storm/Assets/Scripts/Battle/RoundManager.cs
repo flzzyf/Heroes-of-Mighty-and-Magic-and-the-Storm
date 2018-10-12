@@ -68,6 +68,19 @@ public class RoundManager : Singleton<RoundManager>
 
         BattleManager.currentActionUnit = unit;
 
+        for (int i = 0; i < BattleManager.currentActionUnit.behaviors.Count; i++)
+        {
+            Behavior behavior = BattleManager.currentActionUnit.behaviors[i];
+            if (behavior.duration > 1)
+            {
+                behavior.duration--;
+            }
+            else if (behavior.duration == 1)
+            {
+                BattleManager.currentActionUnit.RemoveBehavior(behavior);
+            }
+        }
+
         UnitActionMgr.instance.ActionStart(unit);
     }
 

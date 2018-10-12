@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Trait_Effect")]
+[CreateAssetMenu(menuName = "Trait/Trait_Effect")]
 public class Trait_Effect : Trait
 {
     public float chance = 1;

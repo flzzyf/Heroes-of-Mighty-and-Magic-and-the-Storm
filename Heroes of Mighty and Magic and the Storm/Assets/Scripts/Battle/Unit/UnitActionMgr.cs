@@ -10,6 +10,8 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     public static Order order;
 
+    public Behavior behavior_defend;
+
     public void ActionStart(Unit _unit)
     {
         StartCoroutine(ActionStartCor(_unit));
@@ -170,6 +172,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         else if (order.type == OrderType.defend)
         {
             //获得+1防御力buff一回合
+            order.origin.AddBehavior(behavior_defend);
         }
 
         order = null;

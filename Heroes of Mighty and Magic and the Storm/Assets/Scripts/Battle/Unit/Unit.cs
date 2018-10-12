@@ -15,7 +15,7 @@ public class Unit : NodeObject
 
     //单位属性
     [HideInInspector]
-    public int speed, att, def, currentHP, num;
+    public int speed, att, def, currentHP, num, ammo;
     [HideInInspector]
     public Vector2Int damage;
     [HideInInspector]
@@ -42,6 +42,7 @@ public class Unit : NodeObject
         def = type.def;
         damage = type.damage;
         currentHP = type.hp;
+        ammo = type.ammo;
     }
     #region Facing
 
@@ -239,4 +240,42 @@ public class Unit : NodeObject
 
     //是地面行走者（非飞行和瞬移）
     public bool isWalker { get { return !PossessTrait("Flying") && !PossessTrait("Teleporting"); } }
+
+    [HideInInspector]
+    public List<Behavior> behaviors = new List<Behavior>();
+    public void AddBehavior(Behavior _behavior)
+    {
+        behaviors.Add(_behavior);
+
+        _behavior.Init(this);
+        _behavior.Add();
+    }
+
+    public void RemoveBehavior(Behavior _behavior)
+    {
+        for (int i = 0; i < behaviors.Count; i++)
+        {
+            if (behaviors[i] == _behavior)
+            {
+                behaviors[i].Remove();
+
+                behaviors.Remove(behaviors[i]);
+            }
+        }
+    }
+
+    public bool PossessBehavior(Behavior _behavior)
+    {
+        for (int i = 0; i < behaviors.Count; i++)
+        {
+            if (behaviors[i] == _behavior)
+            {
+                behaviors[i].duration--;
+                print(behaviors[i].duration);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

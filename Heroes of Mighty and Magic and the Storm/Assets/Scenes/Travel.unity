@@ -8838,27 +8838,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95353328489820648, guid: 7941d79ee91184110bce8696cb055256,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f,
-        type: 2}
-    - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 3.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 5.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7941d79ee91184110bce8696cb055256, type: 2}
   m_IsPrefabAsset: 0
@@ -9606,6 +9585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e57f4bde0694b13892b02ffb95ecd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  behavior_defend: {fileID: 11400000, guid: e5717e38536da49b3a5f4d8062120aca, type: 2}
 --- !u!114 &1638976379
 MonoBehaviour:
   m_ObjectHideFlags: 0

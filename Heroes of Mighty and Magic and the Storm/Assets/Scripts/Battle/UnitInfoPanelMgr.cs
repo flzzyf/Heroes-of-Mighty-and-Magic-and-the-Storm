@@ -17,22 +17,17 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         panel.SetActive(true);
 
         text_name.text = _unit.type.unitName;
-        text_att.text = _unit.type.att + "";
-        text_def.text = _unit.type.def + "";
-        if (_unit.type.attackType == AttackType.range)
-        {
-            text_ammo.text = _unit.type.ammo + "";
-            text_ammo_title.SetActive(true);
-        }
-        else
-        {
-            text_ammo.text = "";
-            text_ammo_title.SetActive(false);
-        }
-        text_damage.text = _unit.type.damage.x + "-" + _unit.type.damage.y;
+        text_att.text = _unit.att + "";
+        text_def.text = _unit.def + "";
+
+        bool isRangeAttack = _unit.type.attackType == AttackType.range;
+        text_ammo.text = isRangeAttack ? _unit.ammo + "" : "";
+        text_ammo_title.SetActive(isRangeAttack);
+
+        text_damage.text = _unit.damage.x + "-" + _unit.damage.y;
         text_hpMax.text = _unit.type.hp + "";
         text_hp.text = _unit.currentHP + "";
-        text_speed.text = _unit.type.speed + "";
+        text_speed.text = _unit.speed + "";
         text_num.text = _unit.num + "";
 
         //特质文本
