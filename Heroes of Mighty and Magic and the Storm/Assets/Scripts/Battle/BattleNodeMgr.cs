@@ -84,11 +84,8 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             }
 
             //显示文本
-            bool isRangeAttack = UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit);
-            Vector2Int range = UnitAttackMgr.GetDamageRange(BattleManager.currentActionUnit, _node.unit, isRangeAttack);
+            BattleInfoMgr.instance.SetText_Attack(BattleManager.currentActionUnit, _node.unit);
 
-            BattleInfoMgr.instance.SetText(string.Format("攻击{0}（伤害{1}-{2}）",
-                _node.unit.type.unitName, range.x, range.y));
         }
         //不可到达点
         // else if (_node.battleNodeType == BattleNodeType.empty)
