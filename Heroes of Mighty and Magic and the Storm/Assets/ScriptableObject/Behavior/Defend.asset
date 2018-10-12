@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Name: Defend
   m_EditorClassIdentifier: 
   duration: 1
+  icon: {fileID: 0}
+  hideInUI: 0
   origin: {fileID: 0}
   effect_add: {fileID: 11400000, guid: ebd8b3c03f5ab4ad4a2c90669832ffb4, type: 2}
   effect_remove: {fileID: 11400000, guid: 3aadc1e2989bb4e27a3e1f12e415f31c, type: 2}
