@@ -11,6 +11,8 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
 
     bool tempText = true;
 
+    int currentPage;
+
     public void SetText(string _text)
     {
         tempText = true;
@@ -37,6 +39,8 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         {
             //已有显示文本，则加进去
             text.text = textList[textList.Count - 2] + "\n" + _text;
+
+            currentPage = 0;
         }
     }
 
@@ -68,6 +72,28 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
             text += string.Format("，并有{0}个复活了", _resurrectNum);
 
         AddText(text);
+    }
+
+    public void ButtonUp()
+    {
+        if (currentPage < textList.Count - 2)
+        {
+            currentPage++;
+            string s = textList[textList.Count - currentPage - 2] + "\n" +
+                        textList[textList.Count - currentPage - 1];
+            text.text = s;
+        }
+    }
+
+    public void ButtonDown()
+    {
+        if (currentPage > 0)
+        {
+            currentPage--;
+            string s = textList[textList.Count - currentPage - 2] + "\n" +
+                        textList[textList.Count - currentPage - 1];
+            text.text = s;
+        }
     }
 
     //手动上移文本
