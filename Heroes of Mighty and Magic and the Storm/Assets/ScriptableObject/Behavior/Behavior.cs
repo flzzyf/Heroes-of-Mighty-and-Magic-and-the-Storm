@@ -6,6 +6,9 @@ using UnityEngine;
 public class Behavior : ScriptableObject
 {
     public int duration;
+    public Sprite icon;
+
+    public bool hideInUI = false;
 
     [HideInInspector]
     public Unit origin;
