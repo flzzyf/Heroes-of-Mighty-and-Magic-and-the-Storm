@@ -28,7 +28,7 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
         {
             casualties[i] = new Dictionary<UnitType, int>();
             for (int j = 0; j < parent_units[i].childCount; j++)
-                Destroy(parent_units[i].GetChild(0));
+                Destroy(parent_units[i].GetChild(0).gameObject);
         }
     }
 

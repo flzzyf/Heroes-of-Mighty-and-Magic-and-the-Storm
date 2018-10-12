@@ -46,9 +46,7 @@ public class GameManager : Singleton<GameManager>
             {
                 for (int j = 0; j < BattleResultMgr.instance.parent_units[i].childCount; j++)
                 {
-                    int childCount = BattleResultMgr.instance.parent_units[i].childCount - 1;
-                    if (BattleResultMgr.instance.parent_units[i].GetChild(childCount).gameObject.activeSelf)
-                        Destroy(BattleResultMgr.instance.parent_units[i].GetChild(childCount));
+                    Destroy(BattleResultMgr.instance.parent_units[i].GetChild(0).gameObject);
                 }
             }
             BattleResultMgr.instance.ShowResultUI(0);
