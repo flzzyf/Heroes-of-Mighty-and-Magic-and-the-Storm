@@ -6535,6 +6535,7 @@ MonoBehaviour:
   testHeroes:
   - {fileID: 284897468}
   - {fileID: 1134631093}
+  type: {fileID: 11400000, guid: b5a7ee249ce65477e9043e4607aaef7a, type: 2}
 --- !u!82 &1222465630
 AudioSource:
   m_ObjectHideFlags: 0

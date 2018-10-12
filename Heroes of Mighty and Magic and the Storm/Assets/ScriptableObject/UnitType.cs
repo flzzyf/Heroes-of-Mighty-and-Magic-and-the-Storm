@@ -32,8 +32,8 @@ public class UnitType : ScriptableObject
     public AudioClip sound_attack;
     public AudioClip sound_attackImpact;
     public AudioClip[] sound_walk;
-    public AudioClip sound_hit;
-    public AudioClip sound_death;
+    public FixedSound sound_hit;
+    public FixedSound sound_death;
 
     public Vector2 impactPos
     {

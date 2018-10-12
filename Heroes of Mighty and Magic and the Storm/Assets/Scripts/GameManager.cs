@@ -53,8 +53,23 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            BattleResultMgr.instance.ShowResultUI(1);
+            //BattleResultMgr.instance.ShowResultUI(1);
+            GameManager.instance.PlaySound(type.sound_hit);
+
         }
+    }
+
+    public UnitType type;
+
+    public void PlaySound(FixedSound _sound, bool _random = false)
+    {
+        if (_sound == null)
+            return;
+
+
+        audioSource.clip = _sound.clip;
+        audioSource.time = _sound.skipDuration;
+        audioSource.Play();
     }
 
     public void PlaySound(AudioClip _clip, bool _random = false)
@@ -67,4 +82,11 @@ public class GameManager : Singleton<GameManager>
 
         audioSource.PlayOneShot(_clip);
     }
+}
+
+[System.Serializable]
+public class FixedSound
+{
+    public AudioClip clip;
+    public float skipDuration;
 }
