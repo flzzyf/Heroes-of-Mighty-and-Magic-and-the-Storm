@@ -15,7 +15,8 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
     public GameObject prefab_unitIcon;
 
     static string[] roleText = { "胜利", "战败" };
-    static string[] info = { "辉煌的胜利！\n因为英勇作战,{0}获得了2000经验值", "战败" };
+    static string[] info = { "辉煌的胜利！\n因为英勇作战,{0}获得了{1}经验值",
+                             "你的军队惨遭失败，{0}背叛了你" };
 
     //战损记录字典
     Dictionary<UnitType, int>[] casualties;
@@ -51,7 +52,10 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
             image_portrait[i].sprite = BattleManager.heroes[i].heroType.icon;
             text_role[i].text = roleText[_winningSide == i ? 0 : 1];
             text_result[i].gameObject.SetActive(_winningSide == i ? true : false);
-            text_result[i].text = string.Format(info[i], BattleManager.heroes[i].heroType.heroName);
+            if (i == _winningSide)
+                text_result[i].text = string.Format(info[i], BattleManager.heroes[i].heroType.heroName, 2000);
+            else
+                text_result[i].text = string.Format(info[i], BattleManager.heroes[i].heroType.heroName);
 
             foreach (var item in casualties[i])
             {
