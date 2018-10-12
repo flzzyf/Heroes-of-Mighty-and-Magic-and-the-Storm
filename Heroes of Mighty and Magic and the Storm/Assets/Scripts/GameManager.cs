@@ -61,6 +61,9 @@ public class GameManager : Singleton<GameManager>
 
     public void PlaySound(AudioClip _clip, bool _random = false)
     {
+        if (_clip == null)
+            return;
+
         if (_random)
             audioSource.pitch = 1 + Random.Range(0, 1f) * randomPitch;
 

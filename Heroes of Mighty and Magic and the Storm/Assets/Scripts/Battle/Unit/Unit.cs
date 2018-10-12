@@ -223,6 +223,8 @@ public class Unit : NodeObject
 
         BattleManager.Instance().UnlinkNodeWithUnit(this);
 
+        //播放死亡音效
+        GameManager.instance.PlaySound(type.sound_death);
         animator.Play("Death");
         UI.SetActive(false);
 

@@ -12922,7 +12922,7 @@ Prefab:
         type: 2}
       propertyPath: pocketUnits.Array.data[1].type
       value: 
-      objectReference: {fileID: 11400000, guid: 1fbdba179f7b3734784c560ee13097a8,
+      objectReference: {fileID: 11400000, guid: b5a7ee249ce65477e9043e4607aaef7a,
         type: 2}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}

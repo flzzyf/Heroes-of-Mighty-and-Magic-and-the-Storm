@@ -82,21 +82,18 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         waiting = true;
 
         //播放攻击音效
-        if (_origin.type.sound_attack != null)
-        {
-            GameManager.instance.PlaySound(_origin.type.sound_attack);
-        }
+        GameManager.instance.PlaySound(_origin.type.sound_attack);
 
         float attackTime = UnitAnimMgr.instance.PlayAnimation(_origin, Anim.Attack);
         float hitTime = attackTime * animAttackHitPercent;
 
         yield return new WaitForSeconds(hitTime);
 
-        //播放被击和防御动画
-        //如果有防御buff
-        UnitAnimMgr.instance.PlayAnimation(_target, Anim.Hit);
-
         int damage = ApplyDamage(_origin, _target);
+
+        //播放被击和防御动画
+        if (!_target.dead)
+            UnitHit(_target);
 
         yield return new WaitForSeconds(attackTime - hitTime);
 
@@ -151,9 +148,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         Destroy(missile.gameObject);
 
-        UnitAnimMgr.instance.PlayAnimation(_target, Anim.Hit);
-
         ApplyDamage(_origin, _target, true);
+
+        if (!_target.dead)
+            UnitHit(_target);
 
         yield return new WaitForSeconds(.8f);
 
@@ -242,6 +240,14 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
     {
         Vector3 dir = _target - _origin.position;
         _origin.up = dir.normalized;
+    }
+
+    void UnitHit(Unit _unit)
+    {
+        //播放被击音效
+        GameManager.instance.PlaySound(_unit.type.sound_hit);
+        //如果有防御buff
+        UnitAnimMgr.instance.PlayAnimation(_unit, Anim.Hit);
     }
 
 }
