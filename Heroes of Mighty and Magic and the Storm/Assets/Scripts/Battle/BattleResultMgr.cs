@@ -9,7 +9,7 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
     public Text[] text_heroName;
     public Image[] image_portrait;
     public Text[] text_role;
-    public Text[] text_result;
+    public Text text_result;
     public Transform[] parent_units;
 
     public GameObject prefab_unitIcon;
@@ -46,16 +46,17 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
 
     void UpdateResultUI(int _winningSide)
     {
+        if (_winningSide == 0)
+            text_result.text = string.Format(info[0], BattleManager.heroes[0].heroType.heroName, 2000);
+        else
+            text_result.text = string.Format(info[1], BattleManager.heroes[0].heroType.heroName);
+
         for (int i = 0; i < 2; i++)
         {
             text_heroName[i].text = BattleManager.heroes[i].heroType.heroName;
             image_portrait[i].sprite = BattleManager.heroes[i].heroType.icon;
             text_role[i].text = roleText[_winningSide == i ? 0 : 1];
-            text_result[i].gameObject.SetActive(_winningSide == i ? true : false);
-            if (i == _winningSide)
-                text_result[i].text = string.Format(info[i], BattleManager.heroes[i].heroType.heroName, 2000);
-            else
-                text_result[i].text = string.Format(info[i], BattleManager.heroes[i].heroType.heroName);
+
 
             foreach (var item in casualties[i])
             {

@@ -63,7 +63,10 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             _origin.PossessTrait("Double Attack"))
         {
             if (!_rangeAttack)
-                StartCoroutine(MeleeAttack(_origin, _target));
+            {
+                if (_origin.type.attackType == AttackType.melee)
+                    StartCoroutine(MeleeAttack(_origin, _target));
+            }
             else
                 StartCoroutine(RangeAttack(_origin, _target));
 

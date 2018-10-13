@@ -12,6 +12,3 @@ MonoBehaviour:
   m_Name: No Melee Penalty
   m_EditorClassIdentifier: 
   traitName: "\u8FD1\u6218\u4F24\u5BB3\u4E0D\u51CF"
-  chance: 1
-  sound_trigger: {fileID: 0}
-  fx_trigger: {fileID: 0}

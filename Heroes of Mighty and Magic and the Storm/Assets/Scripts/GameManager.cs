@@ -42,19 +42,12 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < BattleResultMgr.instance.parent_units[i].childCount; j++)
-                {
-                    Destroy(BattleResultMgr.instance.parent_units[i].GetChild(0).gameObject);
-                }
-            }
             BattleResultMgr.instance.ShowResultUI(0);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            //BattleResultMgr.instance.ShowResultUI(1);
-            GameManager.instance.PlaySound(type.sound_hit);
+            BattleResultMgr.instance.ShowResultUI(1);
+            //GameManager.instance.PlaySound(type.sound_hit);
 
         }
     }

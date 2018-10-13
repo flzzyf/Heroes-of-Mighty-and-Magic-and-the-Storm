@@ -9,7 +9,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7242ba3c4f2a743eeacf8d403c2dcccf, type: 3}
-  m_Name: Unlimited Retaliations
+  m_Name: No Retaliation
   m_EditorClassIdentifier: 
-  traitName: "\u65E0\u9650\u53CD\u51FB"
-  chance: 1
+  traitName: "\u653B\u51FB\u4E0D\u53D7\u53CD\u51FB"
