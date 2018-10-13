@@ -1383,7 +1383,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95353328489820648, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -6239,7 +6239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7941d79ee91184110bce8696cb055256, type: 2}
@@ -8911,7 +8911,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95353328489820648, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -12055,7 +12055,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -12890,7 +12890,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4477178211263224, guid: 37ccb3bc95d1e477ba14c64877197e3d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -13066,12 +13066,12 @@ Prefab:
         type: 2}
       propertyPath: pocketUnits.Array.data[3].type
       value: 
-      objectReference: {fileID: 11400000, guid: 1fbdba179f7b3734784c560ee13097a8,
+      objectReference: {fileID: 11400000, guid: df11910e62dfed847907b118372a5a2b,
         type: 2}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[3].num
-      value: 8
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}

@@ -28,10 +28,14 @@ MonoBehaviour:
   size: 1
   armorType: 0
   ammo: 12
-  missile: {fileID: 1085999001435180, guid: b328e4cd45ef64ca48c9f27599820ebb, type: 2}
+  missile: {fileID: 1828026133859336, guid: af78f90a030be86438834bcfaa9c1b6a, type: 2}
   launchPos: {x: 1.3, y: 2.35}
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
   sound_walk: []
-  sound_hit: {fileID: 0}
-  sound_death: {fileID: 0}
+  sound_hit:
+    clip: {fileID: 0}
+    skipDuration: 0
+  sound_death:
+    clip: {fileID: 0}
+    skipDuration: 0
