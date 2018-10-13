@@ -4738,7 +4738,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.7, y: 2.525}
+  m_AnchoredPosition: {x: -7.2, y: 2.525}
   m_SizeDelta: {x: 413.29, y: 232.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960912662
@@ -4753,16 +4753,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d4bc12972a57296448a4d9273a29e4b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 857a62afaf9151146acc7715b9d9fd48, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -9834,9 +9834,7 @@ MonoBehaviour:
   text_role:
   - {fileID: 1576509442}
   - {fileID: 1633473557}
-  text_result:
-  - {fileID: 889434608}
-  - {fileID: 12714841}
+  text_result: {fileID: 0}
   parent_units:
   - {fileID: 100969311}
   - {fileID: 1662437250}
@@ -12440,7 +12438,7 @@ Prefab:
     - target: {fileID: 224265499521996034, guid: c7e128b9e8a0b48689a275e9404bd562,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -21.000006
+      value: -21.000008
       objectReference: {fileID: 0}
     - target: {fileID: 224265499521996034, guid: c7e128b9e8a0b48689a275e9404bd562,
         type: 2}
