@@ -8917,13 +8917,13 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e,
+      objectReference: {fileID: 22100000, guid: cec05f1c1ffbc904eae18395b9c7742c,
         type: 2}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 53565e63889e48e49ace653c4e0c2303,
+      objectReference: {fileID: 21300000, guid: f1d7a4c0433ee57418df76db07e9222b,
         type: 3}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
