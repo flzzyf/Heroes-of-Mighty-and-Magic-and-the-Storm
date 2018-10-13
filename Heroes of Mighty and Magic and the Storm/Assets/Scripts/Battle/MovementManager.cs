@@ -75,16 +75,19 @@ public class MovementManager : Singleton<MovementManager>
 
         UnitAnimMgr.instance.PlayAnimation(_unit, Anim.Walk, false);
 
-        if (_unit.RestoreFacing())
-        {
-            //需要转身
-            yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
-        }
+        // if (_unit.RestoreFacing())
+        // {
+        //     //需要转身
+        //     yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
+        // }
+
 
         //设置节点上的物体，设置英雄所在位置、节点
         BattleManager.instance.LinkNodeWithUnit(_unit, _targetNode);
 
         moving = false;
+
+        yield return null;
     }
 
     public void MoveUnitFlying(Unit _unit, NodeItem _node)

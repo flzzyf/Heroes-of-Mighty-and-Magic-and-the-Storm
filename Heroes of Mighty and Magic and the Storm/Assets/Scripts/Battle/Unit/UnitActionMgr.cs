@@ -130,6 +130,12 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
                 MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
             }
 
+            if (order.origin.RestoreFacing())
+            {
+                //需要转身
+                yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
+            }
+
             while (MovementManager.moving)
                 yield return null;
         }

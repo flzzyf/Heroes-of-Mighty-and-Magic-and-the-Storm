@@ -26,7 +26,11 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
     IEnumerator AttackStart(Unit _origin, Unit _target, bool _rangeAttack = false)
     {
-        turnback = UnitInteract(_origin, _target);
+        if (!_rangeAttack)
+            turnback = UnitInteract(_origin, _target);
+        else
+            turnback = _origin.FaceTarget(_target, true);
+
         if (turnback)
         {
             yield return new WaitForSeconds(animTurnbackTime);
