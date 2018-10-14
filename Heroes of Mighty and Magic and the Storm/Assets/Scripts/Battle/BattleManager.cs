@@ -186,6 +186,7 @@ public class BattleManager : Singleton<BattleManager>
     public void CreateHeroUnits(Hero _hero, int _side)
     {
         heroUnits[_side] = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
+        heroUnits[_side].GetComponent<Animator>().runtimeAnimatorController = _hero.heroType.animControl;
 
         //在右边则翻转英雄
         if (_side == 1)

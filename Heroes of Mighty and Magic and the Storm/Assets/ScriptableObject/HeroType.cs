@@ -7,4 +7,5 @@ public class HeroType : ScriptableObject
 {
     public string heroName;
     public Sprite icon;
+    public RuntimeAnimatorController animControl;
 }
