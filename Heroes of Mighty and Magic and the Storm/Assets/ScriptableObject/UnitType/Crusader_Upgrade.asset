@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: "\u4E54\u6C49\u5A1C"
   icon: {fileID: 21300000, guid: 95caa9575a8ebfc458898e525909be8e, type: 3}
+  race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
   att: 12
   def: 12
@@ -36,5 +37,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6034f1994172dc940bb61fbc4bc2291b, type: 3}
   - {fileID: 8300000, guid: 52b108765fb5533448473a940a02971c, type: 3}
   - {fileID: 8300000, guid: f2c2aa42f87ed4d45a01051fd1f8f53f, type: 3}
-  sound_hit: {fileID: 0}
-  sound_death: {fileID: 0}
+  sound_hit:
+    clip: {fileID: 0}
+    skipDuration: 0
+  sound_death:
+    clip: {fileID: 0}
+    skipDuration: 0

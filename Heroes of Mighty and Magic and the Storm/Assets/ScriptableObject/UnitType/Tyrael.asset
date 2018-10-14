@@ -13,6 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: "\u6B63\u4E49\u5929\u4F7F"
   icon: {fileID: 21300000, guid: 3683c17300155444894828b6fcb866a9, type: 3}
+  race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
   att: 20
   def: 20
@@ -33,5 +34,9 @@ MonoBehaviour:
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
   sound_walk: []
-  sound_hit: {fileID: 0}
-  sound_death: {fileID: 0}
+  sound_hit:
+    clip: {fileID: 0}
+    skipDuration: 0
+  sound_death:
+    clip: {fileID: 0}
+    skipDuration: 0

@@ -10,11 +10,14 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     public GameObject text_ammo_title;
     public Text text_att, text_def, text_ammo, text_damage, text_hpMax, text_hp, text_speed;
     public Text text_num, text_trait;
+    public Image image_raceBG;
+    public Image image_unitSprite;
 
     //更新并显示UI
     public void UpdatePanel(Unit _unit)
     {
         panel.SetActive(true);
+
 
         text_name.text = _unit.type.unitName;
         text_att.text = _unit.att + "";
@@ -29,6 +32,17 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         text_hp.text = _unit.currentHP + "";
         text_speed.text = _unit.speed + "";
         text_num.text = _unit.num + "";
+
+        image_raceBG.sprite = _unit.type.race.sprite_bg;
+
+        image_unitSprite.sprite = _unit.type.icon;
+        Vector2 size = image_unitSprite.GetComponent<RectTransform>().sizeDelta;
+        float rate = 0.22f;
+        size.x = _unit.type.icon.texture.width * rate;
+        size.y = _unit.type.icon.texture.height * rate;
+        // float rate = (float)_unit.type.icon.texture.width / _unit.type.icon.texture.height;
+        // size.x = image_unitSprite.GetComponent<RectTransform>().sizeDelta.y * rate;
+        image_unitSprite.GetComponent<RectTransform>().sizeDelta = size;
 
         //特质文本
         string text = "";

@@ -108,6 +108,9 @@ public class MovementManager : Singleton<MovementManager>
         Vector3 dir = targetPos - _unit.transform.position;
         dir.z = 0;
 
+        //改变单位朝向
+        _unit.FaceTarget(dir);
+
         while (Vector2.Distance(_unit.transform.position, targetPos) > speed * Time.deltaTime)
         {
             _unit.transform.Translate(dir.normalized * speed * Time.deltaTime);

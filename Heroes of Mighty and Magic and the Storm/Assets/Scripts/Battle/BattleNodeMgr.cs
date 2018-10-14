@@ -34,7 +34,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             _node.nodeObject.nodeObjectType == NodeObjectType.unit)
         {
             //显示并更新单位属性UI
-            BattleManager.instance.ShowUnitStatUI(true, _node.unit);
+            //BattleManager.instance.ShowUnitStatUI(true, _node.unit);
 
             //如果不是当前行动单位，开始闪烁
             if (_node.nodeObject != BattleManager.currentActionUnit)
@@ -100,7 +100,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         CursorManager.instance.ChangeCursorAngle();
 
         //显示并更新单位属性UI
-        BattleManager.instance.ShowUnitStatUI(false);
+        //BattleManager.instance.ShowUnitStatUI(false);
 
         if (_node.nodeObject != null &&
             _node.nodeObject.nodeObjectType == NodeObjectType.unit &&
@@ -128,6 +128,13 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
                 _node.nodeObject.nodeObjectType == NodeObjectType.unit)
             {
                 UnitInfoPanelMgr.instance.UpdatePanel(_node.unit);
+
+                Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                pos.z = 0;
+                UnitInfoPanelMgr.instance.panel.transform.position = pos;
+                pos = UnitInfoPanelMgr.instance.panel.transform.localPosition;
+                pos.z = 0;
+                UnitInfoPanelMgr.instance.panel.transform.localPosition = pos;
             }
 
             return;

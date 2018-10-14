@@ -261,14 +261,19 @@ public class BattleManager : Singleton<BattleManager>
         if (units[0].Count == 0 && units[1].Count == 0)
         {
             print("平局");
+            BattleResultMgr.instance.ShowResultUI(0);
         }
         else if (units[0].Count == 0)
         {
             print("玩家1获胜");
+            BattleResultMgr.instance.ShowResultUI(1);
+            SoundManager.instance.Play("LoseBattle");
         }
         else if (units[1].Count == 0)
         {
             print("玩家0获胜");
+            BattleResultMgr.instance.ShowResultUI(0);
+            SoundManager.instance.Play("WinBattle");
         }
     }
 

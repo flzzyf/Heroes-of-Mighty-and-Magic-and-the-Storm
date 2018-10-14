@@ -7,6 +7,7 @@ public class UnitType : ScriptableObject
 {
     public string unitName;
     public Sprite icon;
+    public Race race;
     public RuntimeAnimatorController animControl;
 
     public int att, def, hp;
