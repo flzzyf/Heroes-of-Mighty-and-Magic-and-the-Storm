@@ -109,7 +109,7 @@ public class MovementManager : Singleton<MovementManager>
         dir.z = 0;
 
         //改变单位朝向
-        _unit.FaceTarget(dir);
+        _unit.FaceTarget(targetPos);
 
         while (Vector2.Distance(_unit.transform.position, targetPos) > speed * Time.deltaTime)
         {

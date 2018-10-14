@@ -266,12 +266,14 @@ public class BattleManager : Singleton<BattleManager>
         else if (units[0].Count == 0)
         {
             print("玩家1获胜");
+            SoundManager.instance.StopPlay("Combat02");
             BattleResultMgr.instance.ShowResultUI(1);
             SoundManager.instance.Play("LoseBattle");
         }
         else if (units[1].Count == 0)
         {
             print("玩家0获胜");
+            SoundManager.instance.StopPlay("Combat02");
             BattleResultMgr.instance.ShowResultUI(0);
             SoundManager.instance.Play("WinBattle");
         }

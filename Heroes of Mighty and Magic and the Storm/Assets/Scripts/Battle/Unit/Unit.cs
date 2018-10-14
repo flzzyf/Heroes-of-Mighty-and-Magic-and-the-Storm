@@ -180,9 +180,19 @@ public class Unit : NodeObject
         {
             //可以复活，而且血量超过最大生命
             SetHp(hp % type.hp);
-            //int resurrectNum = (hp - hp % type.hp) / type.hp + 1;
-            //int resurrectNum = (hp - type.hp) / type.hp + 1;
-            int resurrectNum = hp % type.hp > 0 ? hp / type.hp : hp / type.hp - 1;
+            int resurrectNum;
+            if(hp % type.hp > 0)
+            {
+                resurrectNum = hp / type.hp;
+            }
+            else
+            {
+                resurrectNum = hp / type.hp - 1;
+            }
+            //不能超过初始生命
+            int maxResurrect = originalNum - num;
+            resurrectNum = Mathf.Min(maxResurrect, resurrectNum);
+
             ChangeNum(resurrectNum);
             return resurrectNum;
         }
