@@ -71,7 +71,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
     public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)
     {
         string text = string.Format("{0}造成{1}点伤害", _origin.type.unitName, _damage);
-        if (_damage >= _target.type.hp)
+        if (_deathNum > 0)
             text += string.Format("，{0}个{1}死了", _deathNum, _target.type.unitName);
 
         AddText(text);

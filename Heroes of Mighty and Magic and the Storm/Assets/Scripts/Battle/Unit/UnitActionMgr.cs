@@ -73,7 +73,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         if (!IsRangeAttack(_unit))
         {
             //可攻击节点
-            attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1, true);
+            attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1, false);
 
             for (int i = attackableNodes.Count - 1; i >= 0; i--)
             {

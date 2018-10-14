@@ -198,7 +198,11 @@ public class Unit : NodeObject
         else
         {
             //不致命
-            int deathNum = _amount / type.hp;
+            int deathNum = 0;
+            if (_amount > currentHP)
+            {
+                deathNum = 1 + (_amount - currentHP) / type.hp;
+            }
             int remainHp = remainHpTotal % type.hp;
             if (remainHp == 0) remainHp = type.hp;
 
