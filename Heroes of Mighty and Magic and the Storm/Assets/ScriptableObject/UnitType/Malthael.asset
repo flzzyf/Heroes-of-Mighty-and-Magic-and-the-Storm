@@ -30,12 +30,12 @@ MonoBehaviour:
   ammo: 12
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0}
-  sound_attack: {fileID: 0}
+  sound_attack: {fileID: 8300000, guid: 318db57d65492014e8d277b8cb065fef, type: 3}
   sound_attackImpact: {fileID: 0}
   sound_walk: []
   sound_hit:
-    clip: {fileID: 0}
-    skipDuration: 0
+    clip: {fileID: 8300000, guid: 0845fed1f02f40244a19013dde365e82, type: 3}
+    skipDuration: 0.3
   sound_death:
-    clip: {fileID: 0}
-    skipDuration: 0
+    clip: {fileID: 8300000, guid: a3bc371ed30d2f4418f357536dccf935, type: 3}
+    skipDuration: 0.3

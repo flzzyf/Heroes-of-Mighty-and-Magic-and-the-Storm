@@ -35,5 +35,9 @@ MonoBehaviour:
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
   sound_walk: []
-  sound_hit: {fileID: 0}
-  sound_death: {fileID: 0}
+  sound_hit:
+    clip: {fileID: 8300000, guid: 967c27184434a1d48ba8a82dbe0bbe93, type: 3}
+    skipDuration: 0.3
+  sound_death:
+    clip: {fileID: 8300000, guid: 394fbfec84383ab4c860d087e945541b, type: 3}
+    skipDuration: 0.3
