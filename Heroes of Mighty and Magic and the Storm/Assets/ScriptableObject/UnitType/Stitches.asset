@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
+  m_Name: Stitches
+  m_EditorClassIdentifier: 
+  unitName: "\u7F1D\u5408\u602A"
+  icon: {fileID: 21300000, guid: 9d8b445c05d9c3440a8d695a0f748e6e, type: 3}
+  animControl: {fileID: 22100000, guid: 923afd2cb8532794b9d8657dfd3b0cda, type: 2}
+  att: 6
+  def: 6
+  hp: 6
+  damage: {x: 1, y: 3}
+  speed: 5
+  attackType: 0
+  traits: []
+  growth: 12
+  AIValue: 445
+  cost: 300
+  size: 2
+  armorType: 0
+  ammo: 12
+  missile: {fileID: 0}
+  launchPos: {x: 0, y: 0}
+  sound_attack: {fileID: 8300000, guid: 32d5b4e5c09078b4da1ec38b0749ba21, type: 3}
+  sound_attackImpact: {fileID: 0}
+  sound_walk:
+  - {fileID: 8300000, guid: aac2c5aae8822154aa3cf6df988cb761, type: 3}
+  - {fileID: 8300000, guid: 5614920540eb17d429de767fcdfa616c, type: 3}
+  - {fileID: 8300000, guid: 6a23f2e8f080af74eba6f6791b488105, type: 3}
+  sound_hit:
+    clip: {fileID: 8300000, guid: a4d103822cf60484a9462fc828f002f1, type: 3}
+    skipDuration: 0
+  sound_death:
+    clip: {fileID: 8300000, guid: cd69fa2490303624b9f3aa6fbfe2887b, type: 3}
+    skipDuration: 0

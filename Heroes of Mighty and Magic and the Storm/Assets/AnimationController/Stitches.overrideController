@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Stitches
+  m_Controller: {fileID: 9100000, guid: 181596479889b424b8444fdafc002018, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 84b92919a373842c99142eed34769c05, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c1fbe5d262d0d034ba52392601f7ece6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 957c48cdd87894a70947149b2048fbbd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 727a95fa2fcd05c40aba43891f92bbb3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6a0d3618b4b23483eaa14eeb6784c5d3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d8688391713376f4882a1d84c289b051, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 459b1c018136946d799339b8853ec829, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 159351e9a6440cc4d923d911888abf1f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7961d6880a7d54f4da3c17101e35ba63, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1d7ea7fe34880c74599e0704ebe7818b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 054e0bb4230f94c25a0531fba79dc0c9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 672a6ca6ecc7aa244b0f95179595b013, type: 2}
