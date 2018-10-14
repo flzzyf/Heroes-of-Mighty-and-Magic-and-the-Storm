@@ -178,7 +178,7 @@ MonoBehaviour:
   nodeItem: {fileID: 0}
   nodeObjectType: 0
   player: 0
-  type: {fileID: 11400000, guid: eb57386bd8f474a989c6608571068e17, type: 2}
+  type: {fileID: 0}
   sprite: {fileID: 212793218877718154}
   animator: {fileID: 95353328489820648}
   text_number: {fileID: 114659341685894064}
