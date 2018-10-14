@@ -12566,6 +12566,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: ba8c75ddbb15c604c8fd1ddbe5994e5a,
         type: 3}
+    - target: {fileID: 114343684907958932, guid: c7e128b9e8a0b48689a275e9404bd562,
+        type: 2}
+      propertyPath: m_Text
+      value: "\u653B\u51FB\u529B"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7e128b9e8a0b48689a275e9404bd562, type: 2}
   m_IsPrefabAsset: 0
@@ -13067,7 +13072,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[1].num
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
@@ -13078,7 +13083,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[2].num
-      value: 40
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
