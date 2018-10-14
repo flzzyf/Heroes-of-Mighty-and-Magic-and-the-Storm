@@ -31,6 +31,10 @@ public class Unit : NodeObject
     {
         if (type != null)
             InitUnitType();
+
+        Vector3 pos = UI.GetComponent<RectTransform>().localPosition;
+        pos.z = -500;
+        UI.GetComponent<RectTransform>().localPosition = pos;
     }
 
     public void InitUnitType()
