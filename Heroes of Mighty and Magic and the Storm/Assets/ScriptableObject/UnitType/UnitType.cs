@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SubjectNerd.Utilities;
 
 [CreateAssetMenu(menuName = "UnitType")]
 public class UnitType : ScriptableObject
@@ -15,6 +16,7 @@ public class UnitType : ScriptableObject
     public int speed = 5;
 
     public AttackType attackType;
+    [Reorderable]
     public List<Trait> traits;
 
     [Header("每周产量")]

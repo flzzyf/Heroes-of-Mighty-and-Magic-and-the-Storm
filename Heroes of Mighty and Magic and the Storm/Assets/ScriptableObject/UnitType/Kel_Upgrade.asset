@@ -21,7 +21,8 @@ MonoBehaviour:
   damage: {x: 11, y: 15}
   speed: 7
   attackType: 1
-  traits: []
+  traits:
+  - {fileID: 11400000, guid: c91ca56fb2784463a96c3ffdc01a4318, type: 2}
   growth: 3
   AIValue: 126
   cost: 600

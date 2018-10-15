@@ -22,6 +22,7 @@ MonoBehaviour:
   speed: 5
   attackType: 0
   traits:
+  - {fileID: 11400000, guid: c91ca56fb2784463a96c3ffdc01a4318, type: 2}
   - {fileID: 11400000, guid: 8d29db8314585433086022487b87e65b, type: 2}
   growth: 1
   AIValue: 5019

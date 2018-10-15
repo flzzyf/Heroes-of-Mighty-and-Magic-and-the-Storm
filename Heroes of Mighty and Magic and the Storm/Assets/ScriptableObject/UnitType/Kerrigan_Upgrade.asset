@@ -22,6 +22,7 @@ MonoBehaviour:
   speed: 9
   attackType: 0
   traits:
+  - {fileID: 11400000, guid: c91ca56fb2784463a96c3ffdc01a4318, type: 2}
   - {fileID: 11400000, guid: 8d29db8314585433086022487b87e65b, type: 2}
   - {fileID: 11400000, guid: 79574837f5ff64e96b19de9a248af39d, type: 2}
   - {fileID: 11400000, guid: c7a55d3adf04041fca9c7ec94d875042, type: 2}
