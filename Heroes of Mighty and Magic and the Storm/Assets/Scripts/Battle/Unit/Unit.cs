@@ -181,7 +181,7 @@ public class Unit : NodeObject
             //可以复活，而且血量超过最大生命
             SetHp(hp % type.hp);
             int resurrectNum;
-            if(hp % type.hp > 0)
+            if (hp % type.hp > 0)
             {
                 resurrectNum = hp / type.hp;
             }
@@ -295,5 +295,13 @@ public class Unit : NodeObject
         }
 
         return false;
+    }
+
+    public string unitName
+    {
+        get
+        {
+            return LocalizationMgr.instance.GetText(type.name);
+        }
     }
 }

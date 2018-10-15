@@ -14,10 +14,6 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
 
     public GameObject prefab_unitIcon;
 
-    static string[] roleText = { "胜利", "战败" };
-    static string[] info = { "辉煌的胜利！\n因为英勇作战,{0}获得了{1}经验值",
-                             "你的军队惨遭失败，{0}背叛了你" };
-
     //战损记录字典
     Dictionary<UnitType, int>[] casualties;
 
@@ -47,16 +43,20 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
     void UpdateResultUI(int _winningSide)
     {
         if (_winningSide == 0)
-            text_result.text = string.Format(info[0], BattleManager.heroes[0].heroType.heroName, 2000);
+            text_result.text = string.Format(LocalizationMgr.instance.GetText("battleResult_victory"),
+                BattleManager.heroes[0].heroType.heroName, 2000);
         else
-            text_result.text = string.Format(info[1], BattleManager.heroes[0].heroType.heroName);
+            text_result.text = string.Format(LocalizationMgr.instance.GetText("battleResult_defeated"),
+                BattleManager.heroes[0].heroType.heroName);
 
         for (int i = 0; i < 2; i++)
         {
             text_heroName[i].text = BattleManager.heroes[i].heroType.heroName;
             image_portrait[i].sprite = BattleManager.heroes[i].heroType.icon;
-            text_role[i].text = roleText[_winningSide == i ? 0 : 1];
-
+            if (_winningSide == i)
+                text_role[i].text = LocalizationMgr.instance.GetText("victory");
+            else
+                text_role[i].text = LocalizationMgr.instance.GetText("defeat");
 
             foreach (var item in casualties[i])
             {

@@ -38,7 +38,12 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            TravelManager.instance.EnterTravelMode();
+            //TravelManager.instance.EnterTravelMode();
+            LocalizationMgr.instance.ChangeToLanguage(Language.English);
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            LocalizationMgr.instance.ChangeToLanguage(Language.Chinese_Simplified);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
@@ -47,6 +52,7 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.B))
         {
             BattleResultMgr.instance.ShowResultUI(1);
+
             //GameManager.instance.PlaySound(type.sound_hit);
 
         }

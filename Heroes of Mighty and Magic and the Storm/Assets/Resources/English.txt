@@ -1,0 +1,21 @@
+none=None
+victory=Victorious
+defeat=Defeated
+casualties=Battlefield Casualties
+attacker=Attacker
+defender=Defender
+confirm=Confirm
+
+Amazon=Amazon
+DH=Demon Hunter
+DH_Upgrade=Valla
+
+battleResult_victory=A glorious victory! \n For valor in combat, {0} receives {1} experience
+battleResult_defeat=Your forces suffer a bitter defeat, and {0} abandons your cause
+
+battleInfo_attack=Attack {0} ({1} danage)
+battleInfo_attack_range=Attack {0} ({1}-{2} damage)
+battleInfo_damage=The {0} do {1} damage
+battleInfo_death=, {0} {1} perish
+battleInfo_lifeDrain={0}从{1}吸收了{2}点生命
+battleInfo_lifeDrain_resurrection=，并有{0}个复活了

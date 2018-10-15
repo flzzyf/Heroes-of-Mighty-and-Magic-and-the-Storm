@@ -61,28 +61,33 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         Vector2Int range = UnitAttackMgr.GetDamageRange(_origin, _target, isRangeAttack);
         string s;
         if (range.x == range.y)
-            s = string.Format("攻击{0}（伤害{1}）", _target.type.unitName, range.x);
+            s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack"),
+                _target.unitName, range.x);
         else
-            s = string.Format("攻击{0}（伤害{1}-{2}）", _target.type.unitName, range.x, range.y);
+            s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack_range"),
+                _target.unitName, range.x, range.y);
 
         BattleInfoMgr.instance.SetText(s);
     }
 
     public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)
     {
-        string text = string.Format("{0}造成{1}点伤害", _origin.type.unitName, _damage);
+        string text = string.Format(LocalizationMgr.instance.GetText("battleInfo_damage"),
+            _origin.unitName, _damage);
         if (_deathNum > 0)
-            text += string.Format("，{0}个{1}死了", _deathNum, _target.type.unitName);
+            text += string.Format(LocalizationMgr.instance.GetText("battleInfo_death"),
+                _deathNum, _target.unitName);
 
         AddText(text);
     }
 
     public void AddText_LifeDrain(Unit _origin, Unit _target, int _damage, int _resurrectNum)
     {
-        string text = string.Format("{0}从{1}吸收了{2}点生命", _origin.type.unitName,
-            _target.type.unitName, _damage);
+        string text = string.Format(LocalizationMgr.instance.GetText("battleInfo_lifeDrain"),
+            _origin.unitName, _target.unitName, _damage);
         if (_resurrectNum > 0)
-            text += string.Format("，并有{0}个复活了", _resurrectNum);
+            text += string.Format(LocalizationMgr.instance.GetText("battleInfo_lifeDrain_resurrection"),
+                _resurrectNum);
 
         AddText(text);
     }

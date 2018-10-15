@@ -6,7 +6,6 @@ using SubjectNerd.Utilities;
 [CreateAssetMenu(menuName = "UnitType")]
 public class UnitType : ScriptableObject
 {
-    public string unitName;
     public Sprite icon;
     public Race race;
     public RuntimeAnimatorController animControl;
@@ -47,6 +46,11 @@ public class UnitType : ScriptableObject
             else if (size == UnitSize.big) return pos * 3;
             return pos * 2;
         }
+    }
+
+    public override string ToString()
+    {
+        return this.name;
     }
 }
 

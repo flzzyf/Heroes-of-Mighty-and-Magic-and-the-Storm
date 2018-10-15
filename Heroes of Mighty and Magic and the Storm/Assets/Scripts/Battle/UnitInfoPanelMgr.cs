@@ -19,7 +19,7 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         panel.SetActive(true);
 
 
-        text_name.text = _unit.type.unitName;
+        text_name.text = _unit.unitName;
         text_att.text = _unit.att + "";
         text_def.text = _unit.def + "";
 
