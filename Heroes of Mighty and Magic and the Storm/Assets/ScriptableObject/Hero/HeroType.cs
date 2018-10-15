@@ -5,7 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Hero")]
 public class HeroType : ScriptableObject
 {
-    public string heroName;
     public Sprite icon;
     public RuntimeAnimatorController animControl;
+
+    public string heroName
+    {
+        get
+        {
+            return LocalizationMgr.instance.GetText(base.name);
+        }
+    }
+
 }

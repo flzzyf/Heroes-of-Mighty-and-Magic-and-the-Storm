@@ -1,26 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using SubjectNerd.Utilities;
 
 public enum Language { Chinese_Simplified, Chinese_Traditional, English }
+
+[System.Serializable]
+public class LanguageFont
+{
+    public Language language;
+    public Font font;
+}
 
 public class LocalizationMgr : Singleton<LocalizationMgr>
 {
     public Language language;
+    [HideInInspector]
+    public Font font;
+
+    [Reorderable]
+    public List<LanguageFont> languageFont;
 
     private Dictionary<string, string> dic;
+    private Dictionary<Language, Font> fontDic;
 
     [HideInInspector]
     public List<LocalizationText> localizationTexts;
 
     void Start()
     {
+        fontDic = new Dictionary<Language, Font>();
+        foreach (var item in languageFont)
+        {
+            fontDic[item.language] = item.font;
+        }
+
         ChangeToLanguage(language);
     }
 
     public void ChangeToLanguage(Language _language)
     {
         language = _language;
+        font = fontDic[language];
         LoadLanguage(_language);
         InitAllLocalizationTexts(_language);
     }
@@ -53,8 +75,14 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     public string GetText(string _key)
     {
         if (dic.ContainsKey(_key))
-            return dic[_key];
+            return System.Text.RegularExpressions.Regex.Unescape(dic[_key]);
 
-        return null;
+        return _key.ToString();
+    }
+
+    public void SetText(Text _text, string _key)
+    {
+        _text.text = GetText(_key);
+        _text.font = font;
     }
 }

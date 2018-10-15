@@ -48,9 +48,12 @@ public class UnitType : ScriptableObject
         }
     }
 
-    public override string ToString()
+    public string unitName
     {
-        return this.name;
+        get
+        {
+            return LocalizationMgr.instance.GetText(base.name);
+        }
     }
 }
 

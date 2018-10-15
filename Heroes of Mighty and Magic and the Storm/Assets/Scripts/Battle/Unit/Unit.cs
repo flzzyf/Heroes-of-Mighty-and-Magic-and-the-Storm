@@ -297,11 +297,5 @@ public class Unit : NodeObject
         return false;
     }
 
-    public string unitName
-    {
-        get
-        {
-            return LocalizationMgr.instance.GetText(type.name);
-        }
-    }
+
 }

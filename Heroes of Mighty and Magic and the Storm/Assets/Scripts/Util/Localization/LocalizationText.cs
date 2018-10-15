@@ -10,10 +10,12 @@ public class LocalizationText : MonoBehaviour
     void Awake()
     {
         LocalizationMgr.instance.localizationTexts.Add(this);
+        Init();
     }
 
     public void Init()
     {
         GetComponent<Text>().text = LocalizationMgr.instance.GetText(key);
+        GetComponent<Text>().font = LocalizationMgr.instance.font;
     }
 }

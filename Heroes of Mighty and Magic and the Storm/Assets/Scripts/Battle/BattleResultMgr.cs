@@ -49,14 +49,18 @@ public class BattleResultMgr : Singleton<BattleResultMgr>
             text_result.text = string.Format(LocalizationMgr.instance.GetText("battleResult_defeated"),
                 BattleManager.heroes[0].heroType.heroName);
 
+        text_result.font = LocalizationMgr.instance.font;
+
         for (int i = 0; i < 2; i++)
         {
             text_heroName[i].text = BattleManager.heroes[i].heroType.heroName;
+            text_heroName[i].font = LocalizationMgr.instance.font;
             image_portrait[i].sprite = BattleManager.heroes[i].heroType.icon;
             if (_winningSide == i)
                 text_role[i].text = LocalizationMgr.instance.GetText("victory");
             else
                 text_role[i].text = LocalizationMgr.instance.GetText("defeat");
+            text_role[i].font = LocalizationMgr.instance.font;
 
             foreach (var item in casualties[i])
             {

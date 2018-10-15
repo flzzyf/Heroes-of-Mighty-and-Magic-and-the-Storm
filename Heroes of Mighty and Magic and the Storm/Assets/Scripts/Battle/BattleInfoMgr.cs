@@ -62,10 +62,10 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         string s;
         if (range.x == range.y)
             s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack"),
-                _target.unitName, range.x);
+                _target.type.unitName, range.x);
         else
             s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack_range"),
-                _target.unitName, range.x, range.y);
+                _target.type.unitName, range.x, range.y);
 
         BattleInfoMgr.instance.SetText(s);
     }
@@ -73,10 +73,10 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
     public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)
     {
         string text = string.Format(LocalizationMgr.instance.GetText("battleInfo_damage"),
-            _origin.unitName, _damage);
+            _origin.type.unitName, _damage);
         if (_deathNum > 0)
             text += string.Format(LocalizationMgr.instance.GetText("battleInfo_death"),
-                _deathNum, _target.unitName);
+                _deathNum, _target.type.unitName);
 
         AddText(text);
     }
@@ -84,7 +84,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
     public void AddText_LifeDrain(Unit _origin, Unit _target, int _damage, int _resurrectNum)
     {
         string text = string.Format(LocalizationMgr.instance.GetText("battleInfo_lifeDrain"),
-            _origin.unitName, _target.unitName, _damage);
+            _origin.type.unitName, _target.type.unitName, _damage);
         if (_resurrectNum > 0)
             text += string.Format(LocalizationMgr.instance.GetText("battleInfo_lifeDrain_resurrection"),
                 _resurrectNum);

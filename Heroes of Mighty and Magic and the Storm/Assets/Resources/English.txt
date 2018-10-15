@@ -9,8 +9,11 @@ confirm=Confirm
 Amazon=Amazon
 DH=Demon Hunter
 DH_Upgrade=Valla
+Tyrael=Tyrael
+Jaina=Jaina
+Sylvanas=Sylvanas
 
-battleResult_victory=A glorious victory! \n For valor in combat, {0} receives {1} experience
+battleResult_victory=A glorious victory!\nFor valor in combat, {0} receives {1} experience
 battleResult_defeat=Your forces suffer a bitter defeat, and {0} abandons your cause
 
 battleInfo_attack=Attack {0} ({1} danage)
