@@ -2,49 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using SubjectNerd.Utilities;
 
-public enum Language { Chinese_Simplified, Chinese_Traditional, English }
+public enum LanguageName { Chinese_Simplified, Chinese_Traditional, English }
 
 [System.Serializable]
-public class LanguageFont
+public class Language
 {
-    public Language language;
+    public string name;
     public Font font;
 }
 
 public class LocalizationMgr : Singleton<LocalizationMgr>
 {
-    public Language language;
-    [HideInInspector]
-    public Font font;
+    Language language;
 
-    [Reorderable]
-    public List<LanguageFont> languageFont;
+    LanguageName languageName;
 
-    private Dictionary<string, string> dic;
-    private Dictionary<Language, Font> fontDic;
+    //public List<Language> languageList;
+
+    public Dictionary<LanguageName, Language> languageDic;
+
+    private Dictionary<string, string> textDic;
 
     [HideInInspector]
     public List<LocalizationText> localizationTexts;
 
-    void Start()
-    {
-        fontDic = new Dictionary<Language, Font>();
-        foreach (var item in languageFont)
-        {
-            fontDic[item.language] = item.font;
-        }
+    public Font font { get { return language.font; } }
 
-        ChangeToLanguage(language);
+    void Awake()
+    {
+        Init();
     }
 
-    public void ChangeToLanguage(Language _language)
+    void Init()
     {
-        language = _language;
-        font = fontDic[language];
-        LoadLanguage(_language);
-        InitAllLocalizationTexts(_language);
+        ChangeToLanguage(languageName);
+    }
+
+    public void ChangeToLanguage(LanguageName _language)
+    {
+        language = languageDic[_language];
+        LoadLanguage(language);
+        InitAllLocalizationTexts(language);
     }
     //初始化所有本地化文本为相应文本
     void InitAllLocalizationTexts(Language _language)
@@ -57,7 +56,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     //加载语音文件，将内容放入字典
     void LoadLanguage(Language _language)
     {
-        dic = new Dictionary<string, string>();
+        textDic = new Dictionary<string, string>();
         TextAsset ta = Resources.Load<TextAsset>(_language.ToString());
         string text = ta.text;
 
@@ -68,14 +67,14 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
                 continue;
 
             string[] s = line.Split('=');
-            dic.Add(s[0], s[1]);
+            textDic.Add(s[0], s[1]);
         }
     }
     //从字典读取相应文本
     public string GetText(string _key)
     {
-        if (dic.ContainsKey(_key))
-            return System.Text.RegularExpressions.Regex.Unescape(dic[_key]);
+        if (textDic.ContainsKey(_key))
+            return System.Text.RegularExpressions.Regex.Unescape(textDic[_key]);
 
         return _key.ToString();
     }
@@ -83,6 +82,5 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     public void SetText(Text _text, string _key)
     {
         _text.text = GetText(_key);
-        _text.font = font;
     }
 }

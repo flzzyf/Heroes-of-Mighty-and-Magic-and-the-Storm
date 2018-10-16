@@ -13,6 +13,11 @@ public class LocalizationText : MonoBehaviour
         Init();
     }
 
+    public void ChangeLanguage(LanguageName _languageName)
+    {
+
+    }
+
     public void Init()
     {
         GetComponent<Text>().text = LocalizationMgr.instance.GetText(key);

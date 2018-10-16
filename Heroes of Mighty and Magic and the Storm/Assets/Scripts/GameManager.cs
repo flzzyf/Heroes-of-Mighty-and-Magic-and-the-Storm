@@ -39,11 +39,11 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.G))
         {
             //TravelManager.instance.EnterTravelMode();
-            LocalizationMgr.instance.ChangeToLanguage(Language.English);
+            LocalizationMgr.instance.ChangeToLanguage(LanguageName.English);
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            LocalizationMgr.instance.ChangeToLanguage(Language.Chinese_Simplified);
+            LocalizationMgr.instance.ChangeToLanguage(LanguageName.Chinese_Simplified);
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
