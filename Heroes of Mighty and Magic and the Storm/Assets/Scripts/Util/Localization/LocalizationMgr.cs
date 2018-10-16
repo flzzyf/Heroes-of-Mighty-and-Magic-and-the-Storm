@@ -18,6 +18,10 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
     LanguageName languageName;
 
+    public Font[] fonts;
+
+    public int[] a;
+
     //public List<Language> languageList;
 
     public Dictionary<LanguageName, Language> languageDic;
@@ -32,11 +36,18 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     void Awake()
     {
         Init();
+        ChangeToLanguage(languageName);
     }
 
-    void Init()
+    public void Init()
     {
-        ChangeToLanguage(languageName);
+        languageDic = new Dictionary<LanguageName, Language>();
+        for (int i = 0; i < System.Enum.GetValues(typeof(LanguageName)).Length; i++)
+        {
+            LanguageName languageName = (LanguageName)i;
+
+            languageDic[languageName] = new Language();
+        }
     }
 
     public void ChangeToLanguage(LanguageName _language)

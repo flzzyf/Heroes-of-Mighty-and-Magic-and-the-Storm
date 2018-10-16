@@ -11,14 +11,22 @@ public class LocalizationMgrEditor : Editor
     void OnEnable()
     {
         mgr = (LocalizationMgr)target;
+        // if (mgr.languageDic == null)
+        // {
+        //     Debug.Log("qwe");
+        //     mgr.Init();
+        // }
+
     }
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        //base.OnInspectorGUI();
 
-        mgr.languageDic = new Dictionary<LanguageName, Language>();
-        //初始化DIC
+        serializedObject.Update();
+
+        ShowList(serializedObject.FindProperty("a"), true, false);
+        ShowList(serializedObject.FindProperty("fonts"));
 
         //为每个预设语言创建UI
         for (int i = 0; i < System.Enum.GetValues(typeof(LanguageName)).Length; i++)
@@ -29,8 +37,10 @@ public class LocalizationMgrEditor : Editor
 
             GUILayout.Label(name);
 
-            mgr.languageDic[languageName].name = GUILayout.TextArea("");
+            //mgr.languageDic[languageName].name = GUILayout.TextArea(mgr.languageDic[languageName].name);
 
+
+            //切换语言的按钮
             if (GUILayout.Button(languageName.ToString()))
             {
                 mgr.ChangeToLanguage(languageName);
@@ -38,5 +48,27 @@ public class LocalizationMgrEditor : Editor
 
             GUILayout.Space(20);
         }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+
+    static void ShowList(SerializedProperty _list, bool _showListSize = true, bool _showListLabel = true)
+    {
+        if (_showListLabel)
+        {
+            EditorGUILayout.PropertyField(_list);
+            EditorGUI.indentLevel += 1;
+        }
+        if (!_showListLabel || _list.isExpanded)
+        {
+            if (_showListSize)
+                EditorGUILayout.PropertyField(_list.FindPropertyRelative("Array.size"));
+            for (int i = 0; i < _list.arraySize; i++)
+            {
+                EditorGUILayout.PropertyField(_list.GetArrayElementAtIndex(i));
+            }
+        }
+        if (_showListLabel)
+            EditorGUI.indentLevel -= 1;
     }
 }
