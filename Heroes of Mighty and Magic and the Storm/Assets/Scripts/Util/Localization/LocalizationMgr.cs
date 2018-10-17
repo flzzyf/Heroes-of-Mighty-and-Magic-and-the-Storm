@@ -36,7 +36,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     void Awake()
     {
         Init();
-        ChangeToLanguage(languageName);
+        //ChangeToLanguage(languageName);
     }
 
     public void Init()
@@ -53,6 +53,8 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     public void ChangeToLanguage(LanguageName _language)
     {
         language = languageDic[_language];
+        languageName = _language;
+
         LoadLanguage(language);
         InitAllLocalizationTexts(language);
     }
@@ -69,6 +71,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     {
         textDic = new Dictionary<string, string>();
         TextAsset ta = Resources.Load<TextAsset>(_language.ToString());
+
         string text = ta.text;
 
         string[] lines = text.Split('\n');

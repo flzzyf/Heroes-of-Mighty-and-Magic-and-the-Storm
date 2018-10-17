@@ -51,7 +51,9 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            BattleResultMgr.instance.ShowResultUI(1);
+            //BattleResultMgr.instance.ShowResultUI(1);
+
+            Resources.LoadAll<Sprite>("Textures");
 
             //GameManager.instance.PlaySound(type.sound_hit);
 
