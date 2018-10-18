@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: casualties
+  args: []
 --- !u!1 &13077863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3865,6 +3866,7 @@ GameObject:
   - component: {fileID: 889434609}
   - component: {fileID: 889434608}
   - component: {fileID: 889434607}
+  - component: {fileID: 889434610}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3944,6 +3946,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 889434605}
   m_CullTransparentMesh: 0
+--- !u!114 &889434610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889434605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9036df96c1d44fab54e88e12d33c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  args: []
 --- !u!1 &893564589
 GameObject:
   m_ObjectHideFlags: 0
@@ -6318,6 +6333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: defender
+  args: []
 --- !u!1001 &1196229390
 Prefab:
   m_ObjectHideFlags: 0
@@ -6785,10 +6801,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e22cb0fef354b22bc53559b314694e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageNames:
+  - "\u7B80\u4F53\u4E2D\u6587"
+  - "\u7E41\u9AD4\u4E2D\u6587"
+  - English
   fonts:
   - {fileID: 12800000, guid: b8f02cb0009374c10870cb7349f06c22, type: 3}
+  - {fileID: 12800000, guid: b8f02cb0009374c10870cb7349f06c22, type: 3}
   - {fileID: 12800000, guid: 8f32f38a6b1d2474faf75dc048d931df, type: 3}
-  a: 0000000000000000
   localizationTexts: []
 --- !u!114 &1222465629
 MonoBehaviour:
@@ -6915,7 +6935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51367327b862148989a41eebf0e148ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0000000000000000
+  a:
+  - {x: 2, y: 0, z: 0}
   f:
   - {fileID: 0}
   - {fileID: 0}
@@ -10516,6 +10537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: attacker
+  args: []
 --- !u!1 &1737440314
 GameObject:
   m_ObjectHideFlags: 0
@@ -12096,6 +12118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: confirm
+  args: []
 --- !u!1001 &1969937082
 Prefab:
   m_ObjectHideFlags: 0
@@ -12300,7 +12323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1996958372
 MonoBehaviour:
   m_ObjectHideFlags: 0

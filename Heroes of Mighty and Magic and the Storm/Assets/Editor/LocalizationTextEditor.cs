@@ -15,21 +15,18 @@ public class LocalizationTextEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("key"));
 
-        GUILayout.Label("切换语言：");
-        foreach (var item in LocalizationMgr.instance.languageDic)
+        for (int i = 0; i < System.Enum.GetValues(typeof(Language)).Length; i++)
         {
-            if (GUILayout.Button(item.Value.name))
+            GUILayout.Space(20);
+
+            Language language = (Language)i;
+            //切换语言的按钮
+            if (GUILayout.Button("切换到" + LocalizationMgr.instance.languageNames[i]))
             {
-                ChangeLanguage(item.Key);
+                text.ChangeToLanguage(language);
             }
         }
     }
-
-    public void ChangeLanguage(LanguageName _languageName)
-    {
-        LocalizationMgr.instance.ChangeToLanguage(_languageName);
-    }
-
 }

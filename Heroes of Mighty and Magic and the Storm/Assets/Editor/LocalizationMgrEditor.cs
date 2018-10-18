@@ -11,64 +11,51 @@ public class LocalizationMgrEditor : Editor
     void OnEnable()
     {
         mgr = (LocalizationMgr)target;
-        // if (mgr.languageDic == null)
-        // {
-        //     Debug.Log("qwe");
-        //     mgr.Init();
-        // }
-
     }
 
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
-
         serializedObject.Update();
 
-        ShowList(serializedObject.FindProperty("a"), true, false);
-        ShowList(serializedObject.FindProperty("fonts"));
+        SerializedProperty names = serializedObject.FindProperty("languageNames");
+        SerializedProperty fonts = serializedObject.FindProperty("fonts");
+
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("当前语言：");
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("language"), GUIContent.none);
+        GUILayout.EndHorizontal();
 
         //为每个预设语言创建UI
-        for (int i = 0; i < System.Enum.GetValues(typeof(LanguageName)).Length; i++)
+        for (int i = 0; i < System.Enum.GetValues(typeof(Language)).Length; i++)
         {
-            string name = System.Enum.GetName(typeof(LanguageName), i);
-            LanguageName languageName = (LanguageName)i;
-            //Language language = mgr.languageDic[languageName];
+            GUILayout.Space(15);
+
+            string name = System.Enum.GetName(typeof(Language), i);
+            Language language = (Language)i;
 
             GUILayout.Label(name);
 
-            //mgr.languageDic[languageName].name = GUILayout.TextArea(mgr.languageDic[languageName].name);
+            //语言名称
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("语言名称：");
+            EditorGUILayout.PropertyField(names.GetArrayElementAtIndex(i), GUIContent.none);
+            GUILayout.EndHorizontal();
 
+            //字体
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("字体：");
+            EditorGUILayout.PropertyField(fonts.GetArrayElementAtIndex(i), GUIContent.none);
+            GUILayout.EndHorizontal();
 
             //切换语言的按钮
-            if (GUILayout.Button(languageName.ToString()))
+            if (GUILayout.Button("切换到" + names.GetArrayElementAtIndex(i).stringValue))
             {
-                mgr.ChangeToLanguage(languageName);
+                mgr.ChangeToLanguage(language);
             }
-
-            GUILayout.Space(20);
         }
 
         serializedObject.ApplyModifiedProperties();
     }
 
-    static void ShowList(SerializedProperty _list, bool _showListSize = true, bool _showListLabel = true)
-    {
-        if (_showListLabel)
-        {
-            EditorGUILayout.PropertyField(_list);
-            EditorGUI.indentLevel += 1;
-        }
-        if (!_showListLabel || _list.isExpanded)
-        {
-            if (_showListSize)
-                EditorGUILayout.PropertyField(_list.FindPropertyRelative("Array.size"));
-            for (int i = 0; i < _list.arraySize; i++)
-            {
-                EditorGUILayout.PropertyField(_list.GetArrayElementAtIndex(i));
-            }
-        }
-        if (_showListLabel)
-            EditorGUI.indentLevel -= 1;
-    }
+
 }

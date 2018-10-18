@@ -2,59 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public enum LanguageName { Chinese_Simplified, Chinese_Traditional, English }
-
-[System.Serializable]
-public class Language
-{
-    public string name;
-    public Font font;
-}
+public enum Language { Chinese_Simplified, Chinese_Traditional, English }
 
 public class LocalizationMgr : Singleton<LocalizationMgr>
 {
-    Language language;
+    public Language language;
 
-    LanguageName languageName;
+    public string[] languageNames = new string[System.Enum.GetValues(typeof(Language)).Length];
+    public Font[] fonts = new Font[Enum.GetValues(typeof(Language)).Length];
 
-    public Font[] fonts;
-
-    public int[] a;
-
-    //public List<Language> languageList;
-
-    public Dictionary<LanguageName, Language> languageDic;
-
-    private Dictionary<string, string> textDic;
-
-    [HideInInspector]
+    Dictionary<string, string> textDic;
+    //所有本地化文本组件
     public List<LocalizationText> localizationTexts;
 
-    public Font font { get { return language.font; } }
+    public Font font { get { return fonts[(int)language]; } }
 
-    void Awake()
+    void Start()
     {
-        Init();
-        //ChangeToLanguage(languageName);
+        ChangeToLanguage(language);
     }
 
-    public void Init()
+    public void ChangeToLanguage(Language _language)
     {
-        languageDic = new Dictionary<LanguageName, Language>();
-        for (int i = 0; i < System.Enum.GetValues(typeof(LanguageName)).Length; i++)
-        {
-            LanguageName languageName = (LanguageName)i;
-
-            languageDic[languageName] = new Language();
-        }
-    }
-
-    public void ChangeToLanguage(LanguageName _language)
-    {
-        language = languageDic[_language];
-        languageName = _language;
-
         LoadLanguage(language);
         InitAllLocalizationTexts(language);
     }
@@ -67,10 +38,12 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
         }
     }
     //加载语音文件，将内容放入字典
-    void LoadLanguage(Language _language)
+    public void LoadLanguage(Language _language)
     {
+        language = _language;
+
         textDic = new Dictionary<string, string>();
-        TextAsset ta = Resources.Load<TextAsset>(_language.ToString());
+        TextAsset ta = Resources.Load<TextAsset>("Localization/" + _language.ToString());
 
         string text = ta.text;
 

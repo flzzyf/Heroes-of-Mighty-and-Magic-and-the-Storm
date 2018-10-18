@@ -7,15 +7,18 @@ public class LocalizationText : MonoBehaviour
 {
     public string key;
 
+    public string[] args;
+
     void Awake()
     {
         LocalizationMgr.instance.localizationTexts.Add(this);
-        Init();
     }
 
-    public void ChangeLanguage(LanguageName _languageName)
+    public void ChangeToLanguage(Language _language)
     {
+        LocalizationMgr.instance.LoadLanguage(_language);
 
+        Init();
     }
 
     public void Init()
