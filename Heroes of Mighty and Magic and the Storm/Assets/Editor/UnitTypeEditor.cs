@@ -43,6 +43,12 @@ public class UnitTypeEditor : Editor
                         EditorGUI.indentLevel -= 1;
                     }
                 }
+                else if (tab_main[i] == "icon")
+                {
+                    Texture texture = type.icon.texture;
+                    GUILayout.Box(texture, EditorStyles.objectFieldThumb,
+                        GUILayout.Width(100f), GUILayout.Height(100f));
+                }
             }
         }
         else if (type.tab == 1)

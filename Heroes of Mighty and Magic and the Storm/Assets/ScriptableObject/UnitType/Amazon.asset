@@ -15,17 +15,17 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 330ccd875c2fa304aa2d11590c3d34a2, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 8a61bdaa2a35aa741b02089e117b9665, type: 2}
-  level: 0
-  att: 5
-  def: 4
-  hp: 6
+  level: 1
+  att: 4
+  def: 5
+  hp: 10
   damage: {x: 1, y: 3}
   speed: 4
   attackType: 0
   traits: []
-  growth: 12
-  AIValue: 445
-  cost: 300
+  growth: 14
+  AIValue: 80
+  cost: 60
   size: 1
   armorType: 1
   ammo: 12

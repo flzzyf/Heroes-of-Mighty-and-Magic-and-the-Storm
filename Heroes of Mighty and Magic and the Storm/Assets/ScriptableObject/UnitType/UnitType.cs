@@ -19,7 +19,6 @@ public class UnitType : ScriptableObject
     public AttackType attackType;
     public List<Trait> traits;
 
-    [Header("每周产量")]
     public int growth;
     public int AIValue;
     public int cost;
