@@ -5,13 +5,21 @@ using UnityEngine.UI;
 
 public class BattleInfoMgr : Singleton<BattleInfoMgr>
 {
-    public LocalizationText text, text2;
+    public Text text, text2;
 
     List<string> textList = new List<string>();
 
     bool tempText = true;
 
     int currentPage;
+
+    public void SetText(string _text)
+    {
+        tempText = true;
+
+        text.text = _text;
+        text2.text = "";
+    }
 
     public void AddText(string _text)
     {
@@ -56,9 +64,13 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         Vector2Int range = UnitAttackMgr.GetDamageRange(_origin, _target, isRangeAttack);
         string s;
         if (range.x == range.y)
-            text.SetText("battleInfo_attack", _target.type.unitName, range.x);
+            s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack"),
+                _target.type.unitName, range.x);
         else
-            text.SetText("battleInfo_attack_range", _target.type.unitName, range.x, range.y);
+            s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack_range"),
+                _target.type.unitName, range.x, range.y);
+
+        SetText(s);
     }
 
     public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)

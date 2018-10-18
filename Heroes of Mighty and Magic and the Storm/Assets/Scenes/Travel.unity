@@ -285,7 +285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: casualties
-  args: []
 --- !u!1 &13077863
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  args: []
 --- !u!1 &91319951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,11 +2116,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 529295803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9036df96c1d44fab54e88e12d33c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 7721f278f97ab4f98b40edc6a82ba2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  args: []
 --- !u!114 &529295806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4201,9 +4197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: battleResult_victory
-  args:
-  - "\u5C0F\u9E7F\u5A1C\u62C9"
-  - 3000
 --- !u!1 &893564589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4570,7 +4563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: Amazon
-  args: []
 --- !u!1 &913889299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6614,7 +6606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: defender
-  args: []
 --- !u!1 &1191247482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1255205256181494, guid: c7e128b9e8a0b48689a275e9404bd562,
@@ -7524,7 +7515,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  args: []
 --- !u!1 &1277368496
 GameObject:
   m_ObjectHideFlags: 0
@@ -7858,7 +7848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  args: []
 --- !u!1 &1345248139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8125,11 +8114,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1384178775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9036df96c1d44fab54e88e12d33c70, type: 3}
+  m_Script: {fileID: 11500000, guid: 7721f278f97ab4f98b40edc6a82ba2c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
-  args: []
 --- !u!114 &1384178778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9622,7 +9609,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  args: []
 --- !u!1 &1612386919
 GameObject:
   m_ObjectHideFlags: 0
@@ -9985,7 +9971,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  args: []
 --- !u!1 &1638976373
 GameObject:
   m_ObjectHideFlags: 0
@@ -10976,7 +10961,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: attacker
-  args: []
 --- !u!1 &1737440314
 GameObject:
   m_ObjectHideFlags: 0
@@ -13672,7 +13656,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
-  args: []
 --- !u!1 &2120134381
 GameObject:
   m_ObjectHideFlags: 0
