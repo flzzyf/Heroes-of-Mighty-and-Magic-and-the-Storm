@@ -1,19 +1,8 @@
 using UnityEngine;
+using UnityEditor;
 
 public class zyf
 {
-    public enum Type { tip, warning };
-
-    static string[] type = { "¡¾ÌáÊ¾¡¿", "¡¾¾¯¸æ¡¿" };
-
-    static string[] color = { "green", "red" };
-
-    public static void Out(string _msg, Type _type = Type.tip)
-    {
-        Debug.Log("<color=" + color[(int)_type] + ">" + type[(int)_type] + _msg + "</color>");
-    }
-
-    //»ñÈ¡Êµ¼ÊÓÎÏ·ÊÀ½çÆÁÄ»³ß´ç
     public static Vector2 GetWorldScreenSize()
     {
         float leftBorder;
@@ -34,7 +23,6 @@ public class zyf
         return new Vector2(width, height);
     }
 
-    //a·ÖÖ®Ò»¸ÅÂÊÊÂ¼ş
     public static bool IfItWins(int _a)
     {
         return Random.Range(0, _a) == 1;
@@ -51,5 +39,62 @@ public class zyf
         }
 
         return Vector3.zero;
+    }
+
+    //è‡ªå®šä¹‰UI
+    private static GUIContent
+            moveButtonContent = new GUIContent("\u21b4", "move down"),
+            duplicateButtonContent = new GUIContent("+", "duplicate"),
+            deleteButtonContent = new GUIContent("-", "delete"),
+            addButtonContent = new GUIContent("+", "add");
+    private static GUILayoutOption miniButtonWidth = GUILayout.Width(20f);
+
+    public static void ShowList(SerializedProperty _list)
+    {
+        //æ˜¾ç¤ºæ•°åˆ—æ ‡ç­¾
+        EditorGUILayout.PropertyField(_list);
+        if (_list.isExpanded)
+        {
+            EditorGUI.indentLevel += 1;
+            //æ˜¾ç¤ºæ•°åˆ—å¤§å°
+            EditorGUILayout.PropertyField(_list.FindPropertyRelative("Array.size"));
+            //æ˜¾ç¤ºæ•°åˆ—å­å…ƒç´ 
+            for (int i = 0; i < _list.arraySize; i++)
+            {
+                EditorGUILayout.BeginHorizontal();
+                EditorGUILayout.PropertyField(_list.GetArrayElementAtIndex(i), GUIContent.none);
+
+                ShowButtons(_list, i);
+                EditorGUILayout.EndHorizontal();
+            }
+            EditorGUI.indentLevel -= 1;
+        }
+
+        if (_list.arraySize == 0 && GUILayout.Button(addButtonContent, EditorStyles.miniButton))
+        {
+            _list.arraySize += 1;
+        }
+
+        GUILayout.Space(10);
+    }
+
+    private static void ShowButtons(SerializedProperty _list, int _index)
+    {
+        if (_index != _list.arraySize - 1)
+        {
+            if (GUILayout.Button(moveButtonContent, EditorStyles.miniButtonLeft, miniButtonWidth))
+                _list.MoveArrayElement(_index, _index + 1);
+        }
+        if (GUILayout.Button(duplicateButtonContent, EditorStyles.miniButtonMid, miniButtonWidth))
+            _list.InsertArrayElementAtIndex(_index);
+        if (GUILayout.Button(deleteButtonContent, EditorStyles.miniButtonRight, miniButtonWidth))
+        {
+            int oldSize = _list.arraySize;
+            _list.DeleteArrayElementAtIndex(_index);
+            if (_list.arraySize == oldSize)
+            {
+                _list.DeleteArrayElementAtIndex(_index);
+            }
+        }
     }
 }

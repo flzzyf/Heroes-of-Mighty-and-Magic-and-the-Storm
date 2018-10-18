@@ -12330,7 +12330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: confirm
-  args: []
+  args:
+  - 
+  - 
+  - 
 --- !u!1001 &1969937082
 Prefab:
   m_ObjectHideFlags: 0
