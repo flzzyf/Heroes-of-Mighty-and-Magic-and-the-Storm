@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleInfoMgr : Singleton<BattleInfoMgr>
 {
-    public Text text;
+    public Text text, text2;
 
     List<string> textList = new List<string>();
 
@@ -18,6 +18,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         tempText = true;
 
         text.text = _text;
+        text2.text = "";
     }
 
     public void AddText(string _text)
@@ -38,7 +39,8 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         else
         {
             //已有显示文本，则加进去
-            text.text = textList[textList.Count - 2] + "\n" + _text;
+            text.text = textList[textList.Count - 2];
+            text2.text = _text;
 
             currentPage = 0;
         }
@@ -47,6 +49,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
     public void ClearText()
     {
         text.text = "";
+        text2.text = "";
     }
 
     IEnumerator AutoClearText()
@@ -67,7 +70,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
             s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack_range"),
                 _target.type.unitName, range.x, range.y);
 
-        BattleInfoMgr.instance.SetText(s);
+        SetText(s);
     }
 
     public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)
@@ -97,9 +100,9 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         if (currentPage < textList.Count - 2)
         {
             currentPage++;
-            string s = textList[textList.Count - currentPage - 2] + "\n" +
-                        textList[textList.Count - currentPage - 1];
-            text.text = s;
+
+            text.text = textList[textList.Count - currentPage - 2];
+            text2.text = textList[textList.Count - currentPage - 1];
         }
     }
 
@@ -108,11 +111,9 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         if (currentPage > 0)
         {
             currentPage--;
-            string s = textList[textList.Count - currentPage - 2] + "\n" +
-                        textList[textList.Count - currentPage - 1];
-            text.text = s;
+
+            text.text = textList[textList.Count - currentPage - 2];
+            text2.text = textList[textList.Count - currentPage - 1];
         }
     }
-
-    //手动上移文本
 }

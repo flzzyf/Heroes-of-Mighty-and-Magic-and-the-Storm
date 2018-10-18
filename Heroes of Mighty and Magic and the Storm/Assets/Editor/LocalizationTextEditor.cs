@@ -17,6 +17,9 @@ public class LocalizationTextEditor : Editor
     {
         EditorGUILayout.PropertyField(serializedObject.FindProperty("key"));
 
+        SerializedProperty list = serializedObject.FindProperty("args");
+        ShowList(list);
+
         for (int i = 0; i < System.Enum.GetValues(typeof(Language)).Length; i++)
         {
             GUILayout.Space(20);
@@ -28,5 +31,24 @@ public class LocalizationTextEditor : Editor
                 text.ChangeToLanguage(language);
             }
         }
+
+        serializedObject.ApplyModifiedProperties();
     }
+
+    public void ShowList(SerializedProperty _list)
+    {
+        //显示数列标签
+        EditorGUILayout.PropertyField(_list);
+        if (_list.isExpanded)
+        {
+            //显示数列大小
+            EditorGUILayout.PropertyField(_list.FindPropertyRelative("Array.size"));
+            //显示数列子元素
+            for (int i = 0; i < _list.arraySize; i++)
+            {
+                EditorGUILayout.PropertyField(_list.GetArrayElementAtIndex(i));
+            }
+        }
+    }
+
 }

@@ -26,8 +26,8 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
     public void ChangeToLanguage(Language _language)
     {
-        LoadLanguage(language);
-        InitAllLocalizationTexts(language);
+        LoadLanguage(_language);
+        InitAllLocalizationTexts(_language);
     }
     //初始化所有本地化文本为相应文本
     void InitAllLocalizationTexts(Language _language)

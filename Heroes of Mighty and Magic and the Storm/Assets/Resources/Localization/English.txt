@@ -13,8 +13,8 @@ Tyrael=Tyrael
 Jaina=Jaina
 Sylvanas=Sylvanas
 
-battleResult_victory=A glorious victory!\nFor valor in combat, {0} receives {1} experience
-battleResult_defeat=Your forces suffer a bitter defeat, and {0} abandons your cause
+battleResult_victory=A glorious victory!\nFor valor in combat, {0} receives {1} experience.
+battleResult_defeat=Your forces suffer a bitter defeat, and {0} abandons your cause.
 
 battleInfo_attack=Attack {0} ({1} danage)
 battleInfo_attack_range=Attack {0} ({1}-{2} damage)

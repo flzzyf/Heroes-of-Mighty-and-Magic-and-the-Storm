@@ -6,6 +6,23 @@ attacker=攻击方
 defender=防守方
 confirm=确定
 
+stat_att=攻击力
+stat_def=防御力
+stat_damage=杀伤力
+stat_ammo=弹药量
+stat_hp=剩余生命值
+stat_hpMax=最大生命值
+stat_speed=速度
+
+Amazon=战争仕女
+DH=猎魔人
+DH_Upgrade=维拉
+Tyrael=正义天使
+Jaina=吉安娜
+Sylvanas=希尔瓦娜斯
+Kerrigan=刀锋女王
+Kerrigan_Upgrade=凯瑞甘
+
 battleResult_victory=辉煌的胜利！\n因为英勇作战,{0}获得了{1}经验值
 battleResult_defeat=你的军队惨遭失败，{0}背叛了你
 

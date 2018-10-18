@@ -6,10 +6,9 @@ using UnityEngine.UI;
 public class LocalizationText : MonoBehaviour
 {
     public string key;
-
     public string[] args;
 
-    void Awake()
+    void OnEnable()
     {
         LocalizationMgr.instance.localizationTexts.Add(this);
     }
@@ -23,7 +22,26 @@ public class LocalizationText : MonoBehaviour
 
     public void Init()
     {
-        GetComponent<Text>().text = LocalizationMgr.instance.GetText(key);
+        if (key == null)
+            return;
+
         GetComponent<Text>().font = LocalizationMgr.instance.font;
+
+        if (args.Length == 0)
+        {
+            GetComponent<Text>().text = LocalizationMgr.instance.GetText(key);
+        }
+        else
+        {
+            GetComponent<Text>().text = string.Format(LocalizationMgr.instance.GetText(key), args);
+        }
+    }
+
+    public void SetText(string _key, params string[] _text)
+    {
+        key = _key;
+        args = _text;
+
+        Init();
     }
 }
