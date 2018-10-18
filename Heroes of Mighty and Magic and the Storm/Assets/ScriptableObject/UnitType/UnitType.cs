@@ -51,7 +51,8 @@ public class UnitType : ScriptableObject
     {
         get
         {
-            return LocalizationMgr.instance.GetText(base.name);
+            return base.name;
+            //return LocalizationMgr.instance.GetText(base.name);
         }
     }
 }

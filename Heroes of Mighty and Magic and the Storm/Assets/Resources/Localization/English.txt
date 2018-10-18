@@ -4,7 +4,14 @@ defeat=Defeated
 casualties=Battlefield Casualties
 attacker=Attacker
 defender=Defender
-confirm=Confirm
+
+stat_att=Attack Skill
+stat_def=Defense Skill
+stat_damage=Damage
+stat_ammo=Shots
+stat_hp=Health
+stat_hpMax=Health Left
+stat_speed=Speed
 
 Amazon=Amazon
 DH=Demon Hunter

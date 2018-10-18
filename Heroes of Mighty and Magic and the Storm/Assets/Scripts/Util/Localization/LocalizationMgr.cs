@@ -16,6 +16,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     Dictionary<string, string> textDic;
     //所有本地化文本组件
     public List<LocalizationText> localizationTexts;
+    public List<LocalizationFont> localizationFonts;
 
     public Font font { get { return fonts[(int)language]; } }
 
@@ -33,6 +34,11 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     void InitAllLocalizationTexts(Language _language)
     {
         foreach (LocalizationText text in localizationTexts)
+        {
+            text.Init();
+        }
+
+        foreach (LocalizationFont text in localizationFonts)
         {
             text.Init();
         }
@@ -63,11 +69,13 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
         if (textDic.ContainsKey(_key))
             return System.Text.RegularExpressions.Regex.Unescape(textDic[_key]);
 
+        Debug.LogWarning(_key + "键缺失！");
         return _key.ToString();
     }
 
-    public void SetText(Text _text, string _key)
+    public void SetText(LocalizationText _text, string _key)
     {
-        _text.text = GetText(_key);
+        _text.key = _key;
+        _text.Init();
     }
 }

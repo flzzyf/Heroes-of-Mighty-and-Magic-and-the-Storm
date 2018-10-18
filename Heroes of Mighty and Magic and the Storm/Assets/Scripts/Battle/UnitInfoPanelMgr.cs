@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
 {
     public GameObject panel;
-    public Text text_name;
+    public LocalizationText text_name;
     public GameObject text_ammo_title;
     public Text text_att, text_def, text_ammo, text_damage, text_hpMax, text_hp, text_speed;
     public Text text_num, text_trait;

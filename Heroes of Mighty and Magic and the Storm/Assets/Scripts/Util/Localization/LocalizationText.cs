@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class LocalizationText : MonoBehaviour
 {
     public string key;
-    public string[] args;
+    public object[] args;
 
     void OnEnable()
     {
         LocalizationMgr.instance.localizationTexts.Add(this);
+
+        Init();
     }
 
     public void ChangeToLanguage(Language _language)
@@ -22,7 +24,7 @@ public class LocalizationText : MonoBehaviour
 
     public void Init()
     {
-        if (key == null)
+        if (key == "")
             return;
 
         GetComponent<Text>().font = LocalizationMgr.instance.font;
@@ -37,7 +39,7 @@ public class LocalizationText : MonoBehaviour
         }
     }
 
-    public void SetText(string _key, params string[] _text)
+    public void SetText(string _key, params object[] _text)
     {
         key = _key;
         args = _text;
