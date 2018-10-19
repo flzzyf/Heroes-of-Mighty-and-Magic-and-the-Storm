@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class EditorUtil : MonoBehaviour
+public class EditorUtil
 {
     //自定义UI
     private static GUIContent
