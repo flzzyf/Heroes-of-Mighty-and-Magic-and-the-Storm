@@ -12,5 +12,4 @@ public class NodeObject : MonoBehaviour
     [HideInInspector]
     public NodeObjectType nodeObjectType;
 
-    public int player;
 }

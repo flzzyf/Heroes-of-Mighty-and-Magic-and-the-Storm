@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Hero : NodeObject
 {
+    [HideInInspector]
+    public int player;
+
     public HeroType heroType;
     public PocketUnit[] pocketUnits;
     [HideInInspector]

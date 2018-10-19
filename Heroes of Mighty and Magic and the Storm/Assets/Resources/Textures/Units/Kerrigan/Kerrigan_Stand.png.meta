@@ -1,0 +1,551 @@
+fileFormatVersion: 2
+guid: 69a5b81f1a344483d8e791069e15387e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Kerrigan_Stand
+    21300002: Kerrigan_Stand001
+    21300004: Kerrigan_Stand002
+    21300006: Kerrigan_Stand003
+    21300008: Kerrigan_Stand004
+    21300010: Kerrigan_Stand005
+    21300012: Kerrigan_Stand006
+    21300014: Kerrigan_Stand007
+    21300016: Kerrigan_Stand008
+    21300018: Kerrigan_Stand009
+    21300020: Kerrigan_Stand010
+    21300022: Kerrigan_Stand011
+    21300024: Kerrigan_Stand012
+    21300026: Kerrigan_Stand013
+    21300028: Kerrigan_Stand014
+    21300030: Kerrigan_Stand015
+    21300032: Kerrigan_Stand016
+    21300034: Kerrigan_Stand017
+    21300036: Kerrigan_Stand018
+    21300038: Kerrigan_Stand019
+    21300040: Kerrigan_Stand020
+  externalObjects: {}
+  serializedVersion: 6
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kerrigan_Stand001
+      rect:
+        serializedVersion: 2
+        x: 2333
+        y: 1339
+        width: 767
+        height: 914
+      alignment: 9
+      pivot: {x: 0.6571056, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47f49c0e5352f48af8bdab6d013ad663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand002
+      rect:
+        serializedVersion: 2
+        x: 3079
+        y: 424
+        width: 771
+        height: 913
+      alignment: 9
+      pivot: {x: 0.65629053, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043da01eeed4047aba64e58d0e7d6adf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand003
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 3176
+        width: 778
+        height: 919
+      alignment: 9
+      pivot: {x: 0.6568123, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a86a602ecd804e23bede69880a68ba3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand004
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2261
+        width: 775
+        height: 919
+      alignment: 9
+      pivot: {x: 0.6516129, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b2d561117c046d7af3bfa52ba7ddf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand005
+      rect:
+        serializedVersion: 2
+        x: 3143
+        y: 3188
+        width: 771
+        height: 907
+      alignment: 9
+      pivot: {x: 0.6536965, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f016ad849aa44339f600d0fef5f78b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand006
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1345
+        width: 774
+        height: 914
+      alignment: 9
+      pivot: {x: 0.6550388, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c980b0301be4cadaa1df2b4eeefcf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand007
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 428
+        width: 760
+        height: 914
+      alignment: 9
+      pivot: {x: 0.6618421, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eccdddc5cadc84367ba6f09e84b7d9f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand008
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 429
+        width: 770
+        height: 914
+      alignment: 9
+      pivot: {x: 0.65584415, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3a50960342441a3829b0ba72784ba9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand009
+      rect:
+        serializedVersion: 2
+        x: 3102
+        y: 1358
+        width: 775
+        height: 909
+      alignment: 9
+      pivot: {x: 0.6529032, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66aa78980852a444380457376a5d652d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand010
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1343
+        width: 765
+        height: 916
+      alignment: 9
+      pivot: {x: 0.6640523, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 189e17c4f96d24b7c9bc4a0172a4a2d2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand011
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 1344
+        width: 787
+        height: 909
+      alignment: 9
+      pivot: {x: 0.660737, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e222c0a7b466540c399b25c21fcd5f2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand012
+      rect:
+        serializedVersion: 2
+        x: 2344
+        y: 2269
+        width: 775
+        height: 912
+      alignment: 9
+      pivot: {x: 0.6670968, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a218c1fec9d34db0be564eacae95a0d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand013
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3182
+        width: 789
+        height: 913
+      alignment: 9
+      pivot: {x: 0.65779465, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8431124e63de948518110472e5098c64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand014
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 2255
+        width: 774
+        height: 919
+      alignment: 9
+      pivot: {x: 0.6666667, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1d7838c51b84f3a9e3e5cce39d0424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand015
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 2263
+        width: 788
+        height: 911
+      alignment: 9
+      pivot: {x: 0.65736043, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a4e2379215114217a2471030bcf1a88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand016
+      rect:
+        serializedVersion: 2
+        x: 2362
+        y: 3183
+        width: 779
+        height: 912
+      alignment: 9
+      pivot: {x: 0.66880614, y: -0.0010964912}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51f54e5aeb904a7d8b8dc6a2e2c0c03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand017
+      rect:
+        serializedVersion: 2
+        x: 3121
+        y: 2275
+        width: 775
+        height: 906
+      alignment: 9
+      pivot: {x: 0.6683871, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae6334275f614bdd982c781187eb3b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand018
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 3186
+        width: 788
+        height: 909
+      alignment: 9
+      pivot: {x: 0.6560914, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b56c27626a1a949be8d055ea216040c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand019
+      rect:
+        serializedVersion: 2
+        x: 2302
+        y: 427
+        width: 775
+        height: 910
+      alignment: 9
+      pivot: {x: 0.6683871, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d39016013ef4b4691abb8e1ba49f8bb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kerrigan_Stand020
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 427
+        width: 761
+        height: 914
+      alignment: 9
+      pivot: {x: 0.66228646, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77c44b8167b24943845eaea51ed5ac4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

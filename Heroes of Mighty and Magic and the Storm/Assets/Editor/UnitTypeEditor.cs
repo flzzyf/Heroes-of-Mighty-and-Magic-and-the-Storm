@@ -9,7 +9,7 @@ public class UnitTypeEditor : Editor
     string[] tab_main = { "level", "att", "def", "damage", "hp",
         "speed", "growth", "AIValue", "cost", "traits", "attackType"};
 
-    string[] tab_other = { "icon", "size", "armorType", "race", "animControl",  };
+    string[] tab_other = { "icon", "size", "armorType", "race", "animControl", };
     string[] tab_sound = { "sound_attack", "sound_walk", "sound_hit", "sound_death" };
 
     public override void OnInspectorGUI()
@@ -24,7 +24,7 @@ public class UnitTypeEditor : Editor
                 SerializedProperty property = serializedObject.FindProperty(tab_main[i]);
                 if (property.isArray)
                 {
-                    zyf.ShowList(property);
+                    EditorUtil.ShowList(property);
                 }
                 else
                 {
@@ -60,15 +60,15 @@ public class UnitTypeEditor : Editor
 
                 if (property.isArray)
                 {
-                    zyf.ShowList(property);
+                    EditorUtil.ShowList(property);
                 }
                 else
                 {
                     EditorGUILayout.PropertyField(property);
                 }
 
-                
-                
+
+
             }
         }
         else if (type.tab == 2)
@@ -78,7 +78,7 @@ public class UnitTypeEditor : Editor
                 SerializedProperty property = serializedObject.FindProperty(tab_sound[i]);
                 if (property.isArray)
                 {
-                    zyf.ShowList(property);
+                    EditorUtil.ShowList(property);
                 }
                 else if (property.type == typeof(FixedSound).Name)
                 {

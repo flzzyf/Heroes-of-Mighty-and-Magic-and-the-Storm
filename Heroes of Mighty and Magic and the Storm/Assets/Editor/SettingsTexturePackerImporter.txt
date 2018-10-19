@@ -1,0 +1,18 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.tpsheet
+- Assets/Resources/Textures/Units/Malthael/Malthael_Attack.tpsheet
+- Assets/Resources/Textures/Units/Malthael/Malthael_Stand.tpsheet
+- Assets/Resources/Textures/Units/Malthael/Malthael_Walk.tpsheet
+textureFileNames:
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.png
+- Assets/Resources/Textures/Units/Malthael/Malthael_Attack.png
+- Assets/Resources/Textures/Units/Malthael/Malthael_Stand.png
+- Assets/Resources/Textures/Units/Malthael/Malthael_Walk.png
+normalmapFileNames:
+- 
+- 
+- 
+- 
+enableDebugOutput: 0

@@ -17,7 +17,7 @@ public class LocalizationMgrEditor : Editor
     {
         serializedObject.Update();
 
-        zyf.ShowList(serializedObject.FindProperty("localizationTexts"));
+        EditorUtil.ShowList(serializedObject.FindProperty("localizationTexts"));
 
         SerializedProperty names = serializedObject.FindProperty("languageNames");
         SerializedProperty fonts = serializedObject.FindProperty("fonts");

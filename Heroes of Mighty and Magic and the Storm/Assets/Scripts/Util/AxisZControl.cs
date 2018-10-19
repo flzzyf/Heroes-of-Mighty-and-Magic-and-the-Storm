@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AxisZControl : MonoBehaviour
 {
+    [HideInInspector]
     public float offsetZ;
 
     void Update()

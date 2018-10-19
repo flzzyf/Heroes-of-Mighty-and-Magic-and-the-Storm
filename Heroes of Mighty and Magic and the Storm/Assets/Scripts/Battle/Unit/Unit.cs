@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Unit : NodeObject
 {
+    [HideInInspector]
+    public int player;
+
     public UnitType type;
 
     public SpriteRenderer sprite;
     public Animator animator;
-    public Text text_number;
     public GameObject UI;
+    public Text text_number;
 
     //单位属性
     [HideInInspector]

@@ -13,7 +13,7 @@ public class LocalizationTextEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("key"));
 
         SerializedProperty list = serializedObject.FindProperty("args");
-        zyf.ShowList(list);
+        EditorUtil.ShowList(list);
 
         for (int i = 0; i < System.Enum.GetValues(typeof(Language)).Length; i++)
         {
