@@ -4,6 +4,9 @@ defeat=战败
 casualties=双方战损
 attacker=攻击方
 defender=防守方
+pause=等待
+defend=防御
+magic=施法
 
 stat_att=攻击力
 stat_def=防御力
@@ -12,6 +15,8 @@ stat_ammo=弹药量
 stat_hp=剩余生命值
 stat_hpMax=最大生命值
 stat_speed=速度
+
+Undead=亡灵
 
 Amazon=战争仕女
 DH=猎魔人
@@ -27,7 +32,14 @@ battleResult_defeat=你的军队惨遭失败，{0}背叛了你
 
 battleInfo_attack=攻击{0}（伤害{1}）
 battleInfo_attack_range=攻击{0}（伤害{1}-{2}）
+battleInfo_shoot=射击{0}（还剩{1}发，伤害{2}）
+battleInfo_shoot_range=射击{0}（还剩{1}发，伤害{2}-{3})
+
 battleInfo_damage={0}造成{1}点伤害
 battleInfo_death=，{0}个{1}死了
+battleInfo_pause={0}暂停，等待更佳的机会行动
+battleInfo_defend={0}选择防御，获得+{1}防御力
+battleInfo_roundStart=下一回合开始
+
 battleInfo_lifeDrain={0}从{1}吸收了{2}点生命
 battleInfo_lifeDrain_resurrection=，并有{0}个复活了

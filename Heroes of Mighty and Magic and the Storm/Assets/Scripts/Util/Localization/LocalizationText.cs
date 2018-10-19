@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LocalizationText : MonoBehaviour
 {
     public string key;
-    public object[] args;
+    public string[] args;
 
     void OnEnable()
     {
@@ -39,7 +39,7 @@ public class LocalizationText : MonoBehaviour
         }
     }
 
-    public void SetText(string _key, params object[] _text)
+    public void SetText(string _key, params string[] _text)
     {
         key = _key;
         args = _text;

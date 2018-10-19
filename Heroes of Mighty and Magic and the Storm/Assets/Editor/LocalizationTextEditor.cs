@@ -6,15 +6,10 @@ using UnityEditor;
 [CustomEditor(typeof(LocalizationText))]
 public class LocalizationTextEditor : Editor
 {
-    LocalizationText text;
-
-    void Awake()
-    {
-        text = (LocalizationText)target;
-    }
-
     public override void OnInspectorGUI()
     {
+        LocalizationText text = (LocalizationText)target;
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("key"));
 
         SerializedProperty list = serializedObject.FindProperty("args");

@@ -91,16 +91,18 @@ public class BattleManager : Singleton<BattleManager>
         if (!button_wait.interactable)
             return;
 
-        BattleInfoMgr.instance.AddText(BattleManager.currentActionUnit.type.unitName +
-             "暂停，等待更佳的机会行动");
+        BattleInfoMgr.instance.AddText(string.Format(LocalizationMgr.instance.GetText("battleInfo_pause"),
+            BattleManager.currentActionUnit.type.unitName));
 
         UnitActionMgr.order = new Order(OrderType.wait, BattleManager.currentActionUnit);
     }
 
     public void Defend()
     {
-        BattleInfoMgr.instance.AddText(BattleManager.currentActionUnit.type.unitName +
-             "选择防御，获得+1防御力");
+        int defenseSkill = 1;
+
+        BattleInfoMgr.instance.AddText(string.Format(LocalizationMgr.instance.GetText("battleInfo_defend"),
+            BattleManager.currentActionUnit.type.unitName, defenseSkill));
 
         UnitActionMgr.order = new Order(OrderType.defend, BattleManager.currentActionUnit);
 

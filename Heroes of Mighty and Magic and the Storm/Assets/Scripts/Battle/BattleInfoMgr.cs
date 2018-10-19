@@ -20,6 +20,13 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
         text.text = _text;
         text2.text = "";
     }
+    public void SetTextByKey(string _key)
+    {
+        tempText = true;
+
+        text.text = LocalizationMgr.instance.GetText(_key);
+        text2.text = "";
+    }
 
     public void AddText(string _text)
     {

@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: casualties
+  args: []
 --- !u!1 &13077863
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  args: []
 --- !u!1 &91319951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,6 +1879,7 @@ GameObject:
   - component: {fileID: 480295663}
   - component: {fileID: 480295662}
   - component: {fileID: 480295661}
+  - component: {fileID: 480295664}
   m_Layer: 0
   m_Name: Button_Magic
   m_TagString: Untagged
@@ -1978,6 +1981,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 480295659}
   m_CullTransparentMesh: 0
+--- !u!114 &480295664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480295659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetTextByKey
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: magic
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &493391724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,14 +3165,14 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1638976377}
-          m_MethodName: SetText
+          m_MethodName: SetTextByKey
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: "\u9632\u5FA1"
+            m_StringArgument: defend
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -4197,6 +4230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: battleResult_victory
+  args: []
 --- !u!1 &893564589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,6 +4597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: Amazon
+  args: []
 --- !u!1 &913889299
 GameObject:
   m_ObjectHideFlags: 0
@@ -6606,6 +6641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: defender
+  args: []
 --- !u!1 &1191247482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1255205256181494, guid: c7e128b9e8a0b48689a275e9404bd562,
@@ -7515,6 +7551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  args: []
 --- !u!1 &1277368496
 GameObject:
   m_ObjectHideFlags: 0
@@ -7848,6 +7885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  args: []
 --- !u!1 &1345248139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8367,14 +8405,14 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1638976377}
-          m_MethodName: SetText
+          m_MethodName: SetTextByKey
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: "\u7B49\u5F85"
+            m_StringArgument: pause
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -9609,6 +9647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  args: []
 --- !u!1 &1612386919
 GameObject:
   m_ObjectHideFlags: 0
@@ -9971,6 +10010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  args: []
 --- !u!1 &1638976373
 GameObject:
   m_ObjectHideFlags: 0
@@ -10961,6 +11001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: attacker
+  args: []
 --- !u!1 &1737440314
 GameObject:
   m_ObjectHideFlags: 0
@@ -13656,6 +13697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: 
+  args: []
 --- !u!1 &2120134381
 GameObject:
   m_ObjectHideFlags: 0
