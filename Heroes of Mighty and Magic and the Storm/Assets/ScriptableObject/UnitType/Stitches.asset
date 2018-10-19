@@ -24,6 +24,7 @@ MonoBehaviour:
   attackType: 0
   traits:
   - {fileID: 11400000, guid: c91ca56fb2784463a96c3ffdc01a4318, type: 2}
+  - {fileID: 11400000, guid: 795b02ca99c00422093ebb48866011f5, type: 2}
   growth: 8
   AIValue: 98
   cost: 100

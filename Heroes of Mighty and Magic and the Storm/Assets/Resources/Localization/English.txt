@@ -43,3 +43,4 @@ battleInfo_roundStart=Next round begins.
 
 battleInfo_lifeDrain={0}从{1}吸收了{2}点生命
 battleInfo_lifeDrain_resurrection=，并有{0}个复活了
+battleInfo_regeneration=The wounds of {0} close, and they are whole again.

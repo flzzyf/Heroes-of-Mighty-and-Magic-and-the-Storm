@@ -7,16 +7,16 @@ using UnityEditor;
 public class UnitTypeEditor : Editor
 {
     string[] tab_main = { "level", "att", "def", "damage", "hp",
-        "speed", "growth", "AIValue", "cost", "traits", "attackType",
-        "size", "armorType", "icon", "race", "animControl", };
+        "speed", "growth", "AIValue", "cost", "traits", "attackType"};
 
+    string[] tab_other = { "icon", "size", "armorType", "race", "animControl",  };
     string[] tab_sound = { "sound_attack", "sound_walk", "sound_hit", "sound_death" };
 
     public override void OnInspectorGUI()
     {
         UnitType type = (UnitType)target;
 
-        type.tab = GUILayout.Toolbar(type.tab, new string[] { "Main", "Sound" });
+        type.tab = GUILayout.Toolbar(type.tab, new string[] { "Main", "Other", "Sound" });
         if (type.tab == 0)
         {
             for (int i = 0; i < tab_main.Length; i++)
@@ -43,15 +43,35 @@ public class UnitTypeEditor : Editor
                         EditorGUI.indentLevel -= 1;
                     }
                 }
-                else if (tab_main[i] == "icon")
+            }
+        }
+        else if (type.tab == 1)
+        {
+            for (int i = 0; i < tab_other.Length; i++)
+            {
+                SerializedProperty property = serializedObject.FindProperty(tab_other[i]);
+
+                if (tab_other[i] == "icon")
                 {
                     Texture texture = type.icon.texture;
                     GUILayout.Box(texture, EditorStyles.objectFieldThumb,
                         GUILayout.Width(100f), GUILayout.Height(100f));
                 }
+
+                if (property.isArray)
+                {
+                    zyf.ShowList(property);
+                }
+                else
+                {
+                    EditorGUILayout.PropertyField(property);
+                }
+
+                
+                
             }
         }
-        else if (type.tab == 1)
+        else if (type.tab == 2)
         {
             for (int i = 0; i < tab_sound.Length; i++)
             {
