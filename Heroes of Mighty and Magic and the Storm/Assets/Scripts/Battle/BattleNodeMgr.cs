@@ -223,6 +223,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
         //设定指令
         if (_node.battleNodeType == BattleNodeType.reachable)
         {
+            //多种移动方式
             if (BattleManager.currentActionUnit.isWalker)
             {
                 UnitActionMgr.order = new Order(OrderType.move,
@@ -245,19 +246,28 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             }
             else
             {
-                if (BattleManager.currentActionUnit.isWalker)
+                //如果targetNode就是攻击者所在节点，直接攻击
+                if (targetNode == BattleManager.currentActionUnit.nodeItem)
                 {
-                    if (path != null)
-                        UnitActionMgr.order = new Order(OrderType.attack,
-                                                    BattleManager.currentActionUnit, path, target);
-                    else
-                        UnitActionMgr.order = new Order(OrderType.attack,
-                        BattleManager.currentActionUnit, target);
-                }
-
-                else
                     UnitActionMgr.order = new Order(OrderType.attack,
-                                BattleManager.currentActionUnit, targetNode, target);
+                                            BattleManager.currentActionUnit, target);
+                }
+                else
+                {
+                    if (BattleManager.currentActionUnit.isWalker)
+                    {
+                        if (path != null)
+                            UnitActionMgr.order = new Order(OrderType.attack,
+                                                        BattleManager.currentActionUnit, path, target);
+                        else
+                            Debug.LogError("攻击无路径BUG");
+                    }
+                    else
+                    {
+                        UnitActionMgr.order = new Order(OrderType.attack,
+                                                        BattleManager.currentActionUnit, targetNode, target);
+                    }
+                }
             }
         }
 
