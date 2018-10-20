@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Behavior")]
+[CreateAssetMenu(menuName = "Behavior/Behavior")]
 public class Behavior : ScriptableObject
 {
-    public int duration;
+    public int duration = -1;
     public Sprite icon;
 
     public bool hideInUI = false;
@@ -13,23 +13,18 @@ public class Behavior : ScriptableObject
     [HideInInspector]
     public Unit origin;
 
-    public Effect effect_add;
-    public Effect effect_remove;
-
     public void Init(Unit _origin)
     {
         origin = _origin;
     }
 
-    public void Add()
+    public virtual void Add()
     {
-        effect_add.Init(origin, null, null);
-        effect_add.Invoke();
+
     }
 
-    public void Remove()
+    public virtual void Remove()
     {
-        effect_remove.Init(origin, null, null);
-        effect_remove.Invoke();
+
     }
 }

@@ -14,7 +14,7 @@ public class Effect_Behavior : Effect
     {
         if (addOrRemove == AddOrRemove.Add)
         {
-            targetUnit.AddBehavior(behavior);
+            BehaviorMgr.instance.AddBehavior(targetUnit, behavior);
         }
     }
 }

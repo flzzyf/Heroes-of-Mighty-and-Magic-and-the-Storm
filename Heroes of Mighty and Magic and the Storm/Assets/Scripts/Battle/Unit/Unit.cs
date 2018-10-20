@@ -29,6 +29,9 @@ public class Unit : NodeObject
     [HideInInspector]
     public int originalNum;
 
+    [HideInInspector]
+    public List<Behavior> behaviors = new List<Behavior>();
+
     public void Init()
     {
         if (type != null)
@@ -261,44 +264,5 @@ public class Unit : NodeObject
                    !TraitManager.instance.PossessTrait(this, "Teleporting");
         }
     }
-
-    [HideInInspector]
-    public List<Behavior> behaviors = new List<Behavior>();
-    public void AddBehavior(Behavior _behavior)
-    {
-        behaviors.Add(_behavior);
-
-        _behavior.Init(this);
-        _behavior.Add();
-    }
-
-    public void RemoveBehavior(Behavior _behavior)
-    {
-        for (int i = 0; i < behaviors.Count; i++)
-        {
-            if (behaviors[i] == _behavior)
-            {
-                behaviors[i].Remove();
-
-                behaviors.Remove(behaviors[i]);
-            }
-        }
-    }
-
-    public bool PossessBehavior(Behavior _behavior)
-    {
-        for (int i = 0; i < behaviors.Count; i++)
-        {
-            if (behaviors[i] == _behavior)
-            {
-                behaviors[i].duration--;
-                print(behaviors[i].duration);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
 
 }

@@ -99,10 +99,11 @@ public class BattleManager : Singleton<BattleManager>
 
     public void Defend()
     {
-        int defenseSkill = 1;
+        int def = BattleManager.currentActionUnit.type.def;
+        def = Mathf.Max(1, def / 5);
 
         BattleInfoMgr.instance.AddText(string.Format(LocalizationMgr.instance.GetText("battleInfo_defend"),
-            BattleManager.currentActionUnit.type.unitName, defenseSkill));
+            BattleManager.currentActionUnit.type.unitName, def));
 
         UnitActionMgr.order = new Order(OrderType.defend, BattleManager.currentActionUnit);
 

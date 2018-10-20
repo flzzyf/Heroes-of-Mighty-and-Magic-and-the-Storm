@@ -77,7 +77,7 @@ public class RoundManager : Singleton<RoundManager>
             }
             else if (behavior.duration == 1)
             {
-                BattleManager.currentActionUnit.RemoveBehavior(behavior);
+                BehaviorMgr.instance.RemoveBehavior(BattleManager.currentActionUnit, behavior);
             }
         }
 
