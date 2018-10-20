@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.IO;
 
 public enum Language { Chinese_Simplified, Chinese_Traditional, English }
 
@@ -13,7 +14,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     public string[] languageNames = new string[System.Enum.GetValues(typeof(Language)).Length];
     public Font[] fonts = new Font[Enum.GetValues(typeof(Language)).Length];
 
-    Dictionary<string, string> textDic;
+    public Dictionary<string, string> textDic;
     //所有本地化文本组件
     public List<LocalizationText> localizationTexts;
     public List<LocalizationFont> localizationFonts;
@@ -63,6 +64,43 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
             textDic.Add(s[0], s[1]);
         }
     }
+
+    public void SetText(string _key, string _value)
+    {
+        Debug.Log(_key + ":" + _value);
+        if (textDic.ContainsKey(_key))
+        {
+            textDic[_key] = _value;
+        }
+        else
+        {
+            textDic.Add(_key, _value);
+        }
+        SaveText();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SetText("qwer", "asdf");
+        }
+    }
+
+    void SaveText()
+    {
+        string s = "";
+        foreach (var item in textDic)
+        {
+            s += item.Key.ToString();
+            s += "=";
+            s += item.Value.ToString();
+            s += "\n";
+        }
+
+        File.WriteAllText("Assets/Resources/Localization/" + language.ToString() + ".txt", s);
+    }
+
     //从字典读取相应文本
     public string GetText(string _key)
     {
@@ -71,11 +109,5 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
         Debug.LogWarning(_key + "键缺失！");
         return _key.ToString();
-    }
-
-    public void SetText(LocalizationText _text, string _key)
-    {
-        _text.key = _key;
-        _text.Init();
     }
 }

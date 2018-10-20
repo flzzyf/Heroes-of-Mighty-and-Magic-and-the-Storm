@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Name: Medivh_Upgrade
   m_EditorClassIdentifier: 
   tab: 0
+  typeName: "\u9EA6\u8FEA\u6587"
+  currentLanguage: 0
   icon: {fileID: 21300000, guid: fc61988840676a9498065ce85c5292dd, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 5c23de08b8a1d7d4da2f90a6640c3dbf, type: 2}

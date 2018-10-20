@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7242ba3c4f2a743eeacf8d403c2dcccf, type: 3}
   m_Name: Flying
   m_EditorClassIdentifier: 
-  traitName: "\u98DE\u884C"
+  currentLanguage: 0

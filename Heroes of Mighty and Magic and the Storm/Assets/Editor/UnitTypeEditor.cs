@@ -17,8 +17,28 @@ public class UnitTypeEditor : Editor
         UnitType type = (UnitType)target;
 
         type.tab = GUILayout.Toolbar(type.tab, new string[] { "Main", "Other", "Sound" });
+
         if (type.tab == 0)
         {
+            if (LocalizationMgr.instance.textDic == null)
+            {
+                LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
+            }
+
+            if (type.currentLanguage != LocalizationMgr.instance.language)
+            {
+                type.currentLanguage = LocalizationMgr.instance.language;
+            }
+            //检测名称更改
+            EditorGUI.BeginChangeCheck();
+            string name = EditorGUILayout.TextField("Name", LocalizationMgr.instance.GetText(type.name));
+            if (EditorGUI.EndChangeCheck())
+            {
+                LocalizationMgr.instance.SetText(type.name, name);
+
+            }
+            EditorGUILayout.LabelField("名称修改后自动保存");
+
             for (int i = 0; i < tab_main.Length; i++)
             {
                 SerializedProperty property = serializedObject.FindProperty(tab_main[i]);
@@ -53,7 +73,7 @@ public class UnitTypeEditor : Editor
 
                 if (tab_other[i] == "icon")
                 {
-                    if(type.icon != null)
+                    if (type.icon != null)
                     {
                         Texture texture = type.icon.texture;
                         GUILayout.Box(texture, EditorStyles.objectFieldThumb,
@@ -69,9 +89,6 @@ public class UnitTypeEditor : Editor
                 {
                     EditorGUILayout.PropertyField(property);
                 }
-
-
-
             }
         }
         else if (type.tab == 2)

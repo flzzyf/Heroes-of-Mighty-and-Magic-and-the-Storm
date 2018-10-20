@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Name: Stitches
   m_EditorClassIdentifier: 
   tab: 0
+  typeName: "\u7F1D\u5408\u602A"
+  currentLanguage: 0
   icon: {fileID: 21300000, guid: 9d8b445c05d9c3440a8d695a0f748e6e, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 22100000, guid: 923afd2cb8532794b9d8657dfd3b0cda, type: 2}

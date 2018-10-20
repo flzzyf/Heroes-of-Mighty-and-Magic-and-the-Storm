@@ -53,9 +53,7 @@ public class GameManager : Singleton<GameManager>
         {
             //BattleResultMgr.instance.ShowResultUI(1);
 
-            Resources.LoadAll<Sprite>("Textures");
-
-            //GameManager.instance.PlaySound(type.sound_hit);
+            //Resources.LoadAll<Sprite>("Textures");
 
         }
     }

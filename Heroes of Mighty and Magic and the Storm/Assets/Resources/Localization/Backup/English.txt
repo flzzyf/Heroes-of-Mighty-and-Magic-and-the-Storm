@@ -7,6 +7,7 @@ defender=Defender
 pause=Pause
 defend=Defend
 magic=Magic
+
 stat_att=Attack Skill
 stat_def=Defense Skill
 stat_damage=Damage
@@ -14,31 +15,33 @@ stat_ammo=Shots
 stat_hp=Health
 stat_hpMax=Health Left
 stat_speed=Speed
+
 Undead=Undead
+
+//单位名称，复数名加上"_plural"
 Amazon=Amazon
 DH=Demon Hunter
 DH_Upgrade=Valla
-Tyrael=Angel of Justice
+Tyrael=Tyrael
 Jaina=Jaina
 Sylvanas=Sylvanas
 Kerrigan=Queen of blade
 Kerrigan_Upgrade=Kerrigan
+
 battleResult_victory=A glorious victory!\nFor valor in combat, {0} receives {1} experience
 battleResult_defeat=Your forces suffer a bitter defeat, and {0} abandons your cause
+
 battleInfo_attack=Attack {0} ({1} danage)
 battleInfo_attack_range=Attack {0} ({1}-{2} damage)
 battleInfo_shoot=Shoot {0} ({1} shots left, {2} damage)
 battleInfo_shoot_range=Shoot {0} ({1} shots left, {2}-{3} damage)
+
 battleInfo_damage=The {0} {1} {2} damage
 battleInfo_death=, {0} {1} perish
 battleInfo_pause=The {0} pause, and wait for a better time to act
 battleInfo_defend=The {0} takes a defensive stance, and gains +{1} defense skill
 battleInfo_roundStart=Next round begins.
+
 battleInfo_lifeDrain=The {0} drain {1} life from the {2}
 battleInfo_lifeDrain_resurrection=，并有{0}个复活了
 battleInfo_regeneration=The wounds of {0} close, and they are whole again
-Leoric_Upgrade=Leoric
-Kel_Upgrade=Kel
-Malthael_Upgrade=Malthael
-Malthael=Angel of Death
-Teleporting=Teleporting

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
 {
     public GameObject panel;
-    public LocalizationText text_name;
+    public Text text_name;
     public GameObject text_ammo_title;
     public Text text_att, text_def, text_ammo, text_damage, text_hpMax, text_hp, text_speed;
     public Text text_num, text_trait;
@@ -18,7 +18,8 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     {
         panel.SetActive(true);
 
-        LocalizationMgr.instance.SetText(text_name, _unit.type.unitName);
+        text_name.text = _unit.type.unitName;
+
         text_att.text = _unit.att + "";
         text_def.text = _unit.def + "";
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class UnitType : ScriptableObject
 {
     public int tab;
+    public Language currentLanguage;
 
     public Sprite icon;
     public Race race;

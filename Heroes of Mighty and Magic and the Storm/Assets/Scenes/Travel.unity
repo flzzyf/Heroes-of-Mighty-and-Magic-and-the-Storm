@@ -4444,7 +4444,6 @@ GameObject:
   - component: {fileID: 911496253}
   - component: {fileID: 911496255}
   - component: {fileID: 911496254}
-  - component: {fileID: 911496256}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -4510,19 +4509,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 911496252}
   m_CullTransparentMesh: 0
---- !u!114 &911496256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 911496252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c9036df96c1d44fab54e88e12d33c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  key: Amazon
-  args: []
 --- !u!1 &913889299
 GameObject:
   m_ObjectHideFlags: 0
@@ -10174,7 +10160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1651338601}
-  text_name: {fileID: 911496256}
+  text_name: {fileID: 911496254}
   text_ammo_title: {fileID: 1227900344}
   text_att: {fileID: 130961345}
   text_def: {fileID: 902931883}
@@ -13368,7 +13354,7 @@ Prefab:
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
       propertyPath: pocketUnits.Array.data[2].num
-      value: 350
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114394594263890442, guid: 37ccb3bc95d1e477ba14c64877197e3d,
         type: 2}
