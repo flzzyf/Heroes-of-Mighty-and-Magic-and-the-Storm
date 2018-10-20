@@ -222,9 +222,9 @@ public class BattleManager : Singleton<BattleManager>
         Unit unit = go.GetComponent<Unit>();
         unit.nodeObjectType = NodeObjectType.unit;
         unit.type = _type;
+        unit.SetFacing(_side);
         unit.Init();
         unit.SetNum(_num);
-        unit.SetFacing(_side);
         unit.originalNum = _num;
 
         units[_side].Add(unit);

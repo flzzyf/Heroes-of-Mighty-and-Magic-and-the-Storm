@@ -56,12 +56,24 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
     void PlayAnimStart(Unit _unit)
     {
         _unit.UI.SetActive(false);
+
         _unit.GetComponent<AxisZControl>().offsetZ = -1;
     }
     void PlayAnimEnd(Unit _unit)
     {
         if (!_unit.dead)
+        {
             _unit.UI.SetActive(true);
+        }
         _unit.GetComponent<AxisZControl>().offsetZ = 0;
+
+        //更新两个玩家所有单位UI
+        for (int i = 0; i < 2; i++)
+        {
+            foreach (var item in BattleManager.instance.units[i])
+            {
+                item.UpdateUI();
+            }
+        }
     }
 }

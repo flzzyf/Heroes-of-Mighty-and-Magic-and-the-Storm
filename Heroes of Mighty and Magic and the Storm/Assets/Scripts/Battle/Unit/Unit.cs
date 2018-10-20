@@ -40,6 +40,8 @@ public class Unit : NodeObject
         Vector3 pos = UI.GetComponent<RectTransform>().localPosition;
         pos.z = -500;
         UI.GetComponent<RectTransform>().localPosition = pos;
+
+        UpdateUI();
     }
 
     public void InitUnitType()
@@ -53,6 +55,36 @@ public class Unit : NodeObject
         currentHP = type.hp;
         ammo = type.ammo;
     }
+
+    public Vector2 UIOffset = new Vector2(100, 39);
+    public void UpdateUI()
+    {
+        int offsetX = facingRight ? 1 : -1;
+        if (nodeItem == null)
+        {
+            SetUIPos(new Vector2(UIOffset.x * offsetX, UIOffset.y));
+        }
+        else
+        {
+            //如果单位面前的节点有单位，UI移动到源点
+            NodeItem item = BattleManager.instance.map.GetNodeItem(nodeItem.pos + new Vector2Int(offsetX, 0));
+            if (item.nodeObject != null && item.nodeObject.nodeObjectType == NodeObjectType.unit)
+            {
+                SetUIPos(new Vector2(0, 0));
+            }
+            else
+            {
+                SetUIPos(new Vector2(UIOffset.x * offsetX, UIOffset.y));
+            }
+        }
+
+    }
+
+    void SetUIPos(Vector2 _pos)
+    {
+        UI.GetComponent<RectTransform>().localPosition = _pos;
+    }
+
     #region Facing
 
     public bool facingRight { get { return sprite.flipX == false; } }
@@ -69,9 +101,6 @@ public class Unit : NodeObject
     void Flip()
     {
         sprite.flipX = !sprite.flipX;
-        Vector3 UIPos = UI.transform.GetComponent<RectTransform>().localPosition;
-        UIPos.x *= -1;
-        UI.transform.GetComponent<RectTransform>().localPosition = UIPos;
     }
 
     public void SetFacing(int _facing)
@@ -120,7 +149,6 @@ public class Unit : NodeObject
         return FaceTarget(_target.transform.position, _flip);
     }
     #endregion
-
 
     #region Number and HP
     //初始总共血量
