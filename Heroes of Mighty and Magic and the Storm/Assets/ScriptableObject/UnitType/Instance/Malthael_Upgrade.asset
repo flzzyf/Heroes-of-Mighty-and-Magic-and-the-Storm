@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
+  m_Name: Malthael_Upgrade
+  m_EditorClassIdentifier: 
+  tab: 0
+  icon: {fileID: 21300000, guid: 26b86fe601441e54d8248d038cc41c3c, type: 3}
+  race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
+  animControl: {fileID: 22100000, guid: cec05f1c1ffbc904eae18395b9c7742c, type: 2}
+  level: 3
+  att: 7
+  def: 7
+  hp: 18
+  damage: {x: 3, y: 5}
+  speed: 7
+  attackType: 0
+  traits:
+  - {fileID: 11400000, guid: c91ca56fb2784463a96c3ffdc01a4318, type: 2}
+  - {fileID: 11400000, guid: 8d29db8314585433086022487b87e65b, type: 2}
+  - {fileID: 11400000, guid: 4168758b1147643a9a847ad56715b36f, type: 2}
+  - {fileID: 11400000, guid: 4105f9bfce36f4b62a3f587782044ead, type: 2}
+  growth: 7
+  AIValue: 315
+  cost: 230
+  size: 1
+  armorType: 1
+  ammo: 12
+  missile: {fileID: 0}
+  launchPos: {x: 0, y: 0}
+  sound_attack: {fileID: 8300000, guid: 318db57d65492014e8d277b8cb065fef, type: 3}
+  sound_attackImpact: {fileID: 0}
+  sound_walk: []
+  sound_hit:
+    clip: {fileID: 8300000, guid: 0845fed1f02f40244a19013dde365e82, type: 3}
+    skipDuration: 0.3
+  sound_death:
+    clip: {fileID: 8300000, guid: a3bc371ed30d2f4418f357536dccf935, type: 3}
+    skipDuration: 0.3

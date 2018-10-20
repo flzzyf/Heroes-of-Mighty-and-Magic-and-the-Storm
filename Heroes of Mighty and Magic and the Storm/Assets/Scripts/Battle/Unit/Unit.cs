@@ -252,14 +252,15 @@ public class Unit : NodeObject
         GetComponent<AxisZControl>().offsetZ = 1;
     }
 
-    //拥有特质
-    public bool PossessTrait(string _name)
-    {
-        return type.traits.Contains(TraitManager.instance.GetTrait(_name));
-    }
-
     //是地面行走者（非飞行和瞬移）
-    public bool isWalker { get { return !PossessTrait("Flying") && !PossessTrait("Teleporting"); } }
+    public bool isWalker
+    {
+        get
+        {
+            return !TraitManager.instance.PossessTrait(this, "Flying") &&
+                   !TraitManager.instance.PossessTrait(this, "Teleporting");
+        }
+    }
 
     [HideInInspector]
     public List<Behavior> behaviors = new List<Behavior>();

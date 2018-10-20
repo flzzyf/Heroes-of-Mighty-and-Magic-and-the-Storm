@@ -1,27 +1,30 @@
 fileFormatVersion: 2
-guid: ed3d5e65fa7734d979a959ea782d54fb
+guid: 953cb6b289d9f4d2396798f1b1c5f84e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Malthael_Attack
-    21300002: Malthael_Attack001
-    21300004: Malthael_Attack002
-    21300006: Malthael_Attack003
-    21300008: Malthael_Attack004
-    21300010: Malthael_Attack005
-    21300012: Malthael_Attack006
-    21300014: Malthael_Attack007
-    21300016: Malthael_Attack008
-    21300018: Malthael_Attack009
-    21300020: Malthael_Attack010
-    21300022: Malthael_Attack011
-    21300024: Malthael_Attack012
-    21300026: Malthael_Attack013
-    21300028: Malthael_Attack014
-    21300030: Malthael_Attack015
-    21300032: Malthael_Attack016
-    21300034: Malthael_Attack017
-    21300036: Malthael_Attack018
-    21300038: Malthael_Attack019
+    21300000: Malthael_Death
+    21300002: Malthael_Death001
+    21300004: Malthael_Death002
+    21300006: Malthael_Death003
+    21300008: Malthael_Death004
+    21300010: Malthael_Death005
+    21300012: Malthael_Death006
+    21300014: Malthael_Death007
+    21300016: Malthael_Death008
+    21300018: Malthael_Death009
+    21300020: Malthael_Death010
+    21300022: Malthael_Death011
+    21300024: Malthael_Death012
+    21300026: Malthael_Death013
+    21300028: Malthael_Death014
+    21300030: Malthael_Death015
+    21300032: Malthael_Death016
+    21300034: Malthael_Death017
+    21300036: Malthael_Death018
+    21300038: Malthael_Death019
+    21300040: Malthael_Death020
+    21300042: Malthael_Death021
+    21300044: Malthael_Death022
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -80,7 +83,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -91,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -124,7 +127,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: iPhone
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -137,381 +140,441 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Malthael_Attack001
-      rect:
-        serializedVersion: 2
-        x: 1655
-        y: 1094
-        width: 363
-        height: 473
-      alignment: 9
-      pivot: {x: 0.5661157, y: -0.040169135}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3724eeb74193345568d1cbe01716bdba
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack002
-      rect:
-        serializedVersion: 2
-        x: 805
-        y: 654
-        width: 372
-        height: 483
-      alignment: 9
-      pivot: {x: 0.6438172, y: -0.035196688}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6d1ead1275a2a4208b93cbf68bd3c562
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack003
-      rect:
-        serializedVersion: 2
-        x: 1269
-        y: 1157
-        width: 384
-        height: 462
-      alignment: 9
-      pivot: {x: 0.4622396, y: -0.038961038}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3933909f5d7aa4c32b0cdada004c462e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack004
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 203
-        width: 440
-        height: 440
-      alignment: 9
-      pivot: {x: 0.45568183, y: -0.0022727272}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d51335efe3ec486291c6138ad7b2006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack005
-      rect:
-        serializedVersion: 2
-        x: 1247
-        y: 1621
-        width: 417
-        height: 426
-      alignment: 9
-      pivot: {x: 0.528777, y: -0.032863848}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 201ccc26f00ed40158b6e21b1b6f7469
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack006
-      rect:
-        serializedVersion: 2
-        x: 441
-        y: 1139
-        width: 423
-        height: 441
-      alignment: 9
-      pivot: {x: 0.5070922, y: -0.029478459}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da0cedf402686465aabf6a0b2f262993
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack007
-      rect:
-        serializedVersion: 2
-        x: 452
-        y: 1583
-        width: 398
-        height: 464
-      alignment: 9
-      pivot: {x: 0.55904526, y: -0.004310345}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7afa679e1d9f24083b48da36e916621b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack008
-      rect:
-        serializedVersion: 2
-        x: 852
-        y: 1592
-        width: 393
-        height: 455
-      alignment: 9
-      pivot: {x: 0.5737913, y: -0.0065934067}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e6b967926b0cf429095c693fdd9163d9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack009
-      rect:
-        serializedVersion: 2
-        x: 1640
-        y: 641
-        width: 393
-        height: 451
-      alignment: 9
-      pivot: {x: 0.5737913, y: -0.0022172949}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7429ebfcbe004ef5a2efc409e3e4152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack010
-      rect:
-        serializedVersion: 2
-        x: 1582
-        y: 197
-        width: 396
-        height: 442
-      alignment: 9
-      pivot: {x: 0.5770202, y: -0.0067873304}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c847e026153224e8bbf67efa166df2fc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack011
-      rect:
-        serializedVersion: 2
-        x: 1269
-        y: 718
-        width: 369
-        height: 437
-      alignment: 9
-      pivot: {x: 0.5514905, y: -0.013729977}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec4a367306b12425caa3706ef38c3968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack012
-      rect:
-        serializedVersion: 2
-        x: 866
-        y: 1146
-        width: 401
-        height: 444
-      alignment: 9
-      pivot: {x: 0.5872818, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 156bae88beb794cc6973fa53f44c1eb7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack013
+      name: Malthael_Death001
       rect:
         serializedVersion: 2
         x: 1179
-        y: 277
-        width: 401
-        height: 439
+        y: 1073
+        width: 292
+        height: 471
       alignment: 9
-      pivot: {x: 0.5673317, y: -0.0022779044}
+      pivot: {x: 0.37157536, y: -0.044585988}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 89dc224745a374ca2974f32f59946f94
+      spriteID: 39f8bd873cd5b4a1395d0565f21a1413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Malthael_Attack014
+      name: Malthael_Death002
       rect:
         serializedVersion: 2
-        x: 443
-        y: 169
-        width: 391
-        height: 475
+        x: 1020
+        y: 10
+        width: 325
+        height: 472
       alignment: 9
-      pivot: {x: 0.53580564, y: 0}
+      pivot: {x: 0.34, y: -0.11228813}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54cf8e62a40534fda891ec105ac39148
+      spriteID: 485ab4f2144f1444f9417fe580ea0616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Malthael_Attack015
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1126
-        width: 438
-        height: 454
-      alignment: 9
-      pivot: {x: 0.54223746, y: -0.028634362}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c0e7920c14e74cee93df332b314dfad
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Malthael_Attack016
+      name: Malthael_Death003
       rect:
         serializedVersion: 2
         x: 1
-        y: 1582
-        width: 449
-        height: 465
+        y: 1516
+        width: 293
+        height: 531
       alignment: 9
-      pivot: {x: 0.53340757, y: -0.043010753}
+      pivot: {x: 0.4556314, y: -0.1299435}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c9196c175fd440f18de7e730f333f68
+      spriteID: 089b7191e96a349a5bc4e4e9935bb4ed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Malthael_Attack017
+      name: Malthael_Death004
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 1517
+        width: 273
+        height: 530
+      alignment: 9
+      pivot: {x: 0.489011, y: -0.13207547}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d297d5a49a047446083051b1a77f1d1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death005
       rect:
         serializedVersion: 2
         x: 1
-        y: 645
-        width: 405
-        height: 479
+        y: 456
+        width: 317
+        height: 526
       alignment: 9
-      pivot: {x: 0.58148146, y: -0.043841336}
+      pivot: {x: 0.54416406, y: -0.14068441}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4be50cd8f64e0494bb4906343225189e
+      spriteID: 98a1ace6a07fa411abae1f97dcc004a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Malthael_Attack018
+      name: Malthael_Death006
       rect:
         serializedVersion: 2
-        x: 408
-        y: 646
-        width: 395
-        height: 478
+        x: 419
+        y: 998
+        width: 372
+        height: 517
       alignment: 9
-      pivot: {x: 0.5734177, y: -0.041841004}
+      pivot: {x: 0.5416667, y: -0.13152805}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0cd1eb53c9274b5688b2b68263a012c
+      spriteID: d99bcaff92e7b4212b15951d1de10806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Malthael_Attack019
+      name: Malthael_Death007
       rect:
         serializedVersion: 2
-        x: 1666
-        y: 1569
+        x: 710
+        y: 484
+        width: 387
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5232558, y: -0.12890625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6097b388420ef46cb88286c1a7180315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death008
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 984
+        width: 416
+        height: 530
+      alignment: 9
+      pivot: {x: 0.5204327, y: -0.12075472}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e71b8229c793547d4a3b86b6c3f0f7e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death009
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 1531
+        width: 410
+        height: 516
+      alignment: 9
+      pivot: {x: 0.5134146, y: -0.13565892}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77189cd4c267842e4b5f6522ea32980d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death010
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 463
+        width: 388
+        height: 519
+      alignment: 9
+      pivot: {x: 0.5296392, y: -0.1290944}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ae53cc97d1d4335b29a0c8274c921a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death011
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 1020
+        width: 384
+        height: 509
+      alignment: 9
+      pivot: {x: 0.52994794, y: -0.13163064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77221258f2554850a0345e5fbe9b470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death012
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 1546
+        width: 359
+        height: 501
+      alignment: 9
+      pivot: {x: 0.53064066, y: -0.15169661}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b52566f96714971b7037c9cec1dd43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death013
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 533
+        width: 342
+        height: 485
+      alignment: 9
+      pivot: {x: 0.50438595, y: -0.13814433}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1f5b6b635294739bbf0861151b6dda
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death014
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 313
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5063898, y: -0.17777778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10917a428c0594914b5626ba77fb965d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death015
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 160
+        width: 334
+        height: 294
+      alignment: 9
+      pivot: {x: 0.49550897, y: -0.7619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98fcf8e1978b44598a6cd5419e4af8d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death016
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 190
         width: 366
-        height: 478
+        height: 271
       alignment: 9
-      pivot: {x: 0.5669399, y: -0.035564855}
+      pivot: {x: 0.48224044, y: -0.8929889}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dac74f6b057314e2e95c6582c405748c
+      spriteID: b53614ce5ec8c4f1d9920c721bde093d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death017
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1781
+        width: 375
+        height: 266
+      alignment: 9
+      pivot: {x: 0.47066668, y: -0.99248123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fe03731510b42f7baeb4ef8d4a812c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death018
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 1511
+        width: 362
+        height: 268
+      alignment: 9
+      pivot: {x: 0.4627072, y: -1.0149254}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b513d51c4af8441f88ead0c209613cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death019
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1260
+        width: 322
+        height: 249
+      alignment: 9
+      pivot: {x: 0.47981367, y: -1.0963856}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7f3488cb5f54e14a96ccfd2aab0fa5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death020
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 1551
+        width: 335
+        height: 228
+      alignment: 9
+      pivot: {x: 0.4402985, y: -1.3377193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954c090b0544644f1a6ce6448cf089b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death021
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 1022
+        width: 312
+        height: 236
+      alignment: 9
+      pivot: {x: 0.4471154, y: -1.2669492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5954c827f1a32411fadb1e4e55194ff8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Death022
+      rect:
+        serializedVersion: 2
+        x: 1787
+        y: 1040
+        width: 260
+        height: 218
+      alignment: 9
+      pivot: {x: 0.51346153, y: -1.380734}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ee066a9cbb44e68a4bd1937e2577b8
       vertices: []
       indices: 
       edges: []

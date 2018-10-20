@@ -68,7 +68,7 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
     public void SetText_Attack(Unit _origin, Unit _target)
     {
         bool isRangeAttack = UnitActionMgr.IsRangeAttack(_origin);
-        Vector2Int range = UnitAttackMgr.GetDamageRange(_origin, _target, isRangeAttack);
+        Vector2Int range = UnitAttackMgr.instance.GetDamageRange(_origin, _target, isRangeAttack);
         string s;
         if (range.x == range.y)
             s = string.Format(LocalizationMgr.instance.GetText("battleInfo_attack"),

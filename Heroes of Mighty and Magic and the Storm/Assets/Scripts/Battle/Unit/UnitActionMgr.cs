@@ -125,7 +125,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             {
                 MovementManager.instance.MoveObjectAlongPath(order.origin, order.path);
             }
-            else if (order.origin.PossessTrait("Flying"))
+            else if (TraitManager.instance.PossessTrait(order.origin, "Flying"))
             {
                 MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
             }

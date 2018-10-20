@@ -92,7 +92,7 @@ public class AIActionMgr : Singleton<AIActionMgr>
     //获取攻击者能对目标造成的伤害（取最小值
     int GetDamage(Unit _attacker, Unit _defender, bool _isRangeAttack)
     {
-        int damage = UnitAttackMgr.GetDamageRange(_attacker, _defender, _isRangeAttack).x;
+        int damage = UnitAttackMgr.instance.GetDamageRange(_attacker, _defender, _isRangeAttack).x;
         //不超过单位当前剩余生命
         damage = Mathf.Min(damage, _defender.totalHp);
 

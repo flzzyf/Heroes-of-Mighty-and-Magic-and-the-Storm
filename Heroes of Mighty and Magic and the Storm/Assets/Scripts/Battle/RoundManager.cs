@@ -19,11 +19,11 @@ public class RoundManager : Singleton<RoundManager>
             {
                 Unit unit = BattleManager.instance.units[i][j];
                 //根据特质改变反击次数
-                if (unit.PossessTrait("Two Retaliations"))
+                if (TraitManager.instance.PossessTrait(unit, "Two Retaliations"))
                 {
                     unit.retaliations = 2;
                 }
-                else if (unit.PossessTrait("Unlimited Retaliations"))
+                else if (TraitManager.instance.PossessTrait(unit, "Unlimited Retaliations"))
                 {
                     unit.retaliations = 99;
                 }

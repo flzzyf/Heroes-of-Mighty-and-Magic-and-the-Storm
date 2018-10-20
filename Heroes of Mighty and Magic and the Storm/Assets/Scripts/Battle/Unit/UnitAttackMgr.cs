@@ -49,7 +49,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         if (!_rangeAttack &&
             !_target.dead &&
             _target.retaliations > 0 &&
-            !_origin.PossessTrait("No Retaliation"))
+            !TraitManager.instance.PossessTrait(_origin, "No retaliation"))
         {
             _target.retaliations--;
 
@@ -60,7 +60,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         //攻击两次：都没死
         if (!_origin.dead && !_target.dead &&
-            _origin.PossessTrait("Double Attack"))
+            TraitManager.instance.PossessTrait(_origin, "Double attack"))
         {
             if (!_rangeAttack)
             {
@@ -107,7 +107,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //吸血效果，生命值不满或者死了人
         if ((_origin.currentHP < _origin.type.hp ||
             _origin.num < _origin.originalNum) &&
-            _origin.PossessTrait("Life Drain"))
+            TraitManager.instance.PossessTrait(_origin, "Life drain"))
         {
             int resurrectNum = _origin.ModifyHp(damage, true);
 
@@ -115,7 +115,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             BattleInfoMgr.instance.AddText_LifeDrain(_origin, _target, damage, resurrectNum);
 
             //创建吸血效果，播放音效
-            Trait_Effect trait = (Trait_Effect)(TraitManager.instance.GetTrait("Life Drain"));
+            Trait_Effect trait = (Trait_Effect)TraitManager.instance.GetTrait("Life drain");
             GameManager.instance.PlaySound(trait.sound_trigger);
             GameObject fx = Instantiate(trait.fx_trigger,
                 _origin.transform.position, Quaternion.identity);
@@ -182,7 +182,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         return damage;
     }
 
-    public static Vector2Int GetDamageRange(Unit _origin, Unit _target, bool _isRangeAttack = false)
+    public Vector2Int GetDamageRange(Unit _origin, Unit _target, bool _isRangeAttack = false)
     {
         Vector2Int range = _origin.damage;
 
@@ -191,7 +191,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         //远程攻击，没有近战伤害不减的特质，超过10格伤害减半
         if (_isRangeAttack &&
-        !_origin.PossessTrait("No Melee Penalty") &&
+        !TraitManager.instance.PossessTrait(_origin, "No melee penalty") &&
         AStarManager.GetNodeItemDistance(_origin.nodeItem, _target.nodeItem, true)
             > BattleManager.instance.rangeAttackRange)
         {
