@@ -25,6 +25,13 @@ public class GameManager : Singleton<GameManager>
         //添加测试英雄
         PlayerManager.instance.players[0].heroes.Add(testHeroes[0]);
         PlayerManager.instance.players[1].heroes.Add(testHeroes[1]);
+
+        //读取本地语言
+        // string localLangId = System.Globalization.CultureInfo.InstalledUICulture.Name;
+        // print(localLangId);
+        // if (localLangId == "zh-CN")
+        // {
+        // }
     }
 
     void Update()
@@ -54,6 +61,7 @@ public class GameManager : Singleton<GameManager>
             //BattleResultMgr.instance.ShowResultUI(1);
 
             //Resources.LoadAll<Sprite>("Textures");
+
 
         }
     }

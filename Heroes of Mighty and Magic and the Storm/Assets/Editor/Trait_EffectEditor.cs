@@ -15,10 +15,6 @@ public class Trait_EffectEditor : Editor
             LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
         }
 
-        if (trait.currentLanguage != LocalizationMgr.instance.language)
-        {
-            trait.currentLanguage = LocalizationMgr.instance.language;
-        }
         //检测名称更改
         EditorGUI.BeginChangeCheck();
         string name = EditorGUILayout.TextField("Name", LocalizationMgr.instance.GetText(trait.name));

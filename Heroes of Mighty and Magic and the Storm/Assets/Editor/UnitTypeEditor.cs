@@ -25,10 +25,6 @@ public class UnitTypeEditor : Editor
                 LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
             }
 
-            if (type.currentLanguage != LocalizationMgr.instance.language)
-            {
-                type.currentLanguage = LocalizationMgr.instance.language;
-            }
             //检测名称更改
             EditorGUI.BeginChangeCheck();
             string name = EditorGUILayout.TextField("Name", LocalizationMgr.instance.GetText(type.name));

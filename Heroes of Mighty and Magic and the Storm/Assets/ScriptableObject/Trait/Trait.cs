@@ -3,9 +3,6 @@
 [CreateAssetMenu(menuName = "Trait/Trait")]
 public class Trait : ScriptableObject
 {
-    [HideInInspector]
-    public Language currentLanguage;
-
     public string traitName
     {
         get
@@ -13,4 +10,5 @@ public class Trait : ScriptableObject
             return LocalizationMgr.instance.GetText(base.name);
         }
     }
+
 }
