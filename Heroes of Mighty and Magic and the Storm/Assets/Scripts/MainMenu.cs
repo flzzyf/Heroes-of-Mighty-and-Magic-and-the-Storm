@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-
     public GameObject loadingScreen;
 
     public Slider slider;
@@ -20,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadLevelAsync()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Travel");
 
         while (!operation.isDone)
         {
