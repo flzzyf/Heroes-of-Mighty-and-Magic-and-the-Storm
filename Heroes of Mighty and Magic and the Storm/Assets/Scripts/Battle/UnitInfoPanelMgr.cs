@@ -11,7 +11,7 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     public Text text_att, text_def, text_ammo, text_damage, text_hpMax, text_hp, text_speed;
     public Text text_num, text_trait;
     public Image image_raceBG;
-    public Image image_unitSprite;
+    public Animator animator;
 
     //更新并显示UI
     public void UpdatePanel(Unit _unit)
@@ -35,14 +35,8 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
 
         image_raceBG.sprite = _unit.type.race.sprite_bg;
 
-        image_unitSprite.sprite = _unit.type.icon;
-        Vector2 size = image_unitSprite.GetComponent<RectTransform>().sizeDelta;
-        float rate = 0.22f;
-        size.x = _unit.type.icon.texture.width * rate;
-        size.y = _unit.type.icon.texture.height * rate;
-        // float rate = (float)_unit.type.icon.texture.width / _unit.type.icon.texture.height;
-        // size.x = image_unitSprite.GetComponent<RectTransform>().sizeDelta.y * rate;
-        image_unitSprite.GetComponent<RectTransform>().sizeDelta = size;
+        animator.runtimeAnimatorController = _unit.type.animControl;
+        StartCoroutine(KeepPlayingRandomAnim(animator));
 
         //特质文本
         string text = "";
@@ -57,5 +51,34 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     public void HidePanel()
     {
         panel.SetActive(false);
+    }
+
+    //应改成Defend动作
+    string[] baseAnim = { "Walk", "Attack", "Hit" };
+
+    void PlayRandomAnim(Animator _animator)
+    {
+        int random = Random.Range(0, baseAnim.Length);
+
+        _animator.SetBool("walking", false);
+        //移动比较特殊
+        if (baseAnim[random] != "Walk")
+        {
+            _animator.Play(baseAnim[random]);
+        }
+        else
+        {
+            _animator.SetBool("walking", true);
+        }
+    }
+
+    IEnumerator KeepPlayingRandomAnim(Animator _animator)
+    {
+        while (panel.activeSelf)
+        {
+            yield return new WaitForSeconds(Random.Range(2.5f, 3));
+
+            PlayRandomAnim(_animator);
+        }
     }
 }
