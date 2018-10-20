@@ -82,8 +82,35 @@ public class BattleInfoMgr : Singleton<BattleInfoMgr>
 
     public void AddText_Damage(Unit _origin, Unit _target, int _damage, int _deathNum)
     {
-        string text = string.Format(LocalizationMgr.instance.GetText("battleInfo_damage"),
+        string text;
+        //如果是英文，单复数判定
+        if (LocalizationMgr.instance.language == Language.English)
+        {
+            bool plural = _origin.num > 1;
+            string verb = plural ? "do" : "does";
+            string name;
+            if (plural)
+            {
+                if (LocalizationMgr.instance.GetText(_origin.type.name + "_plural") != null)
+                {
+                    name = LocalizationMgr.instance.GetText(_origin.type.name + "_plural");
+                }
+                else
+                    name = _origin.type.unitName + "s";
+
+            }
+            else
+                name = _origin.type.unitName;
+
+            text = string.Format(LocalizationMgr.instance.GetText("battleInfo_damage"),
+                            name, verb, _damage);
+        }
+        else
+        {
+            text = string.Format(LocalizationMgr.instance.GetText("battleInfo_damage"),
             _origin.type.unitName, _damage);
+        }
+
         if (_deathNum > 0)
             text += string.Format(LocalizationMgr.instance.GetText("battleInfo_death"),
                 _deathNum, _target.type.unitName);

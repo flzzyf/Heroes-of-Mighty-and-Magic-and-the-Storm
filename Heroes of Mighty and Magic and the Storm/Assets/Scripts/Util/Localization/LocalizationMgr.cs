@@ -56,10 +56,10 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
         string[] lines = text.Split('\n');
         foreach (string line in lines)
         {
-            if (line == null || line == "")
+            if (line == null || line == "" || !line.Contains("="))
                 continue;
 
-            string[] s = line.Split('=');
+            string[] s = line.Split(new[] { '=' }, 2);
             textDic.Add(s[0], s[1]);
         }
     }
