@@ -67,7 +67,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
     public void SetText(string _key, string _value)
     {
-        Debug.Log(_key + ":" + _value);
+        Debug.Log("设置文本，Key: " + _key + ", Value: " + _value);
         if (textDic.ContainsKey(_key))
         {
             textDic[_key] = _value;

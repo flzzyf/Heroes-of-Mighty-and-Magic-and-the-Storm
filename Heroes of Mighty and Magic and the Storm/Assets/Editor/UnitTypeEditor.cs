@@ -25,15 +25,13 @@ public class UnitTypeEditor : Editor
                 LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
             }
 
-            //检测名称更改
-            EditorGUI.BeginChangeCheck();
-            string name = EditorGUILayout.TextField("Name", LocalizationMgr.instance.GetText(type.name));
-            if (EditorGUI.EndChangeCheck())
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Name", type.unitName);
+            if (GUILayout.Button("编辑名称"))
             {
-                LocalizationMgr.instance.SetText(type.name, name);
-
+                LocalizationWindow.ShowWindow(type.name);
             }
-            EditorGUILayout.LabelField("名称修改后自动保存");
+            EditorGUILayout.EndHorizontal();
 
             for (int i = 0; i < tab_main.Length; i++)
             {

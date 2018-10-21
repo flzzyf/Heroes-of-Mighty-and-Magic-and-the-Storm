@@ -1,0 +1,1433 @@
+fileFormatVersion: 2
+guid: 83805a2454c9a40978151ae5d1ee88c5
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Amazon
+    21300002: Amazon_Attack-Amazon_Attack001
+    21300004: Amazon_Attack-Amazon_Attack002
+    21300006: Amazon_Attack-Amazon_Attack003
+    21300008: Amazon_Attack-Amazon_Attack004
+    21300010: Amazon_Attack-Amazon_Attack005
+    21300012: Amazon_Attack-Amazon_Attack006
+    21300014: Amazon_Attack-Amazon_Attack007
+    21300016: Amazon_Attack-Amazon_Attack008
+    21300018: Amazon_Attack-Amazon_Attack009
+    21300020: Amazon_Attack-Amazon_Attack010
+    21300022: Amazon_Attack-Amazon_Attack011
+    21300024: Amazon_Attack-Amazon_Attack012
+    21300026: Amazon_Attack-Amazon_Attack013
+    21300028: Amazon_Attack-Amazon_Attack014
+    21300030: Amazon_Attack-Amazon_Attack015
+    21300032: Amazon_Attack-Amazon_Attack016
+    21300034: Amazon_Attack-Amazon_Attack017
+    21300036: Amazon_Attack-Amazon_Attack018
+    21300038: Amazon_Flip-Amazon_Flip001
+    21300040: Amazon_Flip-Amazon_Flip002
+    21300042: Amazon_Flip-Amazon_Flip003
+    21300044: Amazon_Flip-Amazon_Flip004
+    21300046: Amazon_Hit-Amazon_Hit001
+    21300048: Amazon_Hit-Amazon_Hit002
+    21300050: Amazon_Hit-Amazon_Hit003
+    21300052: Amazon_Hit-Amazon_Hit004
+    21300054: Amazon_Hit-Amazon_Hit005
+    21300056: Amazon_Hit-Amazon_Hit006
+    21300058: Amazon_Hit-Amazon_Hit007
+    21300060: Amazon_Hit-Amazon_Hit008
+    21300062: Amazon_Hit-Amazon_Hit009
+    21300064: Amazon_Hit-Amazon_Hit010
+    21300066: Amazon_Stand-Amazon_Stand001
+    21300068: Amazon_Stand-Amazon_Stand002
+    21300070: Amazon_Stand-Amazon_Stand003
+    21300072: Amazon_Stand-Amazon_Stand004
+    21300074: Amazon_Stand-Amazon_Stand005
+    21300076: Amazon_Stand-Amazon_Stand006
+    21300078: Amazon_Stand-Amazon_Stand007
+    21300080: Amazon_Stand-Amazon_Stand008
+    21300082: Amazon_Stand-Amazon_Stand009
+    21300084: Amazon_Stand-Amazon_Stand010
+    21300086: Amazon_Stand-Amazon_Stand011
+    21300088: Amazon_Stand-Amazon_Stand012
+    21300090: Amazon_Stand-Amazon_Stand013
+    21300092: Amazon_Stand-Amazon_Stand014
+    21300094: Amazon_Stand-Amazon_Stand015
+    21300096: Amazon_Stand-Amazon_Stand016
+    21300098: Amazon_Stand-Amazon_Stand017
+    21300100: Amazon_Stand-Amazon_Stand018
+    21300102: Amazon_Walk-Amazon_Walk001
+    21300104: Amazon_Walk-Amazon_Walk002
+    21300106: Amazon_Walk-Amazon_Walk003
+    21300108: Amazon_Walk-Amazon_Walk004
+    21300110: Amazon_Walk-Amazon_Walk005
+    21300112: Amazon_Walk-Amazon_Walk006
+    21300114: Amazon_Walk-Amazon_Walk007
+    21300116: Amazon_Walk-Amazon_Walk008
+    21300118: Amazon_Walk-Amazon_Walk009
+    21300120: Amazon_Walk-Amazon_Walk010
+    21300122: Amazon_Walk-Amazon_Walk011
+    21300124: Amazon_Walk-Amazon_Walk012
+  externalObjects: {}
+  serializedVersion: 6
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack001
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 1978
+        width: 253
+        height: 352
+      alignment: 9
+      pivot: {x: 0.53754944, y: -0.053977273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db5e3e1b4dfd4946a7cb5789c92cd31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack002
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3078
+        width: 326
+        height: 375
+      alignment: 9
+      pivot: {x: 0.5858896, y: -0.050666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 932d9debebc1449a5becfb69266e2426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack003
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3784
+        width: 530
+        height: 311
+      alignment: 9
+      pivot: {x: 0.22830188, y: -0.06752411}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06bf1b98ebf664f3eaccc44101e70392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack004
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 3768
+        width: 515
+        height: 327
+      alignment: 9
+      pivot: {x: 0.23106796, y: -0.03975535}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5850275c88f2c42d995d119147f62056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack005
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3455
+        width: 508
+        height: 327
+      alignment: 9
+      pivot: {x: 0.23622048, y: -0.042813454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99ba64d952b1e4781885e8fa2a8832c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack006
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 3761
+        width: 506
+        height: 334
+      alignment: 9
+      pivot: {x: 0.23913044, y: -0.04491018}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d38d7443a7ae4d74bb79212a475cbfc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack007
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 3455
+        width: 500
+        height: 311
+      alignment: 9
+      pivot: {x: 0.248, y: -0.06752411}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e75d934bed8741d9a23d92b5edef43a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack008
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 3772
+        width: 423
+        height: 323
+      alignment: 9
+      pivot: {x: 0.3073286, y: -0.061919503}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf4595f0f904434ebe4aa439d48ffc1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack009
+      rect:
+        serializedVersion: 2
+        x: 1389
+        y: 3057
+        width: 339
+        height: 340
+      alignment: 9
+      pivot: {x: 0.45722714, y: -0.032352943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7dc697fe152a47a6b9ef0afade34cda
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack010
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 3062
+        width: 307
+        height: 335
+      alignment: 9
+      pivot: {x: 0.52443, y: -0.047761194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33875a7cc5a1344f59e0a247595e29f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack011
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 3399
+        width: 381
+        height: 371
+      alignment: 9
+      pivot: {x: 0.6456693, y: -0.03504043}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4afb6025d122943bdb37cfeeb3221fb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack012
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 3382
+        width: 374
+        height: 377
+      alignment: 9
+      pivot: {x: 0.70053476, y: -0.04509284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615258532c9644dcbb4a58ad7d745fa2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack013
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 3080
+        width: 319
+        height: 373
+      alignment: 9
+      pivot: {x: 0.6708464, y: -0.048257373}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4793347f8660941e3bddb07a583c00ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack014
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 2629
+        width: 298
+        height: 431
+      alignment: 9
+      pivot: {x: 0.6409396, y: -0.039443154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0995b5b71bf8d4436a0e97fe571a2b58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack015
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1943
+        width: 253
+        height: 432
+      alignment: 9
+      pivot: {x: 0.5731225, y: -0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41b5dea0f693b4560a2c9dc56573f616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack016
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 1801
+        width: 252
+        height: 431
+      alignment: 9
+      pivot: {x: 0.5515873, y: -0.04408353}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9dd2d956b8d42e78bb1e1421a372d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack017
+      rect:
+        serializedVersion: 2
+        x: 1483
+        y: 2234
+        width: 245
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5795918, y: -0.011235955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f540c0c13f09405bbf2c4521ebf1f37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Attack-Amazon_Attack018
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1638
+        width: 246
+        height: 443
+      alignment: 9
+      pivot: {x: 0.56504065, y: -0.015801355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3187d356f09f149e8bef97905b4f8d2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Flip-Amazon_Flip001
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1293
+        width: 241
+        height: 380
+      alignment: 9
+      pivot: {x: 0.56846476, y: -0.007894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb26e23eba094f67a7ded01cc7b695f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Flip-Amazon_Flip002
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 2694
+        width: 276
+        height: 361
+      alignment: 9
+      pivot: {x: 0.5942029, y: -0.05263158}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff8102a668404d5982ea31fe1e63483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Flip-Amazon_Flip003
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1675
+        width: 253
+        height: 366
+      alignment: 9
+      pivot: {x: 0.5335968, y: -0.038251366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd0d43d0e8e344808a0d807da451867b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Flip-Amazon_Flip004
+      rect:
+        serializedVersion: 2
+        x: 1527
+        y: 1187
+        width: 224
+        height: 359
+      alignment: 9
+      pivot: {x: 0.45982143, y: -0.0055710305}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7f96070581d425b973979c72912c4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit001
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 168
+        width: 217
+        height: 385
+      alignment: 9
+      pivot: {x: 0.51152074, y: -0.007792208}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cca99225f2c4403a9bbe09f8cf34017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit002
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1620
+        width: 238
+        height: 356
+      alignment: 9
+      pivot: {x: 0.47058824, y: -0.039325844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09327b71634ca48cc9bbce7330ee949f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit003
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 2761
+        width: 279
+        height: 317
+      alignment: 9
+      pivot: {x: 0.43727598, y: -0.028391168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94754122bc13142ed9c87bced6266970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit004
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 2764
+        width: 281
+        height: 322
+      alignment: 9
+      pivot: {x: 0.44483986, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44046929b80c44b089b599a7edbba59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit005
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 2310
+        width: 273
+        height: 317
+      alignment: 9
+      pivot: {x: 0.43589744, y: -0.028391168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64300cd8bdf664924a77f682f781cad2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit006
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 2442
+        width: 267
+        height: 320
+      alignment: 9
+      pivot: {x: 0.411985, y: -0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c69be6c46943b4fa9b26743a4ca9984f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit007
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2413
+        width: 261
+        height: 330
+      alignment: 9
+      pivot: {x: 0.4099617, y: -0.018181818}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f29cb2f31b8541ca8161ea60d255212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit008
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 878
+        width: 223
+        height: 367
+      alignment: 9
+      pivot: {x: 0.47085202, y: -0.049046323}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43a71a8ad144450ca0d1cea2e7a267b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit009
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 802
+        width: 224
+        height: 387
+      alignment: 9
+      pivot: {x: 0.54464287, y: -0.028423773}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e6b8321b36804204ac07469eac03a7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Hit-Amazon_Hit010
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 1120
+        width: 225
+        height: 373
+      alignment: 9
+      pivot: {x: 0.5511111, y: -0.026809651}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c617e1f78104af9b2d6fa41c0fb198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand001
+      rect:
+        serializedVersion: 2
+        x: 1753
+        y: 1171
+        width: 219
+        height: 375
+      alignment: 9
+      pivot: {x: 0.5205479, y: -0.0026666666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f165b53689c204688a2a5b61c73e60f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand002
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 2681
+        width: 220
+        height: 374
+      alignment: 9
+      pivot: {x: 0.52272725, y: -0.0026737968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ac6d5ad66314b7eba1eb634e5faf48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand003
+      rect:
+        serializedVersion: 2
+        x: 1456
+        y: 812
+        width: 219
+        height: 373
+      alignment: 9
+      pivot: {x: 0.5205479, y: -0.010723861}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d855bb36c65d3495d9092c534034e16c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand004
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 1058
+        width: 223
+        height: 374
+      alignment: 9
+      pivot: {x: 0.529148, y: -0.013368984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a841c3124711a404eb5e93a816d2527c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand005
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 1247
+        width: 226
+        height: 371
+      alignment: 9
+      pivot: {x: 0.53097343, y: -0.018867925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ee326f8edb843d1bf4574c79929056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand006
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 904
+        width: 225
+        height: 367
+      alignment: 9
+      pivot: {x: 0.5377778, y: -0.021798365}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6664cb1e10464e58a650e8111070e69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand007
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 1434
+        width: 227
+        height: 365
+      alignment: 9
+      pivot: {x: 0.5418502, y: -0.030136986}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f59afdc28f2624561928ecb10aec0c96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand008
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 926
+        width: 228
+        height: 365
+      alignment: 9
+      pivot: {x: 0.54385966, y: -0.030136986}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a7124b41e5a4ed7a720c6511d91ff0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand009
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1273
+        width: 237
+        height: 363
+      alignment: 9
+      pivot: {x: 0.56540084, y: -0.035812672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a449eca8973a04ca780568e8637ac5be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand010
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 1495
+        width: 237
+        height: 365
+      alignment: 9
+      pivot: {x: 0.5611814, y: -0.03561644}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c9298d6c34c4f91add9bc7eda46880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand011
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1191
+        width: 228
+        height: 373
+      alignment: 9
+      pivot: {x: 0.54385966, y: -0.018766755}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3027ddaad3a4db78b3f85ef19bd3d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand012
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 1548
+        width: 227
+        height: 371
+      alignment: 9
+      pivot: {x: 0.5418502, y: -0.016172506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdfad827b17124043a7e3439d7890876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand013
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 555
+        width: 224
+        height: 369
+      alignment: 9
+      pivot: {x: 0.53125, y: -0.016260162}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5aa59b3fc8df440997d56b59d88e4f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand014
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 175
+        width: 222
+        height: 378
+      alignment: 9
+      pivot: {x: 0.527027, y: -0.0026455026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7752478444948588a964b514fa6718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand015
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 742
+        width: 221
+        height: 376
+      alignment: 9
+      pivot: {x: 0.5248869, y: -0.005319149}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a098297a1699d4c4d995bbdca41fab37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand016
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 526
+        width: 219
+        height: 376
+      alignment: 9
+      pivot: {x: 0.5205479, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18794cbe776b74fbd8b68a4c8ec9e5e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand017
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 680
+        width: 218
+        height: 376
+      alignment: 9
+      pivot: {x: 0.51834863, y: -0.007978723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4317ccca29c3545fc8c3a2cb6e39cf40
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Stand-Amazon_Stand018
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 509
+        width: 218
+        height: 367
+      alignment: 9
+      pivot: {x: 0.51834863, y: -0.010899182}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7178f4687095441f9a7e839269d4fa8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk001
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 2083
+        width: 256
+        height: 357
+      alignment: 9
+      pivot: {x: 0.4921875, y: -0.067226894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e46de43e339745dc869b2166a8eff03
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk002
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1566
+        width: 242
+        height: 375
+      alignment: 9
+      pivot: {x: 0.47107437, y: -0.074666664}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074db116e01154fe29a0424fd81f18d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk003
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1862
+        width: 251
+        height: 371
+      alignment: 9
+      pivot: {x: 0.44621515, y: -0.08355795}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4440e6052b6c5454aafa66ce754e9887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk004
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2043
+        width: 258
+        height: 368
+      alignment: 9
+      pivot: {x: 0.46124032, y: -0.07880435}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52417fec436c46c884525cd05d995da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk005
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 2332
+        width: 273
+        height: 360
+      alignment: 9
+      pivot: {x: 0.47985348, y: -0.05277778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd7a563309a8439fa7a0987aae56d8f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk006
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 3035
+        width: 288
+        height: 345
+      alignment: 9
+      pivot: {x: 0.5173611, y: -0.08405797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0922a320d1602438083f630466a7f61c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk007
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2745
+        width: 278
+        height: 331
+      alignment: 9
+      pivot: {x: 0.49280575, y: -0.10574018}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd41e96fc44454b1aaf9602bd87f2403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk008
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 3088
+        width: 288
+        height: 365
+      alignment: 9
+      pivot: {x: 0.49305555, y: -0.08493151}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54747f77311ec4dab8620a91b574b600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk009
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 1921
+        width: 271
+        height: 387
+      alignment: 9
+      pivot: {x: 0.48339483, y: -0.08010336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6c9a1332e3043d6a89cd9ead71d826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk010
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 2633
+        width: 273
+        height: 400
+      alignment: 9
+      pivot: {x: 0.4945055, y: -0.045}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce84de5ac32d146b0b338c95678e6d10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk011
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 2235
+        width: 265
+        height: 396
+      alignment: 9
+      pivot: {x: 0.48301888, y: -0.032828283}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48e4136c3fd7f4a6a85c1cfaf320167e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Amazon_Walk-Amazon_Walk012
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 2377
+        width: 264
+        height: 382
+      alignment: 9
+      pivot: {x: 0.4848485, y: -0.03141361}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b14c813ae7d846f49585a713e4054f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,15 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:6669053878a6dc192ad430d5934583d1:1720b5be960f303e55aabc89460ba7dd:8440b96147b511dfd5b7267f55e47623$
+#
+:format=40300
+:texture=Kel2.png
+:size=512x512
+:pivotpoints=enabled
+:borders=disabled
+
+Kel_Stand031;1;98;279;413; 0.5053763440860215;-0.07506053268765123; 0;0;0;0; 19;133;389;182;389;176;328;250;290;250;257;229;216;221;146;279;88;224;68;254;38;198;13;55;0;7;38;0;70;52;116;54;182;75;214;75;375;105;413; 17;2;16;17;6;15;16;12;13;14;11;12;14;6;8;14;14;8;10;14;10;11;8;9;10;6;14;15;6;7;8;2;5;16;16;5;6;2;3;4;2;4;5;0;2;17;0;1;2;0;17;18

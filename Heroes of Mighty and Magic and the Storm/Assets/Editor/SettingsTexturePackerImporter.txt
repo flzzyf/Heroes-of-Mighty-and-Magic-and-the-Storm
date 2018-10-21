@@ -1,6 +1,9 @@
 version: 2
 importPivots: 1
 tpsheetFileNames:
+- Assets/Resources/Textures/Units/Amazon/Amazon.tpsheet
+- Assets/Resources/Textures/Units/Kel.tpsheet
+- Assets/Resources/Textures/Units/Kel2.tpsheet
 - Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Death.tpsheet
@@ -8,7 +11,15 @@ tpsheetFileNames:
 - Assets/Resources/Textures/Units/Malthael/Malthael_Hit.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Stand.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Walk.tpsheet
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Attack.tpsheet
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Flip.tpsheet
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Hit.tpsheet
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.tpsheet
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.tpsheet
 textureFileNames:
+- Assets/Resources/Textures/Units/Amazon/Amazon.png
+- Assets/Resources/Textures/Units/Kel.png
+- Assets/Resources/Textures/Units/Kel2.png
 - Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Death.png
@@ -16,7 +27,20 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Malthael/Malthael_Hit.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Stand.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Walk.png
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Attack.png
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Flip.png
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Hit.png
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.png
+- Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

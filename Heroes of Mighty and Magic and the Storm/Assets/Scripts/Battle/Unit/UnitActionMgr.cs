@@ -179,7 +179,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             int def = order.origin.type.def;
             def = Mathf.Max(1, def / 5);
 
-            Behavior_Stat defendBuff = new Behavior_Stat();
+            Behavior_Stat defendBuff = ScriptableObject.CreateInstance<Behavior_Stat>();
             defendBuff.stat_def = def;
             defendBuff.duration = 1;
             BehaviorMgr.instance.AddBehavior(order.origin, defendBuff);

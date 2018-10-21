@@ -1,0 +1,509 @@
+fileFormatVersion: 2
+guid: 0d1eaecb6a80e4c718d2b7a10879ba10
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tyrael_Attack
+    21300002: Tyrael_Attack00
+    21300004: Tyrael_Attack01
+    21300006: Tyrael_Attack02
+    21300008: Tyrael_Attack03
+    21300010: Tyrael_Attack04
+    21300012: Tyrael_Attack05
+    21300014: Tyrael_Attack06
+    21300016: Tyrael_Attack07
+    21300018: Tyrael_Attack08
+    21300020: Tyrael_Attack09
+    21300022: Tyrael_Attack10
+    21300024: Tyrael_Attack11
+    21300026: Tyrael_Attack12
+    21300028: Tyrael_Attack13
+    21300030: Tyrael_Attack14
+    21300032: Tyrael_Attack15
+    21300034: Tyrael_Attack16
+    21300036: Tyrael_Attack17
+  externalObjects: {}
+  serializedVersion: 6
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tyrael_Attack00
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 2728
+        width: 498
+        height: 570
+      alignment: 9
+      pivot: {x: 0.81827307, y: -0.04385965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95933e8de6b8744af8fee4a6ec771690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack01
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 2173
+        width: 487
+        height: 553
+      alignment: 9
+      pivot: {x: 0.7833676, y: -0.084990956}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2549977a565cf4b03b5c0e906206b19d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack02
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 2727
+        width: 489
+        height: 503
+      alignment: 9
+      pivot: {x: 0.78834355, y: -0.11133201}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d197faae17f48b8abed44121ff9770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack03
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1874
+        width: 441
+        height: 441
+      alignment: 9
+      pivot: {x: 0.74263036, y: -0.11564626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d5d00463e8043d38841cff99011965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack04
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 3691
+        width: 627
+        height: 404
+      alignment: 9
+      pivot: {x: 0.32137161, y: -0.111386135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58afdf9faac6340f6b17f0c19bf591ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack05
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3711
+        width: 666
+        height: 384
+      alignment: 9
+      pivot: {x: 0.3295796, y: -0.119791664}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27009c5e8cb16461ab87ecfc82f8ee54
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack06
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3313
+        width: 621
+        height: 396
+      alignment: 9
+      pivot: {x: 0.3067633, y: -0.10606061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fc3f580193d43629b539cce25174b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack07
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 3699
+        width: 563
+        height: 396
+      alignment: 9
+      pivot: {x: 0.23712255, y: -0.10606061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7791467d4cf5d465a99e0dc31b39b963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack08
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 3300
+        width: 534
+        height: 389
+      alignment: 9
+      pivot: {x: 0.18258427, y: -0.110539846}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f08ac285db8d4eb8af23f9ad7ec0f66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack09
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2498
+        width: 494
+        height: 364
+      alignment: 9
+      pivot: {x: 0.21761134, y: -0.14285715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7755096d8f624818a90050ea097d169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack10
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 2317
+        width: 443
+        height: 380
+      alignment: 9
+      pivot: {x: 0.22911964, y: -0.14473684}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a09ec1d4ef74ca48fb916e06478083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack11
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 2311
+        width: 444
+        height: 414
+      alignment: 9
+      pivot: {x: 0.20833333, y: -0.12560387}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67056bd8d502949f99feeb3b14dbac15
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2864
+        width: 502
+        height: 447
+      alignment: 9
+      pivot: {x: 0.22609562, y: -0.085011184}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c427b31214cb4a6a8d98fa9712baf7c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack13
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 3232
+        width: 550
+        height: 465
+      alignment: 9
+      pivot: {x: 0.22090909, y: -0.09892473}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 776a2cfc1f79649f1b008de51a4554d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1981
+        width: 462
+        height: 515
+      alignment: 9
+      pivot: {x: 0.3495671, y: -0.04660194}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b16a49684f3144be9c5c94e25f8ae71
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack15
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 1799
+        width: 429
+        height: 510
+      alignment: 9
+      pivot: {x: 0.47435898, y: -0.05490196}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8796887b1e1fe4b96b1a6e59974265e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack16
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 2699
+        width: 453
+        height: 531
+      alignment: 9
+      pivot: {x: 0.5375276, y: -0.04519774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c84182aaff534ee1a52ee7a253d173d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Attack17
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 1616
+        width: 415
+        height: 555
+      alignment: 9
+      pivot: {x: 0.69759035, y: -0.05045045}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4fc1a0c77b62474aaca17bb552ea7fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

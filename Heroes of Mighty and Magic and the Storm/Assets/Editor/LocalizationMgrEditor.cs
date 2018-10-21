@@ -17,7 +17,6 @@ public class LocalizationMgrEditor : Editor
     {
         serializedObject.Update();
 
-        //EditorUtil.ShowList(serializedObject.FindProperty("localizationTexts"));
 
         SerializedProperty names = serializedObject.FindProperty("languageNames");
         SerializedProperty fonts = serializedObject.FindProperty("fonts");
@@ -57,6 +56,11 @@ public class LocalizationMgrEditor : Editor
         }
 
         serializedObject.ApplyModifiedProperties();
+    }
+
+    void Confirm(object userdata, string[] options, int selected)
+    {
+        Debug.Log("qwe");
     }
 
 

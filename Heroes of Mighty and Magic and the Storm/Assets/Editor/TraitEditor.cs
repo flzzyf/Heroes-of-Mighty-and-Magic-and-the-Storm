@@ -15,13 +15,11 @@ public class TraitEditor : Editor
             LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
         }
 
-        //检测名称更改
-        EditorGUI.BeginChangeCheck();
-        string name = EditorGUILayout.TextField("Name", LocalizationMgr.instance.GetText(trait.name));
-        if (EditorGUI.EndChangeCheck())
+        if (GUILayout.Button("编辑名称"))
         {
-            LocalizationMgr.instance.SetText(trait.name, name);
+            LocalizationWindow.ShowWindow(trait.name);
         }
-        EditorGUILayout.LabelField("名称修改后自动保存");
+
+        EditorGUILayout.LabelField("Name", trait.traitName);
     }
 }
