@@ -17,7 +17,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnNodeHovered(NodeItem_Battle _node)
     {
-
         //点击在按UI钮上
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -136,6 +135,13 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
                 pos.z = 0;
                 UnitInfoPanelMgr.instance.panel.transform.localPosition = pos;
             }
+
+            return;
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            UnitInfoPanelMgr.instance.HidePanel();
 
             return;
         }

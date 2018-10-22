@@ -12,6 +12,7 @@ tpsheetFileNames:
 - Assets/Resources/Textures/Units/Crusader/Crusader_Hit.tpsheet
 - Assets/Resources/Textures/Units/Crusader/Crusader_Stand.tpsheet
 - Assets/Resources/Textures/Units/Crusader/Crusader_Walk.tpsheet
+- Assets/Resources/Textures/Units/DH/DH_Stand.tpsheet
 - Assets/Resources/Textures/Units/Kel/Kel_Attack.tpsheet
 - Assets/Resources/Textures/Units/Kel/Kel_Death.tpsheet
 - Assets/Resources/Textures/Units/Kel/Kel_Flip.tpsheet
@@ -42,6 +43,7 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Crusader/Crusader_Hit.png
 - Assets/Resources/Textures/Units/Crusader/Crusader_Stand.png
 - Assets/Resources/Textures/Units/Crusader/Crusader_Walk.png
+- Assets/Resources/Textures/Units/DH/DH_Stand.png
 - Assets/Resources/Textures/Units/Kel/Kel_Attack.png
 - Assets/Resources/Textures/Units/Kel/Kel_Death.png
 - Assets/Resources/Textures/Units/Kel/Kel_Flip.png
@@ -61,6 +63,7 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.png
 normalmapFileNames:
+- 
 - 
 - 
 - 

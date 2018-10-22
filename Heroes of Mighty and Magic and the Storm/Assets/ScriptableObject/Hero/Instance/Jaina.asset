@@ -11,6 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152c75e4ee0844c3aa0cdacabf3df319, type: 3}
   m_Name: Jaina
   m_EditorClassIdentifier: 
-  heroName: "\u5409\u5B89\u5A1C"
   icon: {fileID: 21300000, guid: 8753500b79f9b664cbf535e474082c67, type: 3}
   animControl: {fileID: 9100000, guid: f281e9a88a966f046b2bafd872693d2c, type: 2}

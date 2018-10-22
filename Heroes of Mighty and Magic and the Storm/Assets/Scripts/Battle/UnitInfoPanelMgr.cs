@@ -36,6 +36,7 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         image_raceBG.sprite = _unit.type.race.sprite_bg;
 
         animator.runtimeAnimatorController = _unit.type.animControl;
+        StopAllCoroutines();
         StartCoroutine(KeepPlayingRandomAnim(animator));
 
         //特质文本
@@ -56,15 +57,18 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     //应改成Defend动作
     string[] baseAnim = { "Walk", "Attack", "Hit" };
 
+    int animIndex = 0;
+
     void PlayRandomAnim(Animator _animator)
     {
-        int random = Random.Range(0, baseAnim.Length);
+        //int random = Random.Range(0, baseAnim.Length);
+        animIndex = (animIndex + 1) % baseAnim.Length;
 
         _animator.SetBool("walking", false);
         //移动比较特殊
-        if (baseAnim[random] != "Walk")
+        if (baseAnim[animIndex] != "Walk")
         {
-            _animator.Play(baseAnim[random]);
+            _animator.Play(baseAnim[animIndex]);
         }
         else
         {
@@ -76,9 +80,10 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     {
         while (panel.activeSelf)
         {
-            yield return new WaitForSeconds(Random.Range(2.5f, 3));
+            yield return new WaitForSeconds(Random.Range(2f, 2.5f));
 
-            PlayRandomAnim(_animator);
+            if (panel.activeSelf)
+                PlayRandomAnim(_animator);
         }
     }
 }
