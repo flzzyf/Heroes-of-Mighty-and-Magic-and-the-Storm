@@ -5,6 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Race")]
 public class Race : ScriptableObject
 {
-    public string raceName;
     public Sprite sprite_bg;
 }

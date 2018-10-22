@@ -56,3 +56,4 @@ Teleporting=瞬移
 Regeneration=再生
 Mana drain=法力吸取
 Disease=雷鸣爆弹
+Castle=城镇
