@@ -1,23 +1,17 @@
 fileFormatVersion: 2
-guid: 0b5135d9df5fa4d7dbbf37d462b1f611
+guid: b3ebe5727911e4ebe97209c3311bab3a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Kel_Walk002
-    21300002: Kel_Walk004
-    21300004: Kel_Walk006
-    21300006: Kel_Walk008
-    21300008: Kel_Walk010
-    21300010: Kel_Walk012
-    21300012: Kel_Walk014
-    21300014: Kel_Walk016
-    21300016: Kel_Walk018
-    21300018: Kel_Walk020
-    21300020: Kel_Walk022
-    21300022: Kel_Walk024
-    21300024: Kel_Walk026
-    21300026: Kel_Walk028
-    21300028: Kel_Walk030
-    2186277476908879412: ImportLogs
+    21300000: DH_Walk
+    21300002: DH_Walk001
+    21300004: DH_Walk002
+    21300006: DH_Walk003
+    21300008: DH_Walk004
+    21300010: DH_Walk005
+    21300012: DH_Walk006
+    21300014: DH_Walk007
+    21300016: DH_Walk008
+    21300018: DH_Walk009
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -133,301 +127,181 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kel_Walk002
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 1234
-        width: 340
-        height: 403
-      alignment: 9
-      pivot: {x: 0.5147059, y: -0.089330025}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 513774029dc604df28742ec78ea20ef3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk004
-      rect:
-        serializedVersion: 2
-        x: 1361
-        y: 1246
-        width: 347
-        height: 400
-      alignment: 9
-      pivot: {x: 0.50432277, y: -0.0875}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5e30bea42df3746fbb60fde5179d16f2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk006
-      rect:
-        serializedVersion: 2
-        x: 1005
-        y: 1647
-        width: 354
-        height: 400
-      alignment: 9
-      pivot: {x: 0.5084746, y: -0.085}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 239814153a20a40688cc13df56d315b1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk008
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 1214
-        width: 350
-        height: 408
-      alignment: 9
-      pivot: {x: 0.5228571, y: -0.073529415}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 564dc1fe1ae2848cab1d5fd7252bbdeb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk010
+      name: DH_Walk001
       rect:
         serializedVersion: 2
         x: 1
-        y: 1624
-        width: 350
-        height: 423
+        y: 755
+        width: 356
+        height: 268
       alignment: 9
-      pivot: {x: 0.5228571, y: -0.06146572}
+      pivot: {x: 0.55617976, y: -0.13432837}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a3a9d8394c2d64f6998a9e84eb1fa3f8
+      spriteID: 583c12c9807004a819c82d2d97dc7598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kel_Walk012
+      name: DH_Walk002
       rect:
         serializedVersion: 2
         x: 1
-        y: 1203
+        y: 203
+        width: 321
+        height: 282
+      alignment: 9
+      pivot: {x: 0.5046729, y: -0.120567374}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc642a89caf04458e8c0bbd7b7522c51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DH_Walk003
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 754
+        width: 315
+        height: 269
+      alignment: 9
+      pivot: {x: 0.50158733, y: -0.111524165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38fcacaa710aa430b9de669f0ea7c660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DH_Walk004
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 492
+        width: 337
+        height: 251
+      alignment: 9
+      pivot: {x: 0.53115726, y: -0.13944224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4825f2889bc5943b5828b11c0f142b49
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DH_Walk005
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 218
+        width: 328
+        height: 267
+      alignment: 9
+      pivot: {x: 0.52134144, y: -0.12734082}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 003132c70b53b40f7adadd8652472f11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DH_Walk006
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 489
+        width: 323
+        height: 254
+      alignment: 9
+      pivot: {x: 0.52012384, y: -0.19685039}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea2db34a35e647bfa50f6854d0a36a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DH_Walk007
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 745
+        width: 343
+        height: 278
+      alignment: 9
+      pivot: {x: 0.5510204, y: -0.107913665}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97e687096df114ca4bb5f8d366ba9961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DH_Walk008
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 226
         width: 333
-        height: 419
+        height: 264
       alignment: 9
-      pivot: {x: 0.5495495, y: -0.06682578}
+      pivot: {x: 0.5465465, y: -0.08712121}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78bebe381ca8d4bcb9efb51721e0f177
+      spriteID: ad7a42855dea84ccbae4991e4191dced
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kel_Walk014
+      name: DH_Walk009
       rect:
         serializedVersion: 2
-        x: 325
-        y: 790
-        width: 334
-        height: 411
-      alignment: 9
-      pivot: {x: 0.5479042, y: -0.07785888}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 691ec62f5091944b9a583005331cfd4f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk016
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 381
+        x: 1
+        y: 487
         width: 338
-        height: 407
+        height: 266
       alignment: 9
-      pivot: {x: 0.52366865, y: -0.09090909}
+      pivot: {x: 0.5443787, y: -0.08646616}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 28c9647f2bb57444e8f0ed02348e2d0c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk018
-      rect:
-        serializedVersion: 2
-        x: 661
-        y: 807
-        width: 344
-        height: 405
-      alignment: 9
-      pivot: {x: 0.4854651, y: -0.07654321}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ffa7b9b630444c8fb738b2ff0e6de9c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk020
-      rect:
-        serializedVersion: 2
-        x: 1361
-        y: 1648
-        width: 350
-        height: 399
-      alignment: 9
-      pivot: {x: 0.49714285, y: -0.0952381}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cce4f998166d7407e81ca095194b2cfe
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk022
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 365
-        width: 340
-        height: 416
-      alignment: 9
-      pivot: {x: 0.4970588, y: -0.0625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19c78c175127c4427a6a8597e7e82294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk024
-      rect:
-        serializedVersion: 2
-        x: 1713
-        y: 1647
-        width: 330
-        height: 400
-      alignment: 9
-      pivot: {x: 0.5090909, y: -0.1025}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 872088d968e324429bebfc4fbfecac67
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk026
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 783
-        width: 322
-        height: 418
-      alignment: 9
-      pivot: {x: 0.5341615, y: -0.07177033}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 17e101f0457be41c0bd9f7c2940309c6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk028
-      rect:
-        serializedVersion: 2
-        x: 685
-        y: 1639
-        width: 318
-        height: 408
-      alignment: 9
-      pivot: {x: 0.5440252, y: -0.09313726}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5f192c1db72b42a0939ad696ebdea8a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kel_Walk030
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 1639
-        width: 330
-        height: 408
-      alignment: 9
-      pivot: {x: 0.53636366, y: -0.09313726}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 800b32e85b05f437ab1e864167a7b78e
+      spriteID: 8fd09d7cce85f4e5a98a9fab93b2df61
       vertices: []
       indices: 
       edges: []
