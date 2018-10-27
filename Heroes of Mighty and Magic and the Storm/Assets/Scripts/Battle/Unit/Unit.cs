@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unit : NodeObject
+public class Unit : NodeObject, MovableNode
 {
     [HideInInspector]
     public int player;
@@ -293,4 +293,8 @@ public class Unit : NodeObject
         }
     }
 
+    public void TowardNextNode(NodeItem _node)
+    {
+        print("朝向下一节点");
+    }
 }

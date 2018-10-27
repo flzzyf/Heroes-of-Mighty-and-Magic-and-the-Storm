@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class MapManager_Travel : MapManager
 {
     public Color color_reachable;
     public Color color_outOfReach;
+
+    public Slider slider_movementRate;
 
     List<NodeItem> path;
 
@@ -23,21 +26,24 @@ public class MapManager_Travel : MapManager
         if (GameManager.instance.gamePaused)
             return;
 
+        Hero hero = TravelManager.instance.currentHero;
+
         //是终点则开始移动，否则重新计算路线
         if (_node.gameObject.GetComponent<NodeItem_Travel>().type == TravelNodeType.goal)
         {
-            MoveObjectAlongPath(TravelManager.instance.currentHero.transform, path);
+            if (hasMovementToReachNode(hero, path[1]))
+                MoveObjectAlongPath(hero.gameObject, path);
         }
         else
         {
             //清除之前的路径显示
             ClearPath();
 
-            NodeItem currentNode = TravelManager.instance.currentHero.GetComponent<Hero>().nodeItem;
+            NodeItem currentNode = hero.nodeItem;
 
             path = AStarManager.FindPath(this, currentNode, _node);
 
-            int movementRate = TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate;
+            int movementRate = hero.currentMovementRate;
             if (path != null)
             {
                 NodeItem lastNode;
@@ -95,13 +101,62 @@ public class MapManager_Travel : MapManager
     }
 
     //按照路径移动物体
-    void MoveObjectAlongPath(Transform _obj, List<NodeItem> _path)
+    void MoveObjectAlongPath(GameObject _go, List<NodeItem> _path)
     {
         GameManager.instance.gamePaused = true;
 
-        ClearPath();
+        NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
+        NodeMovingMgr.instance.Event_ReachNode += ReachNode;
+        NodeMovingMgr.instance.Event_ReachTarget += ReachTarget;
+        NodeMovingMgr.instance.Event_StopMoving += StopMoving;
 
-        StartCoroutine(IEMoveObject(_obj, _path));
+        NodeMovingMgr.instance.MoveObject(_go, _path, TravelManager.instance.heroSpeed);
+    }
+
+    void MoveToNode(NodeItem _node)
+    {
+        Hero hero = TravelManager.instance.currentHero;
+
+        //行动力不足停止移动
+        if (!hasMovementToReachNode(hero, _node))
+        {
+            NodeMovingMgr.instance.StopMoving();
+            print("停止移动");
+        }
+
+        //英雄扣除移动力
+        hero.currentMovementRate -= GetNodeDistance(hero.nodeItem, _node);
+
+        slider_movementRate.value = hero.currentMovementRate / 1000f;
+    }
+
+    bool hasMovementToReachNode(Hero _hero, NodeItem _node)
+    {
+        if (_hero.currentMovementRate >= GetNodeDistance(_hero.nodeItem, _node))
+            return true;
+
+        return false;
+    }
+
+    void ReachNode(NodeItem _node)
+    {
+        Hero hero = TravelManager.instance.currentHero;
+
+        //设置英雄所在节点
+        hero.nodeItem = _node;
+
+        ((NodeItem_Travel)_node).UpdateStatus(TravelNodeType.empty);
+    }
+
+    void ReachTarget(NodeItem _node)
+    {
+        print("到达目的地");
+
+    }
+
+    void StopMoving()
+    {
+        GameManager.instance.gamePaused = false;
     }
 
     IEnumerator IEMoveObject(Transform _obj, List<NodeItem> _path)
