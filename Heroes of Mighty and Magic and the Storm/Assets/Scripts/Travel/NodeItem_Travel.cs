@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TravelNodeType { empty, path, goal }
+public enum TravelNodeType { empty, item, hero, town }
+public enum TravelPathType { empty, path, goal }
 
 public class NodeItem_Travel : NodeItem
 {
     public GameObject gfx_arrow;
     public GameObject gfx_goal;
-    [HideInInspector]
+
     public TravelNodeType type;
 
-    public void UpdateStatus(TravelNodeType _type)
+    public TravelPathType pathType;
+
+    public void UpdateStatus(TravelPathType _type)
     {
-        type = _type;
-        if (_type == TravelNodeType.goal)
+        pathType = _type;
+        if (_type == TravelPathType.goal)
         {
             gfx_goal.SetActive(true);
             return;
         }
 
-        if (_type == TravelNodeType.path)
+        if (_type == TravelPathType.path)
         {
             gfx_arrow.SetActive(true);
             return;

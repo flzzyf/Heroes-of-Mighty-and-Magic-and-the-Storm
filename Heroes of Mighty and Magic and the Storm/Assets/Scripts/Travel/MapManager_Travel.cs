@@ -29,7 +29,7 @@ public class MapManager_Travel : MapManager
         Hero hero = TravelManager.instance.currentHero;
 
         //是终点则开始移动，否则重新计算路线
-        if (_node.gameObject.GetComponent<NodeItem_Travel>().type == TravelNodeType.goal)
+        if (_node.gameObject.GetComponent<NodeItem_Travel>().pathType == TravelPathType.goal)
         {
             if (hasMovementToReachNode(hero, path[1]))
                 MoveObjectAlongPath(hero.gameObject, path);
@@ -42,6 +42,12 @@ public class MapManager_Travel : MapManager
             NodeItem currentNode = hero.nodeItem;
 
             path = AStarManager.FindPath(this, currentNode, _node);
+
+            //贴近目标，而且可交互，直接交互
+            if (path.Count == 2 && ((NodeItem_Travel)_node).type == TravelNodeType.item)
+            {
+
+            }
 
             int movementRate = hero.currentMovementRate;
             if (path != null)
@@ -61,11 +67,11 @@ public class MapManager_Travel : MapManager
                     if (i == path.Count - 1)
                     {
                         //是终点
-                        node.UpdateStatus(TravelNodeType.goal);
+                        node.UpdateStatus(TravelPathType.goal);
                     }
                     else
                     {
-                        node.UpdateStatus(TravelNodeType.path);
+                        node.UpdateStatus(TravelPathType.path);
                     }
 
                     if (movementRate >= 0)
@@ -85,7 +91,7 @@ public class MapManager_Travel : MapManager
         {
             foreach (var item in path)
             {
-                item.gameObject.GetComponent<NodeItem_Travel>().UpdateStatus(TravelNodeType.empty);
+                item.gameObject.GetComponent<NodeItem_Travel>().UpdateStatus(TravelPathType.empty);
             }
         }
     }
@@ -145,7 +151,7 @@ public class MapManager_Travel : MapManager
         //设置英雄所在节点
         hero.nodeItem = _node;
 
-        ((NodeItem_Travel)_node).UpdateStatus(TravelNodeType.empty);
+        ((NodeItem_Travel)_node).UpdateStatus(TravelPathType.empty);
     }
 
     void ReachTarget(NodeItem _node)
