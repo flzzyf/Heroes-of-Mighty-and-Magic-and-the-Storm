@@ -2045,12 +2045,12 @@ Prefab:
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
       propertyPath: m_Size.x
-      value: 1.53
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
       propertyPath: m_Size.y
-      value: 2.04
+      value: 2.78
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -2062,7 +2062,8 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 03673906b3b8d466c9739a0fdc4334c7, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95353328489820648, guid: 7941d79ee91184110bce8696cb055256, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7941d79ee91184110bce8696cb055256, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &347587061 stripped
@@ -3826,6 +3827,29 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 635946111}
   m_CullTransparentMesh: 0
+--- !u!1 &640923815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1974640088765004, guid: 7941d79ee91184110bce8696cb055256,
+    type: 2}
+  m_PrefabInternal: {fileID: 347587060}
+--- !u!95 &640923816
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 640923815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &646883213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1255205256181494, guid: c7e128b9e8a0b48689a275e9404bd562,
@@ -10510,12 +10534,12 @@ Prefab:
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
       propertyPath: m_Size.x
-      value: 3.84
+      value: 5.47
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
       propertyPath: m_Size.y
-      value: 4.69
+      value: 5.87
       objectReference: {fileID: 0}
     - target: {fileID: 212793218877718154, guid: 7941d79ee91184110bce8696cb055256,
         type: 2}
@@ -12169,7 +12193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1658473717
 Transform:
   m_ObjectHideFlags: 0
