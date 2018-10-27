@@ -297,4 +297,17 @@ public class Unit : NodeObject, MovableNode
     {
         print("朝向下一节点");
     }
+
+    public float UnitActualSpeed
+    {
+        get
+        {
+            if (!TraitManager.instance.PossessTrait(this, "Flying"))
+                return BattleManager.instance.unitSpeedOriginal +
+                        BattleManager.instance.unitSpeedMultipler * speed;
+            else
+                return BattleManager.instance.unitSpeedOriginal +
+                        BattleManager.instance.flyingSpeedmultipler * speed;
+        }
+    }
 }

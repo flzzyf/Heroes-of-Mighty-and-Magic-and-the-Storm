@@ -49,7 +49,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         if (!_rangeAttack &&
             !_target.dead &&
             _target.retaliations > 0 &&
-            !TraitManager.instance.PossessTrait(_origin, "No retaliation"))
+            !TraitManager.instance.PossessTrait(_origin, "No enemy retaliation"))
         {
             _target.retaliations--;
 

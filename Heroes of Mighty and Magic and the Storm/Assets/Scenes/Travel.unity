@@ -11706,7 +11706,6 @@ GameObject:
   - component: {fileID: 1638976380}
   - component: {fileID: 1638976378}
   - component: {fileID: 1638976374}
-  - component: {fileID: 1638976375}
   - component: {fileID: 1638976376}
   - component: {fileID: 1638976377}
   - component: {fileID: 1638976382}
@@ -11734,20 +11733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b4f9eedcd1c4ae8bbf95a00aac3b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1638976375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638976373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c9799d2e9b424c5f8a1f0ee96aa110e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitSpeedOriginal: 6
-  unitSpeedMultipler: 0.5
-  flyingSpeedmultipler: 3
 --- !u!114 &1638976376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11817,6 +11802,9 @@ MonoBehaviour:
   - {x: -2.02, y: 0.25}
   - {x: 37.34, y: 0.25}
   rangeAttackRange: 10
+  unitSpeedOriginal: 6
+  unitSpeedMultipler: 0.5
+  flyingSpeedmultipler: 2
   prefab_unit: {fileID: 1944717608536618, guid: 7941d79ee91184110bce8696cb055256,
     type: 2}
   UI_UnitStat: {fileID: 1111564370}
@@ -12268,7 +12256,7 @@ MonoBehaviour:
     type: 2}
   prefab_hero: {fileID: 1952165180744556, guid: 37ccb3bc95d1e477ba14c64877197e3d,
     type: 2}
-  heroSpeed: 25
+  heroSpeed: 40
   map: {fileID: 1662071097}
   cam: {fileID: 61162791}
 --- !u!4 &1662071099

@@ -57,3 +57,6 @@ Regeneration=再生
 Mana drain=法力吸取
 Disease=雷鸣爆弹
 Castle=城镇
+No enemy retaliation=不受反击
+Two retaliations=反击两次
+Unlimited retaliations=无限反击

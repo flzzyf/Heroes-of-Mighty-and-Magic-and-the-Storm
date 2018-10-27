@@ -9,19 +9,32 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
     public event NodeEvent Event_MovingToNode;
     public event NodeEvent Event_ReachNode;
     public event NodeEvent Event_ReachTarget;
+    public event CommonEvent Event_StartMoving;
     public event CommonEvent Event_StopMoving;
 
     [HideInInspector]
     public bool moving;
 
-    public void MoveObject(GameObject _go, List<NodeItem> _path, float _speed, bool _flying = false)
+    public void MoveObject(GameObject _go, List<NodeItem> _path, float _speed, MapCoord _coord)
+    {
+        StartMoving();
+
+        StartCoroutine(MoveObjectCor(_go, _path, _speed, _coord));
+    }
+
+    public void MoveObjectFlying(GameObject _go, NodeItem _node, float _speed, MapCoord _coord)
+    {
+        StartMoving();
+
+        StartCoroutine(MoveObjectFlyingCor(_go, _node, _speed, _coord));
+    }
+
+    void StartMoving()
     {
         moving = true;
 
-        if (!_flying)
-            StartCoroutine(MoveObjectCor(_go, _path, _speed));
-        else
-            StartCoroutine(MoveObjectFlyingCor(_go, _path[_path.Count - 1], _speed));
+        if (Event_StartMoving != null)
+            Event_StartMoving();
     }
 
     public void StopMoving()
@@ -36,7 +49,7 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
             Event_StopMoving();
     }
 
-    IEnumerator MoveObjectCor(GameObject _go, List<NodeItem> _path, float _speed)
+    IEnumerator MoveObjectCor(GameObject _go, List<NodeItem> _path, float _speed, MapCoord _coord)
     {
         for (int i = 1; i < _path.Count; i++)
         {
@@ -46,19 +59,16 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
             if (Event_MovingToNode != null)
                 Event_MovingToNode(_path[i]);
 
-            yield return null;
-
             Vector3 targetPos = _path[i].transform.position;
 
-            Vector3 dir = targetPos - _go.transform.position;
-            //dir.z = 0;
+            Vector3 dir = GetCoordDir(_coord, targetPos, _go.transform.position);
 
             //朝目标移动
-            while (Vector3.Distance(_go.transform.position, targetPos) > _speed * Time.deltaTime)
+            while (GetCoordDir(_coord, targetPos, _go.transform.position).magnitude > _speed * Time.deltaTime)
             {
-                _go.transform.Translate(dir.normalized * _speed * Time.deltaTime);
-
                 yield return null;
+
+                _go.transform.Translate(dir.normalized * _speed * Time.deltaTime);
             }
 
             if (Event_ReachNode != null)
@@ -68,13 +78,33 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
         MoveObjectFinish(_path[_path.Count - 1]);
     }
 
-    //
-    IEnumerator MoveObjectFlyingCor(GameObject _go, NodeItem _node, float _speed)
+    Vector3 GetCoordDir(MapCoord _coord, Vector3 _origin, Vector3 _target)
+    {
+        Vector3 dir = _origin - _target;
+        if (_coord == MapCoord.xz)
+            dir.y = 0;
+        else
+            dir.z = 0;
+
+        return dir;
+    }
+
+    IEnumerator MoveObjectFlyingCor(GameObject _go, NodeItem _node, float _speed, MapCoord _coord)
     {
         Vector3 targetPos = _node.transform.position;
+        Vector3 dir = GetCoordDir(_coord, targetPos, _go.transform.position);
 
-        yield return null;
+        if (Event_MovingToNode != null)
+            Event_MovingToNode(_node);
 
+        while (GetCoordDir(_coord, targetPos, _go.transform.position).magnitude > _speed * Time.deltaTime)
+        {
+            _go.transform.Translate(dir.normalized * _speed * Time.deltaTime);
+
+            yield return null;
+        }
+
+        MoveObjectFinish(_node);
     }
 
     void MoveObjectFinish(NodeItem _node)

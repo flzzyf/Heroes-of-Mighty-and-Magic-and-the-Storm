@@ -58,6 +58,10 @@ public class BattleManager : Singleton<BattleManager>
 
     public int rangeAttackRange = 10;
 
+    public float unitSpeedOriginal = 6f;
+    public float unitSpeedMultipler = 0.5f;
+    public float flyingSpeedmultipler = 3f;
+
     public void Init()
     {
         map.GenerateMap();

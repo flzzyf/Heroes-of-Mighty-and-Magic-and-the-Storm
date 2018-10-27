@@ -119,14 +119,21 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     {
         if (order.type == OrderType.move)
         {
+            NodeMovingMgr.instance.Event_StartMoving += StartMoving;
+            NodeMovingMgr.instance.Event_StopMoving += StopMoving;
+            NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
+
             if (order.origin.isWalker)
             {
-                MovementManager.instance.MoveObjectAlongPath(order.origin, order.path);
+                NodeMovingMgr.instance.MoveObject(order.origin.gameObject, order.path,
+                    order.origin.UnitActualSpeed, MapCoord.xy);
             }
             else if (TraitManager.instance.PossessTrait(order.origin, "Flying"))
             {
-                MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
+                NodeMovingMgr.instance.MoveObjectFlying(order.origin.gameObject, order.targetNode,
+                    order.origin.UnitActualSpeed, MapCoord.xy);
             }
+            //else if 瞬移
 
             if (order.origin.RestoreFacing())
             {
@@ -134,24 +141,28 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
                 yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
             }
 
-            while (MovementManager.moving)
+            while (NodeMovingMgr.instance.moving)
                 yield return null;
         }
         else if (order.type == OrderType.attack)
         {
-            if (order.path != null)
+            //移动后攻击
+            if (order.path != null || order.targetNode != null)
             {
-                MovementManager.instance.MoveObjectAlongPath(order.origin, order.path);
+                NodeMovingMgr.instance.Event_StartMoving += StartMoving;
+                NodeMovingMgr.instance.Event_StopMoving += StopMoving;
+                NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
 
-                while (MovementManager.moving)
-                    yield return null;
-            }
+                if (order.path != null)
+                {
+                    NodeMovingMgr.instance.MoveObject(order.origin.gameObject, order.path,
+                        order.origin.UnitActualSpeed, MapCoord.xy);
+                }
+                else
+                    NodeMovingMgr.instance.MoveObjectFlying(order.origin.gameObject, order.targetNode,
+                order.origin.UnitActualSpeed, MapCoord.xy);
 
-            if (order.targetNode != null)
-            {
-                MovementManager.instance.MoveUnitFlying(order.origin, order.targetNode);
-
-                while (MovementManager.moving)
+                while (NodeMovingMgr.instance.moving)
                     yield return null;
             }
 
@@ -186,6 +197,43 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         }
 
         order = null;
+    }
+
+    void StartMoving()
+    {
+        GameManager.instance.gamePaused = true;
+
+        //播放移动动画和音效
+        UnitAnimMgr.instance.PlayAnimation(BattleManager.currentActionUnit, Anim.Walk);
+
+        if (BattleManager.currentActionUnit.type.sound_walk != null)
+            StartCoroutine(PlayMoveSound(BattleManager.currentActionUnit));
+    }
+
+    IEnumerator PlayMoveSound(Unit _unit)
+    {
+        while (NodeMovingMgr.instance.moving)
+        {
+            if (_unit.type.sound_walk.Length != 0)
+                GameManager.instance.PlaySound(_unit.type.sound_walk[Random.Range(0, _unit.type.sound_walk.Length)]);
+
+            yield return new WaitForSeconds(Random.Range(.35f, .45f));
+        }
+    }
+
+    void MoveToNode(NodeItem _node)
+    {
+        //改变单位朝向
+        BattleManager.currentActionUnit.FaceTarget(_node.transform.position);
+
+        BattleManager.instance.LinkNodeWithUnit(BattleManager.currentActionUnit, _node);
+    }
+
+    void StopMoving()
+    {
+        GameManager.instance.gamePaused = false;
+
+        UnitAnimMgr.instance.PlayAnimation(BattleManager.currentActionUnit, Anim.Walk, false);
     }
 
     public void ActionEnd()

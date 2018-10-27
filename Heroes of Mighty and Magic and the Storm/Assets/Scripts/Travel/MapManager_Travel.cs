@@ -110,7 +110,7 @@ public class MapManager_Travel : MapManager
         NodeMovingMgr.instance.Event_ReachTarget += ReachTarget;
         NodeMovingMgr.instance.Event_StopMoving += StopMoving;
 
-        NodeMovingMgr.instance.MoveObject(_go, _path, TravelManager.instance.heroSpeed);
+        NodeMovingMgr.instance.MoveObject(_go, _path, TravelManager.instance.heroSpeed, coord);
     }
 
     void MoveToNode(NodeItem _node)
@@ -159,44 +159,4 @@ public class MapManager_Travel : MapManager
         GameManager.instance.gamePaused = false;
     }
 
-    IEnumerator IEMoveObject(Transform _obj, List<NodeItem> _path)
-    {
-        for (int i = 1; i < _path.Count; i++)
-        {
-            if (TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate <
-                            GetNodeDistance(_path[i - 1], _path[i]))
-            {
-                break;
-            }
-
-            TravelManager.instance.currentHero.GetComponent<NodeObject>().nodeItem = _path[i];
-
-            Vector3 targetPos = GetNodeItem(_path[i].pos).transform.position;
-
-            while (Vector3.Distance(_obj.position, targetPos) > TravelManager.instance.heroSpeed * Time.deltaTime)
-            {
-                Vector3 dir = targetPos - _obj.position;
-                _obj.Translate(dir.normalized * TravelManager.instance.heroSpeed * Time.deltaTime);
-
-
-                yield return new WaitForSeconds(Time.deltaTime);
-            }
-
-            TravelManager.instance.currentHero.GetComponent<Hero>().currentMovementRate -=
-                GetNodeDistance(_path[i - 1], _path[i]);
-
-
-        }
-
-        MoveObjectFinish();
-    }
-    //移动到目的地后
-    void MoveObjectFinish()
-    {
-        GameManager.instance.gamePaused = false;
-
-        //设置节点上的物体，设置英雄所在位置、节点
-        path[path.Count - 1].GetComponent<NodeItem_Travel>().nodeObject =
-            TravelManager.instance.currentHero.GetComponent<NodeObject>();
-    }
 }
