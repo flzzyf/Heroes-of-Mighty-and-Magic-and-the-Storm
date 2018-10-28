@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
+  m_Name: Tyrael
+  m_EditorClassIdentifier: 
+  tab: 0
+  icon: {fileID: 21300000, guid: 3683c17300155444894828b6fcb866a9, type: 3}
+  race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
+  animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
+  level: 1
+  att: 20
+  def: 20
+  hp: 200
+  damage: {x: 50, y: 50}
+  speed: 12
+  attackType: 0
+  traits:
+  - {fileID: 11400000, guid: 8d29db8314585433086022487b87e65b, type: 2}
+  growth: 1
+  AIValue: 5019
+  cost: 3000
+  size: 1
+  armorType: 0
+  isTwoHexsUnit: 0
+  ammo: 12
+  missile: {fileID: 0}
+  launchPos: {x: 0, y: 0}
+  sound_attack: {fileID: 0}
+  sound_attackImpact: {fileID: 0}
+  sound_walk: []
+  sound_hit:
+    clip: {fileID: 0}
+    skipDuration: 0
+  sound_death:
+    clip: {fileID: 0}
+    skipDuration: 0

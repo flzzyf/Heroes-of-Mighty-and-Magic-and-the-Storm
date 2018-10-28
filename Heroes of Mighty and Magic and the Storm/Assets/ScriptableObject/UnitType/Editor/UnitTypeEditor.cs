@@ -7,7 +7,7 @@ using UnityEditor;
 public class UnitTypeEditor : Editor
 {
     string[] tab_main = { "level", "att", "def", "damage", "hp",
-        "speed", "growth", "AIValue", "cost", "traits", "attackType"};
+        "speed", "growth", "AIValue", "cost", "traits", "attackType", "isTwoHexsUnit"};
 
     string[] tab_other = { "icon", "size", "armorType", "race", "animControl", };
     string[] tab_sound = { "sound_attack", "sound_walk", "sound_hit", "sound_death" };

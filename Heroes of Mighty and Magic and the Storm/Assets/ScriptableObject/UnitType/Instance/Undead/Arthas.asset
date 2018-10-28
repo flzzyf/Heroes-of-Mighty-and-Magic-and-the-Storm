@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
+  m_Name: Arthas
+  m_EditorClassIdentifier: 
+  tab: 0
+  icon: {fileID: 0}
+  race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
+  animControl: {fileID: 0}
+  level: 6
+  att: 16
+  def: 16
+  hp: 120
+  damage: {x: 15, y: 30}
+  speed: 7
+  attackType: 0
+  traits:
+  - {fileID: 11400000, guid: c91ca56fb2784463a96c3ffdc01a4318, type: 2}
+  - {fileID: 11400000, guid: 1e91b0417f2fa4a7baf089e9a4eb1451, type: 2}
+  growth: 2
+  AIValue: 2084
+  cost: 1200
+  size: 1
+  armorType: 1
+  isTwoHexsUnit: 1
+  ammo: 12
+  missile: {fileID: 0}
+  launchPos: {x: 0, y: 0}
+  sound_attack: {fileID: 0}
+  sound_attackImpact: {fileID: 0}
+  sound_walk: []
+  sound_hit:
+    clip: {fileID: 0}
+    skipDuration: 0
+  sound_death:
+    clip: {fileID: 0}
+    skipDuration: 0

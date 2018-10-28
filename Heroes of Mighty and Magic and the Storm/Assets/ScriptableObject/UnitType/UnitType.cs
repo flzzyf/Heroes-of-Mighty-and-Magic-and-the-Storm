@@ -25,6 +25,7 @@ public class UnitType : ScriptableObject
 
     public UnitSize size = UnitSize.middle;
     public ArmorType armorType;
+    public bool isTwoHexsUnit = false;
 
     public int ammo = 12;
     public GameObject missile;

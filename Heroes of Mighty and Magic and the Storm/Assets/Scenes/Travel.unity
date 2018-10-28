@@ -543,10 +543,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 53222761}
-  - component: {fileID: 53222760}
   - component: {fileID: 53222759}
   m_Layer: 0
-  m_Name: GlobalData
+  m_Name: TestMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -574,17 +573,6 @@ MonoBehaviour:
     startingPoint: {x: 27, y: 19}
     heroes: []
     gold: 2
---- !u!114 &53222760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 53222758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6aa45743b984a2e9ae317bdc2ab416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &53222761
 Transform:
   m_ObjectHideFlags: 0

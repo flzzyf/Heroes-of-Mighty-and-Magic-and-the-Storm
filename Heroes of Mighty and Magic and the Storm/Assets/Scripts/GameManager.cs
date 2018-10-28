@@ -26,12 +26,11 @@ public class GameManager : Singleton<GameManager>
         PlayerManager.instance.players[0].heroes.Add(testHeroes[0]);
         PlayerManager.instance.players[1].heroes.Add(testHeroes[1]);
 
-        //读取本地语言
-        // string localLangId = System.Globalization.CultureInfo.InstalledUICulture.Name;
-        // print(localLangId);
-        // if (localLangId == "zh-CN")
-        // {
-        // }
+        //之前有保存语言则直接设置，否则根据本地语言设置
+        // if (PlayerPrefs.HasKey("Language"))
+        //     ChangeLanguage(PlayerPrefs.GetString("Language"));
+        // else
+        //     ChangeToLocalLanguage();
     }
 
     void Update()
@@ -66,8 +65,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public UnitType type;
-
     public void PlaySound(FixedSound _sound, bool _random = false)
     {
         if (_sound == null)
@@ -88,6 +85,22 @@ public class GameManager : Singleton<GameManager>
             audioSource.pitch = 1 + Random.Range(0, 1f) * randomPitch;
 
         audioSource.PlayOneShot(_clip);
+    }
+
+    //变为本地语言
+    void ChangeToLocalLanguage()
+    {
+        string localLang = Application.systemLanguage.ToString();
+        //print("本地语言：" + localLang);
+        ChangeLanguage(localLang);
+    }
+
+    void ChangeLanguage(string _lang)
+    {
+        if (_lang == "Chinese")
+            LocalizationMgr.instance.ChangeToLanguage(Language.Chinese_Simplified);
+        else
+            LocalizationMgr.instance.ChangeToLanguage(Language.English);
     }
 }
 

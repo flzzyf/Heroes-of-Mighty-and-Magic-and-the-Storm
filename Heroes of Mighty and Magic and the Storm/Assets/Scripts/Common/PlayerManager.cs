@@ -5,6 +5,15 @@ using UnityEngine;
 public class PlayerManager : Singleton<PlayerManager>
 {
     public Player[] players;
+
+    void Awake()
+    {
+        if (PlayerManager.instance != this)
+        {
+            print("自我摧毁");
+            Destroy(this);
+        }
+    }
 }
 
 [System.Serializable]

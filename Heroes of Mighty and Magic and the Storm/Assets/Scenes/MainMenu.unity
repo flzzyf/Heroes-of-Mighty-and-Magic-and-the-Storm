@@ -425,9 +425,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
-  - id: 1
+  - id: 0
     isAI: 0
     startingPoint: {x: 5, y: 5}
+    heroes: []
+    gold: 0
+  - id: 1
+    isAI: 1
+    startingPoint: {x: 10, y: 5}
     heroes: []
     gold: 0
 --- !u!114 &84518062

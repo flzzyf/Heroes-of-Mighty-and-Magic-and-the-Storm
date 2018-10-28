@@ -21,7 +21,7 @@ public class EditorUtil
         {
             EditorGUI.indentLevel += 1;
             //显示数列大小
-            EditorGUILayout.PropertyField(_list.FindPropertyRelative("Array.size"));
+            //EditorGUILayout.PropertyField(_list.FindPropertyRelative("Array.size"));
             //显示数列子元素
             for (int i = 0; i < _list.arraySize; i++)
             {

@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Name: Leoric_Upgrade
   m_EditorClassIdentifier: 
   tab: 0
-  typeName: "\u674E\u5965\u745E\u514B"
-  currentLanguage: 0
   icon: {fileID: 21300000, guid: fccc6da7f2dc0704cbd6c63ef7962679, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 22100000, guid: 950705c3924ee6f4f846a7f9eec9c157, type: 2}
@@ -31,6 +29,7 @@ MonoBehaviour:
   cost: 300
   size: 2
   armorType: 1
+  isTwoHexsUnit: 0
   ammo: 12
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0}

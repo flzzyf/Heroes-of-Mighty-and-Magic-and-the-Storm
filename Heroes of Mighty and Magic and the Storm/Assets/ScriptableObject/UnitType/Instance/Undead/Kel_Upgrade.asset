@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Name: Kel_Upgrade
   m_EditorClassIdentifier: 
   tab: 0
-  typeName: Kel
-  currentLanguage: 2
   icon: {fileID: 21300000, guid: 53565e63889e48e49ace653c4e0c2303, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 22100000, guid: 91e8d0bb094b81d44afdd6219cbca80e, type: 2}
@@ -31,6 +29,7 @@ MonoBehaviour:
   cost: 600
   size: 1
   armorType: 1
+  isTwoHexsUnit: 0
   ammo: 12
   missile: {fileID: 1411435652972704, guid: a1587227026748848b83329fe7510600, type: 2}
   launchPos: {x: 1.3, y: 2.35}
