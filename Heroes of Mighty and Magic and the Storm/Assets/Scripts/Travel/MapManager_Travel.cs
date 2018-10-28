@@ -34,10 +34,12 @@ public class MapManager_Travel : MapManager
     public override void OnNodePressed(NodeItem _node)
     {
         NodeItem_Travel node = (NodeItem_Travel)_node;
+        NodeObject_Travel obj = (NodeObject_Travel)node.nodeObject;
 
-        //如果是游戏暂停状态则无视点击
-        if (GameManager.instance.gamePaused)
-            return;
+        if (obj.objectType == TravelNodeType.empty)
+        {
+
+        }
 
         Hero hero = TravelManager.instance.currentHero;
 

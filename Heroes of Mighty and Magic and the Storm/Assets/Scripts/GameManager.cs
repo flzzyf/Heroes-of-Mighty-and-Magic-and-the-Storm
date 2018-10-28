@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
         //     ChangeToLocalLanguage();
 
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 19));
+        ItemManager.instance.CreateItem(item, new Vector2Int(23, 14));
     }
 
     void Update()

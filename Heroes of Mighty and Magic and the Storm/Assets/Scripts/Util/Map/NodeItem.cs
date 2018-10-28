@@ -17,6 +17,10 @@ public class NodeItem : MonoBehaviour
 
     void OnMouseDown()
     {
+        //如果是游戏暂停状态则无视点击
+        if (GameManager.instance.gamePaused)
+            return;
+
         //鼠标在UI上则无效
         if (EventSystem.current.IsPointerOverGameObject())
             return;
@@ -26,6 +30,10 @@ public class NodeItem : MonoBehaviour
 
     public virtual void OnMouseEnter()
     {
+        //如果是游戏暂停状态则无视点击
+        if (GameManager.instance.gamePaused)
+            return;
+
         //鼠标在UI上则无效
         if (EventSystem.current.IsPointerOverGameObject())
             return;
@@ -35,6 +43,10 @@ public class NodeItem : MonoBehaviour
 
     public virtual void OnMouseExit()
     {
+        //如果是游戏暂停状态则无视点击
+        if (GameManager.instance.gamePaused)
+            return;
+
         //鼠标在UI上则无效
         if (EventSystem.current.IsPointerOverGameObject())
             return;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemObject : NodeObject
+public class ItemObject : NodeObject_Travel
 {
     public Item item;
 }

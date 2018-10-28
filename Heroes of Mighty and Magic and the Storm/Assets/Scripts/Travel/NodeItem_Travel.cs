@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TravelNodeType { empty, item, unit, hero, town }
 public enum TravelPathType { empty, path, goal }
 
 public class NodeItem_Travel : NodeItem
