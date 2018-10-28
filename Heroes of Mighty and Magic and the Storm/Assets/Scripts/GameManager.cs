@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager>
 
     public static int player;
 
+    public Item item;
+
     void Start()
     {
         TravelManager.instance.Init();
@@ -31,6 +33,8 @@ public class GameManager : Singleton<GameManager>
         //     ChangeLanguage(PlayerPrefs.GetString("Language"));
         // else
         //     ChangeToLocalLanguage();
+
+        ItemManager.instance.CreateItem(item, new Vector2Int(23, 19));
     }
 
     void Update()

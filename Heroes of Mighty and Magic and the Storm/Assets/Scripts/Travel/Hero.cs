@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class Hero : NodeObject
 {
-    [HideInInspector]
     public int player;
 
     public HeroType heroType;
     public PocketUnit[] pocketUnits;
+
     [HideInInspector]
-    public int movementRate = 1500;
-    [HideInInspector]
-    public int currentMovementRate;
+    public int movementRate;
+    //根据最慢单位的速度决定英雄移动力，1到11+
+    int[] movementRateMapping = { 1360, 1430, 1500, 1560, 1630, 1700, 1760, 1830, 1900, 1960, 2000 };
 
     public void Init()
     {
-        currentMovementRate = movementRate;
+        movementRate = returnMovementRate;
+    }
+
+    int returnMovementRate
+    {
+        get
+        {
+            //宝物，被动技能加成
+
+            //单位加成，获取最慢单位速度
+
+            return movementRateMapping[5];
+        }
     }
 }
 

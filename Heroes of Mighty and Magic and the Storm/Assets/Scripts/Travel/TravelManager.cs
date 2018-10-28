@@ -65,6 +65,8 @@ public class TravelManager : Singleton<TravelManager>
 
         GameObject go = Instantiate(_prefab, node.transform.position, Quaternion.identity);
         go.GetComponent<NodeObject>().nodeItem = map.GetNodeItem(_pos);
+        node.nodeObject = go.GetComponent<NodeObject>();
+
         return go;
     }
 

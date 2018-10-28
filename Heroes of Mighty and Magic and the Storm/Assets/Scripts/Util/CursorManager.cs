@@ -17,6 +17,7 @@ public class CursorManager : Singleton<CursorManager>
     public CursorGO[] cursors;
 
     GameObject currentCursor;
+    string currentCursorName;
 
     void Start()
     {
@@ -32,6 +33,9 @@ public class CursorManager : Singleton<CursorManager>
 
     public void ChangeCursor(string _name = "default")
     {
+        if (currentCursorName != _name)
+            currentCursorName = _name;
+
         for (int i = 0; i < cursors.Length; i++)
         {
             cursors[i].cursorGO.SetActive(false);

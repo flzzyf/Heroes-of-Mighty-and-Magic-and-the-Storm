@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class MapManager_Travel : MapManager
 {
@@ -13,14 +12,28 @@ public class MapManager_Travel : MapManager
 
     List<NodeItem> path;
 
+    //节点高亮
+    public override void OnNodeHovered(NodeItem _node)
+    {
+        NodeItem_Travel node = (NodeItem_Travel)_node;
+
+        //判定节点类型：空则可到达，物品则显示名称，单位显示剑
+        if (node.nodeObject == null)
+        {
+            CursorManager.instance.ChangeCursor("sword");
+        }
+    }
+
+    //节点取消高亮
+    public override void OnNodeUnhovered(NodeItem _node)
+    {
+        CursorManager.instance.ChangeCursor();
+    }
+
     //点击节点
     public override void OnNodePressed(NodeItem _node)
     {
-        //点击在按UI钮上
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+        NodeItem_Travel node = (NodeItem_Travel)_node;
 
         //如果是游戏暂停状态则无视点击
         if (GameManager.instance.gamePaused)
@@ -29,7 +42,7 @@ public class MapManager_Travel : MapManager
         Hero hero = TravelManager.instance.currentHero;
 
         //是终点则开始移动，否则重新计算路线
-        if (_node.gameObject.GetComponent<NodeItem_Travel>().pathType == TravelPathType.goal)
+        if (node.pathType == TravelPathType.goal)
         {
             if (hasMovementToReachNode(hero, path[1]))
                 MoveObjectAlongPath(hero.gameObject, path);
@@ -39,9 +52,7 @@ public class MapManager_Travel : MapManager
             //清除之前的路径显示
             ClearPath();
 
-            NodeItem currentNode = hero.nodeItem;
-
-            path = AStarManager.FindPath(this, currentNode, _node);
+            path = AStarManager.FindPath(this, hero.nodeItem, _node);
 
             //贴近目标，而且可交互，直接交互
             if (path.Count == 2 && ((NodeItem_Travel)_node).type == TravelNodeType.item)
@@ -49,7 +60,7 @@ public class MapManager_Travel : MapManager
 
             }
 
-            int movementRate = hero.currentMovementRate;
+            int movementRate = hero.movementRate;
             if (path != null)
             {
                 NodeItem lastNode;
@@ -62,22 +73,22 @@ public class MapManager_Travel : MapManager
                         movementRate -= GetNodeDistance(lastNode, path[i]);
                     }
 
-                    NodeItem_Travel node = path[i].GetComponent<NodeItem_Travel>();
+                    NodeItem_Travel currentNode = (NodeItem_Travel)path[i];
 
                     if (i == path.Count - 1)
                     {
                         //是终点
-                        node.UpdateStatus(TravelPathType.goal);
+                        currentNode.UpdateStatus(TravelPathType.goal);
                     }
                     else
                     {
-                        node.UpdateStatus(TravelPathType.path);
+                        currentNode.UpdateStatus(TravelPathType.path);
                     }
 
                     if (movementRate >= 0)
-                        node.ChangeColor(color_reachable);
+                        currentNode.ChangeColor(color_reachable);
                     else
-                        node.ChangeColor(color_outOfReach);
+                        currentNode.ChangeColor(color_outOfReach);
 
                     lastNode.GetComponent<NodeItem_Travel>().ArrowFaceTarget(path[i].gameObject);
                 }
@@ -118,7 +129,7 @@ public class MapManager_Travel : MapManager
 
         NodeMovingMgr.instance.MoveObject(_go, _path, TravelManager.instance.heroSpeed, coord);
     }
-
+    #region 移动节点物体事件
     void MoveToNode(NodeItem _node)
     {
         Hero hero = TravelManager.instance.currentHero;
@@ -131,14 +142,14 @@ public class MapManager_Travel : MapManager
         }
 
         //英雄扣除移动力
-        hero.currentMovementRate -= GetNodeDistance(hero.nodeItem, _node);
+        hero.movementRate -= GetNodeDistance(hero.nodeItem, _node);
 
-        slider_movementRate.value = hero.currentMovementRate / 1000f;
+        slider_movementRate.value = hero.movementRate / 1000f;
     }
 
     bool hasMovementToReachNode(Hero _hero, NodeItem _node)
     {
-        if (_hero.currentMovementRate >= GetNodeDistance(_hero.nodeItem, _node))
+        if (_hero.movementRate >= GetNodeDistance(_hero.nodeItem, _node))
             return true;
 
         return false;
@@ -164,5 +175,6 @@ public class MapManager_Travel : MapManager
     {
         GameManager.instance.gamePaused = false;
     }
+    #endregion
 
 }
