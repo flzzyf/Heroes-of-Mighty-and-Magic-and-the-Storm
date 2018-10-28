@@ -1,18 +1,19 @@
 fileFormatVersion: 2
-guid: 6d79679ae67e24ff29d76f72e4041480
+guid: 9cee4bce058ecc643ab58b2075b2397a
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Crusader_Defend
-    21300002: Crusader_Defend001
-    21300004: Crusader_Defend002
-    21300006: Crusader_Defend003
-    21300008: Crusader_Defend004
-    21300010: Crusader_Defend005
-    21300012: Crusader_Defend006
-    21300014: Crusader_Defend007
-    21300016: Crusader_Defend008
-    21300018: Crusader_Defend009
-    21300020: Crusader_Defend010
+    21300000: Malthael_Defend
+    21300002: Malthael_Defend00
+    21300004: Malthael_Defend01
+    21300006: Malthael_Defend02
+    21300008: Malthael_Defend03
+    21300010: Malthael_Defend04
+    21300012: Malthael_Defend05
+    21300014: Malthael_Defend06
+    21300016: Malthael_Defend07
+    21300018: Malthael_Defend08
+    21300020: Malthael_Defend09
+    21300022: Malthael_Defend10
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -128,201 +129,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crusader_Defend001
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 1752
-        width: 314
-        height: 295
-      alignment: 9
-      pivot: {x: 0.58280253, y: -0.07457627}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37269a936bd87421f9cef46467511865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crusader_Defend002
+      name: Malthael_Defend00
       rect:
         serializedVersion: 2
         x: 1
-        y: 1060
-        width: 273
-        height: 362
+        y: 444
+        width: 252
+        height: 397
       alignment: 9
-      pivot: {x: 0.53479856, y: -0.055248618}
+      pivot: {x: 0.6130952, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f36d1ca9227548639bf755673686bab
+      spriteID: 333619ee5a2bede4d8b4c44ff347fa31
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend003
+      name: Malthael_Defend01
       rect:
         serializedVersion: 2
         x: 1
-        y: 1424
-        width: 297
-        height: 340
+        y: 843
+        width: 287
+        height: 410
       alignment: 9
-      pivot: {x: 0.5824916, y: -0.07647059}
+      pivot: {x: 0.5313589, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d11b0cb7648f46e99a3f0aaddb16037
+      spriteID: 3d0e9d85ac40ef34c95cb50dc29cef29
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend004
+      name: Malthael_Defend02
       rect:
         serializedVersion: 2
-        x: 276
-        y: 894
-        width: 259
-        height: 279
+        x: 644
+        y: 1638
+        width: 313
+        height: 409
       alignment: 9
-      pivot: {x: 0.52895755, y: -0.08243728}
+      pivot: {x: 0.48083067, y: -0.06356968}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f42d513a459e54b9da2dbe58f6c7e107
+      spriteID: 6bec7dfce53c96a42a5f5400b8fd0cc6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend005
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 1161
-        width: 272
-        height: 286
-      alignment: 9
-      pivot: {x: 0.5441176, y: -0.08391608}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07429b030cf354ddaacaca917cf70e40
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crusader_Defend006
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 1175
-        width: 279
-        height: 295
-      alignment: 9
-      pivot: {x: 0.54121864, y: -0.08135593}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 125ed8e0837154d74b6b4fc7b3157e15
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crusader_Defend007
-      rect:
-        serializedVersion: 2
-        x: 626
-        y: 1449
-        width: 283
-        height: 301
-      alignment: 9
-      pivot: {x: 0.55123675, y: -0.07641196}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02f05e3a1f9284ce986f82967d15787d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crusader_Defend008
+      name: Malthael_Defend03
       rect:
         serializedVersion: 2
         x: 323
-        y: 1472
-        width: 301
-        height: 295
+        y: 1648
+        width: 319
+        height: 399
       alignment: 9
-      pivot: {x: 0.5780731, y: -0.06779661}
+      pivot: {x: 0.46238244, y: -0.102756895}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0234f7c02904f46de8f37fe54f667a2a
+      spriteID: c53271195a0f775499dd8fa451b25f68
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend009
+      name: Malthael_Defend04
       rect:
         serializedVersion: 2
         x: 1
-        y: 1766
+        y: 1640
         width: 320
-        height: 281
+        height: 407
       alignment: 9
-      pivot: {x: 0.590625, y: -0.085409254}
+      pivot: {x: 0.4953125, y: -0.095823094}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e9124c2b67eb41748bc516d62be9ace
+      spriteID: a395f6396d5baea4d8913f130774c7dd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend010
+      name: Malthael_Defend05
       rect:
         serializedVersion: 2
         x: 323
-        y: 1769
-        width: 320
-        height: 278
+        y: 1247
+        width: 296
+        height: 399
       alignment: 9
-      pivot: {x: 0.59375, y: -0.09352518}
+      pivot: {x: 0.5557432, y: -0.10776942}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6750f49fa5674fc58563c0875d39e02
+      spriteID: 4f0778d93d6ba5c4d984094ebdbb81f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend06
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 1225
+        width: 277
+        height: 411
+      alignment: 9
+      pivot: {x: 0.6046931, y: -0.085158154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b9a255f49e4c542a5ad66cb3db4336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend07
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 46
+        width: 248
+        height: 396
+      alignment: 9
+      pivot: {x: 0.6673387, y: -0.10606061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74bc8aef0aeee6540b0038d0bf46ad2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend08
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 51
+        width: 249
+        height: 391
+      alignment: 9
+      pivot: {x: 0.64457834, y: -0.07672634}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83221b17e8dd4246bf1657889ca59e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend09
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1255
+        width: 290
+        height: 383
+      alignment: 9
+      pivot: {x: 0.5603448, y: -0.049608354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df6a9c040b226c64a9b4f1c66fbe0d40
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend10
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 833
+        width: 252
+        height: 412
+      alignment: 9
+      pivot: {x: 0.62896824, y: -0.014563107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1235190b52b3d0648882e6adf2b4c0a5
       vertices: []
       indices: 
       edges: []

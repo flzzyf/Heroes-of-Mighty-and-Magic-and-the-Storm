@@ -1,18 +1,23 @@
 fileFormatVersion: 2
-guid: 6d79679ae67e24ff29d76f72e4041480
+guid: 117532bba06a64742909a27c747a36e5
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Crusader_Defend
-    21300002: Crusader_Defend001
-    21300004: Crusader_Defend002
-    21300006: Crusader_Defend003
-    21300008: Crusader_Defend004
-    21300010: Crusader_Defend005
-    21300012: Crusader_Defend006
-    21300014: Crusader_Defend007
-    21300016: Crusader_Defend008
-    21300018: Crusader_Defend009
-    21300020: Crusader_Defend010
+    21300000: Malthael_Attack_Down
+    21300002: Malthael_Attack_Down00
+    21300004: Malthael_Attack_Down01
+    21300006: Malthael_Attack_Down02
+    21300008: Malthael_Attack_Down03
+    21300010: Malthael_Attack_Down04
+    21300012: Malthael_Attack_Down05
+    21300014: Malthael_Attack_Down06
+    21300016: Malthael_Attack_Down07
+    21300018: Malthael_Attack_Down08
+    21300020: Malthael_Attack_Down09
+    21300022: Malthael_Attack_Down10
+    21300024: Malthael_Attack_Down11
+    21300026: Malthael_Attack_Down12
+    21300028: Malthael_Attack_Down13
+    21300030: Malthael_Attack_Down14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -128,201 +133,301 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crusader_Defend001
+      name: Malthael_Attack_Down00
       rect:
         serializedVersion: 2
-        x: 645
-        y: 1752
-        width: 314
-        height: 295
+        x: 765
+        y: 1649
+        width: 258
+        height: 398
       alignment: 9
-      pivot: {x: 0.58280253, y: -0.07457627}
+      pivot: {x: 0.5988372, y: -0.0025125628}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 37269a936bd87421f9cef46467511865
+      spriteID: a7b7aa6bba92b3a44a8e3326b4420f15
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend002
+      name: Malthael_Attack_Down01
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 978
+        width: 305
+        height: 378
+      alignment: 9
+      pivot: {x: 0.5065574, y: -0.055555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98bcb98a5df4d9b4ca672332d4488afe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down02
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 281
+        width: 304
+        height: 376
+      alignment: 9
+      pivot: {x: 0.43256578, y: -0.061170213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1e1c99e6b62ab4992665e7c499a708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down03
       rect:
         serializedVersion: 2
         x: 1
-        y: 1060
-        width: 273
-        height: 362
+        y: 1348
+        width: 353
+        height: 342
       alignment: 9
-      pivot: {x: 0.53479856, y: -0.055248618}
+      pivot: {x: 0.36402267, y: -0.03508772}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f36d1ca9227548639bf755673686bab
+      spriteID: 9720a27fbf948234db00c372db8a5cc6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend003
+      name: Malthael_Attack_Down04
       rect:
         serializedVersion: 2
         x: 1
-        y: 1424
-        width: 297
-        height: 340
+        y: 1692
+        width: 389
+        height: 355
       alignment: 9
-      pivot: {x: 0.5824916, y: -0.07647059}
+      pivot: {x: 0.57197946, y: -0.008450705}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d11b0cb7648f46e99a3f0aaddb16037
+      spriteID: d49499edb8e47794baa5d5661dbad6ba
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend004
+      name: Malthael_Attack_Down05
       rect:
         serializedVersion: 2
-        x: 276
-        y: 894
-        width: 259
-        height: 279
+        x: 356
+        y: 1009
+        width: 350
+        height: 347
       alignment: 9
-      pivot: {x: 0.52895755, y: -0.08243728}
+      pivot: {x: 0.57, y: -0.02017291}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f42d513a459e54b9da2dbe58f6c7e107
+      spriteID: fd500db081853b34abc8c3a109882d8e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend005
+      name: Malthael_Attack_Down06
       rect:
         serializedVersion: 2
-        x: 581
-        y: 1161
-        width: 272
-        height: 286
+        x: 392
+        y: 1358
+        width: 366
+        height: 343
       alignment: 9
-      pivot: {x: 0.5441176, y: -0.08391608}
+      pivot: {x: 0.5778689, y: -0.020408163}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07429b030cf354ddaacaca917cf70e40
+      spriteID: 31cbfa03c6e207048a6ae4dbd4eda266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend006
+      name: Malthael_Attack_Down07
       rect:
         serializedVersion: 2
-        x: 300
-        y: 1175
-        width: 279
-        height: 295
+        x: 392
+        y: 1703
+        width: 371
+        height: 344
       alignment: 9
-      pivot: {x: 0.54121864, y: -0.08135593}
+      pivot: {x: 0.5592992, y: -0.023255814}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 125ed8e0837154d74b6b4fc7b3157e15
+      spriteID: ea20028849866124abbdeab4f1240284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend007
-      rect:
-        serializedVersion: 2
-        x: 626
-        y: 1449
-        width: 283
-        height: 301
-      alignment: 9
-      pivot: {x: 0.55123675, y: -0.07641196}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02f05e3a1f9284ce986f82967d15787d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crusader_Defend008
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 1472
-        width: 301
-        height: 295
-      alignment: 9
-      pivot: {x: 0.5780731, y: -0.06779661}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0234f7c02904f46de8f37fe54f667a2a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Crusader_Defend009
+      name: Malthael_Attack_Down08
       rect:
         serializedVersion: 2
         x: 1
-        y: 1766
-        width: 320
-        height: 281
+        y: 676
+        width: 334
+        height: 330
       alignment: 9
-      pivot: {x: 0.590625, y: -0.085409254}
+      pivot: {x: 0.54341316, y: -0.036363635}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e9124c2b67eb41748bc516d62be9ace
+      spriteID: f64655080ab83374a8adbfca7147655f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crusader_Defend010
+      name: Malthael_Attack_Down09
       rect:
         serializedVersion: 2
-        x: 323
-        y: 1769
-        width: 320
-        height: 278
+        x: 1
+        y: 3
+        width: 329
+        height: 336
       alignment: 9
-      pivot: {x: 0.59375, y: -0.09352518}
+      pivot: {x: 0.5455927, y: -0.035714287}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6750f49fa5674fc58563c0875d39e02
+      spriteID: e4a3a9b59c7e04246b6dcb0a6ac96111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 341
+        width: 330
+        height: 333
+      alignment: 9
+      pivot: {x: 0.5409091, y: -0.036036037}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14a3b8258cae7146900cbab37b7a61f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1008
+        width: 349
+        height: 338
+      alignment: 9
+      pivot: {x: 0.5, y: -0.03254438}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55bcd5b77bb8a26418586443aac2d910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down12
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 659
+        width: 345
+        height: 348
+      alignment: 9
+      pivot: {x: 0.5550725, y: -0.022988506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91e4b40cb4cc8744adc547ce381c05e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down13
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 611
+        width: 317
+        height: 365
+      alignment: 9
+      pivot: {x: 0.60094637, y: -0.019178081}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee79f04de20ab0458147929fd9d62a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack_Down14
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 243
+        width: 296
+        height: 366
+      alignment: 9
+      pivot: {x: 0.5523649, y: -0.05464481}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8778e8c8c0bcd46b9ffdaff6f10049
       vertices: []
       indices: 
       edges: []
