@@ -91,9 +91,18 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //播放攻击音效
         GameManager.instance.PlaySound(_origin.type.sound_attack);
 
-        //播放攻击动画
+        Anim attackAnim;
+        //播放攻击动画，根据位置
+        if (Mathf.Abs(_target.transform.position.y - _origin.transform.position.y) < 1)
+            attackAnim = Anim.Attack;
+        else if (_target.transform.position.y > _origin.transform.position.y)
+            attackAnim = Anim.Attack_Up;
+        else
+            attackAnim = Anim.Attack_Down;
 
-        float attackTime = UnitAnimMgr.instance.GetAnimationLength(_origin, Anim.Attack);
+        UnitAnimMgr.instance.PlayAnimation(_origin, attackAnim);
+
+        float attackTime = UnitAnimMgr.instance.GetAnimationLength(_origin, attackAnim);
         float hitTime = attackTime * animAttackHitPercent;
 
         yield return new WaitForSeconds(hitTime);
@@ -133,7 +142,18 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
     {
         waiting = true;
 
-        float attackTime = UnitAnimMgr.instance.PlayAnimation(_origin, Anim.Attack);
+        Anim attackAnim;
+        //播放攻击动画，根据位置
+        if (Mathf.Abs(_target.transform.position.y - _origin.transform.position.y) < 1)
+            attackAnim = Anim.Attack;
+        else if (_target.transform.position.y > _origin.transform.position.y)
+            attackAnim = Anim.Attack_Up;
+        else
+            attackAnim = Anim.Attack_Down;
+
+        UnitAnimMgr.instance.PlayAnimation(_origin, attackAnim);
+
+        float attackTime = UnitAnimMgr.instance.GetAnimationLength(_origin, attackAnim);
 
         float hitTime = attackTime * animAttackHitPercent;
 

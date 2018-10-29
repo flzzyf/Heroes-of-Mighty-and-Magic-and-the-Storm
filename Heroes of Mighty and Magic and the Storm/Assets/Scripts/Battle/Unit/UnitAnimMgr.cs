@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Anim { Idle, Walk, Attack, Flip, Death, Defend, Hit }
+public enum Anim
+{
+    Idle, Walk, Attack, Flip, Death, Defend, Hit,
+    Attack_Up, Attack_Down, Walk_Start, Walk_End
+}
 
 public class UnitAnimMgr : Singleton<UnitAnimMgr>
 {
     //播放动画，返回时长
-    public float PlayAnimation(Unit _unit, Anim _anim, bool _play = true)
+    public void PlayAnimation(Unit _unit, Anim _anim, bool _play = true)
     {
         if (_anim == Anim.Walk)
         {
@@ -21,13 +25,15 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
         else
         {
             StartCoroutine(PlayAnimationCor(_unit, _anim));
-            return GetAnimationLength(_unit, _anim);
         }
-        return 0;
     }
 
     public float GetAnimationLength(Unit _unit, Anim _anim)
     {
+        //当前版本动画不全，如果缺失上下攻击动画，直接播放攻击动画
+        if ((_anim == Anim.Attack_Up || _anim == Anim.Attack_Down) && !hasAnimation(_unit, _anim))
+            _anim = Anim.Attack;
+
         AnimatorOverrideController ac = _unit.animator.runtimeAnimatorController as AnimatorOverrideController;
 #pragma warning disable 0618
         for (int i = 0; i < ac.clips.Length; i++)
@@ -46,11 +52,31 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
     {
         PlayAnimStart(_unit);
 
+        //当前版本动画不全，如果缺失上下攻击动画，直接播放攻击动画
+        if ((_anim == Anim.Attack_Up || _anim == Anim.Attack_Down) && !hasAnimation(_unit, _anim))
+            _anim = Anim.Attack;
+
         _unit.animator.Play(_anim.ToString());
         float time = GetAnimationLength(_unit, _anim);
         yield return new WaitForSeconds(time);
 
         PlayAnimEnd(_unit);
+    }
+
+    bool hasAnimation(Unit _unit, Anim _anim)
+    {
+        AnimatorOverrideController ac = _unit.animator.runtimeAnimatorController as AnimatorOverrideController;
+#pragma warning disable 0618
+        for (int i = 0; i < ac.clips.Length; i++)
+        {
+            if (ac.clips[i].originalClip.name == _anim.ToString() &&
+                ac.clips[i].overrideClip != null)
+            {
+                return true;
+            }
+        }
+#pragma warning restore 0618
+        return false;
     }
 
     void PlayAnimStart(Unit _unit)
