@@ -91,7 +91,9 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //播放攻击音效
         GameManager.instance.PlaySound(_origin.type.sound_attack);
 
-        float attackTime = UnitAnimMgr.instance.PlayAnimation(_origin, Anim.Attack);
+        //播放攻击动画
+
+        float attackTime = UnitAnimMgr.instance.GetAnimationLength(_origin, Anim.Attack);
         float hitTime = attackTime * animAttackHitPercent;
 
         yield return new WaitForSeconds(hitTime);

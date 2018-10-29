@@ -36,18 +36,31 @@ public class MapManager_Travel : MapManager
         NodeItem_Travel node = (NodeItem_Travel)_node;
         NodeObject_Travel obj = (NodeObject_Travel)node.nodeObject;
 
-        if (obj.objectType == TravelNodeType.empty)
-        {
-
-        }
-
         Hero hero = TravelManager.instance.currentHero;
 
-        //是终点则开始移动，否则重新计算路线
-        if (node.pathType == TravelPathType.goal)
+        //有路径，而且点击的是终点，则开始移动。否则寻路
+        if (path != null && node.pathType == TravelPathType.goal)
         {
-            if (hasMovementToReachNode(hero, path[1]))
+            //是空地直接移动
+            //否则移动到目标点，然后开始交互
+            if (obj.objectType == TravelNodeType.empty)
+            {
                 MoveObjectAlongPath(hero.gameObject, path);
+            }
+            //是英雄，或者单位，或者物品，只要移动到相邻处，就能开始交互
+            else if (obj.objectType == TravelNodeType.hero ||
+                     obj.objectType == TravelNodeType.unit ||
+                     obj.objectType == TravelNodeType.item)
+            {
+                path.RemoveAt(path.Count - 1);
+                MoveObjectAlongPath(hero.gameObject, path);
+                print("开始交互");
+            }
+            else
+            {
+                MoveObjectAlongPath(hero.gameObject, path);
+                print("开始交互");
+            }
         }
         else
         {
@@ -55,12 +68,6 @@ public class MapManager_Travel : MapManager
             ClearPath();
 
             path = AStarManager.FindPath(this, hero.nodeItem, _node);
-
-            //贴近目标，而且可交互，直接交互
-            if (path.Count == 2 && ((NodeItem_Travel)_node).type == TravelNodeType.item)
-            {
-
-            }
 
             int movementRate = hero.movementRate;
             if (path != null)
