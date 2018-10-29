@@ -64,7 +64,8 @@ public class BattleManager : Singleton<BattleManager>
 
     public void Init()
     {
-        map.GenerateMap();
+        if (map.nodeItems == null)
+            map.GenerateMap();
         map.parent.gameObject.SetActive(false);
 
         BattleResultMgr.instance.Init();

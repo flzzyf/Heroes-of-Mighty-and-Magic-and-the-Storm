@@ -14,7 +14,8 @@ public class MapManager : MonoBehaviour
     public LayerMask layer_wall;
 
     protected Node[,] nodes;
-    NodeItem[,] nodeItems;
+    [HideInInspector]
+    public NodeItem[,] nodeItems;
     Vector2 originGeneratePoint = Vector2.zero;
 
     protected Vector3 pos;
@@ -48,6 +49,20 @@ public class MapManager : MonoBehaviour
                 nodes[x, y] = new Node(x, y, walkable);
             }
         }
+    }
+
+    public void ClearMap()
+    {
+        if (nodeItems == null)
+            return;
+
+        for (int i = 0; i < size.x; i++)
+            for (int j = 0; j < size.y; j++)
+            {
+                Destroy(nodeItems[i, j]);
+            }
+
+        nodeItems = null;
     }
 
     //节点被按下
