@@ -74,6 +74,7 @@ public class BattleManager : Singleton<BattleManager>
         heroes = new Hero[2];
         heroUnits = new GameObject[2];
 
+        UnitInfoPanelMgr.instance.HidePanel();
     }
 
     void Update()
