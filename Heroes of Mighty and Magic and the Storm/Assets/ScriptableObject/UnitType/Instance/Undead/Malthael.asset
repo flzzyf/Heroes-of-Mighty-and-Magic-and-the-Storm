@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Malthael
   m_EditorClassIdentifier: 
   tab: 0
-  icon: {fileID: 21300000, guid: 26b86fe601441e54d8248d038cc41c3c, type: 3}
+  icon: {fileID: 21300000, guid: 4792396407c51d34387a774d79bb245d, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 22100000, guid: cec05f1c1ffbc904eae18395b9c7742c, type: 2}
   level: 3

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Crusader_Upgrade
   m_EditorClassIdentifier: 
   tab: 0
-  icon: {fileID: 21300000, guid: 95caa9575a8ebfc458898e525909be8e, type: 3}
+  icon: {fileID: 21300000, guid: 82f72f823978d204490f5372bb83c2c4, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
   level: 1

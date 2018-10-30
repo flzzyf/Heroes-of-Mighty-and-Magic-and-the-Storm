@@ -6,10 +6,10 @@ using UnityEditor;
 [CustomEditor(typeof(UnitType))]
 public class UnitTypeEditor : Editor
 {
-    string[] tab_main = { "level", "att", "def", "damage", "hp",
+    string[] tab_main = { "icon", "level", "att", "def", "damage", "hp",
         "speed", "growth", "AIValue", "cost", "traits", "attackType", "isTwoHexsUnit"};
 
-    string[] tab_other = { "icon", "size", "armorType", "race", "animControl", };
+    string[] tab_other = { "size", "armorType", "race", "animControl", };
     string[] tab_sound = { "sound_attack", "sound_walk", "sound_hit", "sound_death" };
 
     public override void OnInspectorGUI()
@@ -20,6 +20,14 @@ public class UnitTypeEditor : Editor
 
         if (type.tab == 0)
         {
+            //显示图标
+            if (type.icon != null)
+                    {
+                        Texture texture = type.icon.texture;
+                        GUILayout.Box(texture, EditorStyles.objectFieldThumb,
+                        GUILayout.Width(100f), GUILayout.Height(100f));
+                    }
+
             if (LocalizationMgr.instance.textDic == null)
             {
                 LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
@@ -64,16 +72,6 @@ public class UnitTypeEditor : Editor
             for (int i = 0; i < tab_other.Length; i++)
             {
                 SerializedProperty property = serializedObject.FindProperty(tab_other[i]);
-
-                if (tab_other[i] == "icon")
-                {
-                    if (type.icon != null)
-                    {
-                        Texture texture = type.icon.texture;
-                        GUILayout.Box(texture, EditorStyles.objectFieldThumb,
-                        GUILayout.Width(100f), GUILayout.Height(100f));
-                    }
-                }
 
                 if (property.isArray)
                 {

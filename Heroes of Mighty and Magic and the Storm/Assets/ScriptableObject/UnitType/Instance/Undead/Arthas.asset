@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Arthas
   m_EditorClassIdentifier: 
   tab: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 30a75f08e9fa79b46a8bfac85462c5d7, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 0}
   level: 6

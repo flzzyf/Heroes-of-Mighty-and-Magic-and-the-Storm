@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Amazon
   m_EditorClassIdentifier: 
   tab: 0
-  icon: {fileID: 21300000, guid: 330ccd875c2fa304aa2d11590c3d34a2, type: 3}
+  icon: {fileID: 21300000, guid: 4ff9a27a014880846a6d5a2722189e0d, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 8a61bdaa2a35aa741b02089e117b9665, type: 2}
   level: 1

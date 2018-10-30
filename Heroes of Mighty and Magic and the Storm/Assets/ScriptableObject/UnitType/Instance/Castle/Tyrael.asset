@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Tyrael
   m_EditorClassIdentifier: 
   tab: 0
-  icon: {fileID: 21300000, guid: 3683c17300155444894828b6fcb866a9, type: 3}
+  icon: {fileID: 21300000, guid: 2e3eed8820e9c2b44bc6529d31b8a853, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 2cc05ca09532e1948bcde8bf027a959f, type: 2}
   level: 1
