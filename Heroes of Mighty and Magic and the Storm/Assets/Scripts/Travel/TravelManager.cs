@@ -20,6 +20,7 @@ public class TravelManager : Singleton<TravelManager>
     public MapManager_Travel map;
 
     public GameObject cam;
+    public GameObject parent_travelObject;
 
     public void Init()
     {
@@ -39,7 +40,7 @@ public class TravelManager : Singleton<TravelManager>
             cam.tag = "MainCamera";
         }
 
-        cam.SetActive(_enter);
+        parent_travelObject.SetActive(_enter);
     }
 
     //玩家初始化，生成城镇和英雄
