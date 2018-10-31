@@ -104,6 +104,12 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
     //从字典读取相应文本
     public string GetText(string _key)
     {
+        //如果还没初始化，初始化
+        if (textDic == null)
+        {
+            LoadLanguage(language);
+        }
+
         if (textDic.ContainsKey(_key))
             return System.Text.RegularExpressions.Regex.Unescape(textDic[_key]);
 

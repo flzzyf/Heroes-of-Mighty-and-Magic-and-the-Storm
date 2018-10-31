@@ -14,6 +14,9 @@ public class Hero : NodeObject
     //根据最慢单位的速度决定英雄移动力，1到11+
     int[] movementRateMapping = { 1360, 1430, 1500, 1560, 1630, 1700, 1760, 1830, 1900, 1960, 2000 };
 
+    [HideInInspector]
+    public Magic[] magics;
+
     public void Init()
     {
         movementRate = returnMovementRate;

@@ -28,11 +28,6 @@ public class UnitTypeEditor : Editor
                         GUILayout.Width(100f), GUILayout.Height(100f));
                     }
 
-            if (LocalizationMgr.instance.textDic == null)
-            {
-                LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
-            }
-
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Name", type.unitName);
             if (GUILayout.Button("编辑名称"))

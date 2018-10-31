@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(Race))]
-public class RaceEditor : Editor
+[CustomEditor(typeof(Magic))]
+public class MagicEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        Race main = (Race)target;
+        Magic main = (Magic)target;
 
         //显示图标
-        if (main.sprite_bg != null)
+        if (main.icon != null)
         {
-            Texture texture = main.sprite_bg.texture;
+            Texture texture = main.icon.texture;
             GUILayout.Box(texture, EditorStyles.objectFieldThumb,
             GUILayout.Width(100f), GUILayout.Height(100f));
         }
@@ -26,6 +26,12 @@ public class RaceEditor : Editor
         }
         EditorGUILayout.EndHorizontal();
 
-        base.OnInspectorGUI();
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("school"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("level"));
+        EditorUtil.ShowList(serializedObject.FindProperty("mana"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("effect"));
+
+        serializedObject.ApplyModifiedProperties();
     }
 }

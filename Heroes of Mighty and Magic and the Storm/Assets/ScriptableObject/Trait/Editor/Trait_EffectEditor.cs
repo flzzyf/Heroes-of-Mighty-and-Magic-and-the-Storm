@@ -10,11 +10,6 @@ public class Trait_EffectEditor : Editor
     {
         Trait trait = (Trait)target;
 
-        if (LocalizationMgr.instance.textDic == null)
-        {
-            LocalizationMgr.instance.LoadLanguage(LocalizationMgr.instance.language);
-        }
-
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Name", trait.traitName);
         if (GUILayout.Button("编辑名称"))
