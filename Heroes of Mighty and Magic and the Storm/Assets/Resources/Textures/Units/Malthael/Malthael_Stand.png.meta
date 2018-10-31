@@ -78,7 +78,7 @@ TextureImporter:
     21300146: Malthael_Stand073
     21300148: Malthael_Stand074
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 6
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1680,8 +1680,6 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
