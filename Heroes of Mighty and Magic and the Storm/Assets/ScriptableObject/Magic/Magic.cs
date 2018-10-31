@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MagicSchool { All, Earth, Fire, Air, Water}
+public enum MagicSchool { All, Earth, Fire, Air, Water }
 
 [CreateAssetMenu(menuName = "Magic")]
 public class Magic : ScriptableObject
