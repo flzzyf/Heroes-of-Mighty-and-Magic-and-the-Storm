@@ -92,3 +92,5 @@ Resurrect=圣洁新生
 Time Warp=减速沙尘
 Toxic Nest=剧毒巢穴
 Earthquake=地震术
+Cancel=取消
+Mana=法力值

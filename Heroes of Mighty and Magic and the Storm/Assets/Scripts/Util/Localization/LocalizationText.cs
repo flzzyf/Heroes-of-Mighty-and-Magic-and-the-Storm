@@ -46,4 +46,11 @@ public class LocalizationText : MonoBehaviour
 
         Init();
     }
+
+    public void SetText(string _key)
+    {
+        key = _key;
+
+        Init();
+    }
 }
