@@ -62,10 +62,15 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
+            MagicBookMgr.instance.SetMagics(testHeroes[0], 0);
             //BattleResultMgr.instance.ShowResultUI(1);
-
             //Resources.LoadAll<Sprite>("Textures");
 
+
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            MagicBookMgr.instance.SetMagics(testHeroes[0], 1);
 
         }
     }

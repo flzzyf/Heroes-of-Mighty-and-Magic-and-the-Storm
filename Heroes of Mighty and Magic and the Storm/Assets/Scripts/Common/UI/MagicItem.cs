@@ -24,4 +24,10 @@ public class MagicItem : MonoBehaviour
         text_level.text = string.Format(LocalizationMgr.instance.GetText(key_level), magic.level.ToString());
         text_mana.text = string.Format(LocalizationMgr.instance.GetText(key_mana), magic.mana[0].ToString());
     }
+
+    public void Init(Magic _magic)
+    {
+        magic = _magic;
+        Init();
+    }
 }

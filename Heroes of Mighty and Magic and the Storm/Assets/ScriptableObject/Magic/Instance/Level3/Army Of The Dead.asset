@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2edf83872c636f240942b0e27c499e21, type: 3}
-  m_Name: Deploy Shield
+  m_Name: Army Of The Dead
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 9d6b8ce7782aff3449051dd3014c99f2, type: 3}
+  icon: {fileID: 21300000, guid: d458bf320953cdd43918cd2d900617af, type: 3}
   school: 1
-  level: 1
-  mana: 0500000004000000
+  level: 3
+  mana: 0f0000000c000000
   effect: {fileID: 0}

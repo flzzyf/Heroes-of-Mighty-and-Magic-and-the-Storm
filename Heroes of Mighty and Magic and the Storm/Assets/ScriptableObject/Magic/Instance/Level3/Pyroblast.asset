@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edf83872c636f240942b0e27c499e21, type: 3}
+  m_Name: Pyroblast
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: ee5a7e27da30f8f40a34ebd3684db25b, type: 3}
+  school: 2
+  level: 3
+  mana: 0f0000000c000000
+  effect: {fileID: 0}

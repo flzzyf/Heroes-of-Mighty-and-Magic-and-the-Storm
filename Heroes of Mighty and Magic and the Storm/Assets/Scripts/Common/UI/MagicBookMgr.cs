@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicBookMgr : MonoBehaviour
+public class MagicBookMgr : Singleton<MagicBookMgr>
 {
     public GameObject ui;
     public MagicItem[] items;
+
+    //每页的魔法数量
+    const int magicsPerPage = 12;
 
     //显示和隐藏UI
     public void Show()
@@ -32,14 +35,18 @@ public class MagicBookMgr : MonoBehaviour
 
     public void SetMagics(Hero _hero, int _page)
     {
-        //根据页数，魔法派系显示
+        //隐藏所有魔法
+        HideMagicItems();
 
-        int showItemCount = Mathf.Min(6, _hero.magics.Length);
+        //根据页数，魔法派系显示
+        int startMagicIndex = _page * magicsPerPage;
+
+        int showItemCount = Mathf.Min(magicsPerPage, _hero.magics.Length - startMagicIndex);
+        print(showItemCount);
         for (int i = 0; i < showItemCount; i++)
         {
             ShowMagicItem(i);
-            items[i].magic = _hero.magics[i];
-            items[i].Init();
+            items[i].Init(_hero.magics[startMagicIndex + i]);
         }
     }
 }
