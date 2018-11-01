@@ -26,6 +26,13 @@ public class MagicEditor : Editor
         }
         EditorGUILayout.EndHorizontal();
 
+        //魔法描述文本
+        EditorGUILayout.LabelField("描述", LocalizationMgr.instance.GetText(main.name + "_Info"));
+        if (GUILayout.Button("编辑"))
+        {
+            LocalizationWindow.ShowWindow(main.name + "_Info");
+        }
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("school"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("level"));

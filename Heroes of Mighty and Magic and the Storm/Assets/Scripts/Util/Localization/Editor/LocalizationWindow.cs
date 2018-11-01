@@ -26,7 +26,9 @@ public class LocalizationWindow : EditorWindow
     void OnGUI()
     {
         EditorGUILayout.LabelField("Key", key);
-        theName = EditorGUILayout.TextField("Name", theName);
+        //theName = EditorGUILayout.TextField("Name", theName);
+        EditorGUILayout.LabelField("Text");
+        theName = EditorGUILayout.TextArea(theName);
 
         GUILayout.Space(30);
 

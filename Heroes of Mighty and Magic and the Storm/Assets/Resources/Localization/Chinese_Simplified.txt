@@ -94,3 +94,4 @@ Toxic Nest=剧毒巢穴
 Earthquake=地震术
 Cancel=取消
 Mana=法力值
+Frost Bolt_Info=从选中的敌方部队身上吸走热量
