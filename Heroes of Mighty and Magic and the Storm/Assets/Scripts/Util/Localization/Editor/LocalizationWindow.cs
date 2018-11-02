@@ -19,7 +19,8 @@ public class LocalizationWindow : EditorWindow
     {
         key = _key;
 
-        Rect rect = new Rect(Screen.width - w / 4, Screen.height / 4, w, h);
+        Rect rect = new Rect((Screen.currentResolution.width - w) / 2, 
+                             (Screen.currentResolution.height - h) / 2, w, h);
 
         LocalizationWindow window = GetWindow<LocalizationWindow>("wtf");
         window.position = rect;
