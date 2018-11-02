@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameScene { Travel, Battle }
+
 public class GameManager : Singleton<GameManager>
 {
     public bool gamePaused;
@@ -16,6 +18,8 @@ public class GameManager : Singleton<GameManager>
 
     public Item item;
 
+    public GameScene scene;
+
     void Start()
     {
         TravelManager.instance.Init();
@@ -23,10 +27,6 @@ public class GameManager : Singleton<GameManager>
 
         TravelManager.instance.EnterTravelMode();
         TravelManager.instance.TurnStart(0);
-
-        //添加测试英雄
-        PlayerManager.instance.players[0].heroes.Add(testHeroes[0]);
-        PlayerManager.instance.players[1].heroes.Add(testHeroes[1]);
 
         //之前有保存语言则直接设置，否则根据本地语言设置
         // if (PlayerPrefs.HasKey("Language"))
@@ -42,8 +42,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Hero attacker = PlayerManager.instance.players[0].heroes[1];
-            Hero defender = PlayerManager.instance.players[1].heroes[1];
+            Hero attacker = PlayerManager.instance.players[0].heroes[0];
+            Hero defender = PlayerManager.instance.players[1].heroes[0];
             TravelManager.instance.BattleBegin(attacker, defender);
 
         }
@@ -62,11 +62,9 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            MagicBookMgr.instance.SetMagics(testHeroes[0], 0);
+            MagicBookMgr.instance.Show();
             //BattleResultMgr.instance.ShowResultUI(1);
             //Resources.LoadAll<Sprite>("Textures");
-
-
         }
         if (Input.GetKeyDown(KeyCode.N))
         {

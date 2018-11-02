@@ -67,28 +67,31 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
     public void SetText(string _key, string _value)
     {
-        Debug.Log("设置文本，Key: " + _key + ", Value: " + _value);
+        //如果还没初始化，初始化
+        if (textDic == null)
+        {
+            LoadLanguage(language);
+        }
+
         if (textDic.ContainsKey(_key))
         {
+            Debug.Log("设置文本，Key: " + _key + ", Value: " + _value);
+
             textDic[_key] = _value;
         }
         else
         {
+            Debug.Log("加入文本，Key: " + _key + ", Value: " + _value);
+
             textDic.Add(_key, _value);
         }
         SaveText();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            SetText("qwer", "asdf");
-        }
-    }
-
     void SaveText()
     {
+        Debug.Log("保存文本");
+
         string s = "";
         foreach (var item in textDic)
         {
@@ -115,5 +118,18 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
         Debug.LogWarning(_key + "键缺失！");
         return _key.ToString();
+    }
+
+    public bool ContainKey(string _key)
+    {
+        //如果还没初始化，初始化
+        if (textDic == null)
+        {
+            LoadLanguage(language);
+        }
+
+        if (textDic.ContainsKey(_key))
+            return true;
+        return false;
     }
 }

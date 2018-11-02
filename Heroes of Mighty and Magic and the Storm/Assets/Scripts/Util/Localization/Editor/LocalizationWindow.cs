@@ -4,9 +4,15 @@ using UnityEditor;
 public class LocalizationWindow : EditorWindow
 {
     public static string key;
-    public static string theName;
+    public static string theName = "";
 
-    const int w = 300, h = 100;
+    const int w = 350, h = 200;
+
+    [MenuItem("Zyf Tools/文本编辑器")]
+    public static void ShowWindow()
+    {
+        ShowWindow("");
+    }
 
     public static void ShowWindow(string _key)
     {
@@ -18,17 +24,18 @@ public class LocalizationWindow : EditorWindow
         window.position = rect;
     }
 
-    void OnEnable()
-    {
-        theName = LocalizationMgr.instance.GetText(key);
-    }
-
     void OnGUI()
     {
-        EditorGUILayout.LabelField("Key", key);
-        //theName = EditorGUILayout.TextField("Name", theName);
+        EditorGUI.BeginChangeCheck();
+        key = EditorGUILayout.TextField("Key", key);
+        if (EditorGUI.EndChangeCheck())
+        {
+            if(LocalizationMgr.instance.ContainKey(key))
+                theName = LocalizationMgr.instance.GetText(key);
+        }
+
         EditorGUILayout.LabelField("Text");
-        theName = EditorGUILayout.TextArea(theName);
+        theName = EditorGUILayout.TextArea(theName, GUILayout.Height(80));
 
         GUILayout.Space(30);
 

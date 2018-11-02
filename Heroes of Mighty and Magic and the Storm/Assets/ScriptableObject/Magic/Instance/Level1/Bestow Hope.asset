@@ -15,4 +15,6 @@ MonoBehaviour:
   school: 4
   level: 1
   mana: 0500000004000000
+  targetType: 01000000
+  targetFliter: 00000000
   effect: {fileID: 0}

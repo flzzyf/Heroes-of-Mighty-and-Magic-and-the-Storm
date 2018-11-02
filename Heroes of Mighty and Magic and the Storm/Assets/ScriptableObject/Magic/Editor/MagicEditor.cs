@@ -33,10 +33,21 @@ public class MagicEditor : Editor
             LocalizationWindow.ShowWindow(main.name + "_Info");
         }
 
+        //魔法效果文本
+        EditorGUILayout.LabelField("效果", LocalizationMgr.instance.GetText(main.name + "_Effect"));
+        if (GUILayout.Button("编辑"))
+        {
+            LocalizationWindow.ShowWindow(main.name + "_Effect");
+        }
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("school"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("level"));
         EditorUtil.ShowList(serializedObject.FindProperty("mana"));
+        EditorUtil.ShowList(serializedObject.FindProperty("targetType"));
+        //if(main.targetType[0] == MagicTargetType.Unit)
+        EditorUtil.ShowList(serializedObject.FindProperty("targetFliter"));
+
         EditorGUILayout.PropertyField(serializedObject.FindProperty("effect"));
 
         serializedObject.ApplyModifiedProperties();
