@@ -12,6 +12,7 @@ public class LocalizationWindow : EditorWindow
     public static void ShowWindow()
     {
         ShowWindow("");
+        theName = "";
     }
 
     public static void ShowWindow(string _key)

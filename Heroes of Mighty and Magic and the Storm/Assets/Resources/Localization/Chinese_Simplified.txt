@@ -100,3 +100,7 @@ Magic_Combat=战斗魔法
 Magic_Water=水系魔法
 Magic Missiles_Effect=造成10点伤害。
 Magic Missiles_Info=发射一枚魔法飞弹
+Magic_Fire=火系魔法
+Magic_Air=气系魔法
+Magic_Earth=土系魔法
+Magic_All=所有魔法

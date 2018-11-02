@@ -90,7 +90,6 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
     void SaveText()
     {
-        Debug.Log("保存文本");
 
         string s = "";
         foreach (var item in textDic)
@@ -100,6 +99,9 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
             s += item.Value.ToString();
             s += "\n";
         }
+
+        Debug.Log(s);
+
 
         File.WriteAllText("Assets/Resources/Localization/" + language.ToString() + ".txt", s);
     }
