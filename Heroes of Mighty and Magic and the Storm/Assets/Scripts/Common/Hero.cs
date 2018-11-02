@@ -17,6 +17,8 @@ public class Hero : NodeObject
     //[HideInInspector]
     public Magic[] magics;
 
+    public List<Skill> skills = new List<Skill>();
+
     public void Init()
     {
         movementRate = returnMovementRate;
