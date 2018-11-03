@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Magic_Fire
   m_EditorClassIdentifier: 
   level: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fc24e5b16effe3748a577cc2f4b953dc, type: 3}
   amounts:
   - 0
   - 0

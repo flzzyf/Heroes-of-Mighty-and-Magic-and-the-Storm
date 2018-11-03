@@ -22,10 +22,19 @@ public class MagicManager : Singleton<MagicManager>
         int magicLevel = SkillManager.LevelOfSkill(_hero, SchoolToSkill(school));
 
         print(SchoolToSkill(school));
+        print(magicLevel);
+
+        //魔法消耗
+        int manaLevel = Mathf.Min(_magic.mana.Length - 1, magicLevel);
+        int mana = _magic.mana[manaLevel];
+
+        //效果
+
 
         //目标类型：无目标直接释放
         //有目标，则选择目标
-        if (_magic.targetType[magicLevel] == MagicTargetType.Null)
+        int targetType = Mathf.Min(_magic.targetType.Length - 1, magicLevel);
+        if (_magic.targetType[targetType] == MagicTargetType.Null)
         {
 
         }

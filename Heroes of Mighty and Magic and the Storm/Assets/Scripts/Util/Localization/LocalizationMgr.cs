@@ -118,7 +118,7 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
         if (textDic.ContainsKey(_key))
             return System.Text.RegularExpressions.Regex.Unescape(textDic[_key]);
 
-        Debug.LogWarning(_key + "键缺失！");
+        //Debug.LogWarning(_key + "键缺失！");
         return _key.ToString();
     }
 

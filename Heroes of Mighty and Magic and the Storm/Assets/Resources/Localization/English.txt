@@ -42,3 +42,4 @@ Kel_Upgrade=Kel
 Malthael_Upgrade=Malthael
 Malthael=Angel of Death
 Teleporting=Teleporting
+Magic_Earth_Info=Allows your hero to cast earth spells at reduced cost.

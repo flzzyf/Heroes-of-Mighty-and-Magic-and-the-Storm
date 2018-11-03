@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Magic_Earth
   m_EditorClassIdentifier: 
   level: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9812ad06b509edf4281799cab1ca10e0, type: 3}
   amounts:
   - 0
   - 0

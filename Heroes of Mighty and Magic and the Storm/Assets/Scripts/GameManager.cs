@@ -72,7 +72,7 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);
+            SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
             MagicManager.instance.CastMagic(testHeroes[0], testHeroes[0].magics[1]);
 
         }

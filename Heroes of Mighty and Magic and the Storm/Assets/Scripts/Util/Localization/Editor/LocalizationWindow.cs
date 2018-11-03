@@ -19,6 +19,9 @@ public class LocalizationWindow : EditorWindow
     {
         key = _key;
 
+        if(LocalizationMgr.instance.ContainKey(key))
+            theName = LocalizationMgr.instance.GetText(key);
+
         Rect rect = new Rect((Screen.currentResolution.width - w) / 2, 
                              (Screen.currentResolution.height - h) / 2, w, h);
 
