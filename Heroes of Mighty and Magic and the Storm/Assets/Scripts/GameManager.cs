@@ -72,8 +72,14 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            MagicBookMgr.instance.ShowMagics(MagicSchool.Earth, MagicType.All);
+            SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);
+            MagicManager.instance.CastMagic(testHeroes[0], testHeroes[0].magics[1]);
 
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);
+            print(SkillManager.HasSkill(testHeroes[0], "Magic_Fire", 3));
         }
     }
 
