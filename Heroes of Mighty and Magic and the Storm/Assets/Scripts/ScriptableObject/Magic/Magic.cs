@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum MagicSchool { All, Earth, Fire, Air, Water }
+public enum MagicType { Battle, Travel, All }
 public enum MagicTargetType { Null, Unit, Node }
 public enum MagicTargetFliter { All, Ally, Enemy }
 
@@ -11,6 +12,7 @@ public class Magic : ScriptableObject
 {
     public Sprite icon;
     public MagicSchool school;
+    public MagicType type;
     public int level = 1;
     public int[] mana = new int[1];
 

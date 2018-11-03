@@ -13,6 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: a61813a8f3911bd40a184673fe3d9fe5, type: 3}
   school: 1
+  type: 1
   level: 4
   mana: 100000000c000000
+  targetType: 00000000
+  targetFliter: 00000000
   effect: {fileID: 0}

@@ -42,6 +42,7 @@ public class MagicEditor : Editor
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("icon"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("school"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("type"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("level"));
         EditorUtil.ShowList(serializedObject.FindProperty("mana"));
         EditorUtil.ShowList(serializedObject.FindProperty("targetType"));

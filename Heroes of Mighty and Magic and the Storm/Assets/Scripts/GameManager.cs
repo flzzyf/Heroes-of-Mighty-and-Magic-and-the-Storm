@@ -58,17 +58,21 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            BattleResultMgr.instance.ShowResultUI(0);
+            MagicBookMgr.instance.SetMagics(testHeroes[0]);
+            MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.Battle);
+            //BattleResultMgr.instance.ShowResultUI(0);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            MagicBookMgr.instance.Show();
+            MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.All, 1);
+
+            //MagicBookMgr.instance.Show();
             //BattleResultMgr.instance.ShowResultUI(1);
             //Resources.LoadAll<Sprite>("Textures");
         }
         if (Input.GetKeyDown(KeyCode.N))
         {
-            MagicBookMgr.instance.SetMagics(testHeroes[0], 1);
+            MagicBookMgr.instance.ShowMagics(MagicSchool.Earth, MagicType.All);
 
         }
     }
