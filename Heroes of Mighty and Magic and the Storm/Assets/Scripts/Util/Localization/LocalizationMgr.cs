@@ -65,32 +65,50 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
         }
     }
 
+    //新增/修改词条，新增时同时修改所有语言
     public void SetText(string _key, string _value)
     {
-        //如果还没初始化，初始化
-        if (textDic == null)
+        Language currentLang = language;
+        for (int i = 0; i < System.Enum.GetValues(typeof(Language)).Length; i++)
         {
-            LoadLanguage(language);
+            Language lang = (Language)i;
+            LoadLanguage(lang);
+            if (lang == currentLang)
+            {
+                if (textDic.ContainsKey(_key))
+                {
+                    Debug.Log("设置文本，Key: " + _key + ", Value: " + _value);
+
+                    textDic[_key] = _value;
+                    SaveText();
+                }
+            }
+            if (!textDic.ContainsKey(_key))
+            {
+                if (lang == currentLang)
+                {
+                    Debug.Log("加入文本，Key: " + _key + ", Value: " + _value);
+
+                    textDic.Add(_key, _value);
+                    AppendText(_key, _value);
+                }
+                else
+                {
+                    Debug.Log("加入文本，Key: " + _key + ", Value: " + _key);
+
+                    textDic.Add(_key, _key);
+                    AppendText(_key, _key);
+                }
+
+                //SaveText();
+            }
         }
 
-        if (textDic.ContainsKey(_key))
-        {
-            Debug.Log("设置文本，Key: " + _key + ", Value: " + _value);
-
-            textDic[_key] = _value;
-        }
-        else
-        {
-            Debug.Log("加入文本，Key: " + _key + ", Value: " + _value);
-
-            textDic.Add(_key, _value);
-        }
-        SaveText();
+        LoadLanguage(currentLang);
     }
 
     void SaveText()
     {
-
         string s = "";
         foreach (var item in textDic)
         {
@@ -102,8 +120,34 @@ public class LocalizationMgr : Singleton<LocalizationMgr>
 
         Debug.Log(s);
 
-
         File.WriteAllText("Assets/Resources/Localization/" + language.ToString() + ".txt", s);
+        LoadLanguage(language);
+    }
+
+    void AppendText(string _key, string _text)
+    {
+        string s = _key + "=" + _text + "\n";
+
+        File.AppendAllText("Assets/Resources/Localization/" + language.ToString() + ".txt", s);
+    }
+
+    //删除词条，同时删除其他所有语言中的
+    public void DeleteKey(string _key)
+    {
+        Language currentLang = language;
+        for (int i = 0; i < System.Enum.GetValues(typeof(Language)).Length; i++)
+        {
+            Language lang = (Language)i;
+            if (lang != language)
+                LoadLanguage(lang);
+            if (textDic.ContainsKey(_key))
+            {
+                textDic.Remove(_key);
+                SaveText();
+            }
+        }
+
+        LoadLanguage(currentLang);
     }
 
     //从字典读取相应文本

@@ -49,10 +49,14 @@ public class LocalizationWindow : EditorWindow
         GUILayout.Space(30);
 
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("修改"))
+        if (GUILayout.Button("新增/修改"))
         {
             LocalizationMgr.instance.SetText(key, theName);
             this.Close();
+        }
+        if (GUILayout.Button("删除"))
+        {
+            LocalizationMgr.instance.DeleteKey(key);
         }
         if (GUILayout.Button("关闭"))
         {

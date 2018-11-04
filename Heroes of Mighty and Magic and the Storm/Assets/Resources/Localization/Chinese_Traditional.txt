@@ -38,3 +38,5 @@ battleInfo_lifeDrain={0}从{1}吸收了{2}点生命
 battleInfo_lifeDrain_resurrection=，并有{0}个复活了
 battleInfo_regeneration={0}的伤口愈合了，并恢复所有生命值
 Crusader_Upgrade=喬漢娜
+Speed Boost=Speed Boost
+Speed Boost_Info=Speed Boost_Info
