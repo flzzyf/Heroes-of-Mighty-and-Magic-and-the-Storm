@@ -41,6 +41,23 @@ public class RoundManager : Singleton<RoundManager>
         //启用暂停按钮
         BattleManager.instance.button_wait.interactable = true;
 
+        //所有单位行为计数-1
+        foreach (Unit item in BattleManager.instance.allUnits)
+        {
+            for (int i = 0; i < item.behaviors.Count; i++)
+            {
+                Behavior behavior = item.behaviors[i];
+                if (behavior.duration > 1)
+                {
+                    behavior.duration--;
+                }
+                else if (behavior.duration == 1)
+                {
+                    BehaviorMgr.RemoveBehavior(item, behavior);
+                }
+            }
+        }
+
         RoundStart();
     }
 
@@ -68,19 +85,7 @@ public class RoundManager : Singleton<RoundManager>
 
         BattleManager.currentActionUnit = unit;
 
-        for (int i = 0; i < BattleManager.currentActionUnit.behaviors.Count; i++)
-        {
-            Behavior behavior = BattleManager.currentActionUnit.behaviors[i];
-            if (behavior.duration > 1)
-            {
-                behavior.duration--;
-            }
-            else if (behavior.duration == 1)
-            {
-                BehaviorMgr.instance.RemoveBehavior(BattleManager.currentActionUnit, behavior);
-            }
-        }
-
+       
         UnitActionMgr.instance.ActionStart(unit);
     }
 

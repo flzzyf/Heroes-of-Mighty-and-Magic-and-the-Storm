@@ -62,6 +62,20 @@ public class BattleManager : Singleton<BattleManager>
     public float unitSpeedMultipler = 0.5f;
     public float flyingSpeedmultipler = 3f;
 
+    public List<Unit> allUnits
+    {
+        get
+        {
+            List<Unit> unitList = new List<Unit>(units[0]);
+            foreach (Unit item in units[1])
+            {
+                unitList.Add(item);
+            }
+
+            return unitList;
+        }
+    }
+
     public void Init()
     {
         if (map.nodeItems == null)

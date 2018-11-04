@@ -29,7 +29,6 @@ public class Unit : NodeObject, MovableNode
     [HideInInspector]
     public int originalNum;
 
-    [HideInInspector]
     public List<Behavior> behaviors = new List<Behavior>();
 
     public void Init()

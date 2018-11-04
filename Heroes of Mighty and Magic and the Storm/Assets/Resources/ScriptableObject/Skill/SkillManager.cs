@@ -49,7 +49,7 @@ public class SkillManager
             if (item.name == _name)
                 return item;
         }
-
+        Debug.LogWarning("未能找到：" + _name);
         return null;
     }
 }
