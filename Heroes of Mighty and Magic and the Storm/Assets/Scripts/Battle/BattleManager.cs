@@ -95,12 +95,12 @@ public class BattleManager : Singleton<BattleManager>
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (GameManager.playerControl && players[currentActionUnit.player] == GameManager.player)
+            if (GameManager.gameState == GameState.playerControl && players[currentActionUnit.player] == GameManager.player)
                 Wait();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (GameManager.playerControl && players[currentActionUnit.player] == GameManager.player)
+            if (GameManager.gameState == GameState.playerControl && players[currentActionUnit.player] == GameManager.player)
                 Defend();
         }
     }

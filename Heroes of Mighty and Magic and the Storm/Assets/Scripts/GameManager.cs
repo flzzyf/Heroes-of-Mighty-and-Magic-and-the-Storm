@@ -4,10 +4,11 @@ using UnityEngine;
 
 public enum GameScene { Travel, Battle }
 
+public enum GameState { playerControl, canNotControl, paused }
+
 public class GameManager : Singleton<GameManager>
 {
-    public bool gamePaused;
-    public static bool playerControl;
+    public static GameState gameState;
 
     public AudioSource audioSource;
     public float randomPitch = 0.3f;

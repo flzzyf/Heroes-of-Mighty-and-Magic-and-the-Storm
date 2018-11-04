@@ -32,28 +32,25 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         while (order == null)
             yield return null;
 
-        GameManager.playerControl = false;
-
         //发出指令后，开始执行命令
         UnitHaloMgr.instance.HaloFlashStop(_unit);
 
         ResetNodes();
         InvokeOrder();
 
-        GameManager.instance.gamePaused = true;
+        GameManager.gameState = GameState.canNotControl;
         //在指令完成前暂停
         while (order != null)
             yield return null;
 
         //命令执行完毕
-        GameManager.instance.gamePaused = false;
 
         ActionEnd();
     }
 
     public void PlayerActionStart(Unit _unit)
     {
-        GameManager.playerControl = true;
+        GameManager.gameState = GameState.playerControl;
 
         //将可交互节点标出
         int speed = _unit.GetComponent<Unit>().type.speed;
@@ -195,7 +192,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     void StartMoving()
     {
-        GameManager.instance.gamePaused = true;
+        //GameManager.instance.gamePaused = true;
 
         //播放移动动画和音效
         UnitAnimMgr.instance.PlayAnimation(BattleManager.currentActionUnit, Anim.Walk);
@@ -225,7 +222,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     void StopMoving()
     {
-        GameManager.instance.gamePaused = false;
+        //GameManager.instance.gamePaused = false;
 
         UnitAnimMgr.instance.PlayAnimation(BattleManager.currentActionUnit, Anim.Walk, false);
     }

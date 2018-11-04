@@ -19,9 +19,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
     {
         playerHovered = _node;
 
-        if (!GameManager.playerControl)
-            return;
-
         //如果是单位
         if (_node.nodeObject != null &&
             _node.nodeObject.nodeObjectType == NodeObjectType.unit)
@@ -140,10 +137,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             return;
         }
 
-
-        if (!GameManager.playerControl)
-            return;
-
         if (BattleManager.currentActionUnit.player != GameManager.player)
             return;
 
@@ -211,9 +204,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnNodePressed(NodeItem_Battle _node)
     {
-        if (!GameManager.playerControl)
-            return;
-
         //点击在按UI钮上
         if (EventSystem.current.IsPointerOverGameObject())
         {

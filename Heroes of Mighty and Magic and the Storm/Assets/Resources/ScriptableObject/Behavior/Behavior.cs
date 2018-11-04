@@ -13,6 +13,9 @@ public class Behavior : ScriptableObject
     [HideInInspector]
     public Unit origin;
 
+    //行为叠加次数, 0为可无限叠加
+    public int stackCount;
+
     public void Init(Unit _origin)
     {
         origin = _origin;

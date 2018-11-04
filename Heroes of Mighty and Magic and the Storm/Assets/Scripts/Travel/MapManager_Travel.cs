@@ -129,7 +129,7 @@ public class MapManager_Travel : MapManager
     //按照路径移动物体
     void MoveObjectAlongPath(GameObject _go, List<NodeItem> _path)
     {
-        GameManager.instance.gamePaused = true;
+        GameManager.gameState = GameState.canNotControl;
 
         NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
         NodeMovingMgr.instance.Event_ReachNode += ReachNode;
@@ -182,7 +182,7 @@ public class MapManager_Travel : MapManager
 
     void StopMoving()
     {
-        GameManager.instance.gamePaused = false;
+        //GameManager.instance.gamePaused = false;
     }
     #endregion
 

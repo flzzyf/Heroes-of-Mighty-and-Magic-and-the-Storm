@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum BattleNodeType { empty, reachable, attackable, spellable }
 
@@ -76,6 +77,14 @@ public class NodeItem_Battle : NodeItem
 
     void OnMouseOver()
     {
+        //如果是游戏暂停状态则无视点击
+        if (GameManager.gameState == GameState.paused)
+            return;
+
+        //鼠标在UI上则无效
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         BattleManager.instance.map.OnMouseMoved(this);
     }
 }

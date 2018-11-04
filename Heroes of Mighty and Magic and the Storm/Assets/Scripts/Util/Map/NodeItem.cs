@@ -17,8 +17,8 @@ public class NodeItem : MonoBehaviour
 
     void OnMouseDown()
     {
-        //如果是游戏暂停状态则无视点击
-        if (GameManager.instance.gamePaused)
+        //非玩家控制状态，则无视点击
+        if (GameManager.gameState != GameState.playerControl)
             return;
 
         //鼠标在UI上则无效
@@ -31,7 +31,7 @@ public class NodeItem : MonoBehaviour
     public virtual void OnMouseEnter()
     {
         //如果是游戏暂停状态则无视点击
-        if (GameManager.instance.gamePaused)
+        if (GameManager.gameState == GameState.paused)
             return;
 
         //鼠标在UI上则无效
