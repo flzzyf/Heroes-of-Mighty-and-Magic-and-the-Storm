@@ -60,8 +60,8 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.V))
         {
             SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
-            MagicBookMgr.instance.SetMagics(testHeroes[0]);
-            MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.Battle);
+            //MagicBookMgr.instance.SetMagics(testHeroes[0]);
+            //MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.Battle);
             //BattleResultMgr.instance.ShowResultUI(0);
         }
         if (Input.GetKeyDown(KeyCode.B))

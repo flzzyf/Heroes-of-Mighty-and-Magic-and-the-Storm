@@ -12,12 +12,16 @@ public class Hero : NodeObject
     [HideInInspector]
     public int movementRate;
     //根据最慢单位的速度决定英雄移动力，1到11+
-    int[] movementRateMapping = { 1360, 1430, 1500, 1560, 1630, 1700, 1760, 1830, 1900, 1960, 2000 };
+    static int[] movementRateMapping = { 1360, 1430, 1500, 1560, 1630, 1700, 1760, 1830, 1900, 1960, 2000 };
 
     //[HideInInspector]
     public Magic[] magics;
 
     public List<Skill> skills = new List<Skill>();
+
+    //攻击力、防御力、法力、知识
+    public int att, def, power, knowledge;
+    public int mana_max, mana;
 
     public void Init()
     {

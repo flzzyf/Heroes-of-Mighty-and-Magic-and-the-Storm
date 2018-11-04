@@ -89,18 +89,19 @@ public class BattleManager : Singleton<BattleManager>
         heroUnits = new GameObject[2];
 
         UnitInfoPanelMgr.instance.HidePanel();
+
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (GameManager.gameState == GameState.playerControl && players[currentActionUnit.player] == GameManager.player)
+            if (GameManager.gameState == GameState.playerControl && players[currentActionUnit.side] == GameManager.player)
                 Wait();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (GameManager.gameState == GameState.playerControl && players[currentActionUnit.player] == GameManager.player)
+            if (GameManager.gameState == GameState.playerControl && players[currentActionUnit.side] == GameManager.player)
                 Defend();
         }
     }
@@ -162,6 +163,12 @@ public class BattleManager : Singleton<BattleManager>
         //战斗开始效果触发
         CreateHeroUnits(_attacker, 0);
         CreateHeroUnits(_defender, 1);
+
+        //设置魔法书
+        if (!PlayerManager.instance.players[_attacker.player].isAI)
+            MagicBookMgr.instance.SetMagics(_attacker);
+        else
+            MagicBookMgr.instance.SetMagics(_defender);
 
         RoundManager.instance.RoundStart();
     }
@@ -249,7 +256,7 @@ public class BattleManager : Singleton<BattleManager>
 
         units[_side].Add(unit);
 
-        unit.player = _side;
+        unit.side = _side;
 
         return unit;
     }
@@ -304,7 +311,7 @@ public class BattleManager : Singleton<BattleManager>
 
     public bool isSamePlayer(Unit _u1, Unit _u2)
     {
-        return _u1.player == _u2.player;
+        return _u1.side == _u2.side;
     }
 
     public GameObject UI_UnitStat;

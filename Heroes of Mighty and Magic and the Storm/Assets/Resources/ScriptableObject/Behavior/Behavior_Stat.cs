@@ -10,7 +10,7 @@ public class Behavior_Stat : Behavior
     public Stat stat;
     public int amount;
     public float multiplier;
-    int totalAmount;
+    int totalAmount = 0;
 
     public override void Add()
     {
@@ -19,21 +19,24 @@ public class Behavior_Stat : Behavior
         if (multiplier != 0)
             totalAmount += (int)(origin.def * multiplier);
 
-        switch (stat)
-        {
-            case Stat.att:
-                origin.att += totalAmount;
-                break;
-
-            case Stat.def:
-                origin.def += totalAmount;
-                break;
-        }
+        if (totalAmount != 0)
+            Modify();
     }
 
     public override void Remove()
     {
         if (totalAmount != 0)
-            origin.def -= totalAmount;
+            Modify(-1);
+    }
+
+    //修改属性值
+    void Modify(int sign = 1)
+    {
+        if (stat == Stat.att)
+            origin.att += totalAmount * sign;
+        else if (stat == Stat.def)
+            origin.def += totalAmount * sign;
+        else if (stat == Stat.speed)
+            origin.speed += totalAmount * sign;
     }
 }

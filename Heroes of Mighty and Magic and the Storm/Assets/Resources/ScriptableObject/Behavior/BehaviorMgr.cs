@@ -6,10 +6,11 @@ public class BehaviorMgr
 {
     public static void AddBehavior(Unit _unit, Behavior _behavior)
     {
-        _unit.behaviors.Add(_behavior);
+        Behavior behavior = ScriptableObject.Instantiate(_behavior);
+        _unit.behaviors.Add(behavior);
 
-        _behavior.Init(_unit);
-        _behavior.Add();
+        behavior.Init(_unit);
+        behavior.Add();
     }
 
     public static void RemoveBehavior(Unit _unit, Behavior _behavior)

@@ -152,6 +152,8 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
 
     public void CastMagic(int _index)
     {
+        Hide();
+
         MagicManager.instance.CastMagic(currentHero, items[_index].magic);
     }
 

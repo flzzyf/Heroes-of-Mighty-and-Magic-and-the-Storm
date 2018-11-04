@@ -6,7 +6,7 @@ public class AIActionMgr : Singleton<AIActionMgr>
 {
     public void AIActionStart(Unit _unit)
     {
-        int enemyHero = (_unit.player + 1) % 2;
+        int enemyHero = (_unit.side + 1) % 2;
         bool isRangeAttack = UnitActionMgr.IsRangeAttack(_unit);
         List<Unit> enemyList = BattleManager.instance.units[enemyHero];
 

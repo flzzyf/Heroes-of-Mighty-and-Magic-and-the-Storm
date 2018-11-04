@@ -19,7 +19,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     {
         UnitHaloMgr.instance.HaloFlashStart(_unit, "action");
 
-        if (!PlayerManager.instance.players[_unit.player].isAI)
+        if (!PlayerManager.instance.players[_unit.side].isAI)
         {
             PlayerActionStart(_unit);
         }
@@ -53,7 +53,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         GameManager.gameState = GameState.playerControl;
 
         //将可交互节点标出
-        int speed = _unit.GetComponent<Unit>().type.speed;
+        int speed = _unit.GetComponent<Unit>().speed;
         NodeItem nodeItem = _unit.GetComponent<Unit>().nodeItem;
         reachableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed, false);
 
@@ -85,7 +85,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         else
         {
             //远程攻击，直接选中所有敌人
-            int enemyHero = (_unit.player + 1) % 2;
+            int enemyHero = (_unit.side + 1) % 2;
             attackableNodes = new List<NodeItem>();
             for (int i = 0; i < BattleManager.instance.units[enemyHero].Count; i++)
             {

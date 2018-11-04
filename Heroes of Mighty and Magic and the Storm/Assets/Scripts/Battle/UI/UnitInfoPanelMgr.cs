@@ -30,7 +30,11 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         text_damage.text = _unit.damage.x + "-" + _unit.damage.y;
         text_hpMax.text = _unit.type.hp + "";
         text_hp.text = _unit.currentHP + "";
-        text_speed.text = _unit.speed + "";
+        if (_unit.speed == _unit.type.speed)
+            text_speed.text = _unit.type.speed + "";
+        else
+            text_speed.text = _unit.type.speed + "(" + _unit.speed + ")";
+
         text_num.text = _unit.num + "";
 
         image_raceBG.sprite = _unit.type.race.sprite_bg;

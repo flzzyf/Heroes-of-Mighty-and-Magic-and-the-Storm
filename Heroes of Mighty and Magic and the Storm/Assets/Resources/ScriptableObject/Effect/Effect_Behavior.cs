@@ -13,9 +13,9 @@ public class Effect_Behavior : Effect
     public override void Invoke()
     {
         if (addOrRemove == AddOrRemove.Add)
-        {
             BehaviorMgr.AddBehavior(targetUnit, behavior);
-        }
+        else
+            BehaviorMgr.RemoveBehavior(targetUnit, behavior);
     }
 }
 

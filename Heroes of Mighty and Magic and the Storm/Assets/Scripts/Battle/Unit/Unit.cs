@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Unit : NodeObject, MovableNode
 {
     [HideInInspector]
-    public int player;
+    public int side;
 
     public UnitType type;
 
@@ -111,9 +111,9 @@ public class Unit : NodeObject, MovableNode
 
     public bool RestoreFacing()
     {
-        bool playerFacingRight = player == 0 ? true : false;
+        bool sideFacingRight = side == 0 ? true : false;
 
-        if (playerFacingRight != facingRight)
+        if (sideFacingRight != facingRight)
         {
             StartCoroutine(FlipWithAnimation());
             return true;
@@ -165,7 +165,6 @@ public class Unit : NodeObject, MovableNode
 
     public void ChangeNum(int _amount)
     {
-        int side = player == BattleManager.players[0] ? 0 : 1;
         BattleResultMgr.instance.ChangeCasualties(side, type, _amount);
 
         SetNum(num + _amount);
@@ -270,7 +269,7 @@ public class Unit : NodeObject, MovableNode
 
         dead = true;
 
-        BattleManager.instance.units[player].Remove(this);
+        BattleManager.instance.units[side].Remove(this);
 
         BattleManager.Instance().UnlinkNodeWithUnit(this);
 

@@ -137,7 +137,8 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             return;
         }
 
-        if (BattleManager.currentActionUnit.player != GameManager.player)
+        //可能有问题
+        if (BattleManager.players[BattleManager.currentActionUnit.side] != GameManager.player)
             return;
 
         //不响应鼠标小范围移动

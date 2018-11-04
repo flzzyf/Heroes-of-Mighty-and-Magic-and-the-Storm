@@ -48,8 +48,8 @@ public class MagicEditor : Editor
         EditorUtil.ShowList(serializedObject.FindProperty("targetType"));
         //if(main.targetType[0] == MagicTargetType.Unit)
         EditorUtil.ShowList(serializedObject.FindProperty("targetFliter"));
+        EditorUtil.ShowList(serializedObject.FindProperty("effects"));
 
-        EditorGUILayout.PropertyField(serializedObject.FindProperty("effect"));
 
         serializedObject.ApplyModifiedProperties();
     }

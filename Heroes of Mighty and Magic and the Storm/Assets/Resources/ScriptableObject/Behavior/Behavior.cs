@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Behavior : ScriptableObject
 {
-    public int duration = -1;
+    //魔法持续时间，-1为无限，0为取决于英雄法力
+    public int duration = 0;
     public Sprite icon;
 
     public bool hideInUI = false;

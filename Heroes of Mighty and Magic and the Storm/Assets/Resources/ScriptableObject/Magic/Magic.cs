@@ -20,7 +20,7 @@ public class Magic : ScriptableObject
     public MagicTargetType[] targetType = new MagicTargetType[1];
     public MagicTargetFliter[] targetFliter = new MagicTargetFliter[1];
 
-    public Effect effect;
+    public Effect[] effects;
 
     public string magicName { get { return LocalizationMgr.instance.GetText(base.name); } }
     public string magicInfo { get { return LocalizationMgr.instance.GetText(base.name + "_Info"); } }

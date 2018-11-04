@@ -6,8 +6,12 @@ public enum EffectTarget { origin, target }
 
 public class Effect : ScriptableObject
 {
-    protected Unit originUnit, targetUnit;
-    protected NodeItem targetNode;
+    [HideInInspector]
+    public Unit originUnit, targetUnit;
+    [HideInInspector]
+    public NodeItem targetNode;
+    [HideInInspector]
+    public int originPlayer;
 
     public EffectTarget target = EffectTarget.target;
 
@@ -17,12 +21,15 @@ public class Effect : ScriptableObject
         targetUnit = _parent.targetUnit;
         targetNode = _parent.targetNode;
     }
-
     public virtual void Init(Unit _originUnit, Unit _targetUnit, NodeItem _targetNode)
     {
         originUnit = _originUnit;
         targetUnit = _targetUnit;
         targetNode = _targetNode;
+    }
+    public virtual void Init(Unit _originUnit)
+    {
+        originUnit = _originUnit;
     }
 
     public virtual void Invoke() { }
