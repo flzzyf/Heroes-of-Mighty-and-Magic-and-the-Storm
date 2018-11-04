@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     public Hero[] testHeroes;
 
-    public static int player;
+    public static int player = 2;
 
     public Item item;
 
