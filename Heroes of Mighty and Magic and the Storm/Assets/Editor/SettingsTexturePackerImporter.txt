@@ -1,6 +1,7 @@
 version: 2
 importPivots: 1
 tpsheetFileNames:
+- Assets/Resources/Textures/UI/Victory.tpsheet
 - Assets/Resources/Textures/Units/Amazon/Amazon_Attack.tpsheet
 - Assets/Resources/Textures/Units/Amazon/Amazon_Flip.tpsheet
 - Assets/Resources/Textures/Units/Amazon/Amazon_Hit.tpsheet
@@ -40,6 +41,7 @@ tpsheetFileNames:
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.tpsheet
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.tpsheet
 textureFileNames:
+- Assets/Resources/Textures/UI/Victory.png
 - Assets/Resources/Textures/Units/Amazon/Amazon_Attack.png
 - Assets/Resources/Textures/Units/Amazon/Amazon_Flip.png
 - Assets/Resources/Textures/Units/Amazon/Amazon_Hit.png
@@ -79,6 +81,7 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.png
 normalmapFileNames:
+- 
 - 
 - 
 - 
