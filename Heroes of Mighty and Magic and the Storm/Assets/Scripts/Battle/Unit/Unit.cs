@@ -287,8 +287,8 @@ public class Unit : NodeObject, MovableNode
     {
         get
         {
-            return !TraitManager.instance.PossessTrait(this, "Flying") &&
-                   !TraitManager.instance.PossessTrait(this, "Teleporting");
+            return !TraitManager.PossessTrait(this, "Flying") &&
+                   !TraitManager.PossessTrait(this, "Teleporting");
         }
     }
 
@@ -301,7 +301,7 @@ public class Unit : NodeObject, MovableNode
     {
         get
         {
-            if (!TraitManager.instance.PossessTrait(this, "Flying"))
+            if (!TraitManager.PossessTrait(this, "Flying"))
                 return BattleManager.instance.unitSpeedOriginal +
                         BattleManager.instance.unitSpeedMultipler * speed;
             else

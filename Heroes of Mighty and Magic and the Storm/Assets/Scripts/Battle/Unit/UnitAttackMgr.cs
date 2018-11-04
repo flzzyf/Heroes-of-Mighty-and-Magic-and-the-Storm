@@ -49,7 +49,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         if (!_rangeAttack &&
             !_target.dead &&
             _target.retaliations > 0 &&
-            !TraitManager.instance.PossessTrait(_origin, "No enemy retaliation"))
+            !TraitManager.PossessTrait(_origin, "No enemy retaliation"))
         {
             _target.retaliations--;
 
@@ -60,7 +60,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         //攻击两次：都没死
         if (!_origin.dead && !_target.dead &&
-            TraitManager.instance.PossessTrait(_origin, "Double attack"))
+            TraitManager.PossessTrait(_origin, "Double attack"))
         {
             if (!_rangeAttack)
             {
@@ -118,7 +118,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         //吸血效果，生命值不满或者死了人
         if ((_origin.currentHP < _origin.type.hp ||
             _origin.num < _origin.originalNum) &&
-            TraitManager.instance.PossessTrait(_origin, "Life drain"))
+            TraitManager.PossessTrait(_origin, "Life drain"))
         {
             int resurrectNum = _origin.ModifyHp(damage, true);
 
@@ -126,7 +126,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             BattleInfoMgr.instance.AddText_LifeDrain(_origin, _target, damage, resurrectNum);
 
             //创建吸血效果，播放音效
-            Trait_Effect trait = (Trait_Effect)TraitManager.instance.GetTrait("Life drain");
+            Trait_Effect trait = (Trait_Effect)TraitManager.GetTrait("Life drain");
             GameManager.instance.PlaySound(trait.sound_trigger);
             GameObject fx = Instantiate(trait.fx_trigger,
                 _origin.transform.position, Quaternion.identity);
@@ -213,7 +213,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
         //远程攻击，没有近战伤害不减的特质，超过10格伤害减半
         if (_isRangeAttack &&
-        !TraitManager.instance.PossessTrait(_origin, "No melee penalty") &&
+        !TraitManager.PossessTrait(_origin, "No melee penalty") &&
         AStarManager.GetNodeItemDistance(_origin.nodeItem, _target.nodeItem, true)
             > BattleManager.instance.rangeAttackRange)
         {

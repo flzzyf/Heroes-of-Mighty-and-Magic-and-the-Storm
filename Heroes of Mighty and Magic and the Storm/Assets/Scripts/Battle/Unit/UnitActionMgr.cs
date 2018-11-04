@@ -128,7 +128,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
                 NodeMovingMgr.instance.MoveObject(order.origin.gameObject, order.path,
                     order.origin.UnitActualSpeed, MapCoord.xy);
             }
-            else if (TraitManager.instance.PossessTrait(order.origin, "Flying"))
+            else if (TraitManager.PossessTrait(order.origin, "Flying"))
             {
                 NodeMovingMgr.instance.MoveObjectFlying(order.origin.gameObject, order.targetNode,
                     order.origin.UnitActualSpeed, MapCoord.xy);

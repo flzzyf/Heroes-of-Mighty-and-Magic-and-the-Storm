@@ -68,7 +68,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
             if (UnitActionMgr.IsRangeAttack(BattleManager.currentActionUnit))
             {
                 //(有远程伤害不减的特质)，或者距离10以内
-                //TraitManager.instance.PossessTrait(BattleManager.currentActionUnit, "No melee penalty") ||
+                //TraitManager.PossessTrait(BattleManager.currentActionUnit, "No melee penalty") ||
                 if (AStarManager.GetNodeItemDistance(BattleManager.currentActionUnit.nodeItem,
                     _node, true) <= BattleManager.instance.rangeAttackRange)
                     CursorManager.instance.ChangeCursor("arrow");
@@ -229,7 +229,7 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
                 UnitActionMgr.order = new Order(OrderType.move,
                                             BattleManager.currentActionUnit, path);
             }
-            else if (TraitManager.instance.PossessTrait(BattleManager.currentActionUnit, "Flying"))
+            else if (TraitManager.PossessTrait(BattleManager.currentActionUnit, "Flying"))
             {
                 UnitActionMgr.order = new Order(OrderType.move,
                                                             BattleManager.currentActionUnit, _node);
