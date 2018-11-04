@@ -16,6 +16,9 @@ MonoBehaviour:
   type: 0
   level: 1
   mana: 0600000005000000
-  targetType: 00000000
-  targetFliter: 00000000
-  effect: {fileID: 0}
+  targetType: 010000000100000000000000
+  targetFliter: 02000000
+  effects:
+  - {fileID: 11400000, guid: fd599964617734f5b9e45a28fc212ab5, type: 2}
+  - {fileID: 11400000, guid: 2ac037e790eae42c18f03bd19af6c458, type: 2}
+  - {fileID: 11400000, guid: f3369084db0214b33bea1a5383d592ef, type: 2}

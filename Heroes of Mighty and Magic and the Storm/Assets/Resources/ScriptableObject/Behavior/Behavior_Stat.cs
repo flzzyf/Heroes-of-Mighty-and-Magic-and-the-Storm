@@ -17,7 +17,12 @@ public class Behavior_Stat : Behavior
         if (amount != 0)
             totalAmount += amount;
         if (multiplier != 0)
-            totalAmount += (int)(origin.def * multiplier);
+            if (stat == Stat.att)
+                totalAmount += (int)(origin.att * multiplier);
+            else if (stat == Stat.def)
+                totalAmount += (int)(origin.def * multiplier);
+            else if (stat == Stat.speed)
+                totalAmount += (int)(origin.speed * multiplier);
 
         if (totalAmount != 0)
             Modify();

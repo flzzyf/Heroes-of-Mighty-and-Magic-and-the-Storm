@@ -37,6 +37,10 @@ public class GameManager : Singleton<GameManager>
 
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 19));
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 14));
+
+        SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
+
     }
 
     void Update()

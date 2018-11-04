@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b2c894ec8844a40acd48291c5381c3, type: 3}
+  m_Name: Oil_3
+  m_EditorClassIdentifier: 
+  originUnit: {fileID: 0}
+  targetUnit: {fileID: 0}
+  targetNode: {fileID: 0}
+  originPlayer: 0
+  target: 1
+  fliter: 2
+  effect: {fileID: 11400000, guid: 2ac037e790eae42c18f03bd19af6c458, type: 2}

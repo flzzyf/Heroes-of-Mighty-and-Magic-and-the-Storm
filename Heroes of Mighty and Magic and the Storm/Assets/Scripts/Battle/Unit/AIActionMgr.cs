@@ -18,7 +18,7 @@ public class AIActionMgr : Singleton<AIActionMgr>
         }
         else
         {
-            int speed = _unit.GetComponent<Unit>().type.speed;
+            int speed = _unit.GetComponent<Unit>().speed;
             List<Unit> targetList = GetEnemiesWithinRange(_unit, speed + 1);
 
             Unit target;
