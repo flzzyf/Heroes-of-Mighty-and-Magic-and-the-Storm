@@ -36,11 +36,10 @@ public class BehaviorMgr
     public static Behavior GetBehavior(string _name)
     {
         Behavior[] behaviors = Resources.LoadAll<Behavior>("ScriptableObject/Behavior/Instance");
-
         foreach (Behavior item in behaviors)
         {
             if (item.name == _name)
-                return (Behavior)ScriptableObject.CreateInstance(item.GetType());
+                return ScriptableObject.Instantiate(item);
         }
         Debug.LogWarning("未能找到：" + _name);
         return null;

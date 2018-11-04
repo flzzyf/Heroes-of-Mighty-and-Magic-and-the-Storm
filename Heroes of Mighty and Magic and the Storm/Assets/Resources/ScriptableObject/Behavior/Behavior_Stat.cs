@@ -25,7 +25,6 @@ public class Behavior_Stat : Behavior
 
     public override void Remove()
     {
-        Debug.Log("移除" + defToRemove);
         if (defToRemove != 0)
             origin.def -= defToRemove;
     }
