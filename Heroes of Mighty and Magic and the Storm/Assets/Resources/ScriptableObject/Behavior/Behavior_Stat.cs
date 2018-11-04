@@ -2,30 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Stat { att, def, speed }
+
 [CreateAssetMenu(menuName = "Behavior/Stat")]
 public class Behavior_Stat : Behavior
 {
-    public int stat_def;
-    public float stat_def_multiplier;
-    int defToRemove;
+    public Stat stat;
+    public int amount;
+    public float multiplier;
+    int totalAmount;
 
     public override void Add()
     {
-        if (stat_def != 0)
+        if (amount != 0)
+            totalAmount += amount;
+        if (multiplier != 0)
+            totalAmount += (int)(origin.def * multiplier);
+
+        switch (stat)
         {
-            defToRemove += stat_def;
-            origin.def += stat_def;
-        }
-        if (stat_def_multiplier != 0)
-        {
-            defToRemove += (int)(origin.def * stat_def_multiplier);
-            origin.def += defToRemove;
+            case Stat.att:
+                origin.att += totalAmount;
+                break;
+
+            case Stat.def:
+                origin.def += totalAmount;
+                break;
         }
     }
 
     public override void Remove()
     {
-        if (defToRemove != 0)
-            origin.def -= defToRemove;
+        if (totalAmount != 0)
+            origin.def -= totalAmount;
     }
 }

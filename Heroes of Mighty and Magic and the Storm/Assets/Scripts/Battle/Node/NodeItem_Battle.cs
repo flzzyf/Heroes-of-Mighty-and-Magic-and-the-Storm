@@ -82,8 +82,8 @@ public class NodeItem_Battle : NodeItem
             return;
 
         //鼠标在UI上则无效
-        if (EventSystem.current.IsPointerOverGameObject())
-            return;
+        // if (EventSystem.current.IsPointerOverGameObject())
+        //     return;
 
         BattleManager.instance.map.OnMouseMoved(this);
     }

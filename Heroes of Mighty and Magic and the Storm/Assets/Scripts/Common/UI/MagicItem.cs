@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class MagicItem : MonoBehaviour
 {
     public Image icon;
-    //public int bookIndex;
+    [HideInInspector]
+    public int bookIndex;
 
     public Text text_name;
     public Text text_level;
@@ -29,5 +30,15 @@ public class MagicItem : MonoBehaviour
     {
         magic = _magic;
         Init();
+    }
+
+    public void OnClick()
+    {
+        MagicBookMgr.instance.CastMagic(bookIndex);
+    }
+
+    public void OnRightMouseDown()
+    {
+        MagicBookMgr.instance.ShowMagicInfo(bookIndex);
     }
 }

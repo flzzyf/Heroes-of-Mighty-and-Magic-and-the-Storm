@@ -32,8 +32,16 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
 
     public Button button_nextPage;
 
+    Hero currentHero;
+
     void Start()
     {
+        //初始化魔法项的ID
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].bookIndex = i;
+        }
+
         dic_school_button = new Dictionary<MagicSchool, Button>();
         dic_school_button.Add(MagicSchool.All, button_all);
         dic_school_button.Add(MagicSchool.Fire, button_fire);
@@ -47,8 +55,8 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
     {
         //根据旅行和战斗模式切换英雄
         //if(GameManager.instance.scene == GameScene.Travel)
-        SetMagics(PlayerManager.instance.players[0].heroes[0]);
-
+        SetMagics(BattleManager.heroes[0]);
+        ShowMagics(MagicSchool.All, MagicType.Battle);
         ui.SetActive(true);
     }
     public void Hide()
@@ -72,6 +80,8 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
     //将英雄的魔法加入列表，整理排序
     public void SetMagics(Hero _hero)
     {
+        currentHero = _hero;
+
         magicList = new List<Magic>();
 
         for (int i = 0; i < 5; i++)
@@ -138,6 +148,11 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
         text_magicInfo_effect.text = items[_index].magic.magicEffect;
 
         image_magicInfo.sprite = items[_index].magic.icon;
+    }
+
+    public void CastMagic(int _index)
+    {
+        MagicManager.instance.CastMagic(currentHero, items[_index].magic);
     }
 
     //点击魔法学派按钮

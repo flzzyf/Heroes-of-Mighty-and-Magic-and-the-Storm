@@ -204,12 +204,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnNodePressed(NodeItem_Battle _node)
     {
-        //点击在按UI钮上
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
-
         //设定指令
         if (_node.battleNodeType == BattleNodeType.reachable)
         {

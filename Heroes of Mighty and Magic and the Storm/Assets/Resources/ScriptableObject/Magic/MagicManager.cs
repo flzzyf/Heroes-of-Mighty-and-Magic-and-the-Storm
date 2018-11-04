@@ -21,6 +21,13 @@ public class MagicManager : Singleton<MagicManager>
         MagicSchool school = _magic.school;
         int magicLevel = SkillManager.LevelOfSkill(_hero, SchoolToSkill(school));
 
+        MagicType type = _magic.type;
+
+        if (type == MagicType.Battle)
+        {
+
+        }
+
         print(SchoolToSkill(school));
         print(magicLevel);
 

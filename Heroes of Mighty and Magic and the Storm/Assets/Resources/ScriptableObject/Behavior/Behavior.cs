@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Behavior/Behavior")]
 public class Behavior : ScriptableObject
 {
     public int duration = -1;
@@ -14,7 +13,7 @@ public class Behavior : ScriptableObject
     public Unit origin;
 
     //行为叠加次数, 0为可无限叠加
-    public int stackCount;
+    public int maxStackCount = 1;
 
     public void Init(Unit _origin)
     {
