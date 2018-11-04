@@ -1,0 +1,279 @@
+fileFormatVersion: 2
+guid: e705a6199f0e54442a54daa91bb8a02f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FrostBolt_Impact
+    21300002: FrostBolt_Impact00
+    21300004: FrostBolt_Impact01
+    21300006: FrostBolt_Impact02
+    21300008: FrostBolt_Impact03
+    21300010: FrostBolt_Impact04
+    21300012: FrostBolt_Impact05
+    21300014: FrostBolt_Impact06
+    21300016: FrostBolt_Impact07
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 170
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FrostBolt_Impact00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 18
+        width: 1
+        height: 1
+      alignment: 9
+      pivot: {x: 558, y: -599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2297826d9e6f9224ba0a836983f2f10c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 21
+        width: 500
+        height: 487
+      alignment: 9
+      pivot: {x: 0.522, y: 0.47227925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4341cd40298c2642a574bff3848957f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact02
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 437
+        width: 728
+        height: 772
+      alignment: 9
+      pivot: {x: 0.53983516, y: 0.4533679}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a24671f945ce6e42ab813d8bd4f5b1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact03
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 510
+        width: 754
+        height: 718
+      alignment: 9
+      pivot: {x: 0.45225465, y: 0.54735374}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee434c09ef8376c42ab45feecfd1e0e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact04
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 1211
+        width: 810
+        height: 836
+      alignment: 9
+      pivot: {x: 0.5074074, y: 0.576555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4860922093e57c14c9a4493b21b484ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact05
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1230
+        width: 870
+        height: 817
+      alignment: 9
+      pivot: {x: 0.57931036, y: 0.63402694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ecbbc9f7b34e4c4882c487dddb1e72b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact06
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 18
+        width: 1
+        height: 1
+      alignment: 9
+      pivot: {x: 558, y: -599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40636ebffed407f458fb5f2741e503f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostBolt_Impact07
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 18
+        width: 1
+        height: 1
+      alignment: 9
+      pivot: {x: 558, y: -599}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a45ba2d01b7c304e91fb75b63dccf43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6c324fb812389e24eb0df4adb3c58aa0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
