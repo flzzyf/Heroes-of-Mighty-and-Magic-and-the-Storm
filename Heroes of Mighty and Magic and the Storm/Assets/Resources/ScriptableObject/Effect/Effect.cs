@@ -15,6 +15,9 @@ public class Effect : ScriptableObject
 
     public EffectTarget target = EffectTarget.target;
 
+    public AnimationClip fx;
+    public AudioClip sound;
+
     public virtual void Init(Effect _parent)
     {
         originUnit = _parent.originUnit;
@@ -32,6 +35,17 @@ public class Effect : ScriptableObject
         originUnit = _originUnit;
     }
 
-    public virtual void Invoke() { }
+    public virtual void Invoke()
+    {
+        if(fx != null)
+        {
+            OneShotFXMgr.instance.Play(fx, targetUnit.transform.position);
+        }
+
+        if(sound != null)
+        {
+            GameManager.instance.PlaySound(sound);
+        }
+    }
 
 }

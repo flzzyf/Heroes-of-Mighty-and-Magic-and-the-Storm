@@ -16,5 +16,7 @@ MonoBehaviour:
   targetNode: {fileID: 0}
   originPlayer: 0
   target: 1
+  fx: {fileID: 7400000, guid: ab806bb2594b3964583a5c7722a04aff, type: 2}
+  sound: {fileID: 8300000, guid: 928b7e6f42538424393da37991c715fc, type: 3}
   behavior: {fileID: 11400000, guid: 8e1f8474ce30448e7a502db62eb291c3, type: 2}
   addOrRemove: 0
