@@ -144,6 +144,8 @@ public class BattleManager : Singleton<BattleManager>
         map.parent.gameObject.SetActive(_enter);
     }
 
+    public static Dictionary<int, int> playerSide;
+
     public void BattleStart(Hero _attacker, Hero _defender)
     {
         EnterBattleMode();
@@ -153,6 +155,10 @@ public class BattleManager : Singleton<BattleManager>
 
         players[0] = _attacker.player;
         players[1] = _defender.player;
+
+        playerSide = new Dictionary<int, int>();
+        playerSide.Add(_attacker.player, 0);
+        playerSide.Add(_defender.player, 1);
 
         unitActionOrder = new LinkedList<Unit>();
         unitActionList = new LinkedList<Unit>();

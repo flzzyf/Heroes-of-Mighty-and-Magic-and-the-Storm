@@ -20,6 +20,7 @@ public class Effect : ScriptableObject
 
     public virtual void Init(Effect _parent)
     {
+        originPlayer = _parent.originPlayer;
         originUnit = _parent.originUnit;
         targetUnit = _parent.targetUnit;
         targetNode = _parent.targetNode;

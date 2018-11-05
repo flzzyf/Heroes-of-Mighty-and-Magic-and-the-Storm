@@ -25,7 +25,8 @@ public class Effect_SearchArea : Effect
 
         foreach (Unit item in targets)
         {
-            effect.Init(originUnit, item, targetNode);
+            effect.Init(this);
+            effect.targetUnit = item;
             effect.Invoke();
         }
     }

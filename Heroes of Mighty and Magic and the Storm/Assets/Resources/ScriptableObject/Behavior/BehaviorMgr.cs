@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class BehaviorMgr
 {
-    public static void AddBehavior(Unit _unit, Behavior _behavior)
+    public static void AddBehavior(int _casterPlayer, Unit _target, Behavior _behavior)
     {
         Behavior behavior = ScriptableObject.Instantiate(_behavior);
-        _unit.behaviors.Add(behavior);
 
-        behavior.Init(_unit);
+        //设定持续时间，0则取决于英雄法力
+        Hero hero = BattleManager.heroes[BattleManager.playerSide[_casterPlayer]];
+        if (behavior.duration == 0)
+            behavior.duration = hero.power;
+
+        _target.behaviors.Add(behavior);
+
+        behavior.Init(_target);
+        behavior.Add();
+    }
+
+    public static void AddBehavior(Unit _target, Behavior _behavior)
+    {
+        Behavior behavior = ScriptableObject.Instantiate(_behavior);
+
+        _target.behaviors.Add(behavior);
+
+        behavior.Init(_target);
         behavior.Add();
     }
 

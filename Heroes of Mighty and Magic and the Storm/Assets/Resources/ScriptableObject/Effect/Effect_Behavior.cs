@@ -15,7 +15,7 @@ public class Effect_Behavior : Effect
         base.Invoke();
 
         if (addOrRemove == AddOrRemove.Add)
-            BehaviorMgr.AddBehavior(targetUnit, behavior);
+            BehaviorMgr.AddBehavior(originPlayer, targetUnit, behavior);
         else
             BehaviorMgr.RemoveBehavior(targetUnit, behavior);
     }
