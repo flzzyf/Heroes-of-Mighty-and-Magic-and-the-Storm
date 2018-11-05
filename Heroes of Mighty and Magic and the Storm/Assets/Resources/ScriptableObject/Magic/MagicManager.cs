@@ -15,8 +15,6 @@ public class MagicManager : Singleton<MagicManager>
     //释放魔法
     public void CastMagic(Hero _hero, Magic _magic)
     {
-        print(_magic);
-
         //判定魔法学派，根据英雄的相应学派等级释放不同效果
         MagicSchool school = _magic.school;
         int magicLevel = SkillManager.LevelOfSkill(_hero, SchoolToSkill(school));
