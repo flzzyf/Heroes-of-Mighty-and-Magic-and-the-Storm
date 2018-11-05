@@ -20,8 +20,11 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
 
         text_name.text = _unit.type.unitName;
 
-        text_att.text = _unit.att + "";
-        text_def.text = _unit.def + "";
+        //增益文本
+        ShowModifiedStat(text_att, _unit.att, _unit.type.att);
+        ShowModifiedStat(text_def, _unit.def, _unit.type.def);
+        ShowModifiedStat(text_speed, _unit.speed, _unit.type.speed);
+        
 
         bool isRangeAttack = _unit.type.attackType == AttackType.range;
         text_ammo.text = isRangeAttack ? _unit.ammo + "" : "";
@@ -30,10 +33,6 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         text_damage.text = _unit.damage.x + "-" + _unit.damage.y;
         text_hpMax.text = _unit.type.hp + "";
         text_hp.text = _unit.currentHP + "";
-        if (_unit.speed == _unit.type.speed)
-            text_speed.text = _unit.type.speed + "";
-        else
-            text_speed.text = _unit.type.speed + "(" + _unit.speed + ")";
 
         text_num.text = _unit.num + "";
 
@@ -89,5 +88,14 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
             if (panel.activeSelf)
                 PlayRandomAnim(_animator);
         }
+    }
+
+    //显示被修改的属性
+    void ShowModifiedStat(Text _text, int _stat, int _originStat)
+    {
+        if (_stat == _originStat)
+            _text.text = _originStat + "";
+        else
+            _text.text = _originStat + "(" + _stat + ")";
     }
 }
