@@ -13,6 +13,8 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
     public Image image_raceBG;
     public Animator animator;
 
+    public Image[] image_behaviors;
+
     //更新并显示UI
     public void UpdatePanel(Unit _unit)
     {
@@ -25,7 +27,6 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         ShowModifiedStat(text_def, _unit.def, _unit.type.def);
         ShowModifiedStat(text_speed, _unit.speed, _unit.type.speed);
         
-
         bool isRangeAttack = _unit.type.attackType == AttackType.range;
         text_ammo.text = isRangeAttack ? _unit.ammo + "" : "";
         text_ammo_title.SetActive(isRangeAttack);
@@ -37,6 +38,25 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
         text_num.text = _unit.num + "";
 
         image_raceBG.sprite = _unit.type.race.sprite_bg;
+
+        //设置行为图标，如果超过三个显示倒数三个
+        if(_unit.behaviors.Count > 0)
+        {
+            int a = _unit.behaviors.Count - 1;
+            for (int i = 0; a>=0 && i < image_behaviors.Length; i++)
+            {
+                while (a >= 0 && _unit.behaviors[a].hideInUI)
+                    a--;
+
+                if (!_unit.behaviors[a].hideInUI)
+                {
+                    image_behaviors[i].enabled = true;
+                    image_behaviors[i].sprite = _unit.behaviors[a].icon;
+                    a--;
+                }
+            }
+        }
+        
 
         animator.runtimeAnimatorController = _unit.type.animControl;
         StopAllCoroutines();
