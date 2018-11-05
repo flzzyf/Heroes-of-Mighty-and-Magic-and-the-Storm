@@ -35,6 +35,9 @@ public class GameManager : Singleton<GameManager>
         // else
         //     ChangeToLocalLanguage();
 
+        PlayerManager.instance.players[0].heroes.Add(testHeroes[0]);
+        PlayerManager.instance.players[1].heroes.Add(testHeroes[1]);
+
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 19));
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 14));
 
@@ -47,8 +50,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Hero attacker = PlayerManager.instance.players[0].heroes[0];
-            Hero defender = PlayerManager.instance.players[1].heroes[0];
+            Hero attacker = PlayerManager.instance.players[0].heroes[1];
+            Hero defender = PlayerManager.instance.players[1].heroes[1];
             TravelManager.instance.BattleBegin(attacker, defender);
 
         }

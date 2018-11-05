@@ -19,7 +19,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     {
         UnitHaloMgr.instance.HaloFlashStart(_unit, "action");
 
-        if (!PlayerManager.instance.players[_unit.side].isAI)
+        if (!PlayerManager.instance.players[BattleManager.players[_unit.side]].isAI)
         {
             PlayerActionStart(_unit);
         }
