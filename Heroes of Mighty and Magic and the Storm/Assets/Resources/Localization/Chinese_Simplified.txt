@@ -110,3 +110,4 @@ NextPage=下一页
 Magic_Earth_Info=减少释放土系魔法的魔法值消耗。
 Speed Boost=加速音效
 Speed Boost_Info=使选中的友方部队速度增加3点。
+Orphea=奥菲亚

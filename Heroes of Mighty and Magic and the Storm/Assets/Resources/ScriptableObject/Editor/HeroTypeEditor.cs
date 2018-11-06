@@ -15,7 +15,7 @@ public class HeroTypeEditor : Editor
         {
             Texture texture = main.icon.texture;
             GUILayout.Box(texture, EditorStyles.objectFieldThumb,
-            GUILayout.Width(100f), GUILayout.Height(100f));
+            GUILayout.Width(180f), GUILayout.Height(212f));
         }
 
         EditorGUILayout.BeginHorizontal();

@@ -40,3 +40,4 @@ battleInfo_regeneration={0}的伤口愈合了，并恢复所有生命值
 Crusader_Upgrade=喬漢娜
 Speed Boost=Speed Boost
 Speed Boost_Info=Speed Boost_Info
+Orphea=Orphea
