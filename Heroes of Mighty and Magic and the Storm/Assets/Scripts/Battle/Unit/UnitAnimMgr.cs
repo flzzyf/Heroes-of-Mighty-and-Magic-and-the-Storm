@@ -83,7 +83,7 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
     {
         _unit.UI.SetActive(false);
 
-        _unit.GetComponent<AxisZControl>().offsetZ = -1;
+        _unit.sortingOrderMgr.SetSortingLayer(Layers.ActionUnit);
     }
     void PlayAnimEnd(Unit _unit)
     {
@@ -91,7 +91,7 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
         {
             _unit.UI.SetActive(true);
         }
-        _unit.GetComponent<AxisZControl>().offsetZ = 0;
+        _unit.sortingOrderMgr.SetSortingLayer(Layers.Unit);
 
         //更新两个玩家所有单位UI
         for (int i = 0; i < 2; i++)

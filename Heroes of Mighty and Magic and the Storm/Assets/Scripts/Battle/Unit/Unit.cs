@@ -31,6 +31,8 @@ public class Unit : NodeObject, MovableNode
 
     public List<Behavior> behaviors = new List<Behavior>();
 
+    public SortingOrderMgr sortingOrderMgr;
+
     public void Init()
     {
         if (type != null)
@@ -278,7 +280,7 @@ public class Unit : NodeObject, MovableNode
         animator.Play("Death");
         UI.SetActive(false);
 
-        GetComponent<AxisZControl>().offsetZ = 1;
+        sortingOrderMgr.SetSortingLayer(Layers.DeadUnit);
     }
 
     //是地面行走者（非飞行和瞬移）

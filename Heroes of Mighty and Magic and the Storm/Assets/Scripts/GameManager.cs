@@ -50,8 +50,8 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Hero attacker = PlayerManager.instance.players[0].heroes[1];
-            Hero defender = PlayerManager.instance.players[1].heroes[1];
+            Hero attacker = testHeroes[0];
+            Hero defender = testHeroes[1];
             TravelManager.instance.BattleBegin(attacker, defender);
 
         }

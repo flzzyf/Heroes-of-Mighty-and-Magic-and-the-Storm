@@ -5639,7 +5639,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.25
+      value: 3.896
       objectReference: {fileID: 0}
     - target: {fileID: 4418784005101588, guid: 7941d79ee91184110bce8696cb055256, type: 2}
       propertyPath: m_LocalPosition.y
@@ -47459,7 +47459,7 @@ MonoBehaviour:
   haloFlashRangeMin: 0.2
   haloFlashRangeMax: 0.7
   haloFlashSpeed: 1
-  haloWidth: 14
+  haloWidth: 10
   haloColor:
   - name: action
     color: {r: 0.9528302, g: 0.90755206, b: 0.31910825, a: 1}
