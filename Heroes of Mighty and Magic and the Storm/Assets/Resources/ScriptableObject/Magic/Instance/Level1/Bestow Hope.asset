@@ -13,8 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 669c31330c4084f4e9727a7aee2754c8, type: 3}
   school: 4
+  type: 0
   level: 1
   mana: 0500000004000000
-  targetType: 01000000
-  targetFliter: 00000000
-  effect: {fileID: 0}
+  targetType: 010000000100000000000000
+  targetFliter: 01000000
+  effects:
+  - {fileID: 11400000, guid: 13a30939e0d81544e8dd4727b01571e9, type: 2}
+  - {fileID: 11400000, guid: eb143deaf16273c41ad1112cbb00b8a2, type: 2}
+  - {fileID: 11400000, guid: ea8f7a30fd470574fb4c490a1a1b0e7d, type: 2}

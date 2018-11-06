@@ -43,6 +43,7 @@ public class GameManager : Singleton<GameManager>
 
         SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
         SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Water", 3);
 
     }
 

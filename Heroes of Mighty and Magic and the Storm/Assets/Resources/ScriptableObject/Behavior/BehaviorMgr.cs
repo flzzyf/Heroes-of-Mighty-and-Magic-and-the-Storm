@@ -7,9 +7,9 @@ public class BehaviorMgr
     public static void AddBehavior(int _casterPlayer, Unit _target, Behavior _behavior)
     {
         Hero hero = BattleManager.heroes[BattleManager.playerSide[_casterPlayer]];
-        //如果已经有该行为，刷新持续时间。否则添加
+        //如果已经有该行为，且不能叠加，刷新持续时间。否则添加
         Behavior behavior = GetUnitBehavior(_target, _behavior);
-        if (behavior != null)
+        if (behavior != null && behavior.maxStackCount == 1)
         {
             Behavior originBehavior = GetBehavior(behavior.name);
             if (originBehavior.duration == 0)

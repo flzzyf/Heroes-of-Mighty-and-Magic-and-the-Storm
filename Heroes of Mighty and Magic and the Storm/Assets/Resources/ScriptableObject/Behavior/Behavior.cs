@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Behavior/Behavior")]
 public class Behavior : ScriptableObject
 {
     //魔法持续时间，-1为无限，0为取决于英雄法力

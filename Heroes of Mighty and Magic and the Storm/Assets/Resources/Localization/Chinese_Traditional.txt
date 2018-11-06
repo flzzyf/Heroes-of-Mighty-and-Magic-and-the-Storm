@@ -41,3 +41,4 @@ Crusader_Upgrade=喬漢娜
 Speed Boost=Speed Boost
 Speed Boost_Info=Speed Boost_Info
 Orphea=Orphea
+Bestow Hope_Info=Bestow Hope_Info
