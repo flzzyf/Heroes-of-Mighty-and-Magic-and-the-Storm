@@ -12,7 +12,8 @@ Shader "Custom/Sprite Outline" {
         Blend One OneMinusSrcAlpha
        
         Pass {
- 
+ 			ZTest Off
+			Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
