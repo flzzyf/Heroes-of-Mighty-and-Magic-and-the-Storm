@@ -68,6 +68,8 @@ public class Unit : NodeObject, MovableNode
         else
         {
             //如果单位面前的节点有单位，UI移动到源点
+            if (!BattleManager.instance.map.isNodeAvailable((nodeItem.pos + new Vector2Int(offsetX, 0))))
+                return;
             NodeItem item = BattleManager.instance.map.GetNodeItem(nodeItem.pos + new Vector2Int(offsetX, 0));
             if (item.nodeObject != null && item.nodeObject.nodeObjectType == NodeObjectType.unit)
             {
@@ -92,6 +94,7 @@ public class Unit : NodeObject, MovableNode
 
     IEnumerator FlipWithAnimation()
     {
+        print("翻转");
         UnitAnimMgr.instance.PlayAnimation(this, Anim.Flip);
 
         yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime / 2);

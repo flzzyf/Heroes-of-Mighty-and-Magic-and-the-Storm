@@ -89,7 +89,9 @@ public class MapManager : MonoBehaviour
 
     public NodeItem GetNodeItem(Vector2Int _pos)
     {
-        return nodeItems[_pos.x, _pos.y];
+        if(isNodeAvailable(_pos))
+            return nodeItems[_pos.x, _pos.y];
+        return null;
     }
 
     public Node GetNode(Vector2Int _pos)
@@ -166,7 +168,7 @@ public class MapManager : MonoBehaviour
     }
 
     //判断节点存在
-    protected bool isNodeAvailable(Vector2Int _pos)
+    public bool isNodeAvailable(Vector2Int _pos)
     {
         if (0 <= _pos.x && _pos.x < size.x &&
             0 <= _pos.y && _pos.y < size.y)

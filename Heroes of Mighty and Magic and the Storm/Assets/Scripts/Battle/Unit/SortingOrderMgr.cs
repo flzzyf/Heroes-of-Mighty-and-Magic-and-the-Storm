@@ -8,17 +8,26 @@ public class SortingOrderMgr : MonoBehaviour
 
     float previousY;
 
+    int offset;
+
 	void Update ()
     {
         if(transform.position.y != previousY)
         {
             previousY = transform.position.y;
-            spriteRenderer.sortingOrder = (int)transform.position.y * -1;
+
+            UpdateOrder();
         }
+    }
+
+    void UpdateOrder()
+    {
+        previousY = transform.position.y;
+        spriteRenderer.sortingOrder = (int)transform.position.y * -1 * 5 + -offset;
     }
 
     public void SetSortingLayer(Layers _layer)
     {
-        spriteRenderer.sortingLayerName = _layer.ToString();
+        offset = (int)_layer;
     }
 }

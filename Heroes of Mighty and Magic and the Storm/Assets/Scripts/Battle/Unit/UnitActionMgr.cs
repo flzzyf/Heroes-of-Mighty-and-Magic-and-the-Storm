@@ -117,7 +117,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         if (order.type == OrderType.move)
         {
             NodeMovingMgr.instance.Event_StartMoving += StartMoving;
-            NodeMovingMgr.instance.Event_StopMoving += StopMoving;
+            NodeMovingMgr.instance.Event_ReachTarget += ReachTarget;
             NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
 
             if (order.origin.isWalker)
@@ -140,6 +140,12 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
             while (NodeMovingMgr.instance.moving)
                 yield return null;
+
+            if (order.origin.RestoreFacing())
+            {
+                //需要转身
+                yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
+            }
         }
         else if (order.type == OrderType.attack)
         {
@@ -147,7 +153,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
             if (order.path != null || order.targetNode != null)
             {
                 NodeMovingMgr.instance.Event_StartMoving += StartMoving;
-                NodeMovingMgr.instance.Event_StopMoving += StopMoving;
+                NodeMovingMgr.instance.Event_ReachTarget += ReachTarget;
                 NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
 
                 if (order.path != null)
@@ -161,6 +167,12 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
                 while (NodeMovingMgr.instance.moving)
                     yield return null;
+
+                if (order.origin.RestoreFacing())
+                {
+                    //需要转身
+                    yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
+                }
             }
 
             //攻击
@@ -220,11 +232,13 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         BattleManager.instance.LinkNodeWithUnit(BattleManager.currentActionUnit, _node);
     }
 
-    void StopMoving()
+    void ReachTarget(NodeItem _node)
     {
         //GameManager.instance.gamePaused = false;
 
         UnitAnimMgr.instance.PlayAnimation(BattleManager.currentActionUnit, Anim.Walk, false);
+
+        //BattleManager.currentActionUnit.RestoreFacing();
     }
 
     public void ActionEnd()

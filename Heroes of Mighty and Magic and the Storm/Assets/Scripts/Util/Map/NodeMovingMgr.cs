@@ -37,18 +37,6 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
             Event_StartMoving();
     }
 
-    public void StopMoving()
-    {
-        moving = false;
-
-        StopAllCoroutines();
-
-        ClearEvents();
-
-        if (Event_StopMoving != null)
-            Event_StopMoving();
-    }
-
     IEnumerator MoveObjectCor(GameObject _go, List<NodeItem> _path, float _speed, MapCoord _coord)
     {
         for (int i = 1; i < _path.Count; i++)
@@ -64,9 +52,9 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
             Vector3 dir = GetCoordDir(_coord, targetPos, _go.transform.position);
 
             //朝目标移动
-            while (GetCoordDir(_coord, targetPos, _go.transform.position).magnitude > _speed * Time.deltaTime)
+            while (GetCoordDir(_coord, targetPos, _go.transform.position).magnitude > _speed * Time.fixedDeltaTime)
             {
-                yield return null;
+                yield return new WaitForFixedUpdate();
 
                 _go.transform.Translate(dir.normalized * _speed * Time.deltaTime);
             }
@@ -97,12 +85,14 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
         if (Event_MovingToNode != null)
             Event_MovingToNode(_node);
 
-        while (GetCoordDir(_coord, targetPos, _go.transform.position).magnitude > _speed * Time.deltaTime)
+        while (GetCoordDir(_coord, targetPos, _go.transform.position).magnitude > _speed * Time.fixedDeltaTime)
         {
             _go.transform.Translate(dir.normalized * _speed * Time.deltaTime);
 
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
+
+        _go.transform.position = _node.transform.position;
 
         MoveObjectFinish(_node);
     }
@@ -110,9 +100,21 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
     void MoveObjectFinish(NodeItem _node)
     {
         StopMoving();
-
+       
         if (Event_ReachTarget != null)
             Event_ReachTarget(_node);
+
+        ClearEvents();
+    }
+
+    public void StopMoving()
+    {
+        moving = false;
+
+        StopAllCoroutines();
+
+        if (Event_StopMoving != null)
+            Event_StopMoving();
     }
 
     void ClearEvents()
@@ -120,6 +122,7 @@ public class NodeMovingMgr : Singleton<NodeMovingMgr>
         Event_MovingToNode = null;
         Event_ReachNode = null;
         Event_ReachTarget = null;
+        Event_StartMoving = null;
     }
 }
 
