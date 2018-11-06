@@ -94,7 +94,6 @@ public class Unit : NodeObject, MovableNode
 
     IEnumerator FlipWithAnimation()
     {
-        print("翻转");
         UnitAnimMgr.instance.PlayAnimation(this, Anim.Flip);
 
         yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime / 2);

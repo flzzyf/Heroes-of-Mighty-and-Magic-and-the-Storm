@@ -90,8 +90,9 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
         if (!_unit.dead)
         {
             _unit.UI.SetActive(true);
+
+            _unit.sortingOrderMgr.SetSortingLayer(Layers.Unit);
         }
-        _unit.sortingOrderMgr.SetSortingLayer(Layers.Unit);
 
         //更新两个玩家所有单位UI
         for (int i = 0; i < 2; i++)

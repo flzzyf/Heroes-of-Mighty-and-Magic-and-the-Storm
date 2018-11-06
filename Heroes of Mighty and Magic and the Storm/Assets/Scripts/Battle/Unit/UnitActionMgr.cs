@@ -167,12 +167,6 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
                 while (NodeMovingMgr.instance.moving)
                     yield return null;
-
-                if (order.origin.RestoreFacing())
-                {
-                    //需要转身
-                    yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime);
-                }
             }
 
             //攻击
