@@ -13,7 +13,7 @@ public class Effect_SearchArea : Effect
         List<Unit> targets;
         if (fliter == MagicTargetFliter.Ally)
         {
-            targets = BattleManager.instance.units[originPlayer];
+            targets = BattleManager.instance.units[BattleManager.playerSide[originPlayer]];
         }
         else if (fliter == MagicTargetFliter.Enemy)
         {
