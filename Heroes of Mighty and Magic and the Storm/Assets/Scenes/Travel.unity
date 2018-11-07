@@ -14624,7 +14624,7 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: magic
+            m_StringArgument: CastSpell
             m_BoolArgument: 0
           m_CallState: 2
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
@@ -19069,8 +19069,9 @@ GameObject:
   - component: {fileID: 635946115}
   - component: {fileID: 635946114}
   - component: {fileID: 635946113}
+  - component: {fileID: 635946116}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Button_Retreat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19170,6 +19171,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 635946111}
   m_CullTransparentMesh: 0
+--- !u!114 &635946116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635946111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetTextByKey
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Retreat
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &637116208
 GameObject:
   m_ObjectHideFlags: 0
@@ -26061,7 +26092,7 @@ Prefab:
     - target: {fileID: 224901699404095186, guid: 4e011d79469a14d41bab268a3ed36392,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 47.99
+      value: 47.990005
       objectReference: {fileID: 0}
     - target: {fileID: 224901699404095186, guid: 4e011d79469a14d41bab268a3ed36392,
         type: 2}
@@ -26181,7 +26212,7 @@ Prefab:
     - target: {fileID: 224265499521996034, guid: c7e128b9e8a0b48689a275e9404bd562,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -55.107143
+      value: -55.107147
       objectReference: {fileID: 0}
     - target: {fileID: 224265499521996034, guid: c7e128b9e8a0b48689a275e9404bd562,
         type: 2}
@@ -32869,8 +32900,9 @@ GameObject:
   - component: {fileID: 1151706669}
   - component: {fileID: 1151706668}
   - component: {fileID: 1151706667}
+  - component: {fileID: 1151706670}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Button_AutoCombat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32970,6 +33002,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1151706665}
   m_CullTransparentMesh: 0
+--- !u!114 &1151706670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1151706665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetTextByKey
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: AutoCombat
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1153600504
 GameObject:
   m_ObjectHideFlags: 0
@@ -41979,8 +42041,9 @@ GameObject:
   - component: {fileID: 1464839151}
   - component: {fileID: 1464839150}
   - component: {fileID: 1464839149}
+  - component: {fileID: 1464839152}
   m_Layer: 0
-  m_Name: Button (2)
+  m_Name: Button_Surrender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42080,6 +42143,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1464839147}
   m_CullTransparentMesh: 0
+--- !u!114 &1464839152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1464839147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetTextByKey
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Surrender
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1465723478
 GameObject:
   m_ObjectHideFlags: 0
@@ -43044,7 +43137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500115233
 Transform:
   m_ObjectHideFlags: 0
@@ -47367,8 +47460,9 @@ GameObject:
   - component: {fileID: 1630989787}
   - component: {fileID: 1630989786}
   - component: {fileID: 1630989785}
+  - component: {fileID: 1630989788}
   m_Layer: 0
-  m_Name: Button (4)
+  m_Name: Button_Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47468,6 +47562,36 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1630989783}
   m_CullTransparentMesh: 0
+--- !u!114 &1630989788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630989783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1638976377}
+          m_MethodName: SetTextByKey
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Setting
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1633473554
 GameObject:
   m_ObjectHideFlags: 0
@@ -48200,7 +48324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1658473717
 Transform:
   m_ObjectHideFlags: 0
@@ -58173,7 +58297,7 @@ Prefab:
     - target: {fileID: 224265499521996034, guid: c7e128b9e8a0b48689a275e9404bd562,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -21.235714
+      value: -21.235718
       objectReference: {fileID: 0}
     - target: {fileID: 224265499521996034, guid: c7e128b9e8a0b48689a275e9404bd562,
         type: 2}
