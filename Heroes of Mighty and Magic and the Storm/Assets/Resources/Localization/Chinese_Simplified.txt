@@ -117,3 +117,4 @@ Retreat=逃跑
 CastSpell=施法
 AutoCombat=自动战斗
 Cursed Strikes=邪灵打击
+Lev=级

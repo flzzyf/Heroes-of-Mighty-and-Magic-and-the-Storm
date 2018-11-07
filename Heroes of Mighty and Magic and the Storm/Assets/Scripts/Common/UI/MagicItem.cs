@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MagicItem : MonoBehaviour
+public class MagicItem : MonoBehaviour, IPointerEnterHandler
 {
     public Image icon;
     [HideInInspector]
@@ -41,4 +42,11 @@ public class MagicItem : MonoBehaviour
     {
         MagicBookMgr.instance.ShowMagicInfo(bookIndex);
     }
+
+    //鼠标进入
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        MagicBookMgr.instance.text_info.text = LocalizationMgr.instance.GetText(magic.name) + " (" + magic.level + "" + LocalizationMgr.instance.GetText("Lev") + ")";
+    }
+
 }

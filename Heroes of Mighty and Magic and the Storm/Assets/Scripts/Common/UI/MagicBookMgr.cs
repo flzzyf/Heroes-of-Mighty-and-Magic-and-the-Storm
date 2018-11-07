@@ -34,6 +34,8 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
 
     Hero currentHero;
 
+    public Text text_info;
+
     void Start()
     {
         //初始化魔法项的ID
