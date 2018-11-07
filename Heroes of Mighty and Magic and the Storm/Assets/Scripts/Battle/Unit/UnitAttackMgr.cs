@@ -226,35 +226,30 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
             damageRate /= 2;
         }
 
-        range.x = (int)(range.x * damageRate);
-        range.y = (int)(range.y * damageRate);
-
-        Vector2Int range2 = range;
-
         //圣灵庇佑和诅咒判定，根据后来居上原则
         for (int i = 0; i < _origin.behaviors.Count; i++)
         {
             if (_origin.behaviors[i].name == "Bestow Hope")
             {
-                range2 = range;
-                range2.x = range2.y;
+                range = _origin.damage;
+                range.x = range.y;
             }
             else if (_origin.behaviors[i].name == "Bestow Hope_2")
             {
-                range2 = range;
-                range2.y++;
-                range2.x = range2.y;
+                range = _origin.damage;
+                range.y++;
+                range.x = range.y;
             }
             else if (_origin.behaviors[i].name == "Cursed Strikes")
             {
-                range2 = range;
-                range2.y = range2.x;
+                range = _origin.damage;
+                range.y = range.x;
             }
             else if (_origin.behaviors[i].name == "Cursed Strikes_2")
             {
-                range2 = range;
-                range2.x--;
-                range2.y = range2.x;
+                range = _origin.damage;
+                range.x--;
+                range.y = range.x;
             }
         }
 
@@ -262,7 +257,11 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         range.x = Mathf.Max(range.x, 1);
         range.y = Mathf.Max(range.y, 1);
 
-        return range2 * _origin.num;
+        //伤害乘以伤害倍率
+        range.x = (int)(range.x * damageRate);
+        range.y = (int)(range.y * damageRate);
+
+        return range * _origin.num;
     }
 
     static float DamageRate(int _att, int _def)    //攻防伤害倍率计算

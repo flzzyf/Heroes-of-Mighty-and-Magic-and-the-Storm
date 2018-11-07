@@ -86,7 +86,7 @@ public class MagicBookMgr : Singleton<MagicBookMgr>
 
         for (int i = 0; i < 5; i++)
         {
-            for (int j = 0; j < _hero.magics.Length; j++)
+            for (int j = 0; j < _hero.magics.Count; j++)
             {
                 if (_hero.magics[j].level == i + 1)
                     magicList.Add(_hero.magics[j]);

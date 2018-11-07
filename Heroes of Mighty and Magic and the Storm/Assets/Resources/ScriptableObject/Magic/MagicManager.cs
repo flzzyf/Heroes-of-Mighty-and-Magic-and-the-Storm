@@ -43,4 +43,34 @@ public class MagicManager : Singleton<MagicManager>
         }
     }
 
+    //给英雄添加魔法
+    public static void AddMagic(Hero _hero, Magic _magic)
+    {
+        //如果没有该魔法才添加
+        if (!_hero.magics.Contains(_magic))
+            _hero.magics.Add(_magic);
+    }
+
+    //给英雄添加所有魔法
+    public static void AddAllMagic(Hero _hero)
+    {
+        Magic[] magic = Resources.LoadAll<Magic>("ScriptableObject/Magic/Instance");
+        foreach (Magic item in magic)
+        {
+            _hero.magics.Add(item);
+        }
+    }
+
+    public static Magic GetMagic(string _name)
+    {
+        Magic[] magic = Resources.LoadAll<Magic>("ScriptableObject/Magic/Instance");
+        foreach (Magic item in magic)
+        {
+            if (item.name == _name)
+                return item;
+        }
+
+        return null;
+    }
+
 }

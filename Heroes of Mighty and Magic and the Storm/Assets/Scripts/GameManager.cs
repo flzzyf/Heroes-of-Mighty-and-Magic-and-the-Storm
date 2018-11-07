@@ -38,10 +38,14 @@ public class GameManager : Singleton<GameManager>
         PlayerManager.instance.players[0].heroes.Add(testHeroes[0]);
         PlayerManager.instance.players[1].heroes.Add(testHeroes[1]);
 
+        //给测试英雄加上所有魔法
+        MagicManager.AddAllMagic(testHeroes[0]);
+
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 19));
         ItemManager.instance.CreateItem(item, new Vector2Int(23, 14));
 
         SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);
         SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
         SkillManager.AddSkill(testHeroes[0], "Magic_Water", 3);
 
