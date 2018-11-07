@@ -57,6 +57,11 @@ public class BehaviorMgr
 
         return false;
     }
+    public static bool PossessBehavior(Unit _unit, string _behavior)
+    {
+        return PossessBehavior(_unit, GetBehavior(_behavior));
+    }
+
     //获取单位上的该行为
     public static Behavior GetUnitBehavior(Unit _unit, Behavior _behavior)
     {

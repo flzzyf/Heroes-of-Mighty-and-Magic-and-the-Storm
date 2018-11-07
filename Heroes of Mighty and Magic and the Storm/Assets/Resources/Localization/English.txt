@@ -51,3 +51,4 @@ Surrender=Surrender
 Retreat=Retreat
 AutoCombat=AutoCombat
 CastSpell=CastSpell
+Cursed Strikes=Cursed Strikes

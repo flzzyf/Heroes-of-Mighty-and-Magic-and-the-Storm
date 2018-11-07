@@ -192,8 +192,13 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         ImpactSoundMgr.PlayImpactSound(_origin, _target);
 
         Vector2Int range = GetDamageRange(_origin, _target, _isRangeAttack);
-        int damage = Random.Range(range.x, range.y + 1);
-        //print("随机初始伤害：" + damage);
+
+        //随机在范围中取伤害值，如果上下限不同
+        int damage;
+        if (range.x == range.y)
+            damage = range.x;
+        else
+            damage = Random.Range(range.x, range.y + 1);
 
         //伤害不能超过单位剩余生命
         damage = Mathf.Min(damage, _target.totalHp);
@@ -204,6 +209,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         return damage;
     }
 
+    //获取伤害范围
     public Vector2Int GetDamageRange(Unit _origin, Unit _target, bool _isRangeAttack = false)
     {
         Vector2Int range = _origin.damage;
@@ -223,11 +229,40 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         range.x = (int)(range.x * damageRate);
         range.y = (int)(range.y * damageRate);
 
+        Vector2Int range2 = range;
+
+        //圣灵庇佑和诅咒判定，根据后来居上原则
+        for (int i = 0; i < _origin.behaviors.Count; i++)
+        {
+            if (_origin.behaviors[i].name == "Bestow Hope")
+            {
+                range2 = range;
+                range2.x = range2.y;
+            }
+            else if (_origin.behaviors[i].name == "Bestow Hope_2")
+            {
+                range2 = range;
+                range2.y++;
+                range2.x = range2.y;
+            }
+            else if (_origin.behaviors[i].name == "Cursed Strikes")
+            {
+                range2 = range;
+                range2.y = range2.x;
+            }
+            else if (_origin.behaviors[i].name == "Cursed Strikes_2")
+            {
+                range2 = range;
+                range2.x--;
+                range2.y = range2.x;
+            }
+        }
+
         //至少也有1点
         range.x = Mathf.Max(range.x, 1);
         range.y = Mathf.Max(range.y, 1);
 
-        return range * _origin.num;
+        return range2 * _origin.num;
     }
 
     static float DamageRate(int _att, int _def)    //攻防伤害倍率计算

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2edf83872c636f240942b0e27c499e21, type: 3}
+  m_Name: Cursed Strikes
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 08cab2ca6af05f44fa5df6dbc426ebc2, type: 3}
+  school: 2
+  type: 0
+  level: 1
+  mana: 0600000005000000
+  targetType: 01000000
+  targetFliter: 02000000
+  effects: []
