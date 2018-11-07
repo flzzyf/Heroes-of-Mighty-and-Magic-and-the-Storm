@@ -17,6 +17,8 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnNodeHovered(NodeItem_Battle _node)
     {
+        _node.ChangeBackgoundColor("hover");
+
         playerHovered = _node;
 
         //如果是单位
@@ -86,6 +88,8 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
     public void OnNodeUnhovered(NodeItem_Battle _node)
     {
+        _node.RestoreBackgroundColor();
+        
         CursorManager.instance.ChangeCursor();
         CursorManager.instance.ChangeCursorAngle();
 

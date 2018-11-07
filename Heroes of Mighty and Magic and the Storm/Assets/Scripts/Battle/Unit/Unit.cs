@@ -12,6 +12,9 @@ public class Unit : NodeObject, MovableNode
 
     public SpriteRenderer sprite;
     public Animator animator;
+    public SpriteRenderer sprite_shadow;
+    public Animator animator_shadow;
+
     public GameObject UI;
     public Text text_number;
 
@@ -48,6 +51,7 @@ public class Unit : NodeObject, MovableNode
     public void InitUnitType()
     {
         animator.runtimeAnimatorController = type.animControl;
+        animator_shadow.runtimeAnimatorController = type.animControl;
 
         speed = type.speed;
         att = type.att;
@@ -98,12 +102,13 @@ public class Unit : NodeObject, MovableNode
 
         yield return new WaitForSeconds(UnitAttackMgr.instance.animTurnbackTime / 2);
 
-        sprite.flipX = !sprite.flipX;
+        Flip();
     }
 
     void Flip()
     {
         sprite.flipX = !sprite.flipX;
+        sprite_shadow.flipX = !sprite_shadow.flipX;
     }
 
     public void SetFacing(int _facing)
@@ -279,7 +284,10 @@ public class Unit : NodeObject, MovableNode
 
         //播放死亡音效
         GameManager.instance.PlaySound(type.sound_death);
-        animator.Play("Death");
+
+        //animator.Play("Death");
+        UnitAnimMgr.instance.PlayAnimation(this, Anim.Death);
+
         UI.SetActive(false);
 
         sortingOrderMgr.SetSortingLayer(Layers.DeadUnit);

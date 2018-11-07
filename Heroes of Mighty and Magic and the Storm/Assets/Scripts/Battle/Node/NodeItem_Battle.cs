@@ -64,15 +64,11 @@ public class NodeItem_Battle : NodeItem
     public override void OnMouseEnter()
     {
         base.OnMouseEnter();
-
-        ChangeBackgoundColor("hover");
     }
 
     public override void OnMouseExit()
     {
         base.OnMouseExit();
-
-        RestoreBackgroundColor();
     }
 
     void OnMouseOver()

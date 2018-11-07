@@ -16,6 +16,7 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
         if (_anim == Anim.Walk)
         {
             _unit.animator.SetBool("walking", _play);
+            _unit.animator_shadow.SetBool("walking", _play);
 
             if (_play)
                 PlayAnimStart(_unit);
@@ -57,6 +58,7 @@ public class UnitAnimMgr : Singleton<UnitAnimMgr>
             _anim = Anim.Attack;
 
         _unit.animator.Play(_anim.ToString());
+        _unit.animator_shadow.Play(_anim.ToString());
         float time = GetAnimationLength(_unit, _anim);
         yield return new WaitForSeconds(time);
 
