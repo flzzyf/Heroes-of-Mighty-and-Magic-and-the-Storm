@@ -186,6 +186,19 @@ public class MapManager : MonoBehaviour
             return ParentManager.instance.GetParent(this.GetType().Name);
         }
     }
+
+    public List<NodeItem> GetAllNodeItems
+    {
+        get
+        {
+            List<NodeItem> nodeItemList = new List<NodeItem>();
+            for (int y = 0; y < size.y; y++)
+                for (int x = 0; x < size.x; x++)
+                    nodeItemList.Add(nodeItems[x, y]);
+
+            return nodeItemList;
+        }
+    }
 }
 
 public class Node

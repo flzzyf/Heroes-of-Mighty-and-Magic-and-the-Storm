@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class UnitActionMgr : Singleton<UnitActionMgr>
 {
     List<NodeItem> reachableNodes;
-    List<NodeItem> attackableNodes;
 
     public static Order order;
 
@@ -68,35 +67,26 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
         if (!IsRangeAttack(_unit))
         {
             //可攻击节点
-            attackableNodes = BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1, false);
-
-            for (int i = attackableNodes.Count - 1; i >= 0; i--)
+            foreach (NodeItem item in BattleManager.instance.map.GetNodeItemsWithinRange(nodeItem, speed + 1, false))
             {
                 //是单位而且是敌对
-                if (attackableNodes[i].nodeObject != null &&
-                    attackableNodes[i].nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit &&
-                    !BattleManager.instance.isSamePlayer(attackableNodes[i].nodeObject.GetComponent<Unit>(), _unit))
+                if (item.nodeObject != null &&
+                    item.nodeObject.GetComponent<NodeObject>().nodeObjectType == NodeObjectType.unit &&
+                    !BattleManager.instance.isSamePlayer(item.nodeObject.GetComponent<Unit>(), _unit))
                 {
+                    item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.attackable);
                 }
-                else
-                    attackableNodes.RemoveAt(i);
             }
         }
         else
         {
-            //远程攻击，直接选中所有敌人
+            //远程攻击，直接选中所有敌人，将节点类型设为可攻击
             int enemyHero = (_unit.side + 1) % 2;
-            attackableNodes = new List<NodeItem>();
-            for (int i = 0; i < BattleManager.instance.units[enemyHero].Count; i++)
-            {
-                attackableNodes.Add(BattleManager.instance.units[enemyHero][i].nodeItem);
-            }
-        }
 
-        //将节点类型设为可攻击
-        foreach (var item in attackableNodes)
-        {
-            item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.attackable);
+            foreach (Unit item in BattleManager.instance.units[enemyHero])
+            {
+                item.nodeItem.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.attackable);
+            }
         }
 
         //将当前鼠标高亮节点，触发高亮事件
@@ -242,16 +232,11 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
 
     void ResetNodes()
     {
-        if (reachableNodes != null)
-            foreach (var item in reachableNodes)
-            {
+        foreach (var item in BattleManager.instance.map.GetAllNodeItems)
+        {
+            if (item.GetComponent<NodeItem_Battle>().battleNodeType != BattleNodeType.empty)
                 item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
-            }
-        if (attackableNodes != null)
-            foreach (var item in attackableNodes)
-            {
-                item.GetComponent<NodeItem_Battle>().ChangeNodeType(BattleNodeType.empty);
-            }
+        }
     }
 
     //判定远程攻击：是远程攻击单位且没被近身
