@@ -43,24 +43,32 @@ public class MapManager_Travel : MapManager
         {
             //是空地直接移动
             //否则移动到目标点，然后开始交互
-            if (obj.objectType == TravelNodeType.empty)
+            if(obj == null)
             {
                 MoveObjectAlongPath(hero.gameObject, path);
-            }
-            //是英雄，或者单位，或者物品，只要移动到相邻处，就能开始交互
-            else if (obj.objectType == TravelNodeType.hero ||
-                     obj.objectType == TravelNodeType.unit ||
-                     obj.objectType == TravelNodeType.item)
-            {
-                path.RemoveAt(path.Count - 1);
-                MoveObjectAlongPath(hero.gameObject, path);
-                print("开始交互");
             }
             else
             {
-                MoveObjectAlongPath(hero.gameObject, path);
-                print("开始交互");
+                if (obj.objectType == TravelNodeType.empty)
+                {
+                    MoveObjectAlongPath(hero.gameObject, path);
+                }
+                //是英雄，或者单位，或者物品，只要移动到相邻处，就能开始交互
+                else if (obj.objectType == TravelNodeType.hero ||
+                         obj.objectType == TravelNodeType.unit ||
+                         obj.objectType == TravelNodeType.item)
+                {
+                    path.RemoveAt(path.Count - 1);
+                    MoveObjectAlongPath(hero.gameObject, path);
+                    print("开始交互");
+                }
+                else
+                {
+                    MoveObjectAlongPath(hero.gameObject, path);
+                    print("开始交互");
+                }
             }
+            
         }
         else
         {
@@ -147,7 +155,6 @@ public class MapManager_Travel : MapManager
         if (!hasMovementToReachNode(hero, _node))
         {
             NodeMovingMgr.instance.StopMoving();
-            print("停止移动");
         }
 
         //英雄扣除移动力
@@ -178,6 +185,7 @@ public class MapManager_Travel : MapManager
     {
         print("到达目的地");
 
+        GameManager.gameState = GameState.playerControl;
     }
 
     void StopMoving()
