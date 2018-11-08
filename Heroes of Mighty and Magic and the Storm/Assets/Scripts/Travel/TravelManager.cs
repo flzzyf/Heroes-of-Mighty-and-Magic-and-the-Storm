@@ -74,7 +74,7 @@ public class TravelManager : Singleton<TravelManager>
     //移动镜头到目的地
     void MoveCamera(Vector3 _pos)
     {
-        _pos.y = 8;
+        _pos.y = Camera.main.transform.position.y;
         Camera.main.transform.position = _pos;
     }
 
