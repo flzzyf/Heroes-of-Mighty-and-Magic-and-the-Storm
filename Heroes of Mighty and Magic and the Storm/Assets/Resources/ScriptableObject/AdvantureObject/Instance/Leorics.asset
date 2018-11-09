@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e02f2f9ff79f6a4db4987c86b3d221d, type: 3}
+  m_Name: Leorics
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: fccc6da7f2dc0704cbd6c63ef7962679, type: 3}
+  unit:
+    type: {fileID: 11400000, guid: 1d9cdc55e3b647548a77be5da1dfd723, type: 2}
+    num: 100
