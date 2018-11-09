@@ -54,12 +54,11 @@ public class SoundManager : Singleton<SoundManager>
 
         if(!s.multipleSound)
         {
-            if(s.clips == null)
+            if(s.clips.Length == 0)
                 s.source.Play();
             else
             {
                 int randomID = Random.Range(0, s.clips.Length);
-                print(randomID);
                 s.source.clip = s.clips[randomID];
                 s.source.Play();
             }

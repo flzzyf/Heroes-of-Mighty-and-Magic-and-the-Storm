@@ -76,6 +76,8 @@ public class BattleManager : Singleton<BattleManager>
         }
     }
 
+    public GameObject prefab_unit;
+
     public void Init()
     {
         if (map.nodeItems == null)
@@ -89,7 +91,6 @@ public class BattleManager : Singleton<BattleManager>
         heroUnits = new GameObject[2];
 
         UnitInfoPanelMgr.instance.HidePanel();
-
     }
 
     void Update()
@@ -221,12 +222,15 @@ public class BattleManager : Singleton<BattleManager>
     //创建玩家单位
     public void CreateHeroUnits(Hero _hero, int _side)
     {
-        heroUnits[_side] = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
-        heroUnits[_side].GetComponent<Animator>().runtimeAnimatorController = _hero.heroType.animControl;
+        if(_hero.heroType != null)
+        {
+            heroUnits[_side] = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
+            heroUnits[_side].GetComponent<Animator>().runtimeAnimatorController = _hero.heroType.animControl;
 
-        //在右边则翻转英雄
-        if (_side == 1)
-            heroUnits[_side].GetComponent<SpriteRenderer>().flipX = true;
+            //在右边则翻转英雄
+            if (_side == 1)
+                heroUnits[_side].GetComponent<SpriteRenderer>().flipX = true;
+        }
 
         int x = (_side == 0) ? 0 : map.size.x - 1;
         for (int i = 0; i < _hero.pocketUnits.Length; i++)
@@ -243,7 +247,6 @@ public class BattleManager : Singleton<BattleManager>
             AddUnitToActionList(ref unitActionOrder, unit);
         }
     }
-    public GameObject prefab_unit;
 
     //创建单位
     Unit CreateUnit(UnitType _type, Vector2Int _pos, int _num = 1, int _side = 0)

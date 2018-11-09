@@ -40,6 +40,7 @@ public class GameManager : Singleton<GameManager>
         MagicManager.AddAllMagic(testHeroes[0]);
 
         AdvantureObjectMgr.CreateAdvantureObject("Chest", new Vector2Int(23, 19));
+        AdvantureObjectMgr.CreateAdvantureObject("Leorics", new Vector2Int(19, 17));
         AdvantureObjectMgr.CreateAdvantureObject("Chest", new Vector2Int(23, 14));
         AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(19, 14));
         AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(17, 14));
