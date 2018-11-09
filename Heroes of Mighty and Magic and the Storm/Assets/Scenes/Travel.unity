@@ -35724,6 +35724,7 @@ MonoBehaviour:
   sounds:
   - name: Combat02
     clip: {fileID: 8300000, guid: 523a2bb0d50037247ab7c5988271e84e, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 1
@@ -35733,6 +35734,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: BattleBegin03
     clip: {fileID: 8300000, guid: 42f63ea1604f3144cb5572bb5a5e982a, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35742,6 +35744,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: impact_small_flesh
     clip: {fileID: 8300000, guid: 6f055b80c43e2f749a3de60b9e8d3eb7, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35751,6 +35754,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: impact_middle_flesh
     clip: {fileID: 8300000, guid: 0130f6ce0e245294abf04bb5636cfa47, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35760,6 +35764,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: impact_big_flesh
     clip: {fileID: 8300000, guid: 410079ab7fe9ed84f8f0548dee3eafb3, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35769,6 +35774,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: impact_small_metal
     clip: {fileID: 8300000, guid: 479b65597614d664c95b166bfeb6bb2c, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35778,6 +35784,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: impact_middle_metal
     clip: {fileID: 8300000, guid: bbd9fc3b7da598049b98abc8174d9985, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35787,6 +35794,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: impact_big_metal
     clip: {fileID: 8300000, guid: da92f6ba98c63ea458050735bc3c3268, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35796,6 +35804,7 @@ MonoBehaviour:
     multipleSound: 0
   - name: WinBattle
     clip: {fileID: 8300000, guid: 065506f2b5535e842a4af821360a6263, type: 3}
+    clips: []
     volume: 1
     pitch: 1
     loop: 0
@@ -35805,6 +35814,20 @@ MonoBehaviour:
     multipleSound: 0
   - name: LoseBattle
     clip: {fileID: 8300000, guid: 0f66a597c52347c4faa9e67f234ec64d, type: 3}
+    clips: []
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+    audioMixerGroup: {fileID: 243583525160473442, guid: f536da5662304472bb3480c1c0cc4790,
+      type: 2}
+    multipleSound: 0
+  - name: PickUp
+    clip: {fileID: 8300000, guid: 0f66a597c52347c4faa9e67f234ec64d, type: 3}
+    clips:
+    - {fileID: 8300000, guid: ede542763aa400b45a306744f366c796, type: 3}
+    - {fileID: 8300000, guid: d38d71f6d28c0f6488e34eb74dd69884, type: 3}
+    - {fileID: 8300000, guid: 7b115f7482058414fae6c8e1caad749a, type: 3}
     volume: 1
     pitch: 1
     loop: 0

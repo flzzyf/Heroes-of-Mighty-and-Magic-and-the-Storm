@@ -41,6 +41,9 @@ public class GameManager : Singleton<GameManager>
 
         AdvantureObjectMgr.CreateAdvantureObject("Chest", new Vector2Int(23, 19));
         AdvantureObjectMgr.CreateAdvantureObject("Chest", new Vector2Int(23, 14));
+        AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(19, 14));
+        AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(17, 14));
+        AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(15, 14));
 
         SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
         SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using System;
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -39,7 +38,14 @@ public class SoundManager : Singleton<SoundManager>
 
     public AudioSource Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = null;
+        foreach (Sound item in sounds)
+        {
+            if(name == item.name)
+            {
+                s = item;
+            }
+        }
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
@@ -47,7 +53,17 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         if(!s.multipleSound)
-            s.source.Play();
+        {
+            if(s.clips == null)
+                s.source.Play();
+            else
+            {
+                int randomID = Random.Range(0, s.clips.Length);
+                print(randomID);
+                s.source.clip = s.clips[randomID];
+                s.source.Play();
+            }
+        }
         else
         {
             //同时可能有多个的声音，而且会单独关闭
@@ -61,7 +77,14 @@ public class SoundManager : Singleton<SoundManager>
 
     public void StopPlay(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = null;
+        foreach (Sound item in sounds)
+        {
+            if (name == item.name)
+            {
+                s = item;
+            }
+        }
         if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found!");
@@ -77,6 +100,7 @@ public class Sound
 {
     public string name;
     public AudioClip clip;
+    public AudioClip[] clips;
 
     [Range(0f, 1f)]
     public float volume = 1;

@@ -145,7 +145,6 @@ public class MapManager_Travel : MapManager
         NodeMovingMgr.instance.Event_MovingToNode += MoveToNode;
         NodeMovingMgr.instance.Event_ReachNode += ReachNode;
         NodeMovingMgr.instance.Event_ReachTarget += ReachTarget;
-        NodeMovingMgr.instance.Event_StopMoving += StopMoving;
 
         NodeMovingMgr.instance.MoveObject(_go, _path, TravelManager.instance.heroSpeed, coord);
     }
@@ -184,9 +183,10 @@ public class MapManager_Travel : MapManager
         ((NodeItem_Travel)_node).UpdateStatus(TravelPathType.empty);
     }
 
+    //到达目的地
     void ReachTarget(NodeItem _node)
     {
-        print("到达目的地");
+        //清除路径
         ClearPath();
 
         GameManager.gameState = GameState.playerControl;
@@ -199,13 +199,11 @@ public class MapManager_Travel : MapManager
             Hero hero = TravelManager.instance.currentHero;
 
             obj.advantureObject.OnInteracted(hero);
+
+            Destroy(obj.gameObject);
         }
     }
 
-    void StopMoving()
-    {
-        //GameManager.instance.gamePaused = false;
-    }
     #endregion
 
 }
