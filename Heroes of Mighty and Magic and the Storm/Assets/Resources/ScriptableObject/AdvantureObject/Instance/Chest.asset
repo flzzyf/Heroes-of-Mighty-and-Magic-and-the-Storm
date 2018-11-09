@@ -8,8 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eefaa32921664e5194f132e66172a32, type: 3}
-  m_Name: Chest_Small
+  m_Script: {fileID: 11500000, guid: dbd193caac95c114287bf0d0acc20ea1, type: 3}
+  m_Name: Chest
   m_EditorClassIdentifier: 
-  itemName: Chest
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 678dd6bc55b7c0448a76d600ee898164, type: 3}

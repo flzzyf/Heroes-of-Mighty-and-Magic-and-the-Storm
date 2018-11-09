@@ -17,8 +17,6 @@ public class GameManager : Singleton<GameManager>
 
     public static int player = 2;
 
-    public Item item;
-
     public GameScene scene;
 
     void Start()
@@ -41,8 +39,8 @@ public class GameManager : Singleton<GameManager>
         //给测试英雄加上所有魔法
         MagicManager.AddAllMagic(testHeroes[0]);
 
-        ItemManager.instance.CreateItem(item, new Vector2Int(23, 19));
-        ItemManager.instance.CreateItem(item, new Vector2Int(23, 14));
+        AdvantureObjectMgr.CreateAdvantureObject("Chest", new Vector2Int(23, 19));
+        AdvantureObjectMgr.CreateAdvantureObject("Chest", new Vector2Int(23, 14));
 
         SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
         SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);

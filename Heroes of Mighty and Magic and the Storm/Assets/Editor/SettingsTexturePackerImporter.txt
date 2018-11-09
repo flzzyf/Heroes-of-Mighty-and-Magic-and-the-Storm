@@ -4,7 +4,7 @@ tpsheetFileNames:
 - Assets/Resources/Textures/FX/FrostBolt_Impact.tpsheet
 - Assets/Resources/Textures/FX/Heal.tpsheet
 - Assets/Resources/Textures/FX/Oil.tpsheet
-- Assets/Resources/Textures/UI/Victory.tpsheet
+- Assets/Resources/Textures/UI/EventAnim/Victory.tpsheet
 - Assets/Resources/Textures/Units/Amazon/Amazon_Attack.tpsheet
 - Assets/Resources/Textures/Units/Amazon/Amazon_Flip.tpsheet
 - Assets/Resources/Textures/Units/Amazon/Amazon_Hit.tpsheet
@@ -47,7 +47,7 @@ textureFileNames:
 - Assets/Resources/Textures/FX/FrostBolt_Impact.png
 - Assets/Resources/Textures/FX/Heal.png
 - Assets/Resources/Textures/FX/Oil.png
-- Assets/Resources/Textures/UI/Victory.png
+- Assets/Resources/Textures/UI/EventAnim/Victory.png
 - Assets/Resources/Textures/Units/Amazon/Amazon_Attack.png
 - Assets/Resources/Textures/Units/Amazon/Amazon_Flip.png
 - Assets/Resources/Textures/Units/Amazon/Amazon_Hit.png

@@ -12,6 +12,8 @@ public class MapManager_Travel : MapManager
 
     List<NodeItem> path;
 
+    NodeObject targetNodeObject;
+
     //节点高亮
     public override void OnNodeHovered(NodeItem _node)
     {
@@ -49,6 +51,8 @@ public class MapManager_Travel : MapManager
             }
             else
             {
+                targetNodeObject = obj;
+
                 if (obj.objectType == TravelNodeType.empty)
                 {
                     MoveObjectAlongPath(hero.gameObject, path);
@@ -58,17 +62,16 @@ public class MapManager_Travel : MapManager
                          obj.objectType == TravelNodeType.unit ||
                          obj.objectType == TravelNodeType.item)
                 {
-                    path.RemoveAt(path.Count - 1);
-                    MoveObjectAlongPath(hero.gameObject, path);
-                    print("开始交互");
+                    List<NodeItem> shortPath = new List<NodeItem>(path);
+                    shortPath.RemoveAt(shortPath.Count - 1);
+                    MoveObjectAlongPath(hero.gameObject, shortPath);
                 }
                 else
                 {
+                    //城镇或者地点类物体，进入后交互
                     MoveObjectAlongPath(hero.gameObject, path);
-                    print("开始交互");
                 }
             }
-            
         }
         else
         {
@@ -184,8 +187,19 @@ public class MapManager_Travel : MapManager
     void ReachTarget(NodeItem _node)
     {
         print("到达目的地");
+        ClearPath();
 
         GameManager.gameState = GameState.playerControl;
+
+        if(targetNodeObject != null)
+        {
+            NodeObject_Travel obj = (NodeObject_Travel)targetNodeObject;
+            targetNodeObject = null;
+
+            Hero hero = TravelManager.instance.currentHero;
+
+            obj.advantureObject.OnInteracted(hero);
+        }
     }
 
     void StopMoving()

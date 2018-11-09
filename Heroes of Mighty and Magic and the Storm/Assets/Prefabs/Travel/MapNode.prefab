@@ -218,6 +218,8 @@ MonoBehaviour:
   gfx_goal: {fileID: 1545360598474012}
   type: 0
   pathType: 0
+  prefab_nodeObject: {fileID: 1840609141345922, guid: 2069654a831c91244a9ffc160f533821,
+    type: 2}
 --- !u!212 &212665022735324848
 SpriteRenderer:
   m_ObjectHideFlags: 1

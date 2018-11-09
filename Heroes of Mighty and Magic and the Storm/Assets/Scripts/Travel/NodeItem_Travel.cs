@@ -9,8 +9,7 @@ public class NodeItem_Travel : NodeItem
     public GameObject gfx_arrow;
     public GameObject gfx_goal;
 
-    public TravelNodeType type;
-
+    [HideInInspector]
     public TravelPathType pathType;
 
     public void UpdateStatus(TravelPathType _type)
@@ -59,4 +58,11 @@ public class NodeItem_Travel : NodeItem
         _origin.rotation = lookRotation;
     }
 
+    public GameObject prefab_nodeObject;
+    public NodeObject_Travel CreateNodeObject()
+    {
+        nodeObject = Instantiate(prefab_nodeObject, transform).GetComponent<NodeObject>();
+
+        return nodeObject.GetComponent<NodeObject_Travel>();
+    }
 }
