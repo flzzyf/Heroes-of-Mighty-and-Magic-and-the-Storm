@@ -33,7 +33,7 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     public void HaloFlashStart(Unit _unit)
     {
-        _unit.sprite.material.SetFloat("_LineWidth", haloWidth);
+        SetFloat(_unit, "_LineWidth", haloWidth);
 
         ChangeHalo(_unit, haloFlashRangeMax);
 
@@ -74,7 +74,8 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     public void HaloFlashStop(Unit _unit)
     {
-        _unit.sprite.material.SetFloat("_LineWidth", 0);
+        SetFloat(_unit, "_LineWidth", 0);
+        //_unit.sprite.material.SetFloat("_LineWidth", 0);
 
         flashingUnits.Remove(_unit);
     }
@@ -91,5 +92,16 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
         }
 
         Debug.LogWarning("未能找到颜色");
+    }
+
+    //设置Float
+    void SetFloat(Unit _unit, string _property, float _amount)
+    {
+        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+        _unit.sprite.GetPropertyBlock(mpb);
+        mpb.SetFloat(_property, _amount);
+        _unit.sprite.SetPropertyBlock(mpb);
+
+        //_unit.sprite.material.SetFloat("_LineWidth", haloWidth);
     }
 }
