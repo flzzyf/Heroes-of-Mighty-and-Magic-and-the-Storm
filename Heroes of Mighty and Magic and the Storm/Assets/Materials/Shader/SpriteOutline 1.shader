@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/Sprite Outline" {
+Shader "Custom/Sprite Outline2" {
     Properties {
         _MainTex ("Base (RGB)", 2D) = "white" {}
         _Color ("Color", Color) = (1, 1, 1, 1)
