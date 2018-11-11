@@ -86,7 +86,6 @@
         #pragma surface surf Lambert addshadow alphatest:_Cutoff
  
         sampler2D _MainTex;
-        fixed4 _Color;
  
         struct Input
         {
@@ -95,7 +94,7 @@
  
         void surf (Input IN, inout SurfaceOutput o)
         {
-            fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+            fixed4 c = tex2D(_MainTex, IN.uv_MainTex);
             o.Albedo = c.rgb;
             o.Alpha = c.a;
         }
