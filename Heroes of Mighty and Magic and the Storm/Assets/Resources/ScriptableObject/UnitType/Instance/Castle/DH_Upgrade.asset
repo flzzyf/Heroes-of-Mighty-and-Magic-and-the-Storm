@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: DH_Upgrade
   m_EditorClassIdentifier: 
-  tab: 0
+  tab: 2
   icon: {fileID: 21300000, guid: 81403d821e3f6644480efd1231e5abfe, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 2c08322721f84aa4fa6be6c7410648bb, type: 2}
@@ -38,7 +38,9 @@ MonoBehaviour:
   sound_walk: []
   sound_hit:
     clip: {fileID: 8300000, guid: 99349d36e687f8347b91a75958c9c922, type: 3}
+    clips: []
     skipDuration: 0.3
   sound_death:
     clip: {fileID: 8300000, guid: 4684edde9bc27ed4197de99875332006, type: 3}
+    clips: []
     skipDuration: 0.3

@@ -101,16 +101,6 @@ public class SoundManager : Singleton<SoundManager>
         s.source.Stop();
     }
 
-    public void PlaySound(FixedSound _sound, bool _random = false)
-    {
-        if (_sound == null)
-            return;
-
-        //audioSource.clip = _sound.clip;
-        //audioSource.time = _sound.skipDuration;
-        //audioSource.Play();
-    }
-
     //播放任意音效
     public void PlaySound(AudioClip _clip, bool _random = false)
     {
@@ -118,17 +108,9 @@ public class SoundManager : Singleton<SoundManager>
             return;
 
         //如果有没在播放的音效播放器
-        AudioSource audioSource = null;
-        for (int i = 0; i < maxAudioPlayCountAtOneTime; i++)
-        {
-            if(audioSources[i].isPlaying == false)
-            {
-                audioSource = audioSources[i];
-                break;
-            }
-        }
+        AudioSource audioSource = GetAvailableSource();
 
-        if(audioSource != null)
+        if (audioSource != null)
         {
             audioSource.clip = _clip;
 
@@ -138,6 +120,35 @@ public class SoundManager : Singleton<SoundManager>
 
             audioSource.Play();
         }
+    }
+    //播放修饰过的音效
+    public void PlaySound(FixedSound _sound, bool _random = false)
+    {
+        AudioSource audioSource = GetAvailableSource();
+        if (audioSource != null)
+        {
+            //是多个音效则随机播放一个
+            if(_sound.clips.Length > 0)
+                audioSource.clip = _sound.clips[Random.Range(0, _sound.clips.Length)];
+            else
+                audioSource.clip = _sound.clip;
+            audioSource.time = _sound.skipDuration;
+            audioSource.Play();
+        }
+    }
+
+    //获取没在播放的音效播放器
+    AudioSource GetAvailableSource()
+    {
+        for (int i = 0; i < maxAudioPlayCountAtOneTime; i++)
+        {
+            if (audioSources[i].isPlaying == false)
+            {
+                return (audioSources[i]);
+            }
+        }
+
+        return null;
     }
 }
 
@@ -162,4 +173,14 @@ public class Sound
 
     public bool multipleSound;
 }
+
+
+[System.Serializable]
+public class FixedSound
+{
+    public AudioClip clip;
+    public AudioClip[] clips;
+    public float skipDuration;
+}
+
 

@@ -201,7 +201,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
     {
         while (NodeMovingMgr.instance.moving)
         {
-            if (_unit.type.sound_walk.Length != 0)
+            if (_unit.type.sound_walk.Length > 0)
                 SoundManager.instance.PlaySound(_unit.type.sound_walk[Random.Range(0, _unit.type.sound_walk.Length)]);
 
             yield return new WaitForSeconds(Random.Range(.35f, .45f));

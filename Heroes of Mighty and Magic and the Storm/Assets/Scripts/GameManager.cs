@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     public GameScene scene;
 
     public AudioClip clip;
+    public FixedSound fixedSound;
 
     void Start()
     {
@@ -93,7 +94,7 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            SoundManager.instance.PlaySound(clip, true);
+            SoundManager.instance.PlaySound(fixedSound, true);
         }
     }
 
@@ -112,11 +113,4 @@ public class GameManager : Singleton<GameManager>
         else
             LocalizationMgr.instance.ChangeToLanguage(Language.English);
     }
-}
-
-[System.Serializable]
-public class FixedSound
-{
-    public AudioClip clip;
-    public float skipDuration;
 }

@@ -34,7 +34,7 @@ public class EditorUtil
             EditorGUI.indentLevel -= 1;
         }
 
-        if (_list.arraySize == 0 && GUILayout.Button(addButtonContent, EditorStyles.miniButton))
+        if (_list.isArray && _list.arraySize == 0 && GUILayout.Button(addButtonContent, EditorStyles.miniButton))
         {
             _list.arraySize += 1;
         }

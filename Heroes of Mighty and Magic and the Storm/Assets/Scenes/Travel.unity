@@ -16530,6 +16530,8 @@ MonoBehaviour:
     audioMixerGroup: {fileID: 243583525160473442, guid: f536da5662304472bb3480c1c0cc4790,
       type: 2}
     multipleSound: 0
+  randomPitch: 0.3
+  maxAudioPlayCountAtOneTime: 6
 --- !u!114 &1222465627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16575,13 +16577,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff558fd00172462895636b603a94f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1222465630}
-  randomPitch: 0.2
   testHeroes:
   - {fileID: 284897468}
   - {fileID: 1134631093}
   scene: 0
   clip: {fileID: 8300000, guid: 928b7e6f42538424393da37991c715fc, type: 3}
+  fixedSound:
+    clip: {fileID: 0}
+    clips:
+    - {fileID: 8300000, guid: e97836c7fb52bd94ca4733981726710f, type: 3}
+    - {fileID: 8300000, guid: 928b7e6f42538424393da37991c715fc, type: 3}
+    skipDuration: 0
 --- !u!82 &1222465630
 AudioSource:
   m_ObjectHideFlags: 0

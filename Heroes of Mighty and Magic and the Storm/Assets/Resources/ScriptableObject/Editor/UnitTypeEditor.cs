@@ -10,7 +10,7 @@ public class UnitTypeEditor : Editor
         "speed", "growth", "AIValue", "cost", "traits", "attackType", "isTwoHexsUnit"};
 
     string[] tab_other = { "size", "armorType", "race", "animControl", };
-    string[] tab_sound = { "sound_attack", "sound_walk", "sound_hit", "sound_death" };
+    string[] tab_sound = { "sound_attack", "sound_walk", "sound_move", "sound_hit", "sound_death" };
 
     public override void OnInspectorGUI()
     {
@@ -94,6 +94,7 @@ public class UnitTypeEditor : Editor
                     {
                         EditorGUI.indentLevel += 1;
                         EditorGUILayout.PropertyField(property.FindPropertyRelative("clip"), GUIContent.none);
+                        EditorUtil.ShowList(property.FindPropertyRelative("clips"));
                         EditorGUILayout.PropertyField(property.FindPropertyRelative("skipDuration"));
                         EditorGUI.indentLevel -= 1;
                     }

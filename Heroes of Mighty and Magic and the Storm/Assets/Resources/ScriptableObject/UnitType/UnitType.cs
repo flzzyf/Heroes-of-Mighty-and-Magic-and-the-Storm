@@ -34,6 +34,7 @@ public class UnitType : ScriptableObject
     public AudioClip sound_attack;
     public AudioClip sound_attackImpact;
     public AudioClip[] sound_walk;
+    public FixedSound sound_move;
     public FixedSound sound_hit;
     public FixedSound sound_death;
 
