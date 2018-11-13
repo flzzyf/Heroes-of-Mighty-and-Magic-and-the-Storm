@@ -16581,6 +16581,7 @@ MonoBehaviour:
   - {fileID: 284897468}
   - {fileID: 1134631093}
   scene: 0
+  clip: {fileID: 8300000, guid: 928b7e6f42538424393da37991c715fc, type: 3}
 --- !u!82 &1222465630
 AudioSource:
   m_ObjectHideFlags: 0

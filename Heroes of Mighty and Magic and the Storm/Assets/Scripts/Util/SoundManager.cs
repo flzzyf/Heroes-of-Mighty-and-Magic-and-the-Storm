@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,19 +6,28 @@ public class SoundManager : Singleton<SoundManager>
 {
     public Sound[] sounds = new Sound[1];
 
-    private void Awake()
-    {
-        Init();
-    }
+    public float randomPitch = 0.3f;
 
-    public void Init() 
+    //同时最大播放音效的数量
+    public int maxAudioPlayCountAtOneTime = 6;
+    List<AudioSource> audioSources;
+
+    void Start() 
 	{
+        //初始化预设音效
         foreach (Sound s in sounds)
         {
             if (s.multipleSound)
                 continue;
 
             CreateSoundComponent(s);
+        }
+
+        //初始创建音效播放器
+        audioSources = new List<AudioSource>();
+        for (int i = 0; i < maxAudioPlayCountAtOneTime; i++)
+        {
+            audioSources.Add(gameObject.AddComponent<AudioSource>());
         }
     }
 
@@ -91,6 +99,45 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         s.source.Stop();
+    }
+
+    public void PlaySound(FixedSound _sound, bool _random = false)
+    {
+        if (_sound == null)
+            return;
+
+        //audioSource.clip = _sound.clip;
+        //audioSource.time = _sound.skipDuration;
+        //audioSource.Play();
+    }
+
+    //播放任意音效
+    public void PlaySound(AudioClip _clip, bool _random = false)
+    {
+        if (_clip == null)
+            return;
+
+        //如果有没在播放的音效播放器
+        AudioSource audioSource = null;
+        for (int i = 0; i < maxAudioPlayCountAtOneTime; i++)
+        {
+            if(audioSources[i].isPlaying == false)
+            {
+                audioSource = audioSources[i];
+                break;
+            }
+        }
+
+        if(audioSource != null)
+        {
+            audioSource.clip = _clip;
+
+            //随机音高
+            if (_random)
+                audioSource.pitch = 1 + Random.Range(0, 1f) * randomPitch;
+
+            audioSource.Play();
+        }
     }
 }
 

@@ -89,7 +89,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
         waiting = true;
 
         //播放攻击音效
-        GameManager.instance.PlaySound(_origin.type.sound_attack);
+        SoundManager.instance.PlaySound(_origin.type.sound_attack);
 
         Anim attackAnim;
         //播放攻击动画，根据位置
@@ -127,7 +127,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
 
             //创建吸血效果，播放音效
             Trait_Effect trait = (Trait_Effect)TraitManager.GetTrait("Life drain");
-            GameManager.instance.PlaySound(trait.sound_trigger);
+            SoundManager.instance.PlaySound(trait.sound_trigger);
             GameObject fx = Instantiate(trait.fx_trigger,
                 _origin.transform.position, Quaternion.identity);
 
@@ -308,7 +308,7 @@ public class UnitAttackMgr : Singleton<UnitAttackMgr>
     void UnitHit(Unit _unit)
     {
         //播放被击音效
-        GameManager.instance.PlaySound(_unit.type.sound_hit);
+        SoundManager.instance.PlaySound(_unit.type.sound_hit);
         //如果有防御buff
         UnitAnimMgr.instance.PlayAnimation(_unit, Anim.Hit);
     }

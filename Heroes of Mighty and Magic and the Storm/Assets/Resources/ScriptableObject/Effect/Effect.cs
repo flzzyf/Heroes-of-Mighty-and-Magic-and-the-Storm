@@ -45,7 +45,7 @@ public class Effect : ScriptableObject
 
         if(sound != null)
         {
-            GameManager.instance.PlaySound(sound);
+            SoundManager.instance.PlaySound(sound);
         }
     }
 

@@ -10,14 +10,13 @@ public class GameManager : Singleton<GameManager>
 {
     public static GameState gameState;
 
-    public AudioSource audioSource;
-    public float randomPitch = 0.3f;
-
     public Hero[] testHeroes;
 
     public static int player = 2;
 
     public GameScene scene;
+
+    public AudioClip clip;
 
     void Start()
     {
@@ -94,31 +93,8 @@ public class GameManager : Singleton<GameManager>
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);
-            print(SkillManager.HasSkill(testHeroes[0], "Magic_Fire", 3));
+            SoundManager.instance.PlaySound(clip, true);
         }
-    }
-
-    public void PlaySound(FixedSound _sound, bool _random = false)
-    {
-        if (_sound == null)
-            return;
-
-
-        audioSource.clip = _sound.clip;
-        audioSource.time = _sound.skipDuration;
-        audioSource.Play();
-    }
-
-    public void PlaySound(AudioClip _clip, bool _random = false)
-    {
-        if (_clip == null)
-            return;
-
-        if (_random)
-            audioSource.pitch = 1 + Random.Range(0, 1f) * randomPitch;
-
-        audioSource.PlayOneShot(_clip);
     }
 
     //变为本地语言
