@@ -40,6 +40,19 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
         flashingUnits.Add(_unit);
 
         StartCoroutine(HaloFlashing(_unit));
+
+        //设置Shader
+        _unit.sprite.material.shader = Shader.Find("Custom/Sprite Outline");
+    }
+
+    public void HaloFlashStop(Unit _unit)
+    {
+        SetFloat(_unit, "_LineWidth", 0);
+        //_unit.sprite.material.SetFloat("_LineWidth", 0);
+
+        flashingUnits.Remove(_unit);
+
+        _unit.sprite.material.shader = Shader.Find("Custom/Sprite Shadow");
     }
 
     public void HaloFlashStart(Unit _unit, string _color)
@@ -70,14 +83,6 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
             yield return null;
         }
-    }
-
-    public void HaloFlashStop(Unit _unit)
-    {
-        SetFloat(_unit, "_LineWidth", 0);
-        //_unit.sprite.material.SetFloat("_LineWidth", 0);
-
-        flashingUnits.Remove(_unit);
     }
 
     void ChangeHaloColor(Unit _unit, string _color)
