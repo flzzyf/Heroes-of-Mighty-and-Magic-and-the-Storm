@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum GameScene { Travel, Battle }
 
-public enum GameState { playerControl, canNotControl, paused }
+public enum GameState { playerControl, canNotControl }
 
 public class GameManager : Singleton<GameManager>
 {

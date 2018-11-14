@@ -11,7 +11,16 @@ public class NodeItem_Battle : NodeItem
     [HideInInspector]
     public BattleNodeType battleNodeType;
 
-    public Unit unit { get { return nodeObject.GetComponent<Unit>(); } }
+    public Unit unit
+    {
+        get
+        {
+            if (nodeObject != null && nodeObject.nodeObjectType == NodeObjectType.unit)
+                return nodeObject.GetComponent<Unit>();
+
+            return null;
+        }
+    }
 
     string color;
 
@@ -74,7 +83,7 @@ public class NodeItem_Battle : NodeItem
     void OnMouseOver()
     {
         //如果是游戏暂停状态则无视点击
-        if (GameManager.gameState == GameState.paused)
+        if (GameManager.gameState == GameState.canNotControl)
             return;
 
         //鼠标在UI上则无效

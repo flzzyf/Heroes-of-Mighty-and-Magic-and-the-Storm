@@ -89,15 +89,14 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
     public void OnNodeUnhovered(NodeItem_Battle _node)
     {
         _node.RestoreBackgroundColor();
-        
+
         CursorManager.instance.ChangeCursor();
         CursorManager.instance.ChangeCursorAngle();
 
         //显示并更新单位属性UI
         //BattleManager.instance.ShowUnitStatUI(false);
 
-        if (_node.nodeObject != null &&
-            _node.nodeObject.nodeObjectType == NodeObjectType.unit &&
+        if (_node.unit != null &&
             _node.unit != BattleManager.currentActionUnit)
         {
             UnitHaloMgr.instance.HaloFlashStop(_node.unit);
@@ -111,7 +110,6 @@ public class BattleNodeMgr : Singleton<BattleNodeMgr>
 
         playerHovered = null;
     }
-
 
     public void OnMouseMoved(NodeItem_Battle _node)
     {

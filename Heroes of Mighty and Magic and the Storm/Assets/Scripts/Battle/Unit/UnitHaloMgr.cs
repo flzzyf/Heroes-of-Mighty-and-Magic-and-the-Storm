@@ -24,37 +24,24 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     public HaloColor[] haloColor;
 
-    void ChangeHalo(Unit _unit, float _value = 0)
-    {
-        Color color = _unit.sprite.material.GetColor("_Color");
-        color.a = _value;
-        _unit.sprite.material.SetColor("_Color", color);
-    }
+    public Shader shader_outline;
+    public Shader shader_normal;
 
+    //光晕闪烁开始
     public void HaloFlashStart(Unit _unit)
     {
-        SetFloat(_unit, "_LineWidth", haloWidth);
-
-        ChangeHalo(_unit, haloFlashRangeMax);
+        if (flashingUnits.Contains(_unit))
+            return;
 
         flashingUnits.Add(_unit);
-
         StartCoroutine(HaloFlashing(_unit));
-
-        //设置Shader
-        _unit.sprite.material.shader = Shader.Find("Custom/Sprite Outline");
     }
-
+    //光晕闪烁停止
     public void HaloFlashStop(Unit _unit)
     {
-        SetFloat(_unit, "_LineWidth", 0);
-        //_unit.sprite.material.SetFloat("_LineWidth", 0);
-
         flashingUnits.Remove(_unit);
-
-        _unit.sprite.material.shader = Shader.Find("Custom/Sprite Shadow");
     }
-
+    //光晕以指定颜色开始闪烁
     public void HaloFlashStart(Unit _unit, string _color)
     {
         ChangeHaloColor(_unit, _color);
@@ -63,28 +50,38 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     IEnumerator HaloFlashing(Unit _unit)
     {
-        bool fading = true;
+        //设置Shader
+        _unit.sprite.material.shader = shader_outline;
+
+        _unit.sprite.material.SetFloat("_LineWidth", haloWidth);
+
+        int alphaChangingSign = -1;
+        float a = haloFlashRangeMax;
 
         while (flashingUnits.Contains(_unit))
         {
-            float a = _unit.sprite.material.GetColor("_Color").a;
+            if (a < haloFlashRangeMin) alphaChangingSign = 1;
+            else if (a > haloFlashRangeMax) alphaChangingSign = -1;
 
-            if (a < haloFlashRangeMin) fading = false;
-            else if (a > haloFlashRangeMax) fading = true;
+            a += alphaChangingSign * haloFlashSpeed * Time.deltaTime;
 
-            if (fading)
-            {
-                a -= haloFlashSpeed * Time.deltaTime;
-            }
-            else
-                a += haloFlashSpeed * Time.deltaTime;
-
-            ChangeHalo(_unit, a);
+            ChangeHaloAlpha(_unit, a);
 
             yield return null;
         }
-    }
 
+        _unit.sprite.material.SetFloat("_LineWidth", 0);
+        //设置Shader
+        _unit.sprite.material.shader = shader_normal;
+    }
+    //改变光晕透明度
+    void ChangeHaloAlpha(Unit _unit, float _value)
+    {
+        Color color = _unit.sprite.material.GetColor("_Color");
+        color.a = _value;
+        _unit.sprite.material.SetColor("_Color", color);
+    }
+    //改变光晕颜色
     void ChangeHaloColor(Unit _unit, string _color)
     {
         for (int i = 0; i < haloColor.Length; i++)
@@ -97,16 +94,5 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
         }
 
         Debug.LogWarning("未能找到颜色");
-    }
-
-    //设置Float
-    void SetFloat(Unit _unit, string _property, float _amount)
-    {
-        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-        _unit.sprite.GetPropertyBlock(mpb);
-        mpb.SetFloat(_property, _amount);
-        _unit.sprite.SetPropertyBlock(mpb);
-
-        //_unit.sprite.material.SetFloat("_LineWidth", haloWidth);
     }
 }
