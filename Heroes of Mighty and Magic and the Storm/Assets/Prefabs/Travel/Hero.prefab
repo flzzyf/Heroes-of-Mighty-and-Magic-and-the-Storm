@@ -51,6 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4912642036706332}
   - component: {fileID: 114394594263890442}
+  - component: {fileID: 114534009955874286}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -134,6 +135,18 @@ MonoBehaviour:
   knowledge: 0
   mana_max: 0
   mana: 0
+--- !u!114 &114534009955874286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952165180744556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f7c15ab72dc4ed2bbd581982fbcc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d09814e0d99bbd94ca77121f086d59d0, type: 3}
 --- !u!212 &212787357755870222
 SpriteRenderer:
   m_ObjectHideFlags: 1

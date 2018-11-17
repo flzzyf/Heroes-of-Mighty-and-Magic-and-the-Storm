@@ -51,6 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4900316246497726}
   - component: {fileID: 114080653130892890}
+  - component: {fileID: 114203629090182054}
   m_Layer: 0
   m_Name: Town
   m_TagString: Untagged
@@ -112,8 +113,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeItem: {fileID: 0}
   nodeObjectType: 0
-  player: 0
   interactPoint: {x: 3, y: 0}
+--- !u!114 &114203629090182054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1371131256057282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f7c15ab72dc4ed2bbd581982fbcc44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d55edc0ac16fa9c41a7cc00c39103d2b, type: 3}
 --- !u!212 &212853511585297080
 SpriteRenderer:
   m_ObjectHideFlags: 1
