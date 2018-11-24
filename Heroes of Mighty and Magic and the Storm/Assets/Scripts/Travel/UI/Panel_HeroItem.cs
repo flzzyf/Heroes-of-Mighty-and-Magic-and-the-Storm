@@ -18,7 +18,8 @@ public class Panel_HeroItem : MonoBehaviour, IPointerClickHandler
         if (highlightedHeroItem != this)
         {
             //解除之前高亮的英雄UI的高亮
-            highlightedHeroItem.border_highlight.SetActive(false);
+            if (highlightedHeroItem != null)
+                highlightedHeroItem.border_highlight.SetActive(false);
             border_highlight.SetActive(true);
 
             highlightedHeroItem = this;
