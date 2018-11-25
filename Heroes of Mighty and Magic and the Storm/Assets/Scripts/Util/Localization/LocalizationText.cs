@@ -7,9 +7,11 @@ public class LocalizationText : MonoBehaviour
 {
     public string key;
     public string[] args;
+    Text text;
 
     void OnEnable()
     {
+        text = GetComponent<Text>();
         LocalizationMgr.instance.localizationTexts.Add(this);
 
         Init();
@@ -27,15 +29,15 @@ public class LocalizationText : MonoBehaviour
         if (key == "")
             return;
 
-        GetComponent<Text>().font = LocalizationMgr.instance.font;
+        text.font = LocalizationMgr.instance.font;
 
         if (args.Length == 0)
         {
-            GetComponent<Text>().text = LocalizationMgr.instance.GetText(key);
+            text.text = LocalizationMgr.instance.GetText(key);
         }
         else
         {
-            GetComponent<Text>().text = string.Format(LocalizationMgr.instance.GetText(key), args);
+            text.text = string.Format(LocalizationMgr.instance.GetText(key), args);
         }
     }
 
@@ -52,5 +54,10 @@ public class LocalizationText : MonoBehaviour
         key = _key;
 
         Init();
+    }
+
+    public void ClearText()
+    {
+        text.text = "";
     }
 }

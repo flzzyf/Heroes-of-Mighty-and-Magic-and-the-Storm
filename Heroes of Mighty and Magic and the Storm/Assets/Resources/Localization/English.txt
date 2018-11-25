@@ -53,3 +53,6 @@ AutoCombat=AutoCombat
 CastSpell=CastSpell
 Cursed Strikes=Cursed Strikes
 Lev=Lev
+EndTurn=EndTurn
+NextHero=NextHero
+MoveHero=MoveHero

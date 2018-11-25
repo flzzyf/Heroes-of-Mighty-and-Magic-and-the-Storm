@@ -118,3 +118,6 @@ CastSpell=施法
 AutoCombat=自动战斗
 Cursed Strikes=邪灵打击
 Lev=级
+EndTurn=结束回合
+NextHero=下个英雄
+MoveHero=移动英雄
