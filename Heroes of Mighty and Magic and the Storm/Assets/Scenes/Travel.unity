@@ -34646,7 +34646,7 @@ GameObject:
   - component: {fileID: 1868896252}
   - component: {fileID: 1868896251}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Panel_AbilLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
