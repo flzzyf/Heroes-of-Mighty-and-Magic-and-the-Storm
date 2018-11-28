@@ -24,9 +24,6 @@ public class GameManager : Singleton<GameManager>
         TravelManager.instance.Init();
         BattleManager.instance.Init();
 
-        TravelManager.instance.EnterTravelMode();
-        TravelManager.instance.TurnStart(0);
-
         //之前有保存语言则直接设置，否则根据本地语言设置
         // if (PlayerPrefs.HasKey("Language"))
         //     ChangeLanguage(PlayerPrefs.GetString("Language"));
@@ -51,6 +48,8 @@ public class GameManager : Singleton<GameManager>
         SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
         SkillManager.AddSkill(testHeroes[0], "Magic_Water", 3);
 
+        TravelManager.instance.EnterTravelMode();
+        TravelManager.instance.TurnStart(GameManager.player);
     }
 
     void Update()

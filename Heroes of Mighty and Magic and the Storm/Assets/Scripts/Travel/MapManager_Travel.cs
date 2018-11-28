@@ -40,12 +40,15 @@ public class MapManager_Travel : MapManager
 
         Hero hero = TravelManager.instance.currentHero;
 
+        if (hero == null)
+            Debug.LogError("当前英雄为空");
+
         //有路径，而且点击的是终点，则开始移动。否则寻路
         if (path != null && node.pathType == TravelPathType.goal)
         {
             //是空地直接移动
             //否则移动到目标点，然后开始交互
-            if(obj == null)
+            if (obj == null)
             {
                 MoveObjectAlongPath(hero.gameObject, path);
             }
@@ -191,7 +194,7 @@ public class MapManager_Travel : MapManager
 
         GameManager.gameState = GameState.playerControl;
 
-        if(targetNodeObject != null)
+        if (targetNodeObject != null)
         {
             NodeObject_Travel obj = (NodeObject_Travel)targetNodeObject;
             targetNodeObject = null;

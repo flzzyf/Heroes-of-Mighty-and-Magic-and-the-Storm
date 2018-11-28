@@ -1564,22 +1564,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - id: 0
-    isAI: 0
+    isAI: 1
     startingPoint: {x: 17, y: 19}
-    heroes:
-    - {fileID: 284897468}
+    heroes: []
     gold: 9999
   - id: 1
     isAI: 1
     startingPoint: {x: 27, y: 19}
-    heroes:
-    - {fileID: 1134631093}
+    heroes: []
     gold: 2
   - id: 2
     isAI: 0
-    startingPoint: {x: 27, y: 19}
-    heroes:
-    - {fileID: 284897468}
+    startingPoint: {x: 35, y: 19}
+    heroes: []
     gold: 2
 --- !u!4 &53222761
 Transform:

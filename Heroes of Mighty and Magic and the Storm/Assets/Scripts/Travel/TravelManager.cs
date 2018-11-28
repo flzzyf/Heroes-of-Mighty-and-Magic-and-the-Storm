@@ -89,7 +89,9 @@ public class TravelManager : Singleton<TravelManager>
     public void TurnStart(int _index)
     {
         Player player = PlayerManager.instance.players[_index];
-        HighlightHero(player.heroes[1]);
+
+        currentHero = player.heroes[0];
+        //HighlightHero(player.heroes[0]);
     }
 
     public void BattleBegin(Hero _attacker, Hero _defender)
