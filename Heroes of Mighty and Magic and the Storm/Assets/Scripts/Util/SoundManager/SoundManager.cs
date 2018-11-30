@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum SoundGroup { Music, Effect, Death, Hit, Attack, Walk }
+public enum SoundGroup { Music, Effect, Death, Hit, Attack, Walk, UI, Impact }
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -12,9 +12,10 @@ public class SoundManager : Singleton<SoundManager>
     public int maxAudioPlayCountAtOneTime = 6;
     List<AudioSource> audioSources;
 
-	Dictionary<Sound, AudioSource> soundDic;
+	Dictionary<AudioSource, Sound> soundDic;
 
-	public AudioMixerGroup audioMixerGroup;
+	public AudioMixerGroup audioGroup_music;
+	public AudioMixerGroup audioGroup_effect;
 
 	//初始化
 	void Awake()
@@ -26,7 +27,7 @@ public class SoundManager : Singleton<SoundManager>
             audioSources.Add(gameObject.AddComponent<AudioSource>());
         }
 
-		soundDic = new Dictionary<Sound, AudioSource>();
+		soundDic = new Dictionary<AudioSource, Sound>();
     }
 
     //播放音效
@@ -54,7 +55,7 @@ public class SoundManager : Singleton<SoundManager>
 		source.Play();
 
 		//加入声音字典
-		soundDic.Add(_sound, source);
+		soundDic.Add(source, _sound);
     }
     public void PlaySound(string _name)
     {
@@ -67,11 +68,19 @@ public class SoundManager : Singleton<SoundManager>
         _source.volume = _sound.volume;
         _source.pitch = _sound.pitch;
         _source.loop = _sound.loop;
-        //_source.outputAudioMixerGroup = _sound.audioMixerGroup;
-    }
 
-    //通过名字获取声音
-    Sound GetSound(string _name)
+		//设置声音组
+		if (_sound.group == SoundGroup.Music)
+			_source.outputAudioMixerGroup = audioGroup_music;
+		else
+			_source.outputAudioMixerGroup = audioGroup_effect;
+
+		//开始时间
+		_source.time = _sound.startingTime;
+	}
+
+	//通过名字获取声音
+	Sound GetSound(string _name)
     {
 		Sound[] sounds = Resources.LoadAll<Sound>("ScriptableObject/Sound");
 
@@ -87,10 +96,21 @@ public class SoundManager : Singleton<SoundManager>
 	//停止播放
 	public void StopPlay(Sound _sound)
 	{
-		soundDic[_sound].Stop();
+		List<AudioSource> sourceList = new List<AudioSource>();
+		foreach(var item in soundDic)
+		{
+			if (item.Value == _sound)
+			{
+				sourceList.Add(item.Key);
+			}
+		}
 
-		//移除字典
-		soundDic.Remove(_sound);
+		foreach(var item in sourceList)
+		{
+			item.Stop();
+			//从字典移除
+			soundDic.Remove(item);
+		}
 	}
     public void StopPlay(string _name)
     {
@@ -105,8 +125,9 @@ public class SoundManager : Singleton<SoundManager>
             if (audioSources[i].isPlaying == false)
             {
 				//从字典移除
-				
-                return (audioSources[i]);
+				soundDic.Remove(audioSources[i]);
+
+				return (audioSources[i]);
             }
         }
 

@@ -11,11 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
   m_Name: Kel_Hit
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 8d3b5c82d593093469a47704bb09fde7, type: 3}
   volume: 1
   pitch: 1
   loop: 0
   group: 3
-  startingTime: 0
+  startingTime: 0.3

@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
   m_Name: Amazon_Walk
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 771d04c9a9710a6418605db6c4e4861f, type: 3}
   - {fileID: 8300000, guid: 538a8907fd0a72e48982abc4cfce5f16, type: 3}
@@ -19,5 +18,5 @@ MonoBehaviour:
   volume: 1
   pitch: 1
   loop: 1
-  group: 0
+  group: 5
   startingTime: 0

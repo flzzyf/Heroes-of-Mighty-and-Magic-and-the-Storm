@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
+  m_Name: Crusader_Walk
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 6034f1994172dc940bb61fbc4bc2291b, type: 3}
+  - {fileID: 8300000, guid: 52b108765fb5533448473a940a02971c, type: 3}
+  - {fileID: 8300000, guid: f2c2aa42f87ed4d45a01051fd1f8f53f, type: 3}
+  volume: 1
+  pitch: 1
+  loop: 1
+  group: 5
+  startingTime: 0

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Life drain
   m_EditorClassIdentifier: 
   chance: 1
-  sound_trigger: {fileID: 8300000, guid: e97836c7fb52bd94ca4733981726710f, type: 3}
+  sound_trigger: {fileID: 11400000, guid: 0d630fad3c1342c449654d21ac7b6117, type: 2}
   fx_trigger: {fileID: 1032375084178968, guid: 6f45f905c48f94c1785ee79895e6b383, type: 2}

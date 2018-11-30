@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: Crusader_Upgrade
   m_EditorClassIdentifier: 
-  tab: 0
+  tab: 2
   icon: {fileID: 21300000, guid: 82f72f823978d204490f5372bb83c2c4, type: 3}
   race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}
   animControl: {fileID: 22100000, guid: 14e3827b00ec34580a24f36df87ba89f, type: 2}
@@ -33,15 +33,8 @@ MonoBehaviour:
   ammo: 12
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0}
-  sound_attack: {fileID: 8300000, guid: 1610339ba07df8549bd7801ebab77563, type: 3}
+  sound_attack: {fileID: 11400000, guid: 1f4bd92bcb4db8c41a2d21808d8ee6c2, type: 2}
   sound_attackImpact: {fileID: 0}
-  sound_walk:
-  - {fileID: 8300000, guid: 6034f1994172dc940bb61fbc4bc2291b, type: 3}
-  - {fileID: 8300000, guid: 52b108765fb5533448473a940a02971c, type: 3}
-  - {fileID: 8300000, guid: f2c2aa42f87ed4d45a01051fd1f8f53f, type: 3}
-  sound_hit:
-    clip: {fileID: 0}
-    skipDuration: 0
-  sound_death:
-    clip: {fileID: 0}
-    skipDuration: 0
+  sound_walk: {fileID: 11400000, guid: bf5ec45faa78f8f4183e111548e8eee6, type: 2}
+  sound_hit: {fileID: 0}
+  sound_death: {fileID: 0}

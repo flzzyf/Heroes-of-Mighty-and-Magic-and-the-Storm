@@ -11,11 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
   m_Name: Amazon_Hit
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 7e36345f9dd50ab499c1b43466b85751, type: 3}
   volume: 1
   pitch: 1
   loop: 0
   group: 3
-  startingTime: 0
+  startingTime: 0.3

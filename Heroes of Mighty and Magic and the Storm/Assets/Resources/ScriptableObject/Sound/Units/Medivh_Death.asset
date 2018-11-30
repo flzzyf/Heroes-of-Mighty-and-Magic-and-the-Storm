@@ -11,11 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
   m_Name: Medivh_Death
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: c1a855cf9c53a584eb102ed96fd7aebf, type: 3}
   volume: 1
   pitch: 1
   loop: 0
   group: 2
-  startingTime: 0
+  startingTime: 0.3

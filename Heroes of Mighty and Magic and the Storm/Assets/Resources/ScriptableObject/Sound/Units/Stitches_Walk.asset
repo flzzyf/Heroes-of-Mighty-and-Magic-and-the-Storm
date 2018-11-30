@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
+  m_Name: Stitches_Walk
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: aac2c5aae8822154aa3cf6df988cb761, type: 3}
+  - {fileID: 8300000, guid: 5614920540eb17d429de767fcdfa616c, type: 3}
+  - {fileID: 8300000, guid: 6a23f2e8f080af74eba6f6791b488105, type: 3}
+  volume: 1
+  pitch: 1
+  loop: 1
+  group: 5
+  startingTime: 0

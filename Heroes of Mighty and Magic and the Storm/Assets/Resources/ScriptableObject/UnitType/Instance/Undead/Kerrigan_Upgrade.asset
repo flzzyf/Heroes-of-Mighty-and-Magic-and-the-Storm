@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: Kerrigan_Upgrade
   m_EditorClassIdentifier: 
-  tab: 0
+  tab: 2
   icon: {fileID: 21300000, guid: 15da9a31a7cf02a48b99e04353883b5e, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 22100000, guid: f49d92953bc4a1c4aa12287e896f59e4, type: 2}
@@ -38,10 +38,6 @@ MonoBehaviour:
   launchPos: {x: 0, y: 0}
   sound_attack: {fileID: 0}
   sound_attackImpact: {fileID: 0}
-  sound_walk: []
-  sound_hit:
-    clip: {fileID: 8300000, guid: 967c27184434a1d48ba8a82dbe0bbe93, type: 3}
-    skipDuration: 0.3
-  sound_death:
-    clip: {fileID: 8300000, guid: 394fbfec84383ab4c860d087e945541b, type: 3}
-    skipDuration: 0.3
+  sound_walk: {fileID: 0}
+  sound_hit: {fileID: 11400000, guid: e873e361aa1cb4d47829cfc5ab7118e8, type: 2}
+  sound_death: {fileID: 11400000, guid: f432ad5825146ea48a0d1b15cb59c517, type: 2}

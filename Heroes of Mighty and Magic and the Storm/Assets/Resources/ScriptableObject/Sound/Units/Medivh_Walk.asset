@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
+  m_Name: Medivh_Walk
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 2896c41a808903a4a9b30fdfa5b4a49f, type: 3}
+  - {fileID: 8300000, guid: 2746a0a2877e39c45805470487d3d454, type: 3}
+  - {fileID: 8300000, guid: 57104539c26834c46bb46174dd1f0a49, type: 3}
+  volume: 1
+  pitch: 1
+  loop: 1
+  group: 5
+  startingTime: 0
