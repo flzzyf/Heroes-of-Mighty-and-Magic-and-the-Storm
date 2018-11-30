@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
-  m_Name: Impact_Small_Flesh 1
+  m_Name: Impact_Small_Metal
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 479b65597614d664c95b166bfeb6bb2c, type: 3}
