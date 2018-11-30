@@ -13,7 +13,7 @@ public class Obj_Resources : AdvantureObject
     {
         base.OnInteracted(_hero);
 
-        SoundManager.instance.Play("PickUp");
+        SoundManager.instance.PlaySound("PickUp");
 
         Debug.Log("获得" + resources[0].amount + "金子");
     }

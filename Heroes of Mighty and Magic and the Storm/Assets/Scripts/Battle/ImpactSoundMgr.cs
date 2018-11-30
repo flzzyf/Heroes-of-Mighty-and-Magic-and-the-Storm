@@ -15,6 +15,6 @@ public class ImpactSoundMgr
         if (_target.type.armorType == ArmorType.flesh) armor = "flesh";
         else if (_target.type.armorType == ArmorType.metal) armor = "metal";
 
-        SoundManager.instance.Play(string.Format("impact_{0}_{1}", size, armor));
+        SoundManager.instance.PlaySound(string.Format("impact_{0}_{1}", size, armor));
     }
 }

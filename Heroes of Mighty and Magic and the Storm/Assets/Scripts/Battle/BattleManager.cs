@@ -165,7 +165,7 @@ public class BattleManager : Singleton<BattleManager>
         unitActionList = new LinkedList<Unit>();
         waitingUnitList = new LinkedList<Unit>();
 
-        SoundManager.instance.Play("Combat02");
+        SoundManager.instance.PlaySound("Combat02");
 
         //战斗开始效果触发
         CreateHeroUnits(_attacker, 0);
@@ -307,14 +307,14 @@ public class BattleManager : Singleton<BattleManager>
             print("玩家1获胜");
             SoundManager.instance.StopPlay("Combat02");
             BattleResultMgr.instance.ShowResultUI(1);
-            SoundManager.instance.Play("LoseBattle");
+            SoundManager.instance.PlaySound("LoseBattle");
         }
         else if (units[1].Count == 0)
         {
             print("玩家0获胜");
             SoundManager.instance.StopPlay("Combat02");
             BattleResultMgr.instance.ShowResultUI(0);
-            SoundManager.instance.Play("WinBattle");
+            SoundManager.instance.PlaySound("WinBattle");
         }
     }
 

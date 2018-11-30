@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a0936d33f8b4cdbba7137f15d68540, type: 3}
   m_Name: Malthael_Upgrade
   m_EditorClassIdentifier: 
-  tab: 0
+  tab: 2
   icon: {fileID: 21300000, guid: 4792396407c51d34387a774d79bb245d, type: 3}
   race: {fileID: 11400000, guid: 94beb023347b34d39b07197a33ecabbe, type: 2}
   animControl: {fileID: 22100000, guid: cec05f1c1ffbc904eae18395b9c7742c, type: 2}
@@ -36,12 +36,8 @@ MonoBehaviour:
   ammo: 12
   missile: {fileID: 0}
   launchPos: {x: 0, y: 0}
-  sound_attack: {fileID: 8300000, guid: 318db57d65492014e8d277b8cb065fef, type: 3}
+  sound_attack: {fileID: 11400000, guid: 3fe6257d088762043a5149bf34cc508f, type: 2}
   sound_attackImpact: {fileID: 0}
-  sound_walk: []
-  sound_hit:
-    clip: {fileID: 8300000, guid: 0845fed1f02f40244a19013dde365e82, type: 3}
-    skipDuration: 0.3
-  sound_death:
-    clip: {fileID: 8300000, guid: a3bc371ed30d2f4418f357536dccf935, type: 3}
-    skipDuration: 0.3
+  sound_walk: {fileID: 0}
+  sound_hit: {fileID: 11400000, guid: 675a4f1a4992acc419e1e2e72f03eb2e, type: 2}
+  sound_death: {fileID: 11400000, guid: 494b326c4f80cdc4e9ba8504d36c24fb, type: 2}

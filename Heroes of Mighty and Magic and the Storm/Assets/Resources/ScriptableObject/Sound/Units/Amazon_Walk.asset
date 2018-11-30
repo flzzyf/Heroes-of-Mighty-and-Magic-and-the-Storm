@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
+  m_Name: Amazon_Walk
+  m_EditorClassIdentifier: 
+  clip: {fileID: 0}
+  clips:
+  - {fileID: 8300000, guid: 771d04c9a9710a6418605db6c4e4861f, type: 3}
+  - {fileID: 8300000, guid: 538a8907fd0a72e48982abc4cfce5f16, type: 3}
+  - {fileID: 8300000, guid: 17cc8b1b628f8c0428d3ba29b7ad887b, type: 3}
+  volume: 1
+  pitch: 1
+  loop: 1
+  group: 0
+  startingTime: 0

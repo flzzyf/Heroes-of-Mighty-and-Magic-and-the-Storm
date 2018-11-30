@@ -31,12 +31,11 @@ public class UnitType : ScriptableObject
     public GameObject missile;
     public Vector2 launchPos;
 
-    public AudioClip sound_attack;
-    public AudioClip sound_attackImpact;
-    public AudioClip[] sound_walk;
-    public FixedSound sound_move;
-    public FixedSound sound_hit;
-    public FixedSound sound_death;
+    public Sound sound_attack;
+    public Sound sound_attackImpact;
+    public Sound sound_walk;
+    public Sound sound_hit;
+    public Sound sound_death;
 
     public Vector2 impactPos
     {
