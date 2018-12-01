@@ -14,4 +14,11 @@ public class OneShotFXMgr : Singleton<OneShotFXMgr>
 
         go.GetComponent<Animator>().Play(_anim.name);
     }
+
+    public void Play(GameObject _prefab, Vector3 _pos)
+    {
+        GameObject go = Instantiate(_prefab, _pos + offset, Quaternion.identity);
+
+        Destroy(go, 1.5f);
+    }
 }
