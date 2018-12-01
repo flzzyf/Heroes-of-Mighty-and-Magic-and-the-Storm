@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -6,16 +7,20 @@ public enum SoundGroup { Music, Effect, Death, Hit, Attack, Walk, UI, Impact }
 
 public class SoundManager : Singleton<SoundManager>
 {
-    public float randomPitch = 0.3f;
-
     //同时最大播放音效的数量
-    public int maxAudioPlayCountAtOneTime = 6;
+    public int maxAudioPlayCountAtOneTime = 12;
+    //同时播放的最大同种音效数量
+    public int maxSameAudioPlayCountAtOneTime = 5;
+
     List<AudioSource> audioSources;
 
     Dictionary<AudioSource, Sound> soundDic;
 
     public AudioMixerGroup audioGroup_music;
     public AudioMixerGroup audioGroup_effect;
+
+    //用来保存某种音效的同时播放数量
+    Dictionary<Sound, int> soundNumber;
 
     //初始化
     void Awake()
@@ -28,20 +33,31 @@ public class SoundManager : Singleton<SoundManager>
         }
 
         soundDic = new Dictionary<AudioSource, Sound>();
+        soundNumber = new Dictionary<Sound, int>();
     }
 
     //播放音效
     public void PlaySound(Sound _sound)
     {
+        if (_sound.clips.Length == 0)
+            Debug.LogError("空的声音：" + _sound.name);
+
+        //同时播放的这种音效数量超过限制，则不播放
+        if (soundNumber.ContainsKey(_sound) && soundNumber[_sound] >= maxSameAudioPlayCountAtOneTime)
+            return;
+
+        //否则加入键或者键值+1
+        if (soundNumber.ContainsKey(_sound))
+            soundNumber[_sound]++;
+        else
+            soundNumber.Add(_sound, 1);
+
         //获取闲置的声音组件并初始化
         AudioSource source = GetAvailableSource();
         if (source == null)
             return;
 
         InitAudioSource(source, _sound);
-
-        if (_sound.clips.Length == 0)
-            Debug.LogError("空的声音：" + _sound.name);
 
         //如果有多个声音片段则随机选择
         if (_sound.clips.Length > 1)
@@ -59,6 +75,8 @@ public class SoundManager : Singleton<SoundManager>
 
         //加入声音字典
         soundDic.Add(source, _sound);
+
+        StartCoroutine(FinishPlaying(source));
     }
     public void PlaySound(string _name)
     {
@@ -111,8 +129,8 @@ public class SoundManager : Singleton<SoundManager>
         foreach (var item in sourceList)
         {
             item.Stop();
-            //从字典移除
-            soundDic.Remove(item);
+
+            RemoveSound(item);
         }
     }
     public void StopPlay(string _name)
@@ -125,15 +143,33 @@ public class SoundManager : Singleton<SoundManager>
     {
         for (int i = 0; i < maxAudioPlayCountAtOneTime; i++)
         {
-            if (audioSources[i].isPlaying == false)
+            if (!soundDic.ContainsKey(audioSources[i]))
             {
-                //从字典移除
-                soundDic.Remove(audioSources[i]);
-
                 return (audioSources[i]);
             }
         }
 
         return null;
+    }
+
+    //等待音效播放完毕
+    IEnumerator FinishPlaying(AudioSource _source)
+    {
+        yield return new WaitForSeconds(_source.clip.length - _source.time);
+
+        RemoveSound(_source);
+    }
+
+    //声音播放完毕，或被停止
+    void RemoveSound(AudioSource _source)
+    {
+        //从音效数量字典移除
+        if (soundNumber[soundDic[_source]] > 1)
+            soundNumber[soundDic[_source]]--;
+        else
+            soundNumber.Remove(soundDic[_source]);
+
+        //从字典移除
+        soundDic.Remove(_source);
     }
 }

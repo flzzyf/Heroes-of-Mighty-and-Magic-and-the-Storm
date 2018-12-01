@@ -21738,8 +21738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8827898ff72c52d41bdbd457b24f20e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomPitch: 0.3
-  maxAudioPlayCountAtOneTime: 12
+  maxAudioPlayCountAtOneTime: 6
+  maxSameAudioPlayCountAtOneTime: 3
   audioGroup_music: {fileID: 243137447790009008, guid: f536da5662304472bb3480c1c0cc4790,
     type: 2}
   audioGroup_effect: {fileID: 243583525160473442, guid: f536da5662304472bb3480c1c0cc4790,
