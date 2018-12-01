@@ -55,6 +55,18 @@ public class UnitType : ScriptableObject
             return LocalizationMgr.instance.GetText(base.name);
         }
     }
+
+    public static UnitType GetUnit(string _name)
+    {
+        UnitType[] units = Resources.LoadAll<UnitType>("ScriptableObject/UnitType/Instance");
+        foreach (UnitType item in units)
+        {
+            if (item.name == _name)
+                return item;
+        }
+        Debug.LogError("未能找到：" + _name);
+        return null;
+    }
 }
 
 public enum AttackType { melee, range }

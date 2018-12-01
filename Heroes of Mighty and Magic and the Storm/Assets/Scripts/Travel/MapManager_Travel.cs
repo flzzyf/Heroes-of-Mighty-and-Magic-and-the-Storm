@@ -166,6 +166,9 @@ public class MapManager_Travel : MapManager
         hero.movementRate -= GetNodeDistance(hero.nodeItem, _node);
 
         slider_movementRate.value = hero.movementRate / 1000f;
+
+        //移动镜头到英雄
+        TravelCamMgr.instance.MoveCamera(hero.transform.position);
     }
 
     bool hasMovementToReachNode(Hero _hero, NodeItem _node)

@@ -115,17 +115,7 @@ MonoBehaviour:
   nodeObjectType: 0
   player: 0
   heroType: {fileID: 0}
-  pocketUnits:
-  - type: {fileID: 11400000, guid: ee7ea9a91700a4f56904d1a55bfef935, type: 2}
-    num: 20
-  - type: {fileID: 11400000, guid: 9408235d15743ef45a532e7241bae581, type: 2}
-    num: 2
-  - type: {fileID: 11400000, guid: c525427b5c4ce4115bfe240fdcfc78b7, type: 2}
-    num: 12
-  - type: {fileID: 11400000, guid: 0778e37c5e17e4edc8f0acf90292f59b, type: 2}
-    num: 30
-  - type: {fileID: 11400000, guid: 13fb08254cf72264b9a9c0f4c761ef7d, type: 2}
-    num: 50
+  pocketUnits: []
   movementRate: 1500
   magics: []
   skills: []

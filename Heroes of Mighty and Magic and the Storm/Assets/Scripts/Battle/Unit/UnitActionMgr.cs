@@ -205,6 +205,7 @@ public class UnitActionMgr : Singleton<UnitActionMgr>
                 SoundManager.instance.PlaySound(_unit.type.sound_walk);
 
             yield return new WaitForSeconds(Random.Range(.35f, .45f));
+
         }
     }
 

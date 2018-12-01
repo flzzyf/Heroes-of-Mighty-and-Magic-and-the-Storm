@@ -52,11 +52,15 @@ public class TravelManager : Singleton<TravelManager>
         hero.Init();
         _player.heroes.Add(hero);
 
+        //添加英雄初始兵力
+        hero.pocketUnits.Add(new PocketUnit(UnitType.GetUnit("Crusader_Upgrade"), 40));
+        hero.pocketUnits.Add(new PocketUnit(UnitType.GetUnit("Tyrael"), 10));
+
         //非AI
         if (!_player.isAI)
         {
-            //移动镜头到出生点
-            MoveCamera(hero.transform.position);
+            //移动镜头到英雄
+            HighlightHero(hero);
         }
     }
     //在节点上创建物体
@@ -71,17 +75,10 @@ public class TravelManager : Singleton<TravelManager>
         return go;
     }
 
-    //移动镜头到目的地
-    void MoveCamera(Vector3 _pos)
-    {
-        _pos.y = Camera.main.transform.position.y;
-        Camera.main.transform.position = _pos;
-    }
-
     //高亮英雄（移动镜头，选中英雄）
     void HighlightHero(Hero _go)
     {
-        MoveCamera(_go.transform.position);
+        TravelCamMgr.instance.MoveCamera(_go.transform.position);
 
         currentHero = _go;
     }

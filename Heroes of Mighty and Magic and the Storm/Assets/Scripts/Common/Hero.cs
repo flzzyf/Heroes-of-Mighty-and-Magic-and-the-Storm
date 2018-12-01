@@ -7,7 +7,7 @@ public class Hero : NodeObject
     public int player;
 
     public HeroType heroType;
-    public PocketUnit[] pocketUnits;
+    public List<PocketUnit> pocketUnits;
 
     [HideInInspector]
     public int movementRate;
@@ -46,4 +46,10 @@ public class PocketUnit
 {
     public UnitType type;
     public int num;
+
+    public PocketUnit(UnitType _type, int _num)
+    {
+        type = _type;
+        num = _num;
+    }
 }

@@ -222,7 +222,7 @@ public class BattleManager : Singleton<BattleManager>
     //创建玩家单位
     public void CreateHeroUnits(Hero _hero, int _side)
     {
-        if(_hero.heroType != null)
+        if (_hero.heroType != null)
         {
             heroUnits[_side] = Instantiate(heroUnitPrefab, heroUnitPos[_side], Quaternion.identity);
             heroUnits[_side].GetComponent<Animator>().runtimeAnimatorController = _hero.heroType.animControl;
@@ -233,9 +233,9 @@ public class BattleManager : Singleton<BattleManager>
         }
 
         int x = (_side == 0) ? 0 : map.size.x - 1;
-        for (int i = 0; i < _hero.pocketUnits.Length; i++)
+        for (int i = 0; i < _hero.pocketUnits.Count; i++)
         {
-            int playerUnitPosIndex = playerUnitPos[_hero.pocketUnits.Length - 1][i];
+            int playerUnitPosIndex = playerUnitPos[_hero.pocketUnits.Count - 1][i];
             int unitPosIndex = unitPos[playerUnitPosIndex];
             //创建单位
             Unit unit = CreateUnit(_hero.pocketUnits[i].type, new Vector2Int(x, unitPosIndex),
