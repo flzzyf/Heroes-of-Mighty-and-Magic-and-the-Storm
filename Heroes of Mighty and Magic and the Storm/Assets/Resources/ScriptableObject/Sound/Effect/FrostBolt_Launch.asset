@@ -9,14 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 161c1d29610771e41a72bc969d2b28e5, type: 3}
-  m_Name: Amazon_Walk
+  m_Name: FrostBolt_Launch
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 771d04c9a9710a6418605db6c4e4861f, type: 3}
-  - {fileID: 8300000, guid: 538a8907fd0a72e48982abc4cfce5f16, type: 3}
-  - {fileID: 8300000, guid: 17cc8b1b628f8c0428d3ba29b7ad887b, type: 3}
+  - {fileID: 8300000, guid: 57c60df17eca7ed47a768bc2b168ef5d, type: 3}
   volume: 1
   pitch: 1
   loop: 0
-  group: 5
+  group: 1
   startingTime: 0

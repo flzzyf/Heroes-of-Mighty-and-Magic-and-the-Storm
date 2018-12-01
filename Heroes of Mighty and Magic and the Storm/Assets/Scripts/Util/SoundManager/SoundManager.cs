@@ -12,13 +12,13 @@ public class SoundManager : Singleton<SoundManager>
     public int maxAudioPlayCountAtOneTime = 6;
     List<AudioSource> audioSources;
 
-	Dictionary<AudioSource, Sound> soundDic;
+    Dictionary<AudioSource, Sound> soundDic;
 
-	public AudioMixerGroup audioGroup_music;
-	public AudioMixerGroup audioGroup_effect;
+    public AudioMixerGroup audioGroup_music;
+    public AudioMixerGroup audioGroup_effect;
 
-	//初始化
-	void Awake()
+    //初始化
+    void Awake()
     {
         //创建音效播放器
         audioSources = new List<AudioSource>();
@@ -27,7 +27,7 @@ public class SoundManager : Singleton<SoundManager>
             audioSources.Add(gameObject.AddComponent<AudioSource>());
         }
 
-		soundDic = new Dictionary<AudioSource, Sound>();
+        soundDic = new Dictionary<AudioSource, Sound>();
     }
 
     //播放音效
@@ -35,6 +35,9 @@ public class SoundManager : Singleton<SoundManager>
     {
         //获取闲置的声音组件并初始化
         AudioSource source = GetAvailableSource();
+        if (source == null)
+            return;
+
         InitAudioSource(source, _sound);
 
         if (_sound.clips.Length == 0)
@@ -46,16 +49,16 @@ public class SoundManager : Singleton<SoundManager>
             int random = Random.Range(0, _sound.clips.Length);
             source.clip = _sound.clips[random];
         }
-		else
-		{
-			source.clip = _sound.clips[0];
-		}
+        else
+        {
+            source.clip = _sound.clips[0];
+        }
 
-		//播放
-		source.Play();
+        //播放
+        source.Play();
 
-		//加入声音字典
-		soundDic.Add(source, _sound);
+        //加入声音字典
+        soundDic.Add(source, _sound);
     }
     public void PlaySound(string _name)
     {
@@ -69,52 +72,52 @@ public class SoundManager : Singleton<SoundManager>
         _source.pitch = _sound.pitch;
         _source.loop = _sound.loop;
 
-		//设置声音组
-		if (_sound.group == SoundGroup.Music)
-			_source.outputAudioMixerGroup = audioGroup_music;
-		else
-			_source.outputAudioMixerGroup = audioGroup_effect;
+        //设置声音组
+        if (_sound.group == SoundGroup.Music)
+            _source.outputAudioMixerGroup = audioGroup_music;
+        else
+            _source.outputAudioMixerGroup = audioGroup_effect;
 
-		//开始时间
-		_source.time = _sound.startingTime;
-	}
+        //开始时间
+        _source.time = _sound.startingTime;
+    }
 
-	//通过名字获取声音
-	Sound GetSound(string _name)
+    //通过名字获取声音
+    Sound GetSound(string _name)
     {
-		Sound[] sounds = Resources.LoadAll<Sound>("ScriptableObject/Sound");
+        Sound[] sounds = Resources.LoadAll<Sound>("ScriptableObject/Sound");
 
-		foreach (Sound item in sounds)
-		{
-			if (item.name == _name)
-				return item;
-		}
-		Debug.LogWarning("未能找到：" + _name);
-		return null;
-	}
+        foreach (Sound item in sounds)
+        {
+            if (item.name == _name)
+                return item;
+        }
+        Debug.LogWarning("未能找到：" + _name);
+        return null;
+    }
 
-	//停止播放
-	public void StopPlay(Sound _sound)
-	{
-		List<AudioSource> sourceList = new List<AudioSource>();
-		foreach(var item in soundDic)
-		{
-			if (item.Value == _sound)
-			{
-				sourceList.Add(item.Key);
-			}
-		}
+    //停止播放
+    public void StopPlay(Sound _sound)
+    {
+        List<AudioSource> sourceList = new List<AudioSource>();
+        foreach (var item in soundDic)
+        {
+            if (item.Value == _sound)
+            {
+                sourceList.Add(item.Key);
+            }
+        }
 
-		foreach(var item in sourceList)
-		{
-			item.Stop();
-			//从字典移除
-			soundDic.Remove(item);
-		}
-	}
+        foreach (var item in sourceList)
+        {
+            item.Stop();
+            //从字典移除
+            soundDic.Remove(item);
+        }
+    }
     public void StopPlay(string _name)
     {
-		StopPlay(GetSound(_name));
+        StopPlay(GetSound(_name));
     }
 
     //获取闲置的音效播放器
@@ -124,10 +127,10 @@ public class SoundManager : Singleton<SoundManager>
         {
             if (audioSources[i].isPlaying == false)
             {
-				//从字典移除
-				soundDic.Remove(audioSources[i]);
+                //从字典移除
+                soundDic.Remove(audioSources[i]);
 
-				return (audioSources[i]);
+                return (audioSources[i]);
             }
         }
 

@@ -16,7 +16,7 @@ public class Effect : ScriptableObject
     public EffectTarget target = EffectTarget.target;
 
     public AnimationClip fx;
-    public AudioClip sound;
+    public Sound sound;
 
     public virtual void Init(Effect _parent)
     {
@@ -38,14 +38,14 @@ public class Effect : ScriptableObject
 
     public virtual void Invoke()
     {
-        if(fx != null)
+        if (fx != null)
         {
             OneShotFXMgr.instance.Play(fx, targetUnit.transform.position);
         }
 
-        if(sound != null)
+        if (sound != null)
         {
-            //SoundManager.instance.PlaySound(sound);
+            SoundManager.instance.PlaySound(sound);
         }
     }
 
