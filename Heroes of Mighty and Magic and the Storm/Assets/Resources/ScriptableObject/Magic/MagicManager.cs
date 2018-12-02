@@ -32,6 +32,15 @@ public class MagicManager : Singleton<MagicManager>
         int manaLevel = Mathf.Min(_magic.mana.Length - 1, magicLevel);
         int mana = _magic.mana[manaLevel];
 
+        if (_hero.mana < mana)
+        {
+            print("魔法值不足!");
+            return;
+        }
+
+        _hero.mana -= mana;
+        print("当前法力：" + _hero.mana);
+
         //目标类型：无目标直接释放
         //有目标，则选择目标
         int targetType = Mathf.Min(_magic.targetType.Length - 1, magicLevel);

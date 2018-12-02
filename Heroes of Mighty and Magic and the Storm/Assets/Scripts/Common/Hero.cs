@@ -23,6 +23,8 @@ public class Hero : NodeObject
     public int att, def, power, knowledge;
     public int mana_max, mana;
 
+    public int morale, luck;
+
     public void Init()
     {
         movementRate = returnMovementRate;

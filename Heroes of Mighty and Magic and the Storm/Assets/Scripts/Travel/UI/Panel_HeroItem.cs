@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Panel_HeroItem : MonoBehaviour, IPointerClickHandler
 {
     public Image image_portrait;
-    public GameObject panel_heroInfo;
     public GameObject border_highlight;
 
     public static Panel_HeroItem highlightedHeroItem;
@@ -26,7 +25,7 @@ public class Panel_HeroItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            panel_heroInfo.SetActive(true);
+            TravelHeroInfo.instance.Enter();
         }
     }
 }

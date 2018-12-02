@@ -8,4 +8,5 @@ public class TravelUIMgr : Singleton<TravelUIMgr>
     public Text hero_name;
     public Image[] hero_units_icon;
     public Text[] hero_units_num;
+
 }
