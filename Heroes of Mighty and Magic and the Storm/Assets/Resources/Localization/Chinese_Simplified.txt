@@ -121,3 +121,6 @@ Lev=级
 EndTurn=结束回合
 NextHero=下个英雄
 MoveHero=移动英雄
+SystemOptions=系统选项
+Spell=施法
+Sleep=睡眠

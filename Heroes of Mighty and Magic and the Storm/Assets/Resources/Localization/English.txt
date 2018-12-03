@@ -56,3 +56,6 @@ Lev=Lev
 EndTurn=EndTurn
 NextHero=NextHero
 MoveHero=MoveHero
+SystemOptions=SystemOptions
+Spell=Spell
+Sleep=Sleep
