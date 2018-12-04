@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 048b95491f4c04041ab1422c4606cb60, type: 3}
   animControl: {fileID: 0}
+  race: {fileID: 11400000, guid: 830952885b93a426a8cf308f26070ed9, type: 2}

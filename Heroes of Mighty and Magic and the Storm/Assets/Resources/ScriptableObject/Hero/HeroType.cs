@@ -7,8 +7,9 @@ public class HeroType : ScriptableObject
 {
     public Sprite icon;
     public RuntimeAnimatorController animControl;
+	public Race race;
 
-    public string heroName
+	public string heroName
     {
         get
         {

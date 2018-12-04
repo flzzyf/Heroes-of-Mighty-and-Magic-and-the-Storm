@@ -79,19 +79,25 @@ public class TravelManager : Singleton<TravelManager>
     }
 
     //高亮英雄（移动镜头，选中英雄）
-    public void HighlightHero(Hero _go)
+    public void HighlightHero(Hero _hero)
     {
-        TravelCamMgr.instance.MoveCamera(_go.transform.position);
+        TravelCamMgr.instance.MoveCamera(_hero.transform.position);
 
-        currentHero = _go;
+        currentHero = _hero;
+
+		//更新右下角英雄信息
+		Panel_HeroInfo.instance.UpdatePanel(_hero);
     }
 
+	//回合开始
     public void TurnStart(int _index)
     {
         Player player = PlayerManager.instance.players[_index];
 
 		HeroItemMgr.instance.UpdateItems(0);
+		HeroItemMgr.instance.heroItems[0].Highlight(true);
 
+		//高亮玩家的第一个英雄
 		HighlightHero(player.heroes[0]);
     }
 

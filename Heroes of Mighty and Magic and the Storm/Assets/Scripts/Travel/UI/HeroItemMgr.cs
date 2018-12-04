@@ -42,11 +42,11 @@ public class HeroItemMgr : Singleton<HeroItemMgr>
 		int numberToShow = heroNumber - currentPages;
 		for (int i = 0; i < numberToShow; i++)
 		{
-			heroItems[i].UpdateItem(PlayerManager.instance.players[0].heroes[currentPages + i]);
+			heroItems[i].Set(PlayerManager.instance.players[0].heroes[currentPages + i]);
 		}
 		for (int i = numberToShow; i < 5; i++)
 		{
-			heroItems[i].ClearItem();
+			heroItems[i].Clear();
 		}
 	}
 

@@ -25,9 +25,21 @@ public class Hero : NodeObject
 
     public int morale, luck;
 
+	public int level;
+	public int exp;
+
     public void Init()
     {
         movementRate = returnMovementRate;
+
+		//根据职业设置四维，这里直接设置了
+		att = 1;
+		def = 1;
+		power = 1;
+		knowledge = 1;
+
+		mana_max = knowledge * 10;
+		mana = mana_max;
     }
 
     int returnMovementRate
