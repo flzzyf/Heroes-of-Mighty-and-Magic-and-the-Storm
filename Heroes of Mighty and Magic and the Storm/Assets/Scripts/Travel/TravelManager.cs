@@ -31,6 +31,7 @@ public class TravelManager : Singleton<TravelManager>
         {
             InitPlayer(PlayerManager.instance.players[i]);
         }
+
     }
 
     public void EnterTravelMode(bool _enter = true)
@@ -49,6 +50,8 @@ public class TravelManager : Singleton<TravelManager>
         GameObject town = CreateObjectOnNode(prefab_town, _player.startingPoint);
         Vector2Int offset = town.GetComponent<Town>().interactPoint;
         Hero hero = CreateObjectOnNode(prefab_hero, _player.startingPoint + offset).GetComponent<Hero>();
+		//英雄类型
+		hero.heroType = HeroType.GetHeroType("Jaina");
         hero.Init();
         _player.heroes.Add(hero);
 
@@ -60,7 +63,7 @@ public class TravelManager : Singleton<TravelManager>
         if (!_player.isAI)
         {
             //移动镜头到英雄
-            HighlightHero(hero);
+            //HighlightHero(hero);
         }
     }
     //在节点上创建物体
@@ -76,7 +79,7 @@ public class TravelManager : Singleton<TravelManager>
     }
 
     //高亮英雄（移动镜头，选中英雄）
-    void HighlightHero(Hero _go)
+    public void HighlightHero(Hero _go)
     {
         TravelCamMgr.instance.MoveCamera(_go.transform.position);
 
@@ -87,8 +90,9 @@ public class TravelManager : Singleton<TravelManager>
     {
         Player player = PlayerManager.instance.players[_index];
 
-        currentHero = player.heroes[0];
-        //HighlightHero(player.heroes[0]);
+		HeroItemMgr.instance.UpdateItems(0);
+
+		HighlightHero(player.heroes[0]);
     }
 
     public void BattleBegin(Hero _attacker, Hero _defender)

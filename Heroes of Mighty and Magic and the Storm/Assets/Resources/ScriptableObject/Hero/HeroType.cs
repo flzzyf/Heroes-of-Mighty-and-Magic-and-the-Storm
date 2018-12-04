@@ -16,4 +16,15 @@ public class HeroType : ScriptableObject
         }
     }
 
+	public static HeroType GetHeroType(string _name)
+	{
+		HeroType[] heroTypes = Resources.LoadAll<HeroType>("ScriptableObject/Hero/Instance");
+		foreach (HeroType item in heroTypes)
+		{
+			if (item.name == _name)
+				return item;
+		}
+		Debug.LogError("未能找到：" + _name);
+		return null;
+	}
 }

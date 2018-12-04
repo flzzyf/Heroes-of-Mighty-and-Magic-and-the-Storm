@@ -10,6 +10,9 @@ public class Panel_HeroItem : MonoBehaviour, IPointerClickHandler
 
     public static Panel_HeroItem highlightedHeroItem;
 
+	[HideInInspector]
+	public int index;
+
     //鼠标点击
     public void OnPointerClick(PointerEventData data)
     {
@@ -22,10 +25,24 @@ public class Panel_HeroItem : MonoBehaviour, IPointerClickHandler
             border_highlight.SetActive(true);
 
             highlightedHeroItem = this;
+
+			//高亮英雄
+			TravelManager.instance.HighlightHero(PlayerManager.instance.players[0].heroes[HeroItemMgr.instance.currentPages + index]);
         }
         else
         {
             TravelHeroInfo.instance.Enter();
         }
     }
+
+	//更新图像
+	public void UpdateItem(Hero _hero)
+	{
+		image_portrait.sprite = _hero.heroType.icon;
+	}
+
+	public void ClearItem()
+	{
+		image_portrait.sprite = null;
+	}
 }
