@@ -29,24 +29,26 @@ public class HeroItemMgr : Singleton<HeroItemMgr>
 
 		//显示/隐藏翻页按钮
 		if (currentPages > 0)
-			button_pageUp.enabled = true;
+			button_pageUp.interactable = true;
 		else
-			button_pageUp.enabled = false;
+			button_pageUp.interactable = false;
 
 		if (currentPages + 5 < heroNumber)
-			button_pageDown.enabled = true;
+			button_pageDown.interactable = true;
 		else
-			button_pageDown.enabled = false;
+			button_pageDown.interactable = false;
 
 		//显示按钮并更新图像
 		int numberToShow = heroNumber - currentPages;
 		for (int i = 0; i < numberToShow; i++)
 		{
+			heroItems[i].enabled = true;
 			heroItems[i].Set(PlayerManager.instance.players[0].heroes[currentPages + i]);
 		}
 		for (int i = numberToShow; i < 5; i++)
 		{
 			heroItems[i].Clear();
+			heroItems[i].enabled = false;
 		}
 	}
 
