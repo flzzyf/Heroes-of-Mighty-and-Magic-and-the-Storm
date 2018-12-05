@@ -33,7 +33,7 @@ public class Panel_HeroItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            TravelHeroInfo.instance.Enter();
+            Panel_HeroUI.instance.Enter(TravelManager.instance.currentHero);
         }
     }
 
