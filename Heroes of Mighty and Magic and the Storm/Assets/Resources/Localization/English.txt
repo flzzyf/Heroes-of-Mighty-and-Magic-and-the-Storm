@@ -59,3 +59,4 @@ MoveHero=MoveHero
 SystemOptions=SystemOptions
 Spell=Spell
 Sleep=Sleep
+Select=Select

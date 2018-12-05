@@ -124,3 +124,4 @@ MoveHero=移动英雄
 SystemOptions=系统选项
 Spell=施法
 Sleep=睡眠
+Select=选中

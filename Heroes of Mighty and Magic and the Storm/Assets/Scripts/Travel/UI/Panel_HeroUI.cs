@@ -13,7 +13,12 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
 
 	public GameObject ui;
 
-	public Panel_PocketUnit[] pocketUnits;
+	public HeroUI_PocketUnit[] pocketUnits;
+
+	//英雄属性：攻防、法力、知识
+	public Text[] text_stats;
+
+	public LocalizationText text_bottomInfo;
 
 	void Start()
 	{
@@ -43,6 +48,12 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
 		{
 			pocketUnits[i].Clear();
 		}
+
+		//设置英雄属性
+		text_stats[0].text = _hero.att + "";
+		text_stats[1].text = _hero.def + "";
+		text_stats[2].text = _hero.power + "";
+		text_stats[3].text = _hero.knowledge + "";
 	}
 
 	public void Enter(Hero _hero)
