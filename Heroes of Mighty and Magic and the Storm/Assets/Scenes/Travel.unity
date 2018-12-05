@@ -4133,6 +4133,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -3.459999
       objectReference: {fileID: 0}
+    - target: {fileID: 224864060651761204, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
   m_IsPrefabAsset: 0
@@ -7253,7 +7258,14 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -7.489998
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114976947428087214, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 394e0570cd00be242a31573aa71e4648,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 114022090804946654, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
   m_IsPrefabAsset: 0
 --- !u!224 &301010269 stripped
@@ -13140,31 +13152,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224089553848877000, guid: 9f07ce230f654434fb0d7d4e29f9e9db,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224089553848877000, guid: 9f07ce230f654434fb0d7d4e29f9e9db,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224089553848877000, guid: 9f07ce230f654434fb0d7d4e29f9e9db,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1781922641712134, guid: 9f07ce230f654434fb0d7d4e29f9e9db, type: 2}
       propertyPath: m_Name
       value: HeroUI_Item (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 114058876892126622, guid: 9f07ce230f654434fb0d7d4e29f9e9db,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2304eb10f9192f54a86be09f02d2b832,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f07ce230f654434fb0d7d4e29f9e9db, type: 2}
   m_IsPrefabAsset: 0
@@ -19151,12 +19142,12 @@ Prefab:
     - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
         type: 2}
       propertyPath: m_Text
-      value: "\u521D\u7EA7"
+      value: "\u7ECF\u9A8C\u503C"
       objectReference: {fileID: 0}
     - target: {fileID: 114993832598720034, guid: 0b3427945961848ad82712d21f5c120d,
         type: 2}
       propertyPath: m_Text
-      value: "\u7BAD\u672F"
+      value: 376
       objectReference: {fileID: 0}
     - target: {fileID: 224738949452320564, guid: 0b3427945961848ad82712d21f5c120d,
         type: 2}
@@ -19202,6 +19193,31 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: -7.489998
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303162331581124, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
+      propertyPath: m_Name
+      value: HeroUI_Exp
+      objectReference: {fileID: 0}
+    - target: {fileID: 114976947428087214, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d4b80463cc3be284fa12e74de200cef5,
+        type: 3}
+    - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.8313726
+      objectReference: {fileID: 0}
+    - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.47450984
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
@@ -30566,68 +30582,24 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1336807988549582, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1303162331581124, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
+      propertyPath: m_Name
+      value: HeroUI_Mana
       objectReference: {fileID: 0}
     - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
         type: 2}
-      propertyPath: m_Text
-      value: "\u521D\u7EA7"
+      propertyPath: m_Color.r
+      value: 0.9058824
       objectReference: {fileID: 0}
-    - target: {fileID: 114993832598720034, guid: 0b3427945961848ad82712d21f5c120d,
+    - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
         type: 2}
-      propertyPath: m_Text
-      value: "\u7BAD\u672F"
+      propertyPath: m_Color.g
+      value: 0.8313726
       objectReference: {fileID: 0}
-    - target: {fileID: 224738949452320564, guid: 0b3427945961848ad82712d21f5c120d,
+    - target: {fileID: 114544067150445162, guid: 0b3427945961848ad82712d21f5c120d,
         type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.4849014
-      objectReference: {fileID: 0}
-    - target: {fileID: 224738949452320564, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: -55.271
-      objectReference: {fileID: 0}
-    - target: {fileID: 114993832598720034, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 224235664778538504, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224095479345100752, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224864060651761204, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224864060651761204, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224864060651761204, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224381169591820272, guid: 0b3427945961848ad82712d21f5c120d,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -7.489998
-      objectReference: {fileID: 0}
-    - target: {fileID: 1303162331581124, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
-      propertyPath: m_Name
-      value: HeroUI_Trait (1)
+      propertyPath: m_Color.b
+      value: 0.47450984
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
@@ -31312,6 +31284,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224864060651761204, guid: 0b3427945961848ad82712d21f5c120d,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b3427945961848ad82712d21f5c120d, type: 2}
   m_IsPrefabAsset: 0
@@ -31938,7 +31915,7 @@ GameObject:
   - component: {fileID: 1545109099}
   - component: {fileID: 1545109100}
   m_Layer: 0
-  m_Name: Panel_Traits
+  m_Name: Panel_Talents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32109,6 +32086,12 @@ Prefab:
       propertyPath: m_Name
       value: HeroUI_Item (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114058876892126622, guid: 9f07ce230f654434fb0d7d4e29f9e9db,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 02979562788a5014ba3c2411902cdc73,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f07ce230f654434fb0d7d4e29f9e9db, type: 2}
   m_IsPrefabAsset: 0

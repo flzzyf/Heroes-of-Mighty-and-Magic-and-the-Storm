@@ -20,6 +20,7 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
 		border_selected.SetActive(false);
 	}
 
+	//设置
 	public void Set(PocketUnit _unit)
 	{
 		unit = _unit;
@@ -29,11 +30,13 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
 		portrait.sprite = _unit.type.icon;
 		text_num.text = _unit.num + "";
 	}
-
+	//清空
 	public void Clear()
 	{
 		portrait.enabled = false;
 		text_num.text = "";
+
+		unit = null;
 	}
 
 	//选中
@@ -46,28 +49,52 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
 	public void Deselect()
 	{
 		border_selected.SetActive(false);
+		selectedPanel = null;
 	}
 
 	//鼠标进入
 	public void OnPointerEnter(PointerEventData eventData)
 	{
 		if (unit != null)
-			Panel_HeroUI.instance.text_bottomInfo.SetText("Select" + unit.type.unitName);
+			Panel_HeroUI.instance.text_bottomInfo.SetText(LocalizationMgr.instance.GetText("Select") + unit.type.unitName);
 	}
 	//鼠标点击
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		//选中与反选操作
-		if (unit != null)
-			if (selectedPanel != this)
-			{
-				if(selectedPanel != null)
-					selectedPanel.Deselect();
+		//未选中物体
+		if(selectedPanel == null)
+		{
+			//且不为空，则选中
+			if(unit != null)
 				Select();
+		}
+		else
+		{
+			//已经选中物体。为空则移动。不为空：不同单位则交换，同种单位叠加
+			if (unit == null)
+			{
+				Set(selectedPanel.unit);
+				selectedPanel.Clear();
 			}
 			else
 			{
-
+				if(unit.type != selectedPanel.unit.type)
+				{
+					//交换
+					PocketUnit temp = unit;
+					Set(selectedPanel.unit);
+					selectedPanel.Set(temp);
+				}
+				else
+				{
+					//叠加
+					unit.num += selectedPanel.unit.num;
+					Set(unit);
+					selectedPanel.Clear();
+				}
 			}
+
+			selectedPanel.Deselect();
+		}
 	}
 }
