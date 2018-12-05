@@ -20,6 +20,11 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
 
 	public LocalizationText text_bottomInfo;
 
+	public HeroUI_Skill panel_exp;
+	public HeroUI_Skill panel_mana;
+
+	public HeroUI_Skill[] skills;
+
 	void Start()
 	{
 		ui.SetActive(false);
@@ -54,6 +59,19 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
 		text_stats[1].text = _hero.def + "";
 		text_stats[2].text = _hero.power + "";
 		text_stats[3].text = _hero.knowledge + "";
+
+		//英雄技能栏
+		for (int i = 0; i < _hero.skills.Count; i++)
+		{
+			skills[i].Set(_hero.skills[i]);
+		}
+		for (int i = _hero.skills.Count; i < skills.Length; i++)
+		{
+			skills[i].Clear();
+		}
+
+		//经验值和魔法
+		panel_mana.text_name.SetText(_hero.mana + "/" + _hero.mana_max);
 	}
 
 	public void Enter(Hero _hero)

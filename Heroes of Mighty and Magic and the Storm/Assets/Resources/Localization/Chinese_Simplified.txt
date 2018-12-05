@@ -125,3 +125,6 @@ SystemOptions=系统选项
 Spell=施法
 Sleep=睡眠
 Select=选中
+Level_0=初级
+Level_1=中级
+Level_2=高级

@@ -40,10 +40,10 @@ public class GameManager : Singleton<GameManager>
         AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(17, 14));
         AdvantureObjectMgr.CreateAdvantureObject("Gold", new Vector2Int(15, 14));
 
-        SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
-        SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 3);
-        SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
-        SkillManager.AddSkill(testHeroes[0], "Magic_Water", 3);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Air", 2);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Fire", 2);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 2);
+        SkillManager.AddSkill(testHeroes[0], "Magic_Water", 2);
 
         TravelManager.instance.EnterTravelMode();
         TravelManager.instance.TurnStart(GameManager.player);

@@ -41,20 +41,24 @@ public class LocalizationText : MonoBehaviour
         }
     }
 
-    public void SetText(string _key, params string[] _text)
+    public void SetKey(string _key, params string[] _text)
     {
-        key = _key;
         args = _text;
 
-        Init();
+		SetKey(_key);
     }
 
-    public void SetText(string _key)
+    public void SetKey(string _key)
     {
         key = _key;
 
         Init();
     }
+
+	public void SetText(string _text)
+	{
+		text.text = _text;
+	}
 
     public void ClearText()
     {
