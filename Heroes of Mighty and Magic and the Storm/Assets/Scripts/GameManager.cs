@@ -88,11 +88,18 @@ public class GameManager : Singleton<GameManager>
 		}
 		if (Input.GetKeyDown(KeyCode.N))
         {
-            //SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
-            //MagicManager.instance.CastMagic(testHeroes[0], testHeroes[0].magics[1]);
+			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Sorcery", 1);
+			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Wisdom", 2);
+			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Air", 2);
+			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Fire", 2);
+			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Water", 2);
+			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Earth", 2);
 
-        }
-        if (Input.GetKeyDown(KeyCode.M))
+			//SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
+			//MagicManager.instance.CastMagic(testHeroes[0], testHeroes[0].magics[1]);
+
+		}
+		if (Input.GetKeyDown(KeyCode.M))
         {
             SoundManager.instance.PlaySound("Combat02");
 		}

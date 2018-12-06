@@ -128,3 +128,5 @@ Select=选中
 Level_0=初级
 Level_1=中级
 Level_2=高级
+Sorcery=魔力
+Wisdom=智慧
