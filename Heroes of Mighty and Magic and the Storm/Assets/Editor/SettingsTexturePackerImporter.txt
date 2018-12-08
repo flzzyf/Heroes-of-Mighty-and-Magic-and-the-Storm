@@ -28,7 +28,12 @@ tpsheetFileNames:
 - Assets/Resources/Textures/Units/Kel/Kel_Hit.tpsheet
 - Assets/Resources/Textures/Units/Kel/Kel_Stand.tpsheet
 - Assets/Resources/Textures/Units/Kel/Kel_Walk.tpsheet
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Attack.tpsheet
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Death.tpsheet
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Flip.tpsheet
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Hit.tpsheet
 - Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.tpsheet
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Walk.tpsheet
 - Assets/Resources/Textures/Units/Leoric/Leoric_Attack.tpseet.tpsheet
 - Assets/Resources/Textures/Units/Leoric/Leoric_Death.tpseet.tpsheet
 - Assets/Resources/Textures/Units/Leoric/Leoric_Flip.tpseet.tpsheet
@@ -88,7 +93,12 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Kel/Kel_Hit.png
 - Assets/Resources/Textures/Units/Kel/Kel_Stand.png
 - Assets/Resources/Textures/Units/Kel/Kel_Walk.png
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Attack.png
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Death.png
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Flip.png
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Hit.png
 - Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.png
+- Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Walk.png
 - Assets/Resources/Textures/Units/Leoric/Leoric_Attack.tpseet.png
 - Assets/Resources/Textures/Units/Leoric/Leoric_Death.tpseet.png
 - Assets/Resources/Textures/Units/Leoric/Leoric_Flip.tpseet.png
@@ -121,6 +131,11 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 
