@@ -29,6 +29,11 @@ tpsheetFileNames:
 - Assets/Resources/Textures/Units/Kel/Kel_Stand.tpsheet
 - Assets/Resources/Textures/Units/Kel/Kel_Walk.tpsheet
 - Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.tpsheet
+- Assets/Resources/Textures/Units/Leoric/Leoric_Attack.tpseet.tpsheet
+- Assets/Resources/Textures/Units/Leoric/Leoric_Death.tpseet.tpsheet
+- Assets/Resources/Textures/Units/Leoric/Leoric_Flip.tpseet.tpsheet
+- Assets/Resources/Textures/Units/Leoric/Leoric_Stand.tpseet.tpsheet
+- Assets/Resources/Textures/Units/Leoric/Leoric_Walk.tpseet.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack_Down.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack_Up.tpsheet
@@ -72,6 +77,11 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Kel/Kel_Stand.png
 - Assets/Resources/Textures/Units/Kel/Kel_Walk.png
 - Assets/Resources/Textures/Units/Kerrigan/Kerrigan_Stand.png
+- Assets/Resources/Textures/Units/Leoric/Leoric_Attack.tpseet.png
+- Assets/Resources/Textures/Units/Leoric/Leoric_Death.tpseet.png
+- Assets/Resources/Textures/Units/Leoric/Leoric_Flip.tpseet.png
+- Assets/Resources/Textures/Units/Leoric/Leoric_Stand.tpseet.png
+- Assets/Resources/Textures/Units/Leoric/Leoric_Walk.tpseet.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack_Down.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Attack_Up.png
@@ -87,6 +97,11 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

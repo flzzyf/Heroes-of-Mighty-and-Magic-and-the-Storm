@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: 3890b243ba2a82c43a6e8aa45d12fb15
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Leoric_Stand.tpseet
+    21300002: Leoric_Stand001
+    21300004: Leoric_Stand002
+    21300006: Leoric_Stand003
+    21300008: Leoric_Stand004
+    21300010: Leoric_Stand005
+    21300012: Leoric_Stand006
+    21300014: Leoric_Stand007
+    21300016: Leoric_Stand008
+    21300018: Leoric_Stand009
+    21300020: Leoric_Stand010
+    21300022: Leoric_Stand011
+    21300024: Leoric_Stand012
+    21300026: Leoric_Stand013
+    21300028: Leoric_Stand014
+    21300030: Leoric_Stand015
+    21300032: Leoric_Stand016
+    21300034: Leoric_Stand017
+    21300036: Leoric_Stand018
+    21300038: Leoric_Stand019
+    21300040: Leoric_Stand020
+    21300042: Leoric_Stand021
+    21300044: Leoric_Stand022
+    21300046: Leoric_Stand023
+    21300048: Leoric_Stand024
+    21300050: Leoric_Stand025
+    21300052: Leoric_Stand026
+    21300054: Leoric_Stand027
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Leoric_Stand001
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 128
+        width: 215
+        height: 381
+      alignment: 9
+      pivot: {x: 0.572093, y: -0.044619422}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8af13b440036b4692ee3bd508b0aa2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand002
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 890
+        width: 212
+        height: 383
+      alignment: 9
+      pivot: {x: 0.6132075, y: -0.041775458}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8184196e716fb249a3098c379f45a1a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand003
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 1275
+        width: 213
+        height: 384
+      alignment: 9
+      pivot: {x: 0.6150235, y: -0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e97b4890bed3e4845affc141a88e6b75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand004
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 1273
+        width: 212
+        height: 386
+      alignment: 9
+      pivot: {x: 0.6132075, y: -0.038860105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54964b425fbc5864bab146e3adeb7957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand005
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 484
+        width: 211
+        height: 385
+      alignment: 9
+      pivot: {x: 0.6113744, y: -0.04155844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a7591637c0577a48bb09e7b8f02639d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand006
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 886
+        width: 211
+        height: 385
+      alignment: 9
+      pivot: {x: 0.6113744, y: -0.04155844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97af8ee4318340a46b325e35dc0c3101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand007
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 93
+        width: 214
+        height: 385
+      alignment: 9
+      pivot: {x: 0.6214953, y: -0.04155844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b95e5975db6534baec0017ad3b86f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand008
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1661
+        width: 208
+        height: 386
+      alignment: 9
+      pivot: {x: 0.6105769, y: -0.041450776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 564e5341e5b705a4eb4f1d9bb3fff170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand009
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 871
+        width: 209
+        height: 388
+      alignment: 9
+      pivot: {x: 0.6172249, y: -0.038659792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c6436cd76412cb429b3c114512fb4ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand010
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1262
+        width: 205
+        height: 388
+      alignment: 9
+      pivot: {x: 0.60487807, y: -0.038659792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2714e160b7cf135448ddd2638abd7583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand011
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 870
+        width: 205
+        height: 389
+      alignment: 9
+      pivot: {x: 0.60487807, y: -0.038560413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f1256f70d750b4f8eccd2bca748da4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand012
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 92
+        width: 208
+        height: 386
+      alignment: 9
+      pivot: {x: 0.6057692, y: -0.041450776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5224200f0b400d4ea044d066b1e5729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand013
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1261
+        width: 207
+        height: 389
+      alignment: 9
+      pivot: {x: 0.6135266, y: -0.038560413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b2508ddc9e0b745a5ab956932e6981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand014
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 480
+        width: 213
+        height: 388
+      alignment: 9
+      pivot: {x: 0.6056338, y: -0.038659792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04859f6ae82a1d34e83e2db21f65fda0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand015
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 1661
+        width: 213
+        height: 386
+      alignment: 9
+      pivot: {x: 0.600939, y: -0.038860105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f218cfce08e865840ba6884cae0b8503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand016
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 98
+        width: 211
+        height: 384
+      alignment: 9
+      pivot: {x: 0.60189575, y: -0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d18ae492c360c0489ca1e5b5339ee14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand017
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1663
+        width: 212
+        height: 384
+      alignment: 9
+      pivot: {x: 0.5943396, y: -0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc2e3a20598c2564db8af9e414d3910e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand018
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 505
+        width: 209
+        height: 383
+      alignment: 9
+      pivot: {x: 0.5933014, y: -0.03916449}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa962de7a392e34c9c268545ef541d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand019
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 1279
+        width: 214
+        height: 382
+      alignment: 9
+      pivot: {x: 0.59345794, y: -0.041884817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a533b3a789167884da209119ce1effcb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand020
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1652
+        width: 218
+        height: 395
+      alignment: 9
+      pivot: {x: 0.61926603, y: -0.04050633}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f65f6c63643d51d4caceb161b4566795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand021
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 512
+        width: 205
+        height: 381
+      alignment: 9
+      pivot: {x: 0.6, y: -0.04199475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cf4e5750f3fa144b1b7cff5f045f64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand022
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 500
+        width: 204
+        height: 384
+      alignment: 9
+      pivot: {x: 0.60294116, y: -0.036458332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27c2e98a451295347b2c9b3887c48f23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand023
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 1665
+        width: 214
+        height: 382
+      alignment: 9
+      pivot: {x: 0.58878505, y: -0.039267015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1622a17cd26834797e59c42d8ce948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand024
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 121
+        width: 220
+        height: 382
+      alignment: 9
+      pivot: {x: 0.6, y: -0.039267015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c3559f59fb97ea4da03f20921fdf515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand025
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 511
+        width: 204
+        height: 382
+      alignment: 9
+      pivot: {x: 0.60294116, y: -0.039267015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ed74dd3c290fd74b848c3e35ca5cf25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand026
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 895
+        width: 207
+        height: 382
+      alignment: 9
+      pivot: {x: 0.6038647, y: -0.039267015}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e0a6df86c9eb54429f4be9ad65d298d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leoric_Stand027
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 896
+        width: 203
+        height: 381
+      alignment: 9
+      pivot: {x: 0.6009852, y: -0.04199475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca89340e61154ae4287414d1ba194aea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 9282ea0e24fb8f6428cd210664d2599c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
