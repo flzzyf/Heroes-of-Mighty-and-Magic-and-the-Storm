@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: 4daf6047587aadf459701af8f119facd
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Stitches_Walk
+    21300002: Stitches_Walk001
+    21300004: Stitches_Walk002
+    21300006: Stitches_Walk003
+    21300008: Stitches_Walk004
+    21300010: Stitches_Walk005
+    21300012: Stitches_Walk006
+    21300014: Stitches_Walk007
+    21300016: Stitches_Walk008
+    21300018: Stitches_Walk009
+    21300020: Stitches_Walk010
+    21300022: Stitches_Walk011
+    21300024: Stitches_Walk012
+    21300026: Stitches_Walk013
+    21300028: Stitches_Walk014
+    21300030: Stitches_Walk015
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stitches_Walk001
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 1084
+        width: 386
+        height: 474
+      alignment: 9
+      pivot: {x: 0.4533679, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12a0fe690e42b44db8631a789fbc5c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk002
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 547
+        width: 383
+        height: 496
+      alignment: 9
+      pivot: {x: 0.4543081, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31132d9422b142d43bfa8b63c6aa8f88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk003
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1045
+        width: 374
+        height: 500
+      alignment: 9
+      pivot: {x: 0.42780748, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b910e697601b34f812a773ad376b4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk004
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1547
+        width: 378
+        height: 500
+      alignment: 9
+      pivot: {x: 0.41798943, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a9f1ab83698eb4eb0b49a2feb771b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk005
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 1560
+        width: 419
+        height: 487
+      alignment: 9
+      pivot: {x: 0.44868734, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31aa621437f4b9c4fb6c20653aa2bfa9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk006
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 68
+        width: 398
+        height: 477
+      alignment: 9
+      pivot: {x: 0.39698493, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5b9b9f03d220b4e8d7dbf1e9a36e3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk007
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 574
+        width: 387
+        height: 474
+      alignment: 9
+      pivot: {x: 0.42118862, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41d38ac1d493784290c825b7aa8b428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk008
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 611
+        width: 336
+        height: 471
+      alignment: 9
+      pivot: {x: 0.49107143, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 681c2b8dbcc595045af4226cfad6f630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk009
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 98
+        width: 278
+        height: 474
+      alignment: 9
+      pivot: {x: 0.4856115, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be47af6dd8646c43b06939e72affbdf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk010
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1558
+        width: 251
+        height: 489
+      alignment: 9
+      pivot: {x: 0.4741036, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd62d34c31682e4d91ceeda2871a80a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk011
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 1050
+        width: 276
+        height: 495
+      alignment: 9
+      pivot: {x: 0.45652175, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c101fbbc7f626499e1958d7f9a997b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk012
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 63
+        width: 300
+        height: 482
+      alignment: 9
+      pivot: {x: 0.46333334, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03be48dd40dce2442b9d04026b7b176a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk013
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 1115
+        width: 330
+        height: 443
+      alignment: 9
+      pivot: {x: 0.45757577, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ed32a781eb2b14c80928e8b283c42c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk014
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 182
+        width: 343
+        height: 427
+      alignment: 9
+      pivot: {x: 0.46938777, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdba29c40d1988542a87b6639da1dcf0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Walk015
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 1606
+        width: 368
+        height: 441
+      alignment: 9
+      pivot: {x: 0.45923913, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7161afc636afea479b60c0b5cb9ba31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5ca95990fc743f24db8ea395478769f6
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

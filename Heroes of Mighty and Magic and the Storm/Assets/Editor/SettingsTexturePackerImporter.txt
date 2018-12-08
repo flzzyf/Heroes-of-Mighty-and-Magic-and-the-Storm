@@ -43,6 +43,18 @@ tpsheetFileNames:
 - Assets/Resources/Textures/Units/Malthael/Malthael_Hit.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Stand.tpsheet
 - Assets/Resources/Textures/Units/Malthael/Malthael_Walk.tpsheet
+- Assets/Resources/Textures/Units/Medivh/Medivh_Attack.tpsheet
+- Assets/Resources/Textures/Units/Medivh/Medivh_Death.tpsheet
+- Assets/Resources/Textures/Units/Medivh/Medivh_Flip.tpsheet
+- Assets/Resources/Textures/Units/Medivh/Medivh_Hit.tpsheet
+- Assets/Resources/Textures/Units/Medivh/Medivh_Stand.tpsheet
+- Assets/Resources/Textures/Units/Medivh/Medivh_Walk.tpsheet
+- Assets/Resources/Textures/Units/Stitches/Stitches_Attack.tpsheet
+- Assets/Resources/Textures/Units/Stitches/Stitches_Death.tpsheet
+- Assets/Resources/Textures/Units/Stitches/Stitches_Flip.tpsheet
+- Assets/Resources/Textures/Units/Stitches/Stitches_Hit.tpsheet
+- Assets/Resources/Textures/Units/Stitches/Stitches_Stand.tpsheet
+- Assets/Resources/Textures/Units/Stitches/Stitches_Walk.tpsheet
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Attack.tpsheet
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Flip.tpsheet
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Hit.tpsheet
@@ -91,12 +103,36 @@ textureFileNames:
 - Assets/Resources/Textures/Units/Malthael/Malthael_Hit.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Stand.png
 - Assets/Resources/Textures/Units/Malthael/Malthael_Walk.png
+- Assets/Resources/Textures/Units/Medivh/Medivh_Attack.png
+- Assets/Resources/Textures/Units/Medivh/Medivh_Death.png
+- Assets/Resources/Textures/Units/Medivh/Medivh_Flip.png
+- Assets/Resources/Textures/Units/Medivh/Medivh_Hit.png
+- Assets/Resources/Textures/Units/Medivh/Medivh_Stand.png
+- Assets/Resources/Textures/Units/Medivh/Medivh_Walk.png
+- Assets/Resources/Textures/Units/Stitches/Stitches_Attack.png
+- Assets/Resources/Textures/Units/Stitches/Stitches_Death.png
+- Assets/Resources/Textures/Units/Stitches/Stitches_Flip.png
+- Assets/Resources/Textures/Units/Stitches/Stitches_Hit.png
+- Assets/Resources/Textures/Units/Stitches/Stitches_Stand.png
+- Assets/Resources/Textures/Units/Stitches/Stitches_Walk.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Attack.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Flip.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Hit.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Stand.png
 - Assets/Resources/Textures/Units/Tyrael/Tyrael_Walk.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 
