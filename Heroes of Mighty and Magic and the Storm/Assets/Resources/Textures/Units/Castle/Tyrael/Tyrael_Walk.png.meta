@@ -1,0 +1,448 @@
+fileFormatVersion: 2
+guid: 991ca55197b8e4b43a997c65c6f810b0
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tyrael_Walk
+    21300002: Tyrael_Walk00
+    21300004: Tyrael_Walk01
+    21300006: Tyrael_Walk02
+    21300008: Tyrael_Walk03
+    21300010: Tyrael_Walk04
+    21300012: Tyrael_Walk05
+    21300014: Tyrael_Walk06
+    21300016: Tyrael_Walk07
+    21300018: Tyrael_Walk08
+    21300020: Tyrael_Walk09
+    21300022: Tyrael_Walk10
+    21300024: Tyrael_Walk11
+    21300026: Tyrael_Walk12
+    21300028: Tyrael_Walk13
+    21300030: Tyrael_Walk14
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tyrael_Walk00
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 3553
+        width: 430
+        height: 542
+      alignment: 9
+      pivot: {x: 0.7406977, y: -0.10701107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569a9232ce5a9469287defc4efb020e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3016
+        width: 431
+        height: 539
+      alignment: 9
+      pivot: {x: 0.7389791, y: -0.111317255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63692c0a455904fcc864a687c4efe321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk02
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 3044
+        width: 423
+        height: 528
+      alignment: 9
+      pivot: {x: 0.7364066, y: -0.10795455}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f286f8785c3d44c40bff64a3fd605af4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk03
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 3008
+        width: 417
+        height: 543
+      alignment: 9
+      pivot: {x: 0.7278178, y: -0.10497238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7c8289cf197492f98bb804a53ff68c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk04
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1960
+        width: 377
+        height: 537
+      alignment: 9
+      pivot: {x: 0.7015915, y: -0.11731844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c144f8b12dd9425ca59f8728da44948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk05
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 2471
+        width: 399
+        height: 535
+      alignment: 9
+      pivot: {x: 0.68546367, y: -0.12149533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024f4603eea034bb6b3d2963468aeabb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk06
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1997
+        width: 384
+        height: 469
+      alignment: 9
+      pivot: {x: 0.67057294, y: -0.13859275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 605fba37ccfda422793de53e936a586e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk07
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2024
+        width: 389
+        height: 478
+      alignment: 9
+      pivot: {x: 0.6722365, y: -0.12761506}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ada447da90e0f4b82bbd3a5fd22e51a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk08
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2504
+        width: 397
+        height: 497
+      alignment: 9
+      pivot: {x: 0.69395465, y: -0.12072434}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f134269aad14fdebe28ba4f980a2de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk09
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 3574
+        width: 428
+        height: 521
+      alignment: 9
+      pivot: {x: 0.7067757, y: -0.11516315}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a67bfacce7874b218d52ddf7607fc71
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3557
+        width: 441
+        height: 538
+      alignment: 9
+      pivot: {x: 0.7222222, y: -0.111524165}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89819f3f81db4e8fa8082297c5ba8dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2468
+        width: 401
+        height: 546
+      alignment: 9
+      pivot: {x: 0.6970075, y: -0.0989011}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cdace128b3ee403aae0d8415338f90e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk12
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 3547
+        width: 436
+        height: 548
+      alignment: 9
+      pivot: {x: 0.7144495, y: -0.09489051}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ff737d456f34394901ee411df027b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk13
+      rect:
+        serializedVersion: 2
+        x: 1301
+        y: 2499
+        width: 400
+        height: 543
+      alignment: 9
+      pivot: {x: 0.71375, y: -0.10497238}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3f32f7718e040668cfdc36904d7aeb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Walk14
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 3003
+        width: 410
+        height: 542
+      alignment: 9
+      pivot: {x: 0.7256098, y: -0.10701107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7003ecae2e8a84bbc8512b2b3599a68e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

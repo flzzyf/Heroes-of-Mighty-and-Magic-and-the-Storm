@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: ed3d5e65fa7734d979a959ea782d54fb
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Malthael_Attack
+    21300002: Malthael_Attack001
+    21300004: Malthael_Attack002
+    21300006: Malthael_Attack003
+    21300008: Malthael_Attack004
+    21300010: Malthael_Attack005
+    21300012: Malthael_Attack006
+    21300014: Malthael_Attack007
+    21300016: Malthael_Attack008
+    21300018: Malthael_Attack009
+    21300020: Malthael_Attack010
+    21300022: Malthael_Attack011
+    21300024: Malthael_Attack012
+    21300026: Malthael_Attack013
+    21300028: Malthael_Attack014
+    21300030: Malthael_Attack015
+    21300032: Malthael_Attack016
+    21300034: Malthael_Attack017
+    21300036: Malthael_Attack018
+    21300038: Malthael_Attack019
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 120
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Malthael_Attack001
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 1094
+        width: 363
+        height: 473
+      alignment: 9
+      pivot: {x: 0.5661157, y: -0.040169135}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3724eeb74193345568d1cbe01716bdba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack002
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 654
+        width: 372
+        height: 483
+      alignment: 9
+      pivot: {x: 0.6438172, y: -0.035196688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d1ead1275a2a4208b93cbf68bd3c562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack003
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 1157
+        width: 384
+        height: 462
+      alignment: 9
+      pivot: {x: 0.4622396, y: -0.038961038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3933909f5d7aa4c32b0cdada004c462e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack004
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 203
+        width: 440
+        height: 440
+      alignment: 9
+      pivot: {x: 0.45568183, y: -0.0022727272}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d51335efe3ec486291c6138ad7b2006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack005
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 1621
+        width: 417
+        height: 426
+      alignment: 9
+      pivot: {x: 0.528777, y: -0.032863848}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201ccc26f00ed40158b6e21b1b6f7469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack006
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 1139
+        width: 423
+        height: 441
+      alignment: 9
+      pivot: {x: 0.5070922, y: -0.029478459}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0cedf402686465aabf6a0b2f262993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack007
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 1583
+        width: 398
+        height: 464
+      alignment: 9
+      pivot: {x: 0.55904526, y: -0.004310345}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afa679e1d9f24083b48da36e916621b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack008
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1592
+        width: 393
+        height: 455
+      alignment: 9
+      pivot: {x: 0.5737913, y: -0.0065934067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b967926b0cf429095c693fdd9163d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack009
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 641
+        width: 393
+        height: 451
+      alignment: 9
+      pivot: {x: 0.5737913, y: -0.0022172949}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7429ebfcbe004ef5a2efc409e3e4152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack010
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 197
+        width: 396
+        height: 442
+      alignment: 9
+      pivot: {x: 0.5770202, y: -0.0067873304}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c847e026153224e8bbf67efa166df2fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack011
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 718
+        width: 369
+        height: 437
+      alignment: 9
+      pivot: {x: 0.5514905, y: -0.013729977}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4a367306b12425caa3706ef38c3968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack012
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 1146
+        width: 401
+        height: 444
+      alignment: 9
+      pivot: {x: 0.5872818, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 156bae88beb794cc6973fa53f44c1eb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack013
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 277
+        width: 401
+        height: 439
+      alignment: 9
+      pivot: {x: 0.5673317, y: -0.0022779044}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89dc224745a374ca2974f32f59946f94
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack014
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 169
+        width: 391
+        height: 475
+      alignment: 9
+      pivot: {x: 0.53580564, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54cf8e62a40534fda891ec105ac39148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack015
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1126
+        width: 438
+        height: 454
+      alignment: 9
+      pivot: {x: 0.54223746, y: -0.028634362}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0e7920c14e74cee93df332b314dfad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack016
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1582
+        width: 449
+        height: 465
+      alignment: 9
+      pivot: {x: 0.53340757, y: -0.043010753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9196c175fd440f18de7e730f333f68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack017
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 645
+        width: 405
+        height: 479
+      alignment: 9
+      pivot: {x: 0.58148146, y: -0.043841336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be50cd8f64e0494bb4906343225189e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack018
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 646
+        width: 395
+        height: 478
+      alignment: 9
+      pivot: {x: 0.5734177, y: -0.041841004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0cd1eb53c9274b5688b2b68263a012c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Attack019
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1569
+        width: 366
+        height: 478
+      alignment: 9
+      pivot: {x: 0.5669399, y: -0.035564855}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac74f6b057314e2e95c6582c405748c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

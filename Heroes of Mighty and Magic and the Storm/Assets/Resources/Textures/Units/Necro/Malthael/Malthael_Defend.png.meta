@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 9cee4bce058ecc643ab58b2075b2397a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Malthael_Defend
+    21300002: Malthael_Defend00
+    21300004: Malthael_Defend01
+    21300006: Malthael_Defend02
+    21300008: Malthael_Defend03
+    21300010: Malthael_Defend04
+    21300012: Malthael_Defend05
+    21300014: Malthael_Defend06
+    21300016: Malthael_Defend07
+    21300018: Malthael_Defend08
+    21300020: Malthael_Defend09
+    21300022: Malthael_Defend10
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Malthael_Defend00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 444
+        width: 252
+        height: 397
+      alignment: 9
+      pivot: {x: 0.6130952, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333619ee5a2bede4d8b4c44ff347fa31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 843
+        width: 287
+        height: 410
+      alignment: 9
+      pivot: {x: 0.5313589, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d0e9d85ac40ef34c95cb50dc29cef29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend02
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 1638
+        width: 313
+        height: 409
+      alignment: 9
+      pivot: {x: 0.48083067, y: -0.06356968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bec7dfce53c96a42a5f5400b8fd0cc6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend03
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1648
+        width: 319
+        height: 399
+      alignment: 9
+      pivot: {x: 0.46238244, y: -0.102756895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c53271195a0f775499dd8fa451b25f68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend04
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1640
+        width: 320
+        height: 407
+      alignment: 9
+      pivot: {x: 0.4953125, y: -0.095823094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a395f6396d5baea4d8913f130774c7dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend05
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1247
+        width: 296
+        height: 399
+      alignment: 9
+      pivot: {x: 0.5557432, y: -0.10776942}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0778d93d6ba5c4d984094ebdbb81f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend06
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 1225
+        width: 277
+        height: 411
+      alignment: 9
+      pivot: {x: 0.6046931, y: -0.085158154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b9a255f49e4c542a5ad66cb3db4336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend07
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 46
+        width: 248
+        height: 396
+      alignment: 9
+      pivot: {x: 0.6673387, y: -0.10606061}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74bc8aef0aeee6540b0038d0bf46ad2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend08
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 51
+        width: 249
+        height: 391
+      alignment: 9
+      pivot: {x: 0.64457834, y: -0.07672634}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83221b17e8dd4246bf1657889ca59e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend09
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1255
+        width: 290
+        height: 383
+      alignment: 9
+      pivot: {x: 0.5603448, y: -0.049608354}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df6a9c040b226c64a9b4f1c66fbe0d40
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Defend10
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 833
+        width: 252
+        height: 412
+      alignment: 9
+      pivot: {x: 0.62896824, y: -0.014563107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1235190b52b3d0648882e6adf2b4c0a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

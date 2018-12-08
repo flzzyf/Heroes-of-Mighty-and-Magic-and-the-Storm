@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: da4e57b2b1a0245178de8ec33525233c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Malthael_Walk
+    21300002: Malthael_Walk001
+    21300004: Malthael_Walk003
+    21300006: Malthael_Walk004
+    21300008: Malthael_Walk005
+    21300010: Malthael_Walk007
+    21300012: Malthael_Walk008
+    21300014: Malthael_Walk009
+    21300016: Malthael_Walk011
+    21300018: Malthael_Walk012
+    21300020: Malthael_Walk013
+    21300022: Malthael_Walk015
+    21300024: Malthael_Walk016
+    21300026: Malthael_Walk017
+    21300028: Malthael_Walk019
+    21300030: Malthael_Walk020
+    21300032: Malthael_Walk021
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 120
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Malthael_Walk001
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 93
+        width: 359
+        height: 485
+      alignment: 9
+      pivot: {x: 0.66573817, y: -0.0927835}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de7e4ee4da3f42d69b00d2cd1c4972c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk003
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1557
+        width: 358
+        height: 490
+      alignment: 9
+      pivot: {x: 0.6675978, y: -0.0877551}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e4438008f2c49cc9a081fc4d60174d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk004
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 580
+        width: 351
+        height: 486
+      alignment: 9
+      pivot: {x: 0.66951567, y: -0.086419754}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b201fcfedf1489691fdb958796b1df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk005
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 575
+        width: 360
+        height: 488
+      alignment: 9
+      pivot: {x: 0.6638889, y: -0.08811475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc36f055c23534c1b8ac2d7ed1a9c9a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk007
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 601
+        width: 364
+        height: 480
+      alignment: 9
+      pivot: {x: 0.6565934, y: -0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda81975b34fd453ba8a8c031945e708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk008
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1566
+        width: 357
+        height: 481
+      alignment: 9
+      pivot: {x: 0.6694678, y: -0.0977131}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7eeb31ef48344c47ab07edbf80c0257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk009
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 1574
+        width: 361
+        height: 473
+      alignment: 9
+      pivot: {x: 0.6620499, y: -0.10359408}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba4d27b9e2c6b4eec97477f4b37cfba4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk011
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 128
+        width: 357
+        height: 471
+      alignment: 9
+      pivot: {x: 0.6694678, y: -0.112526536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38170ac03b3b4fdbb454687dc108032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk012
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 1083
+        width: 350
+        height: 481
+      alignment: 9
+      pivot: {x: 0.68285716, y: -0.0977131}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1837ebb16a6744f0abad2c278165fc40
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk013
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 581
+        width: 358
+        height: 485
+      alignment: 9
+      pivot: {x: 0.6675978, y: -0.10103093}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b5267c3384ea4945aa6309ad9d06244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk015
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1065
+        width: 357
+        height: 490
+      alignment: 9
+      pivot: {x: 0.6582633, y: -0.09795918}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0a8390045064f14b1cfb15c1e54554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk016
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 87
+        width: 360
+        height: 486
+      alignment: 9
+      pivot: {x: 0.6527778, y: -0.09876543}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bb89a65af5e4b908d9692d1750b850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk017
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1068
+        width: 365
+        height: 487
+      alignment: 9
+      pivot: {x: 0.6547945, y: -0.09650924}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe878b1f83d0d44f6a4fc52894ea4152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk019
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 97
+        width: 368
+        height: 482
+      alignment: 9
+      pivot: {x: 0.6494565, y: -0.099585064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58f1684a07f4f40f9a00bfa2403c98f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk020
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1561
+        width: 364
+        height: 486
+      alignment: 9
+      pivot: {x: 0.6565934, y: -0.09465021}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e8b249cb37d4004807f6e6c604e449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malthael_Walk021
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1087
+        width: 367
+        height: 477
+      alignment: 9
+      pivot: {x: 0.65122616, y: -0.102725364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6178852d44c284c17be7807691883e7c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

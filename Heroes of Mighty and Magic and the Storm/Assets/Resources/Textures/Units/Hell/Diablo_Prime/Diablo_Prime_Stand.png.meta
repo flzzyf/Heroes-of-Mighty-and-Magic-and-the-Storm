@@ -1,0 +1,973 @@
+fileFormatVersion: 2
+guid: 5d44b9e09e5148c48b8c1fb4dfb17e89
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Diablo_Prime_Stand
+    21300002: Diablo_Prime_Stand00
+    21300004: Diablo_Prime_Stand01
+    21300006: Diablo_Prime_Stand02
+    21300008: Diablo_Prime_Stand03
+    21300010: Diablo_Prime_Stand04
+    21300012: Diablo_Prime_Stand05
+    21300014: Diablo_Prime_Stand06
+    21300016: Diablo_Prime_Stand07
+    21300018: Diablo_Prime_Stand08
+    21300020: Diablo_Prime_Stand09
+    21300022: Diablo_Prime_Stand10
+    21300024: Diablo_Prime_Stand11
+    21300026: Diablo_Prime_Stand12
+    21300028: Diablo_Prime_Stand13
+    21300030: Diablo_Prime_Stand14
+    21300032: Diablo_Prime_Stand15
+    21300034: Diablo_Prime_Stand16
+    21300036: Diablo_Prime_Stand17
+    21300038: Diablo_Prime_Stand18
+    21300040: Diablo_Prime_Stand19
+    21300042: Diablo_Prime_Stand20
+    21300044: Diablo_Prime_Stand21
+    21300046: Diablo_Prime_Stand22
+    21300048: Diablo_Prime_Stand23
+    21300050: Diablo_Prime_Stand24
+    21300052: Diablo_Prime_Stand25
+    21300054: Diablo_Prime_Stand26
+    21300056: Diablo_Prime_Stand27
+    21300058: Diablo_Prime_Stand28
+    21300060: Diablo_Prime_Stand29
+    21300062: Diablo_Prime_Stand30
+    21300064: Diablo_Prime_Stand31
+    21300066: Diablo_Prime_Stand32
+    21300068: Diablo_Prime_Stand33
+    21300070: Diablo_Prime_Stand34
+    21300072: Diablo_Prime_Stand35
+    21300074: Diablo_Prime_Stand36
+    21300076: Diablo_Prime_Stand37
+    21300078: Diablo_Prime_Stand38
+    21300080: Diablo_Prime_Stand39
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand00
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2049
+        width: 466
+        height: 518
+      alignment: 9
+      pivot: {x: 0.69313306, y: -0.027027028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d648fd4155af71946b9fc451d10e9748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand01
+      rect:
+        serializedVersion: 2
+        x: 3433
+        y: 3089
+        width: 440
+        height: 512
+      alignment: 9
+      pivot: {x: 0.70681816, y: -0.037109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8371c8a994120a941a3d970209166e37
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand02
+      rect:
+        serializedVersion: 2
+        x: 2973
+        y: 3071
+        width: 433
+        height: 507
+      alignment: 9
+      pivot: {x: 0.6905312, y: -0.037475344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5372b047c872f35478ee69b234f945f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand03
+      rect:
+        serializedVersion: 2
+        x: 3408
+        y: 2579
+        width: 427
+        height: 508
+      alignment: 9
+      pivot: {x: 0.6814988, y: -0.035433073}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c77d631cd793f524782f82b9ee454e10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand04
+      rect:
+        serializedVersion: 2
+        x: 2812
+        y: 2550
+        width: 417
+        height: 519
+      alignment: 9
+      pivot: {x: 0.69304556, y: -0.036608864}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2f820269b2a6f47a224455b6593622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand05
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 2575
+        width: 430
+        height: 515
+      alignment: 9
+      pivot: {x: 0.67906976, y: -0.029126214}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8bddb0edb0f71438fe71ea2609d1c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand06
+      rect:
+        serializedVersion: 2
+        x: 2378
+        y: 3053
+        width: 432
+        height: 522
+      alignment: 9
+      pivot: {x: 0.7013889, y: -0.036398467}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca67872791e3594a8840f1b3595d1fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand07
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 2553
+        width: 413
+        height: 512
+      alignment: 9
+      pivot: {x: 0.6658596, y: -0.03515625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc16e7831be504439dc998745933966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand08
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 2034
+        width: 379
+        height: 539
+      alignment: 9
+      pivot: {x: 0.6226913, y: -0.035250463}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d771ffae1b42947bc470c0964c7acd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand09
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 531
+        width: 310
+        height: 492
+      alignment: 9
+      pivot: {x: 0.5612903, y: -0.036585364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59357b7a351bab44295d24481611c26d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 22
+        width: 313
+        height: 495
+      alignment: 9
+      pivot: {x: 0.5654952, y: -0.038383838}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7defca1126797438b3a5377e5a30d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand11
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 540
+        width: 309
+        height: 491
+      alignment: 9
+      pivot: {x: 0.5533981, y: -0.036659878}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8100fc2b25457e43be7b52c2312a909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand12
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1562
+        width: 324
+        height: 495
+      alignment: 9
+      pivot: {x: 0.5462963, y: -0.038383838}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8c0d86818c3314299cf3b5dcc97c3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 316
+        height: 501
+      alignment: 9
+      pivot: {x: 0.5727848, y: -0.037924152}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2255d6c01d1ec4ca3e79865237f2c9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand14
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 48
+        width: 318
+        height: 490
+      alignment: 9
+      pivot: {x: 0.572327, y: -0.03877551}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5c68841b15bad489d9568de8a3eaa2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand15
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 519
+        width: 317
+        height: 504
+      alignment: 9
+      pivot: {x: 0.5583596, y: -0.035714287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59620c3539d693048bcff0105a63bae3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand16
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 2554
+        width: 327
+        height: 511
+      alignment: 9
+      pivot: {x: 0.5504587, y: -0.0332681}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7de4c2d75019d941b84a2d767cad54f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand17
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1540
+        width: 332
+        height: 507
+      alignment: 9
+      pivot: {x: 0.54518074, y: -0.03550296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe5e3a983c7b5c4fbd498bcc1a33776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand18
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 1553
+        width: 336
+        height: 507
+      alignment: 9
+      pivot: {x: 0.55654764, y: -0.031558186}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9e29a55a6838547bf11f0971a9fb97
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand19
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 1033
+        width: 318
+        height: 518
+      alignment: 9
+      pivot: {x: 0.5660377, y: -0.032818533}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd2f67935763a34b990a808ed1d4b85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1025
+        width: 318
+        height: 513
+      alignment: 9
+      pivot: {x: 0.5660377, y: -0.03508772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5631821ce19a24f458229ab7589c2d8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand21
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 2037
+        width: 325
+        height: 515
+      alignment: 9
+      pivot: {x: 0.5292308, y: -0.033009708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1cfa36c056cb44c9c4450109808ab1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand22
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 1060
+        width: 321
+        height: 500
+      alignment: 9
+      pivot: {x: 0.529595, y: -0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae9f59b2e3982504492a5d7ce8fa8b5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand23
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1544
+        width: 323
+        height: 491
+      alignment: 9
+      pivot: {x: 0.54489166, y: -0.036659878}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5429278df512b1d41b587c4774f6c3c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand24
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 2059
+        width: 342
+        height: 492
+      alignment: 9
+      pivot: {x: 0.5701754, y: -0.038617887}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a458a54d4b73b24f8f85b924175eaa5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand25
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 2062
+        width: 370
+        height: 492
+      alignment: 9
+      pivot: {x: 0.6135135, y: -0.036585364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a528b9d87e11f3044af387bf74d4c465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand26
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 2541
+        width: 415
+        height: 510
+      alignment: 9
+      pivot: {x: 0.6433735, y: -0.03529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3871ef7b11581674a9a74032d1f0b796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand27
+      rect:
+        serializedVersion: 2
+        x: 3433
+        y: 3603
+        width: 452
+        height: 492
+      alignment: 9
+      pivot: {x: 0.670354, y: -0.036585364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d624b265d9fdf8d4a9d77751075fc43f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand28
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 3071
+        width: 509
+        height: 503
+      alignment: 9
+      pivot: {x: 0.70726913, y: -0.033797216}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b0f85b3614c374fa578e83ca85b4c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand29
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 3602
+        width: 590
+        height: 493
+      alignment: 9
+      pivot: {x: 0.7559322, y: -0.038539555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ee6e5ddeb894349b26aeaa9978fa66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3597
+        width: 617
+        height: 498
+      alignment: 9
+      pivot: {x: 0.7536467, y: -0.03815261}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c81fe1539d800448af1b5ff0774745e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand31
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 3576
+        width: 596
+        height: 519
+      alignment: 9
+      pivot: {x: 0.7567114, y: -0.03468208}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf5ad80ce3709b448f7b8cd0e764bcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3095
+        width: 593
+        height: 500
+      alignment: 9
+      pivot: {x: 0.7470489, y: -0.038}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ad3db25ad78ad49a7d14565d845a47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand33
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 3581
+        width: 592
+        height: 514
+      alignment: 9
+      pivot: {x: 0.7449324, y: -0.03696498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19cf8e8a16dd7644e93714369bdc238a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand34
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 3092
+        width: 564
+        height: 508
+      alignment: 9
+      pivot: {x: 0.7446808, y: -0.035433073}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 638ea81b901ae724b923e2db305747b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand35
+      rect:
+        serializedVersion: 2
+        x: 2404
+        y: 3577
+        width: 567
+        height: 518
+      alignment: 9
+      pivot: {x: 0.74426806, y: -0.036679536}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e79b6ec93353bd4dbca06a899f36238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand36
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 3067
+        width: 523
+        height: 512
+      alignment: 9
+      pivot: {x: 0.73996174, y: -0.03515625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a3cf6d0c396894280ed03b41f7c55c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2569
+        width: 506
+        height: 524
+      alignment: 9
+      pivot: {x: 0.71343875, y: -0.034351144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ee38c986b376d4b9070387a9e5212d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand38
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 2556
+        width: 488
+        height: 513
+      alignment: 9
+      pivot: {x: 0.704918, y: -0.03508772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa4d58c74a320bc4f898d40abc7d27f3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Diablo_Prime_Stand39
+      rect:
+        serializedVersion: 2
+        x: 2973
+        y: 3580
+        width: 458
+        height: 515
+      alignment: 9
+      pivot: {x: 0.7161572, y: -0.034951456}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a6125c5d4f6084f8f6dde9dee08fa7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

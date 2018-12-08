@@ -1,0 +1,509 @@
+fileFormatVersion: 2
+guid: 63e167e3dff94ee49b95f4cd961d3f16
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Medivh_Attack
+    21300002: Medivh_Attack001
+    21300004: Medivh_Attack002
+    21300006: Medivh_Attack003
+    21300008: Medivh_Attack004
+    21300010: Medivh_Attack005
+    21300012: Medivh_Attack006
+    21300014: Medivh_Attack007
+    21300016: Medivh_Attack008
+    21300018: Medivh_Attack009
+    21300020: Medivh_Attack010
+    21300022: Medivh_Attack011
+    21300024: Medivh_Attack012
+    21300026: Medivh_Attack013
+    21300028: Medivh_Attack014
+    21300030: Medivh_Attack015
+    21300032: Medivh_Attack016
+    21300034: Medivh_Attack017
+    21300036: Medivh_Attack018
+    21300038: Medivh_Attack019
+    21300040: Medivh_Attack020
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Medivh_Attack001
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 46
+        width: 193
+        height: 408
+      alignment: 9
+      pivot: {x: 0.53367877, y: -0.039215688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0272aad2c7d094c4fa3fd3bad32523ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack002
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 463
+        width: 193
+        height: 395
+      alignment: 9
+      pivot: {x: 0.45595855, y: -0.032911394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e6cc3783423dd34f8d37d3a9696d420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack003
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 852
+        width: 240
+        height: 403
+      alignment: 9
+      pivot: {x: 0.425, y: -0.014888338}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df6d74ee705cd3243995c92cf0a4a34c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack004
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1659
+        width: 271
+        height: 388
+      alignment: 9
+      pivot: {x: 0.46125463, y: -0.010309278}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d429ad579ec1bc14ba1c17fe04cd2e7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack005
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1258
+        width: 259
+        height: 395
+      alignment: 9
+      pivot: {x: 0.49420848, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e78092aa56e004aa4bfb7cef58afaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack006
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1257
+        width: 263
+        height: 400
+      alignment: 9
+      pivot: {x: 0.46007603, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd9d2236437930d43848c67789e2616b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack007
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1254
+        width: 243
+        height: 402
+      alignment: 9
+      pivot: {x: 0.42798355, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b834bf4bf91c05544b8741111b37b522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack008
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1255
+        width: 218
+        height: 401
+      alignment: 9
+      pivot: {x: 0.4357798, y: -0.0074812965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611dde6cbdea4894e9e9bbe6799417dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack009
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 52
+        width: 206
+        height: 405
+      alignment: 9
+      pivot: {x: 0.41262135, y: -0.014814815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c79ef6706e964464b87c52dbb567ddd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack010
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 37
+        width: 196
+        height: 417
+      alignment: 9
+      pivot: {x: 0.3877551, y: -0.01438849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fdcb67d89fb6934eafb754b399fad39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack011
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 57
+        width: 162
+        height: 401
+      alignment: 9
+      pivot: {x: 0.5555556, y: -0.009975063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b705155941de8b42a38886a46eece88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack012
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 459
+        width: 214
+        height: 391
+      alignment: 9
+      pivot: {x: 0.55140185, y: -0.028132992}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644a4a4389a61164e85f54ff9a16ed7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack013
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1658
+        width: 266
+        height: 389
+      alignment: 9
+      pivot: {x: 0.518797, y: -0.038560413}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e666b57bebda847a3462ee13dc226a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack014
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1655
+        width: 277
+        height: 392
+      alignment: 9
+      pivot: {x: 0.48375452, y: -0.04336735}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ddb857ec06e7843ab60d4d9305acd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack015
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 856
+        width: 245
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5020408, y: -0.0475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06df615c0d5f4254ba99b73bf9774a84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack016
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 456
+        width: 237
+        height: 398
+      alignment: 9
+      pivot: {x: 0.49367088, y: -0.055276383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58782674cc136440a7f2cb816c66063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack017
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 460
+        width: 213
+        height: 398
+      alignment: 9
+      pivot: {x: 0.5023474, y: -0.047738694}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9d1dd55965be94f853b15ae3a587ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack018
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 1658
+        width: 202
+        height: 389
+      alignment: 9
+      pivot: {x: 0.5247525, y: -0.05655527}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7ffda15ac5b744c9b642753146d244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack019
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 865
+        width: 197
+        height: 387
+      alignment: 9
+      pivot: {x: 0.5329949, y: -0.059431523}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b99302d8ae2fc94bb57bcd4fe57d663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Attack020
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 860
+        width: 218
+        height: 393
+      alignment: 9
+      pivot: {x: 0.5642202, y: -0.050890584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c37e353a603c14492bc2c15d312874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 159d5fd5910072d47b6d0cc7d8c332b6
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,762 @@
+fileFormatVersion: 2
+guid: fdff41cb865f72b4c9803e1be6d969b7
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Medivh_Stand
+    21300002: Medivh_Stand001
+    21300004: Medivh_Stand002
+    21300006: Medivh_Stand003
+    21300008: Medivh_Stand004
+    21300010: Medivh_Stand005
+    21300012: Medivh_Stand006
+    21300014: Medivh_Stand007
+    21300016: Medivh_Stand008
+    21300018: Medivh_Stand009
+    21300020: Medivh_Stand010
+    21300022: Medivh_Stand011
+    21300024: Medivh_Stand012
+    21300026: Medivh_Stand013
+    21300028: Medivh_Stand014
+    21300030: Medivh_Stand015
+    21300032: Medivh_Stand016
+    21300034: Medivh_Stand017
+    21300036: Medivh_Stand018
+    21300038: Medivh_Stand019
+    21300040: Medivh_Stand020
+    21300042: Medivh_Stand021
+    21300044: Medivh_Stand022
+    21300046: Medivh_Stand023
+    21300048: Medivh_Stand024
+    21300050: Medivh_Stand025
+    21300052: Medivh_Stand026
+    21300054: Medivh_Stand027
+    21300056: Medivh_Stand028
+    21300058: Medivh_Stand029
+    21300060: Medivh_Stand030
+    21300062: Medivh_Stand031
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 117
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Medivh_Stand001
+      rect:
+        serializedVersion: 2
+        x: 1187
+        y: 1149
+        width: 233
+        height: 447
+      alignment: 9
+      pivot: {x: 0.5107296, y: -0.040268455}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40b1ed45a0e1b74b9c0eb9304f2f480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand002
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 236
+        width: 233
+        height: 449
+      alignment: 9
+      pivot: {x: 0.5107296, y: -0.040089086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e78953d5512914798b1494d00865f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand003
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 706
+        width: 242
+        height: 446
+      alignment: 9
+      pivot: {x: 0.55785125, y: -0.047085203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76b2cf06db930349ba8e50ade4c5c85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand004
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 265
+        width: 235
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5361702, y: -0.04494382}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b369f23c41ba34fa1581830d9e4e61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand005
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1143
+        width: 239
+        height: 450
+      alignment: 9
+      pivot: {x: 0.50627613, y: -0.046666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91708f1c4c8104d45871ad165b4c4a3e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand006
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 1593
+        width: 240
+        height: 454
+      alignment: 9
+      pivot: {x: 0.50416666, y: -0.04185022}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f8b8997ccc4d2947bd29c9d53b56725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand007
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 712
+        width: 243
+        height: 442
+      alignment: 9
+      pivot: {x: 0.5473251, y: -0.0520362}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93e6bb4cb542b44086cef4539d3c9af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand008
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 1156
+        width: 244
+        height: 443
+      alignment: 9
+      pivot: {x: 0.5532787, y: -0.049661398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c389bd6c6c065cd469b8e0354eb6bc30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand009
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 1602
+        width: 245
+        height: 445
+      alignment: 9
+      pivot: {x: 0.5387755, y: -0.047191013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aad6ebe2faa357346a0028287f628000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand010
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 1598
+        width: 238
+        height: 449
+      alignment: 9
+      pivot: {x: 0.50840336, y: -0.051224943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6cb079c731c59042b6ee95cb61a9d68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand011
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 705
+        width: 228
+        height: 442
+      alignment: 9
+      pivot: {x: 0.5219298, y: -0.049773756}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1cdd83eae65c34a86426a8aa09af0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand012
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 687
+        width: 244
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5409836, y: -0.044444446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c165860dde3c90549b496ac1dd8c28ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand013
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 683
+        width: 238
+        height: 452
+      alignment: 9
+      pivot: {x: 0.5126051, y: -0.044247787}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35435154fdc790c4681f50bbcc15e64d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand014
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 245
+        width: 234
+        height: 445
+      alignment: 9
+      pivot: {x: 0.517094, y: -0.04494382}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5cb3a6fe46bc442a082f288bbe1dc2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand015
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 1154
+        width: 244
+        height: 446
+      alignment: 9
+      pivot: {x: 0.545082, y: -0.040358745}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565a269f684b18849867534a59782dc3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand016
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 1595
+        width: 227
+        height: 452
+      alignment: 9
+      pivot: {x: 0.53744495, y: -0.03318584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc51b759f1386214f85739e46324d8c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand017
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1583
+        width: 237
+        height: 464
+      alignment: 9
+      pivot: {x: 0.5021097, y: -0.021551725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25c1adc06b917b74989e0003d2cdeb26
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand018
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1123
+        width: 236
+        height: 458
+      alignment: 9
+      pivot: {x: 0.529661, y: -0.03275109}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c71e544d5554434594e1d893a071115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand019
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 1591
+        width: 235
+        height: 456
+      alignment: 9
+      pivot: {x: 0.5489362, y: -0.028508771}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a730f827623829245bac3b2d3471d7ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand020
+      rect:
+        serializedVersion: 2
+        x: 967
+        y: 692
+        width: 222
+        height: 449
+      alignment: 9
+      pivot: {x: 0.527027, y: -0.037861917}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6b9c3e8b0bf5d469ed08f405c50592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand021
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1137
+        width: 230
+        height: 454
+      alignment: 9
+      pivot: {x: 0.50869566, y: -0.037444934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f5d21bb0cf6ea419756964a864d726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand022
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 210
+        width: 225
+        height: 453
+      alignment: 9
+      pivot: {x: 0.5377778, y: -0.026490066}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02fd748ba5367c419cf9038b388e18b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand023
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 229
+        width: 220
+        height: 452
+      alignment: 9
+      pivot: {x: 0.5272727, y: -0.028761063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2d8acdde9773654aae51c57df19a226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand024
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 1125
+        width: 238
+        height: 456
+      alignment: 9
+      pivot: {x: 0.53781515, y: -0.03508772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb2f5e6d05412344862f558f33b92d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand025
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 1139
+        width: 233
+        height: 452
+      alignment: 9
+      pivot: {x: 0.5064378, y: -0.030973451}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22fa7a5c0a28e442b2bd2a0ec02639a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand026
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 210
+        width: 219
+        height: 453
+      alignment: 9
+      pivot: {x: 0.5251142, y: -0.030905077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58c241cd732a6c43850cec5c9940208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand027
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 665
+        width: 245
+        height: 456
+      alignment: 9
+      pivot: {x: 0.5510204, y: -0.041666668}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fcd44e37d60302409ab4564817918ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand028
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 663
+        width: 231
+        height: 458
+      alignment: 9
+      pivot: {x: 0.5064935, y: -0.03275109}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0816a547ceb5404ba75556e8b522a26
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand029
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 1597
+        width: 231
+        height: 450
+      alignment: 9
+      pivot: {x: 0.5194805, y: -0.035555556}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7791c3dfe0a148418905b7fce75f84d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand030
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1601
+        width: 249
+        height: 446
+      alignment: 9
+      pivot: {x: 0.5301205, y: -0.042600896}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd302dc2da80dc41930dde900d43e30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Stand031
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 204
+        width: 240
+        height: 457
+      alignment: 9
+      pivot: {x: 0.5541667, y: -0.039387308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e82d30e0deeff445b0704424464d6d0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6d63192327860884eb4f9519e9aae9d4
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,341 @@
+fileFormatVersion: 2
+guid: bda5e01bf7a7ac641a756c362738ebf2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Medivh_Walk
+    21300002: Medivh_Walk001
+    21300004: Medivh_Walk002
+    21300006: Medivh_Walk003
+    21300008: Medivh_Walk004
+    21300010: Medivh_Walk005
+    21300012: Medivh_Walk006
+    21300014: Medivh_Walk007
+    21300016: Medivh_Walk008
+    21300018: Medivh_Walk009
+    21300020: Medivh_Walk010
+    21300022: Medivh_Walk011
+    21300024: Medivh_Walk012
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Medivh_Walk001
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1762
+        width: 412
+        height: 285
+      alignment: 9
+      pivot: {x: 0.4356796, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e397f770a175d84c8cd93464fcfcd0e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk002
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1476
+        width: 396
+        height: 284
+      alignment: 9
+      pivot: {x: 0.43308082, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08855b22a3b5a1a43ad64b2201cefa56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk003
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1173
+        width: 373
+        height: 286
+      alignment: 9
+      pivot: {x: 0.42761394, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c679aa3cca63eb34b9fe3b0bec0ced4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk004
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 879
+        width: 338
+        height: 292
+      alignment: 9
+      pivot: {x: 0.454142, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3788e4aba10f94ebc46c6eab3795de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk005
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 617
+        width: 337
+        height: 292
+      alignment: 9
+      pivot: {x: 0.48219585, y: -0.0102739725}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28febe84a1707f24f908a1d8b91416c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk006
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 322
+        width: 331
+        height: 293
+      alignment: 9
+      pivot: {x: 0.48187312, y: -0.0068259384}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f27fede6d70a39c418073c25601cd84b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk007
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 892
+        width: 319
+        height: 279
+      alignment: 9
+      pivot: {x: 0.4341693, y: -0.035842296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae8b2fc302736c4bb40f73dcb0e6975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk008
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 48
+        width: 332
+        height: 272
+      alignment: 9
+      pivot: {x: 0.40210843, y: -0.04411765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35abe8eadc6af4743839502c31a75440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk009
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 911
+        width: 360
+        height: 277
+      alignment: 9
+      pivot: {x: 0.39305556, y: -0.036101084}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672f09adfa96834429491f8b6a2e8d2f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk010
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1190
+        width: 377
+        height: 284
+      alignment: 9
+      pivot: {x: 0.39655173, y: -0.02112676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d811f7db86880bb4a99ed7601744e41a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk011
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 1461
+        width: 393
+        height: 287
+      alignment: 9
+      pivot: {x: 0.413486, y: -0.020905923}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b537a6d627671b44c8b85a26e59a385e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medivh_Walk012
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1750
+        width: 409
+        height: 297
+      alignment: 9
+      pivot: {x: 0.4242054, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd067cf0acecd9e46ad7bccdcbc65ad0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d275deef588646240b1a670c59212de1
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

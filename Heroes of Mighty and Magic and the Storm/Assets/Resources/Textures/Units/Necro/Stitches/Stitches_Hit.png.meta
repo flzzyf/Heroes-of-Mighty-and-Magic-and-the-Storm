@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: 37f16a7b801fd9b46a64f50af6b7ee38
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Stitches_Hit
+    21300002: Stitches_Hit001
+    21300004: Stitches_Hit002
+    21300006: Stitches_Hit003
+    21300008: Stitches_Hit004
+    21300010: Stitches_Hit005
+    21300012: Stitches_Hit006
+    21300014: Stitches_Hit007
+    21300016: Stitches_Hit008
+    21300018: Stitches_Hit009
+    21300020: Stitches_Hit010
+    21300022: Stitches_Hit011
+    21300024: Stitches_Hit012
+    21300026: Stitches_Hit013
+    21300028: Stitches_Hit014
+    21300030: Stitches_Hit015
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stitches_Hit001
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1662
+        width: 372
+        height: 385
+      alignment: 9
+      pivot: {x: 0.46908602, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdceb189180e8c409ad48e8076c4856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit002
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 502
+        width: 287
+        height: 360
+      alignment: 9
+      pivot: {x: 0.38850173, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35260c41da9f7544b841d1c41c733be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit003
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1306
+        width: 255
+        height: 367
+      alignment: 9
+      pivot: {x: 0.42156863, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcfaa7d812a21ce45adf95e796912485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit004
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 141
+        width: 278
+        height: 359
+      alignment: 9
+      pivot: {x: 0.4442446, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50874a786bd0d744d8c028eafb9e33a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit005
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 572
+        width: 285
+        height: 352
+      alignment: 9
+      pivot: {x: 0.4473684, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4db91400eda5d2c4bb169c40a4a1fac4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit006
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1675
+        width: 271
+        height: 372
+      alignment: 9
+      pivot: {x: 0.42250922, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa956907e22e7341a01716acf122ba2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit007
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 926
+        width: 280
+        height: 378
+      alignment: 9
+      pivot: {x: 0.43392858, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e99c2d9c3cf636742abd1defc53329d3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit008
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 95
+        width: 289
+        height: 387
+      alignment: 9
+      pivot: {x: 0.4584775, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4383825239e95bf44ad623cf97748c21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit009
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 92
+        width: 286
+        height: 390
+      alignment: 9
+      pivot: {x: 0.46678323, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f483aeee0c4b7864782647e5b5cdc473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit010
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 864
+        width: 292
+        height: 399
+      alignment: 9
+      pivot: {x: 0.46061644, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8eba8d09bd2d984388e9c828d942573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit011
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 484
+        width: 291
+        height: 393
+      alignment: 9
+      pivot: {x: 0.4621993, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece1ccfd627e6be4990156fcfb8496c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit012
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 879
+        width: 314
+        height: 388
+      alignment: 9
+      pivot: {x: 0.45063695, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 392b035517812484991d6a790e29fa98
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit013
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1269
+        width: 324
+        height: 382
+      alignment: 9
+      pivot: {x: 0.4367284, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3913b38a69b6c6842ba25ded649e2282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit014
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 1265
+        width: 363
+        height: 395
+      alignment: 9
+      pivot: {x: 0.49173555, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695492ab97445d146b23b36e6133c555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stitches_Hit015
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1653
+        width: 373
+        height: 394
+      alignment: 9
+      pivot: {x: 0.49463806, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed10908f0325fac4883cdbe003bf30fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fadf10168e6378f46bf4698029f8b5a1
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 9ffe7fe3566be41ed8a0d9d423966cea
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Tyrael_Hit
+    21300002: Tyrael_Hit001
+    21300004: Tyrael_Hit002
+    21300006: Tyrael_Hit003
+    21300008: Tyrael_Hit004
+    21300010: Tyrael_Hit005
+    21300012: Tyrael_Hit006
+    21300014: Tyrael_Hit007
+    21300016: Tyrael_Hit008
+    21300018: Tyrael_Hit009
+    21300020: Tyrael_Hit010
+    21300022: Tyrael_Hit011
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tyrael_Hit001
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 545
+        width: 445
+        height: 514
+      alignment: 9
+      pivot: {x: 0.7213483, y: -0.06809338}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052764ebaacda4538ba1b52053fb7ee8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit002
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 970
+        width: 440
+        height: 533
+      alignment: 9
+      pivot: {x: 0.7295455, y: -0.06378987}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd110979c9eef490586d9d19cc112a1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit003
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 1049
+        width: 432
+        height: 469
+      alignment: 9
+      pivot: {x: 0.724537, y: -0.05970149}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a67b04f6f1df4f50b9a1d1ce6ba5e17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit004
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 590
+        width: 414
+        height: 457
+      alignment: 9
+      pivot: {x: 0.68357486, y: -0.0809628}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b2b4ab3e5344b9aafdf1263bf49a75
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit005
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1520
+        width: 461
+        height: 527
+      alignment: 9
+      pivot: {x: 0.62472886, y: -0.051233396}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8e1a795360442c0a38c63d291d51d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit006
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 1061
+        width: 455
+        height: 476
+      alignment: 9
+      pivot: {x: 0.48131868, y: -0.077731095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754193499ab774053a6989653c7bfbc2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit007
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 1539
+        width: 528
+        height: 508
+      alignment: 9
+      pivot: {x: 0.5037879, y: -0.02952756}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb147b7add1243a19f95b82ab2a69ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit008
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 1505
+        width: 488
+        height: 542
+      alignment: 9
+      pivot: {x: 0.60655737, y: -0.029520296}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2f4b7235d40429f9eefe1596355a7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit009
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 368
+        width: 484
+        height: 541
+      alignment: 9
+      pivot: {x: 0.6487603, y: -0.04621072}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf2e359e223744d7b5e7fae3a0a1568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit010
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 911
+        width: 481
+        height: 561
+      alignment: 9
+      pivot: {x: 0.64033264, y: -0.04812834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18a96623c8d2499990f1749812be2a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tyrael_Hit011
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1474
+        width: 410
+        height: 573
+      alignment: 9
+      pivot: {x: 0.78292686, y: -0.04712042}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f27a6cca04c4f838ae8dfc51c41c8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: f4526ee83eaff8f489cbef66da0d330c
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
