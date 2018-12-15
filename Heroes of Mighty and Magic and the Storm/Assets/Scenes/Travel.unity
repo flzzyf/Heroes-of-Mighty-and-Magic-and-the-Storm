@@ -36315,9 +36315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 61162794}
-  panSpeed: 20
-  panBorderThickness: 10
-  panLimit: {x: 50, y: 50}
+  panSpeed: 30
+  panBorderThickness: 20
+  panLimit: {x: 200, y: 100}
   axis: 1
 --- !u!114 &1662071104
 MonoBehaviour:

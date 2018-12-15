@@ -130,3 +130,5 @@ Level_1=中级
 Level_2=高级
 Sorcery=魔力
 Wisdom=智慧
+Falstad=弗斯塔德
+Varian=瓦里安
