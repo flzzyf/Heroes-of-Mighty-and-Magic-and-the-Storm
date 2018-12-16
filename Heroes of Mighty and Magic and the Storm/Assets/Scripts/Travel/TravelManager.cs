@@ -86,7 +86,7 @@ public class TravelManager : Singleton<TravelManager>
         currentHero = _hero;
 
         //更新右下角英雄信息
-        Panel_HeroInfo.instance.UpdatePanel(_hero);
+        Panel_HeroInfo.instance.Set(_hero);
     }
 
     //回合开始
