@@ -46,14 +46,20 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
     //选中
     public void Select()
     {
-        border_selected.SetActive(true);
+        Highlight(true);
 
         selectedPanel = this;
     }
     public void Deselect()
     {
-        border_selected.SetActive(false);
+        Highlight(false);
+
         selectedPanel = null;
+    }
+
+    public void Highlight(bool _highlight)
+    {
+        border_selected.SetActive(_highlight);
     }
 
     //鼠标进入

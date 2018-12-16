@@ -50,8 +50,8 @@ public class TravelManager : Singleton<TravelManager>
         GameObject town = CreateObjectOnNode(prefab_town, _player.startingPoint);
         Vector2Int offset = town.GetComponent<Town>().interactPoint;
         Hero hero = CreateObjectOnNode(prefab_hero, _player.startingPoint + offset).GetComponent<Hero>();
-		//英雄类型
-		hero.heroType = HeroType.GetHeroType("Jaina");
+        //英雄类型
+        hero.heroType = HeroType.GetHeroType("Jaina");
         hero.Init();
         _player.heroes.Add(hero);
 
@@ -85,20 +85,20 @@ public class TravelManager : Singleton<TravelManager>
 
         currentHero = _hero;
 
-		//更新右下角英雄信息
-		Panel_HeroInfo.instance.UpdatePanel(_hero);
+        //更新右下角英雄信息
+        Panel_HeroInfo.instance.UpdatePanel(_hero);
     }
 
-	//回合开始
+    //回合开始
     public void TurnStart(int _index)
     {
-        Player player = PlayerManager.instance.players[_index];
+        GameManager.currentPlayer = PlayerManager.instance.players[_index];
 
-		HeroItemMgr.instance.UpdateItems(0);
-		HeroItemMgr.instance.heroItems[0].Highlight(true);
+        HeroItemMgr.instance.UpdateItems(0);
+        HeroItemMgr.instance.heroItems[0].Highlight(true);
 
-		//高亮玩家的第一个英雄
-		HighlightHero(player.heroes[0]);
+        //高亮玩家的第一个英雄
+        HighlightHero(GameManager.currentPlayer.heroes[0]);
     }
 
     public void BattleBegin(Hero _attacker, Hero _defender)

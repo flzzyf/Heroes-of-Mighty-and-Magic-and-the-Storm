@@ -12,7 +12,8 @@ public class GameManager : Singleton<GameManager>
 
     public Hero[] testHeroes;
 
-    public static int player = 2;
+    public int player = 2;
+    public static Player currentPlayer;
 
     public GameScene scene;
 
@@ -46,7 +47,7 @@ public class GameManager : Singleton<GameManager>
         SkillManager.AddSkill(testHeroes[0], "Magic_Water", 2);
 
         TravelManager.instance.EnterTravelMode();
-        TravelManager.instance.TurnStart(GameManager.player);
+        TravelManager.instance.TurnStart(GameManager.instance.player);
     }
 
     void Update()
@@ -61,48 +62,48 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.G))
         {
             SoundManager.instance.PlaySound("Combat02");
-			//TravelManager.instance.EnterTravelMode();
-			//LocalizationMgr.instance.ChangeToLanguage(Language.English);
-		}
-		if (Input.GetKeyDown(KeyCode.H))
+            //TravelManager.instance.EnterTravelMode();
+            //LocalizationMgr.instance.ChangeToLanguage(Language.English);
+        }
+        if (Input.GetKeyDown(KeyCode.H))
         {
             SoundManager.instance.StopPlay("Combat02");
-			//LocalizationMgr.instance.ChangeToLanguage(Language.Chinese_Simplified);
-		}
-		if (Input.GetKeyDown(KeyCode.V))
+            //LocalizationMgr.instance.ChangeToLanguage(Language.Chinese_Simplified);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
         {
             SoundManager.instance.PlaySound("PickUp");
-			//SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
-			//MagicBookMgr.instance.SetMagics(testHeroes[0]);
-			//MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.Battle);
-			//BattleResultMgr.instance.ShowResultUI(0);
-		}
-		if (Input.GetKeyDown(KeyCode.B))
+            //SkillManager.AddSkill(testHeroes[0], "Magic_Air", 3);
+            //MagicBookMgr.instance.SetMagics(testHeroes[0]);
+            //MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.Battle);
+            //BattleResultMgr.instance.ShowResultUI(0);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
         {
             SoundManager.instance.StopPlay("PickUp");
-			//MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.All, 1);
+            //MagicBookMgr.instance.ShowMagics(MagicSchool.All, MagicType.All, 1);
 
-			//MagicBookMgr.instance.Show();
-			//BattleResultMgr.instance.ShowResultUI(1);
-			//Resources.LoadAll<Sprite>("Textures");
-		}
-		if (Input.GetKeyDown(KeyCode.N))
+            //MagicBookMgr.instance.Show();
+            //BattleResultMgr.instance.ShowResultUI(1);
+            //Resources.LoadAll<Sprite>("Textures");
+        }
+        if (Input.GetKeyDown(KeyCode.N))
         {
-			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Sorcery", 1);
-			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Wisdom", 2);
-			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Air", 2);
-			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Fire", 2);
-			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Water", 2);
-			SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Earth", 2);
+            SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Sorcery", 1);
+            SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Wisdom", 2);
+            SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Air", 2);
+            SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Fire", 2);
+            SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Water", 2);
+            SkillManager.AddSkill(PlayerManager.instance.players[0].heroes[0], "Magic_Earth", 2);
 
-			//SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
-			//MagicManager.instance.CastMagic(testHeroes[0], testHeroes[0].magics[1]);
+            //SkillManager.AddSkill(testHeroes[0], "Magic_Earth", 3);
+            //MagicManager.instance.CastMagic(testHeroes[0], testHeroes[0].magics[1]);
 
-		}
-		if (Input.GetKeyDown(KeyCode.M))
+        }
+        if (Input.GetKeyDown(KeyCode.M))
         {
             SoundManager.instance.PlaySound("Combat02");
-		}
+        }
     }
 
     //变为本地语言
