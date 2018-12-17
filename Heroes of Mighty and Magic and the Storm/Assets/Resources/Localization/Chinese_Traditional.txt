@@ -62,3 +62,4 @@ Sorcery=Sorcery
 Wisdom=Wisdom
 Falstad=Falstad
 Varian=Varian
+Mage=Mage

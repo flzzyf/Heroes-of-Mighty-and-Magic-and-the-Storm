@@ -6696,7 +6696,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 273517848}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1859269037}
@@ -31219,6 +31219,16 @@ Prefab:
     - target: {fileID: 1371131256057282, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
       propertyPath: m_Name
       value: Town (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212853511585297080, guid: 54dc79bbf21454dedb5e86f5ed2c72ea,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 758565401
+      objectReference: {fileID: 0}
+    - target: {fileID: 212853511585297080, guid: 54dc79bbf21454dedb5e86f5ed2c72ea,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54dc79bbf21454dedb5e86f5ed2c72ea, type: 2}
