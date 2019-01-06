@@ -91,7 +91,7 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
         {
             if (_color == haloColor[i].name)
             {
-                _unit.sprite.material.SetColor("_Color", haloColor[i].color);
+                _unit.sprite.material.SetColor(outlineColor, haloColor[i].color);
                 return;
             }
         }
