@@ -15,7 +15,10 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     List<Unit> flashingUnits = new List<Unit>();
 
-    [System.Serializable]
+	const string outlineWidth = "_OutlineWidth";
+	const string outlineColor = "_OutlineColor";
+
+	[System.Serializable]
     public class HaloColor
     {
         public string name;
@@ -51,9 +54,9 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
     IEnumerator HaloFlashing(Unit _unit)
     {
         //设置Shader
-        _unit.sprite.material.shader = shader_outline;
+        //_unit.sprite.material.shader = shader_outline;
 
-        _unit.sprite.material.SetFloat("_LineWidth", haloWidth);
+        _unit.sprite.material.SetFloat(outlineWidth, haloWidth);
 
         int alphaChangingSign = -1;
         float a = haloFlashRangeMax;
@@ -70,16 +73,16 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
             yield return null;
         }
 
-        _unit.sprite.material.SetFloat("_LineWidth", 0);
+        _unit.sprite.material.SetFloat(outlineWidth, 0);
         //设置Shader
-        _unit.sprite.material.shader = shader_normal;
+        //_unit.sprite.material.shader = shader_normal;
     }
     //改变光晕透明度
     void ChangeHaloAlpha(Unit _unit, float _value)
     {
-        Color color = _unit.sprite.material.GetColor("_Color");
+        Color color = _unit.sprite.material.GetColor(outlineColor);
         color.a = _value;
-        _unit.sprite.material.SetColor("_Color", color);
+        _unit.sprite.material.SetColor(outlineColor, color);
     }
     //改变光晕颜色
     void ChangeHaloColor(Unit _unit, string _color)
