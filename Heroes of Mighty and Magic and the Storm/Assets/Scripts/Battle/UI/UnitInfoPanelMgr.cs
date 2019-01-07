@@ -57,7 +57,7 @@ public class UnitInfoPanelMgr : Singleton<UnitInfoPanelMgr>
             }
         }
         
-
+        //设置单位图
         animator.runtimeAnimatorController = _unit.type.animControl;
         StopAllCoroutines();
         StartCoroutine(KeepPlayingRandomAnim(animator));
