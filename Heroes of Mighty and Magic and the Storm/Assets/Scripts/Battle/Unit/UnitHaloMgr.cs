@@ -53,7 +53,7 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
 
     IEnumerator HaloFlashing(Unit _unit)
     {
-        //设置Shader
+        //设置描边藏影Shader
         //_unit.sprite.material.shader = shader_outline;
 
         _unit.sprite.material.SetFloat(outlineWidth, haloWidth);
@@ -74,7 +74,7 @@ public class UnitHaloMgr : Singleton<UnitHaloMgr>
         }
 
         _unit.sprite.material.SetFloat(outlineWidth, 0);
-        //设置Shader
+        //设置回普通Shader
         //_unit.sprite.material.shader = shader_normal;
     }
     //改变光晕透明度
