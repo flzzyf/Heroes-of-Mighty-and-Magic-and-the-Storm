@@ -84,6 +84,13 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
     public void Quit()
     {
         ui.SetActive(false);
+
+        //退出英雄面板时再次刷新底部英雄信息栏
+        Panel_HeroInfo.instance.Set(TravelManager.instance.currentHero);
+
+        //重置选中单位项
+        if(HeroUI_PocketUnit.selectedPanel != null)
+            HeroUI_PocketUnit.selectedPanel.Deselect();
     }
 
     //一键分兵
@@ -100,6 +107,10 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
 
                     PocketUnit unit = new PocketUnit(HeroUI_PocketUnit.selectedPanel.unit.type, 1);
                     pocketUnits[i].Set(unit);
+
+                    //在真正英雄单位栏创建单位
+                    TravelManager.instance.currentHero.pocketUnits.Add(unit);
+
                 }
             }
             HeroUI_PocketUnit.selectedPanel.Refresh();
