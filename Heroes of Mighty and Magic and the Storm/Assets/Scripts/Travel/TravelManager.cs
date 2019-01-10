@@ -56,8 +56,8 @@ public class TravelManager : Singleton<TravelManager>
         _player.heroes.Add(hero);
 
         //添加英雄初始兵力
-        hero.pocketUnits.Add(new PocketUnit(UnitType.GetUnit("Crusader_Upgrade"), 40));
-        hero.pocketUnits.Add(new PocketUnit(UnitType.GetUnit("Tyrael"), 10));
+        hero.pocketUnits[0] = new PocketUnit(UnitType.GetUnit("Crusader_Upgrade"), 40);
+        hero.pocketUnits[1] = new PocketUnit(UnitType.GetUnit("Tyrael"), 10);
 
         //非AI
         if (!_player.isAI)

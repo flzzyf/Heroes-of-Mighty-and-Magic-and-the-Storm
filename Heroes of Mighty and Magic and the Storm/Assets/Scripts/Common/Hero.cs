@@ -7,7 +7,22 @@ public class Hero : NodeObject
     public int player;
 
     public HeroType heroType;
-    public List<PocketUnit> pocketUnits;
+    public PocketUnit[] pocketUnits;
+
+    public int pocketUnitNum
+    {
+        get
+        {
+            int a = 0;
+            for (int i = 0; i < pocketUnits.Length; i++)
+            {
+                if (pocketUnits[i] != null)
+                    a++;
+            }
+
+            return a;
+        }
+    }
 
     [HideInInspector]
     public int movementRate;
@@ -40,6 +55,8 @@ public class Hero : NodeObject
 
 		mana_max = knowledge * 10;
 		mana = mana_max;
+
+        pocketUnits = new PocketUnit[7];
     }
 
     int returnMovementRate

@@ -39,7 +39,7 @@ public class SoundManager : Singleton<SoundManager>
     //播放音效
     public void PlaySound(Sound _sound)
     {
-        if (_sound.clips != null && _sound.clips.Length == 0)
+        if (_sound.clips == null || _sound.clips.Length == 0 || _sound.clips[0] == null)
             Debug.LogError("空的声音：" + _sound.name);
 
         //同时播放的这种音效数量超过限制，则不播放

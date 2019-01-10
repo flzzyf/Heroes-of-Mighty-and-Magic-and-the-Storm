@@ -15,6 +15,10 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
 
     public static HeroUI_PocketUnit selectedPanel;
 
+    //该单位栏的序号
+    [HideInInspector]
+    public int index;
+
     void Start()
     {
         border_selected.SetActive(false);
@@ -29,6 +33,8 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
             portrait.enabled = true;
         portrait.sprite = _unit.type.icon;
         text_num.text = _unit.num + "";
+        //同时设置玩家携带单位
+        TravelManager.instance.currentHero.pocketUnits[index] = _unit;
     }
     public void Refresh()
     {
@@ -41,6 +47,8 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
         text_num.text = "";
 
         unit = null;
+        //同时清空玩家携带单位
+        TravelManager.instance.currentHero.pocketUnits[index] = null;
     }
 
     //选中
@@ -88,10 +96,11 @@ public class HeroUI_PocketUnit : MonoBehaviour, IPointerEnterHandler, IPointerCl
             }
             else
             {
+                    //交换
                 if (unit.type != selectedPanel.unit.type)
                 {
-                    //交换
                     PocketUnit temp = unit;
+
                     Set(selectedPanel.unit);
                     selectedPanel.Set(temp);
                 }

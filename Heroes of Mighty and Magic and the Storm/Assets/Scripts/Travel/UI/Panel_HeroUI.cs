@@ -28,6 +28,12 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
     void Start()
     {
         ui.SetActive(false);
+
+        //设置单位UI的序号
+        for (int i = 0; i < pocketUnits.Length; i++)
+        {
+            pocketUnits[i].index = i;
+        }
     }
 
     //设置界面英雄
@@ -44,14 +50,12 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
         moraleAndLuck.SetLuck(_hero.luck);
 
         //更新单位信息
-        for (int i = 0; i < _hero.pocketUnits.Count; i++)
+        for (int i = 0; i < _hero.pocketUnits.Length; i++)
         {
-            pocketUnits[i].Set(_hero.pocketUnits[i]);
-        }
-        //重置多余格子
-        for (int i = _hero.pocketUnits.Count; i < 7; i++)
-        {
-            pocketUnits[i].Clear();
+            if(_hero.pocketUnits[i] != null)
+                pocketUnits[i].Set(_hero.pocketUnits[i]);
+            else
+                pocketUnits[i].Clear();
         }
 
         //设置英雄属性
@@ -109,7 +113,7 @@ public class Panel_HeroUI : Singleton<Panel_HeroUI>
                     pocketUnits[i].Set(unit);
 
                     //在真正英雄单位栏创建单位
-                    TravelManager.instance.currentHero.pocketUnits.Add(unit);
+                    TravelManager.instance.currentHero.pocketUnits[i] = unit;
 
                 }
             }

@@ -19,7 +19,7 @@ public class Obj_Units : AdvantureObject
 
         Hero defender = Instantiate(TravelManager.instance.prefab_hero).GetComponent<Hero>();
         defender.player = 1;
-        defender.pocketUnits.Add(unit);
+        defender.pocketUnits[0] = unit;
 
         TravelManager.instance.BattleBegin(attacker, defender);
     }

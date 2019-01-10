@@ -31,15 +31,13 @@ public class Panel_HeroInfo : Singleton<Panel_HeroInfo>
         //根据等级更新头像框（0到3)
         portraitBorder.sprite = portraitBorders[Mathf.Min(_hero.level / 5, 3)];
 
-        //更新单位信息
-        for (int i = 0; i < _hero.pocketUnits.Count; i++)
+        //更新英雄携带单位信息
+        for (int i = 0; i < _hero.pocketUnits.Length; i++)
         {
-            pocketUnits[i].Set(_hero.pocketUnits[i]);
-        }
-        //重置多余格子
-        for (int i = _hero.pocketUnits.Count; i < 7; i++)
-        {
-            pocketUnits[i].Clear();
+            if(_hero.pocketUnits[i] != null)
+                pocketUnits[i].Set(_hero.pocketUnits[i]);
+            else
+                pocketUnits[i].Clear();
         }
 
         //设置英雄属性
