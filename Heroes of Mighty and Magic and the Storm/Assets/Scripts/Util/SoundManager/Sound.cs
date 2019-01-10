@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Sound")]
 public class Sound : ScriptableObject
 {
-    public AudioClip[] clips = new AudioClip[1];
+    public AudioClip[] clips;
 
     [Range(0f, 1.5f)]
     public float volume = 1;
